@@ -1,40 +1,129 @@
-# Castle Capers a Three.js Journey Challenge
+# 🏰 Castle Capers a Three.js Journey Challenge
 
-## TODO:
+#### Goal:
 
-Goal: create a single player exploration game using react three fiber, drei and CCO medival assets.
+create a simple single player exploration game using React Three Fiber, Drei, Zustand, (maybe GLSL) and CCO game assets. It's your regular murder mystery inspired by the Cluedo game created by Anthony E. Pratt in 1943, but with a 3D twist. The player must figure out whodunnit before the player gets them, or kills someone else!
 
-Game loads. Player can choose a character.
+#### 🎮 Game Loop Overview
 
-One of the other 6 NPCs become a victim, killed by one of the remaining 5, with one of the 6 possible murder weapons. Player must explore the crime scene of one of 4-5 rooms looking for clues.
+- Player chooses a character to play
+- One of the six NPCs becomes a victim murdered with one of six possible weapons by the remaining NPCs
+- Player exlores the castle rooms, gathers clues and makes accusations.
 
-the game loops through three phases: day phase, explore rooms, examine objects, talk to NPCs. Evening Phase make accusations or gather more evidence. Wrong accusations cause you to lose credibility, which after three wrong guesses ressults in a gme over. All text-based dialog or AI generated options. During the next day you can find out who else died in the night. You need to find the killer, the room and the murder weapon to win.
+- Game phases:
+  - Day: Explore rooms, examine objects, interact with NPCs.
+  - Evening: Review journal, make an accusation or search again.
+  - Night: Consequences
+- Incorrect accusations cost credibility. Three wrong guesses and it's Game Over!
+- Solve the mystery before the third night ends or perish. (Correctly identify the killer, murder weapon and crime scen )
 
-Libraries include React, three fiber, zustand, drei, glsl.
+#### 🔧 Tech Stack
 
-MVP start with 3 rooms, randomly assign the solutions, and 5 NPCs.
+- React Three Fiber
+- Drei
+- Zustand
+- GLSL (maybe)
+- React Spring
+- Leva
+- Perf
 
-- [ ] Set up repo and deploy
-- [ ] Set up helpers to set the scenes
-- [ ] Choose and download assets
-- [ ] Set up basic rooms
-- [ ] Set up player movement (WASD with AZERTY support)
-- [ ] Set up logic to move between rooms
-- [ ] Set up character stories
-- [ ] Set up possible scenarios
-- [ ] Decide on clues
-- [ ] Add outline options
-- [ ] Add Room exploration
-- [ ] Clue Discover - interact with objects, clues (notes, blood, items)
+## 🚧 TODO:
+
+### 🔩 Set up
+
+- [x] Set up repo and deploy
+- [ ] Install and configure helpers for scene setup
+- [ ] Choose and download CCO assets
+- [ ] Basic scene construction to replicate as base across components (lighting, camera, fov)
+
+#### 🗺️ Rooms and Navigation
+
+- [ ] Create 4 basic rooms (Throne Room (victim's room), Library, Armory, Dining Room)
+- [ ] Implement WASD movement that supports AZERTY layouts (first person movement)
+- [ ] Add navigation between rooms
+- [ ] Room transition system
+- [ ] Bound players to room and use raycasting
+- [ ] Enable object and NPC outline on hover
+
+#### ⏳ Game State
+
+- [ ] Design 6 characters and brief backstories
+- [ ] Choose 6 weapons
+- [ ] Define room, weapon and killer solution permutations
+- [ ] Set up random scenario generator
+- [ ] Add clue logic per room/weapon/character
 - [ ] Create NPC cards
-- [ ] Implement guessing system, where user can choose between NPCs and validate
-- [ ] Add journal to review clues and guesses
-- [ ] Add time dynamics, changing backgrounds
-- [ ] Add game over
-- [ ] Add loading screen
-- [ ] Add reset
-- [ ] Create character selection
-- [ ] Add audio
-- [ ] Add interfaces
+- [ ] Add NPCs and animations
+- [ ] NPC dialogue system
+- [ ] Evidence collection feedback
+- [ ] Credibility / Reputation management
+
+#### 🕵️‍♀️ Clue System
+
+- [ ] Raycasting for interactable objects (click to investigate)
+- [ ] Display clues (notes, blood, items) - maybe text that describes the object and whether or not they've found a clue
+- [ ] Guessing system to accuse NPCs (3 strikes and it's game over )
+- [ ] Journal UI to track clues and guesses and inventory
+
+#### 🔂 Game Loop
+
+- [ ] Implement time-based loop (Day -> Evening -> Night)
+- [ ] Add lighting / shader effects for day progression
+- [ ] Build win/ loss conditions and screen transition
+- [ ] Add loading screen and reset option
+- [ ] Character selection at the start of the game
+- [ ] UI for time interface countdown
+
+#### ⚡️ Optimizations
+
+- [ ] Optimize performances and moniter using perf
+- [ ] Hide leva options
+
+#### 🎬 Credits and Attribution and Inspiration
+
+- [ ] Add model credits and CCO licensing
+- [ ] Add walkthrough, inspiration and libraries to README
+- [ ] Reference tutorials used
+
+#### 🧹 Polish
+
+- [ ] Add ambient background audio and controls
+- [ ] Character selection screen
+- [ ] Add sound effects e.g footsteps, door creaks, whispers
+- [ ] Improve journal, dialogue and time interfaces
 - [ ] Add transition effects with GLSL
 - [ ] Add mini map
+- [ ] Squash bugs
+- [ ] Clude difficulty tuning
+- [ ] Playtest, get feedback and iterate
+
+#### 🙆‍♀️ Stretch Goals:
+
+- [ ] Torchlight and shadows using pointlight and drei
+- [ ] Include inspriation, tutorial references
+- [ ] Add Red Herring clues to throw the user off
+
+NPC Ideas:
+
+- Col Mustard Mayo the Third
+- Miss Scarlett Purple
+- Mrs Gray Bird
+- Reverend Lime Green
+- Professor Plum stead
+
+Room Ideas:
+
+- Great Hall
+- Private Chamers
+- Dungeon
+- Courtyard
+- Library
+- Kitchen
+
+Performance Tagets:
+
+- 60fps on mid range
+- 5MBB download size
+- less than 3 second load time
+
+Tracking Asset Credits:
