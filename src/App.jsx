@@ -12,7 +12,6 @@ export default function App() {
 			}}>
 			<OrbitControls />
 			<ambientLight intensity={0.25} />
-			<directionalLight position={[0, 10, 0]} intensity={2} castShadow />
 			<Stage
 				preset='rembrandt'
 				// options: ["rembrandt", "portrait", "upfront", "soft"]
