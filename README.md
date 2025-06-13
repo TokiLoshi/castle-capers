@@ -33,12 +33,12 @@ create a simple single player exploration game using React Three Fiber, Drei, Zu
 
 - [x] Set up repo and deploy
 - [ ] Install and configure helpers for scene setup
-- [ ] Choose and download CCO assets
+- [x] Choose and download CCO assets
 - [ ] Basic scene construction to replicate as base across components (lighting, camera, fov)
 
 #### 🗺️ Rooms and Navigation
 
-- [ ] Create 4 basic rooms (Throne Room (victim's room), Library, Armory, Dining Room)
+- [x] Create 3 basic rooms (Throne Room (victim's room), Library, Bedroom, Dining Room)
 - [ ] Implement WASD movement that supports AZERTY layouts (first person movement)
 - [ ] Add navigation between rooms
 - [ ] Room transition system
@@ -127,3 +127,19 @@ Performance Tagets:
 - less than 3 second load time
 
 Tracking Asset Credits:
+Room Assets
+FantasyPropsMegaKit by [Quaternius](https://quaternius.com/packs/fantasypropsmegakit.html) CC0
+
+Character Assets
+Panda by [Quaternius](https://poly.pizza/m/q1uJ28Hs8T) CC0
+Characters Shaun by [Quaternius](https://poly.pizza/m/eJFT9MxzOM) CC0
+Zombie by [Quaternius](https://poly.pizza/m/VlXjG0N8Eg) CC0
+Mako by [Quaternius](https://poly.pizza/m/2urczqZ9Xf)
+Animated Platformer Character by [Quaternius](https://poly.pizza/m/kKtL4zvS3n)
+Cactoro by [Quaternius](https://poly.pizza/m/IGn9lhdama)
+Demon by [Quaternius](https://poly.pizza/m/LnfIziKv4o)
+Fish by [Quaternius](https://poly.pizza/m/ypEYhCImAB)
+Ninja by [Quaternius](https://poly.pizza/m/xGYmeDpfTu)
+Astronaut by [Quaternius](https://poly.pizza/m/zbtPq4dOJL)
+Astronaut by [Quaternius](https://poly.pizza/m/OgeSH89Nmx)
+Astronaut by [Quaternius](https://poly.pizza/m/0D54W8yfrA)
