@@ -2,6 +2,8 @@ import { OrbitControls, Stage } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import Bedroom from "./rooms/bedroom";
 import { ACESFilmicToneMapping } from "three";
+import { Library } from "./rooms/library";
+import { Kitchen } from "./rooms/kitchen";
 
 export default function App() {
 	return (
@@ -18,7 +20,7 @@ export default function App() {
 				intensity={1}
 				contactShadow={true}
 				shadows>
-				<Bedroom />
+				<Kitchen />
 			</Stage>
 		</Canvas>
 	);
