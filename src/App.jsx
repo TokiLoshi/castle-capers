@@ -6,6 +6,17 @@ import { Library } from "./rooms/library";
 import { Kitchen } from "./rooms/kitchen";
 import { AstroBee } from "./characters/Astrobee";
 import { AstroFrog } from "./characters/Astrofrog";
+import { AstroFlamingo } from "./characters/AstroFlamingo";
+import { Suspense } from "react";
+import { Bluey } from "./characters/Bluey";
+import { Cactoro } from "./characters/Cactoro";
+import { Demon } from "./characters/Demon";
+import { Fish } from "./characters/Fish";
+import { Ninja } from "./characters/Ninja";
+import { Panda } from "./characters/Panda";
+import { Shaun } from "./characters/Shaun";
+import { Zombie } from "./characters/Zombie";
+
 // import { useControls } from "leva";
 // import { useRef } from "react";
 
@@ -24,9 +35,21 @@ export default function App() {
 				intensity={1}
 				contactShadow={true}
 				shadows>
-				<Kitchen />
-				{/* <AstroBee /> */}
-				<AstroFrog />
+				<Suspense fallback={null}>
+					<Bedroom />
+					{/* <Kitchen /> */}
+					<AstroBee />
+					{/* <AstroFrog /> */}
+					{/* <AstroFlamingo /> */}
+					{/* <Bluey /> */}
+					{/* <Cactoro /> */}
+					{/* <Demon /> */}
+					{/* <Fish /> */}
+					{/* <Ninja /> */}
+					{/* <Panda /> */}
+					{/* <Shaun /> */}
+					{/* <Zombie /> */}
+				</Suspense>
 			</Stage>
 		</Canvas>
 	);
