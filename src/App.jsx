@@ -17,10 +17,16 @@ import { Panda } from "./characters/Panda";
 import { Shaun } from "./characters/Shaun";
 import { Zombie } from "./characters/Zombie";
 
-// import { useControls } from "leva";
-// import { useRef } from "react";
+import { useControls } from "leva";
+import { useRef } from "react";
 
 export default function App() {
+	const { selectedAnimation } = useControls("AstroBeeAnimation", {
+		selectedAnimation: {
+			value: "idle",
+			options: ["idle", "yes"],
+		},
+	});
 	return (
 		<Canvas
 			shadows
@@ -38,7 +44,7 @@ export default function App() {
 				<Suspense fallback={null}>
 					<Bedroom />
 					{/* <Kitchen /> */}
-					<AstroBee />
+					<AstroBee currentAnimation={selectedAnimation} />
 					{/* <AstroFrog /> */}
 					{/* <AstroFlamingo /> */}
 					{/* <Bluey /> */}
