@@ -30,7 +30,7 @@ const ACTION_MAP = {
 const IDLE_ANIMATION_KEY = "idle";
 const TRANSITION_DURATION = 0.5;
 
-export function AstroBee({ currentAnimation = IDLE_ANIMATION_KEY, props }) {
+export function AstroBee({ currentAnimation = IDLE_ANIMATION_KEY, ...props }) {
 	const group = useRef();
 	const { nodes, materials, animations } = useGLTF(
 		"models/characters/AstroBee.glb"
@@ -173,8 +173,9 @@ export function AstroBee({ currentAnimation = IDLE_ANIMATION_KEY, props }) {
 				<group name='RootNode'>
 					<group
 						name='CharacterArmature'
-						rotation={[-Math.PI / 2, 0, 0]}
-						scale={100}>
+						// rotation={[-Math.PI / 2, 0, 0]}
+						// scale={100}
+					>
 						<primitive object={nodes.Root} />
 					</group>
 					<skinnedMesh

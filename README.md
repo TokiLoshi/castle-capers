@@ -29,16 +29,24 @@ create a simple single player exploration game using React Three Fiber, Drei, Zu
 
 ## 🚧 TODO:
 
+-# Monday
+
+- [ ] Get a player to move
+- [ ] Abstract animations function
+- [ ] Map out animations for each player
+- [ ] Create hallway componet with door
+- [ ] Add Zustand to track which room the user is in
+
 ### 🔩 Set up
 
 - [x] Set up repo and deploy
-- [ ] Install and configure helpers for scene setup
 - [x] Choose and download CCO assets
-- [ ] Basic scene construction to replicate as base across components (lighting, camera, fov)
+- [x] Basic scene construction to replicate as base across components (lighting, camera, fov)
 
 #### 🗺️ Rooms and Navigation
 
 - [x] Create 3 basic rooms (Throne Room (victim's room), Library, Bedroom, Dining Room)
+- [ ] Install and configure helpers for scene setup
 - [ ] Implement WASD movement that supports AZERTY layouts (first person movement)
 - [ ] Add navigation between rooms
 - [ ] Room transition system
