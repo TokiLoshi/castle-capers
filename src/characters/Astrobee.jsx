@@ -14,7 +14,7 @@ const ACTION_MAP = {
 	idleGun: "CharacterArmature|Idle_Gun",
 	jump: "CharacterArmature|Jump",
 	jumpIdle: "CharacterArmature|Jump_Idle",
-	jumpLande: "CharacterArmature|Jump_Land",
+	jumpLand: "CharacterArmature|Jump_Land",
 	no: "CharacterArmature|No",
 	punch: "CharacterArmature|Punch",
 	run: "CharacterArmature|Run",
@@ -65,7 +65,8 @@ export function AstroBee({ currentAnimation = IDLE_ANIMATION_KEY, props }) {
 				currentActionRef.current.fadeOut(TRANSITION_DURATION);
 			}
 
-			idleAction.reset
+			idleAction
+				.reset()
 				.setLoop(THREE.LoopRepeat, Infinity)
 				.fadeIn(TRANSITION_DURATION)
 				.play();
@@ -123,6 +124,7 @@ export function AstroBee({ currentAnimation = IDLE_ANIMATION_KEY, props }) {
 	const handleClick = (event) => {
 		event.stopPropagation();
 		setIsClicked(true);
+		console.log(`Is clicked: ${isClicked}`);
 
 		// if current animation is active fade out
 		if (currentActionRef.current) {
