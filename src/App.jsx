@@ -7,6 +7,7 @@ import {
 	GizmoHelper,
 	GizmoViewport,
 	Grid,
+	KeyboardControls,
 	OrbitControls,
 	PerspectiveCamera,
 	Plane,
@@ -229,42 +230,51 @@ export default function App() {
 	});
 	return (
 		<>
-			{showStats && <Stats />}
-			<Canvas
-				shadows
-				camera={{ position: [5, 5, 5], fov: 75 }}
-				gl={{
-					toneMapping: toneMappingEnabled
-						? ACESFilmicToneMapping
-						: THREE.NoToneMapping,
-				}}>
-				<OrbitControls />
-				<ambientLight intensity={0.25} />
-				<Suspense fallback={null}>
-					<Scene />
-					<AnimationTest />
-					{/* <Stage
+			<KeyboardControls
+				map={[
+					{ name: "forward", keys: ["ArrowUp", "KeyW"] },
+					{ name: "backward", keys: ["ArrowDown", "KeyS"] },
+					{ name: "leftward", keys: ["ArrowLeft", "KeyA"] },
+					{ name: "rightward", keys: ["ArrowRight", "KeyD"] },
+					{ name: "jump", keys: ["Space"] },
+				]}>
+				{showStats && <Stats />}
+				<Canvas
+					shadows
+					camera={{ position: [5, 5, 5], fov: 75 }}
+					gl={{
+						toneMapping: toneMappingEnabled
+							? ACESFilmicToneMapping
+							: THREE.NoToneMapping,
+					}}>
+					<OrbitControls />
+					<ambientLight intensity={0.25} />
+					<Suspense fallback={null}>
+						<Scene />
+						<AnimationTest />
+						{/* <Stage
 						preset='rembrandt'
 						// options: ["rembrandt", "portrait", "upfront", "soft"]
 						intensity={1}
 						contactShadow={true}
 						shadows> */}
-					<mesh
-						position={[0, -0.1, 0]}
-						rotation={[-Math.PI / 2, 0, 0]}
-						receiveShadow>
-						<planeGeometry args={[30, 30]} />
-						<meshStandardMaterial
-							color='yellow'
-							roughness={0.8}
-							metalness={0.3}
-							side={DoubleSide}
-						/>
-					</mesh>
-					<Shaun />
-					{/* </Stage> */}
-				</Suspense>
-			</Canvas>
+						<mesh
+							position={[0, -0.1, 0]}
+							rotation={[-Math.PI / 2, 0, 0]}
+							receiveShadow>
+							<planeGeometry args={[30, 30]} />
+							<meshStandardMaterial
+								color='yellow'
+								roughness={0.8}
+								metalness={0.3}
+								side={DoubleSide}
+							/>
+						</mesh>
+						<Shaun />
+						{/* </Stage> */}
+					</Suspense>
+				</Canvas>
+			</KeyboardControls>
 		</>
 	);
 }
