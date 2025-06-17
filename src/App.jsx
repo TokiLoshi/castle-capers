@@ -264,12 +264,13 @@ export default function App() {
 							receiveShadow>
 							<planeGeometry args={[30, 30]} />
 							<meshStandardMaterial
-								color='yellow'
+								color='grey'
 								roughness={0.8}
 								metalness={0.3}
 								side={DoubleSide}
 							/>
 						</mesh>
+						<Kitchen />
 						<Shaun />
 						{/* </Stage> */}
 					</Suspense>
