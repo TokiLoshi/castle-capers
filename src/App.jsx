@@ -23,7 +23,7 @@ import Bedroom from "./rooms/bedroom";
 import { Library } from "./rooms/library";
 import { Kitchen } from "./rooms/kitchen";
 import { AstroBee } from "./characters/Astrobee";
-import { AstroFrog } from "./characters/Astrofrog";
+import { AstroFrog } from "./characters/AstroFrog";
 import { AstroFlamingo } from "./characters/AstroFlamingo";
 
 import { Bluey } from "./characters/Bluey";
