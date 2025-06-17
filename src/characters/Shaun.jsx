@@ -59,34 +59,40 @@ export function Shaun(props) {
 	useFrame((state, delta) => {
 		const { forward, backward, leftward, rightward } = getKeys();
 		const movementSpeed = 5;
-		const rotationSpeed = 3;
 
 		const isMoving = forward || backward || leftward || rightward;
+
 		if (group.current) {
 			if (forward) {
 				group.current.position.z -= movementSpeed * delta;
-				group.current.rotation.y = 0;
 			}
 			if (backward) {
 				group.current.position.z += movementSpeed * delta;
-				group.current.rotation.y = Math.PI;
 			}
 			if (leftward) {
 				group.current.position.x -= movementSpeed * delta;
-				group.current.rotation.y = Math.PI / 2;
 			}
 			if (rightward) {
 				group.current.position.x += movementSpeed * delta;
-				group.current.rotation.y = -Math.PI / 2;
 			}
-			if (forward && leftward) {
-				group.current.rotation.y = Math.PI / 4;
-			} else if (forward && rightward) {
-				group.current.rotation.y = -Math.PI / 4;
-			} else if (backward && leftward) {
-				group.current.rotation.y = (3 * Math.PI) / 4;
-			} else if (backward && rightward) {
-				group.current.rotation.y = (-3 * Math.PI) / 4;
+			if (isMoving) {
+				if (forward && leftward) {
+					group.current.rotation.y = Math.PI / 4;
+				} else if (forward && rightward) {
+					group.current.rotation.y = -Math.PI / 4;
+				} else if (backward && leftward) {
+					group.current.rotation.y = (3 * Math.PI) / 4;
+				} else if (backward && rightward) {
+					group.current.rotation.y = (-3 * Math.PI) / 4;
+				} else if (forward) {
+					group.current.rotation.y = 0;
+				} else if (backward) {
+					group.current.rotation.y = Math.PI;
+				} else if (leftward) {
+					group.current.rotation.y = Math.PI / 2;
+				} else if (rightward) {
+					group.current.rotation.y = -Math.PI / 2;
+				}
 			}
 		}
 		const shouldAnimate =
@@ -100,13 +106,13 @@ export function Shaun(props) {
 				Object.values(actions).forEach((action) => action.stop());
 
 				actions[actionName].reset().fadeIn(0.2).play();
-				actions[actionName].timeSCale = animationSpeed;
+				actions[actionName].timeScale = animationSpeed;
 			}
 		}
 	});
 
 	return (
-		<group ref={group} {...props} dispose={null}>
+		<group ref={group} rotation={[0, Math.PI, 0]} {...props} dispose={null}>
 			<group name='Root_Scene'>
 				<group name='RootNode'>
 					<group

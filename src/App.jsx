@@ -1,4 +1,4 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { ACESFilmicToneMapping, DoubleSide } from "three";
 import {
 	Box,
@@ -17,7 +17,7 @@ import {
 	Stats,
 	Text,
 } from "@react-three/drei";
-import { Suspense } from "react";
+import { Suspense, useRef } from "react";
 import { useControls } from "leva";
 import Bedroom from "./rooms/bedroom";
 import { Library } from "./rooms/library";
@@ -35,35 +35,6 @@ import { Panda } from "./characters/Panda";
 import { Shaun } from "./characters/Shaun";
 import { Zombie } from "./characters/Zombie";
 import * as THREE from "three";
-
-// import { useRef } from "react";
-
-function TestCharacter({ position = [0, 1, 0], color = "orange" }) {
-	const { characterColor } = useControls("Test Character", {
-		characterColor: color,
-	});
-	return (
-		<group position={position}>
-			<Sphere args={[0.5]} position={[0, 1.5, 0]} castShadow>
-				<meshStandardMaterial color={characterColor} />
-			</Sphere>
-			<Box args={[1, 2, 0.5]} position={[0, 0, 0]} castShadow>
-				<meshStandardMaterial color={characterColor} />
-			</Box>
-			<Box args={[0.2, 0.2, 1]} position={[0, 1, 0.75]} castShadow>
-				<meshStandardMaterial color='red' />
-			</Box>
-			<Text
-				position={[0, 3, 0]}
-				fontSize={0.5}
-				color='white'
-				anchorX='center'
-				anchorY='middle'>
-				Test Character
-			</Text>
-		</group>
-	);
-}
 
 function Scene() {
 	// Camera
@@ -97,6 +68,20 @@ function Scene() {
 			gridColor: "#ff0000",
 			followCamera: false,
 		});
+
+	const shaunRef = useRef();
+	useFrame((state) => {
+		if (shaunRef.current) {
+			const cameraPosition = new THREE.Vector3();
+			const shaunPosition = shaunRef.current.position;
+			cameraPosition.copy(shaunPosition);
+			cameraPosition.z += 2.25;
+			cameraPosition.y += 0.65;
+
+			state.camera.position.lerp(cameraPosition, 0.1);
+			state.camera.lookAt(shaunPosition);
+		}
+	});
 
 	return (
 		<>
@@ -136,7 +121,7 @@ function Scene() {
 				receiveShadow>
 				<meshStandardMaterial color='#404040' roughness={0.8} metalness={0.1} />
 			</Plane>
-
+			<Shaun ref={shaunRef} />
 			<ContactShadows
 				position={[0, 0.01, 0]}
 				opacity={shadowOpacity}
@@ -228,6 +213,7 @@ export default function App() {
 		showStats: true,
 		toneMappingEnabled: true,
 	});
+
 	return (
 		<>
 			<KeyboardControls
@@ -248,7 +234,9 @@ export default function App() {
 							: THREE.NoToneMapping,
 					}}>
 					<OrbitControls />
-					<ambientLight intensity={0.25} />
+					<ambientLight intensity={0.5} />
+					<directionalLight position={[5, 5, 5]} intensity={1} />
+					<directionalLight position={[-5, 5, 5]} intensity={1} />
 					<Suspense fallback={null}>
 						<Scene />
 						<AnimationTest />
@@ -270,8 +258,8 @@ export default function App() {
 								side={DoubleSide}
 							/>
 						</mesh>
-						<Kitchen />
-						<Shaun />
+						<Bedroom />
+
 						{/* </Stage> */}
 					</Suspense>
 				</Canvas>
