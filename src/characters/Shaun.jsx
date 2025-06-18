@@ -45,7 +45,7 @@ export function Shaun(props) {
 		animationSpeed: { value: 1, min: 0.1, max: 3, step: 0.1 },
 	});
 
-	const [subscribeKeys, getKeys] = useKeyboardControls();
+	const [_, getKeys] = useKeyboardControls();
 
 	useEffect(() => {
 		const actionName = ACTION_MAP[currentAnimation];
