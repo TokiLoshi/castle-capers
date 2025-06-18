@@ -1,21 +1,10 @@
 import { Canvas } from "@react-three/fiber";
-import { ACESFilmicToneMapping, DoubleSide } from "three";
+import { ACESFilmicToneMapping } from "three";
 import {
-	Box,
-	CameraControls,
-	ContactShadows,
-	GizmoHelper,
-	GizmoViewport,
-	Grid,
 	KeyboardControls,
 	OrbitControls,
-	PerspectiveCamera,
-	Plane,
-	Sky,
-	Sphere,
 	Stage,
 	Stats,
-	Text,
 } from "@react-three/drei";
 import { Suspense } from "react";
 import { useControls } from "leva";
@@ -35,8 +24,6 @@ import { Shaun } from "./characters/Shaun";
 import { Zombie } from "./characters/Zombie";
 import * as THREE from "three";
 import Experience from "./Experience";
-
-function Scene() {}
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls("Debug", {
@@ -69,15 +56,6 @@ export default function App() {
 					<directionalLight position={[-5, 5, 5]} intensity={1} />
 					<Suspense fallback={null}>
 						<Experience />
-						{/* <AnimationTest /> */}
-						{/* <Stage
-						preset='rembrandt'
-						// options: ["rembrandt", "portrait", "upfront", "soft"]
-						intensity={1}
-						contactShadow={true}
-						shadows> */}
-
-						{/* </Stage> */}
 					</Suspense>
 				</Canvas>
 			</KeyboardControls>
