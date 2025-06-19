@@ -10,12 +10,14 @@ import { Player } from "./Player";
 import Environment from "./Environment";
 import { CameraController } from "./CameraController";
 import { useRef } from "react";
+import { cameraPosition } from "three/tsl";
 
 export default function Experience() {
 	// Camera
-	const { cameraPosition, cameraTarget, fov } = useControls("Camera", {
-		cameraPosition: { value: [5, 5, 5], step: 0.1 },
-		cameraTarget: { value: [0, 0, 0], step: 0.1 },
+	const { useCameraController, fov } = useControls("Camera", {
+		useCameraController: true,
+		// cameraPosition: { value: [5, 5, 5], step: 0.1 },
+		// cameraTarget: { value: [0, 0, 0], step: 0.1 },
 		fov: { value: 75, min: 10, max: 120 },
 	});
 
@@ -23,10 +25,11 @@ export default function Experience() {
 
 	return (
 		<>
+			<Player ref={playerRef} />
 			<PerspectiveCamera
 				makeDefault
-				position={cameraPosition}
-				target={cameraTarget}
+				position={useCameraController ? undefined : cameraPosition}
+				// target={cameraTarget}
 				fov={fov}
 			/>
 			<CameraController target={playerRef} />
@@ -44,7 +47,7 @@ export default function Experience() {
 				/>
 			</GizmoHelper>
 			<Environment />
-			<Player />
+
 			<Room />
 		</>
 	);

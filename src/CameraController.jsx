@@ -10,11 +10,11 @@ export function CameraController({ target }) {
 
 		idealCameraPosition.copy(playerPosition);
 		idealCameraPosition.z += 3;
-		idealCameraPosition.y += 2;
+		idealCameraPosition.y += 0.8;
 
 		// Smooth camera movement
 		state.camera.position.lerp(idealCameraPosition, 0.1);
 		state.camera.lookAt(playerPosition);
 	});
-	return;
+	return null;
 }

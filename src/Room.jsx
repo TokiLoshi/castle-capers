@@ -42,7 +42,6 @@ export default function Room() {
 				anchorY='middle'>
 				WEST (-X)
 			</Text>
-			<Player />
 			<Bedroom />
 		</>
 	);
