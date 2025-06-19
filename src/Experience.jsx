@@ -11,6 +11,7 @@ import Environment from "./Environment";
 import { CameraController } from "./CameraController";
 import { useRef } from "react";
 import { cameraPosition } from "three/tsl";
+import { FernandoTheFlamingo } from "./characters/AstroFlamingo";
 
 export default function Experience() {
 	// Camera
@@ -25,7 +26,8 @@ export default function Experience() {
 
 	return (
 		<>
-			<Player ref={playerRef} />
+			{/* <Player ref={playerRef} /> */}
+			<FernandoTheFlamingo ref={playerRef} />
 			<PerspectiveCamera
 				makeDefault
 				position={useCameraController ? undefined : cameraPosition}
