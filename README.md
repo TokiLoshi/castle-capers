@@ -36,21 +36,15 @@ Done:
 - [x] Choose and download CCO assets
 - [x] Basic scene construction to replicate as base across components (lighting, camera, fov)
 - [x] Install and configure helpers for scene setup
+- [x] Split code into logical components
+- [x] Get basic WASD movement working
+- [x] Fix camera to follow player properly
 
-Tuesday 17:
-
-- [ ] Split code into logical components
-- [ ] Get basic WASD movement working
-- [ ] Fix camera to follow player properly
-
-Wednesday 18:
+Thursday 19:
 
 - [ ] Create simple corridor/hallway system
 - [ ] Implement room transitions
 - [ ] Basic collision detection
-
-Thursday 19:
-
 - [ ] Add Zustand state and create room switching
 - [ ] Basic UI Element
 - [ ] Write character stories
