@@ -29,15 +29,14 @@ const ACTION_MAP = {
 };
 
 export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
-	// { position = [0, 0, 0] },
-	flamingoRef,
-	...props
+	props,
+	flamingoRef
 ) {
-	const group = useRef();
+	const armatureRef = useRef();
 	const { nodes, materials, animations } = useGLTF(
 		"models/characters/Astronaut.glb"
 	);
-	const { actions } = useAnimations(animations, group);
+	const { actions } = useAnimations(animations, armatureRef);
 	console.log("Actions: ", actions);
 
 	const [sub, get] = useKeyboardControls();
@@ -55,7 +54,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 				if (pressed && currentAnimation !== "run") {
 					setCurrentAnimation("run");
 				} else if (!pressed && currentAnimation !== "idle") {
-					currentAnimation("idle");
+					setCurrentAnimation("idle");
 				}
 			}
 		);
@@ -70,19 +69,23 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 			console.log("Switching to animation: ", currentAnimation);
 			Object.values(actions).forEach((action) => {
 				if (action !== targetAction && action.isRunning()) {
-					action.fadeOut(0.3);
+					action.fadeOut(0.1);
 				}
 			});
-			if (!targetAction.isRunning()) {
-				targetAction.reset().fadeIn(0.3).play();
-			}
+			targetAction.reset().fadeIn(0.1).play();
+		} else {
+			console.warn("animation not found: ", actionName);
 		}
 	}, [currentAnimation, actions]);
 
 	useEffect(() => {
-		const idleAction = actions[ACTION_MAP.idle];
-		if (idleAction) {
-			idleAction.play();
+		if (actions && Object.keys(actions).length > 0) {
+			const idleAction = actions[ACTION_MAP.idle];
+			if (idleAction) {
+				idleAction.play();
+			}
+		} else {
+			console.warn("Idle animation not found");
 		}
 	}, [actions]);
 
@@ -114,6 +117,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 			<group name='Root_Scene'>
 				<group name='RootNode'>
 					<group
+						ref={armatureRef}
 						name='CharacterArmature'
 						rotation={[-Math.PI / 2, 0, 0]}
 						scale={50}>
@@ -132,5 +136,3 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 		</group>
 	);
 });
-
-useGLTF.preload("models/characters/Astronaut.glb");
