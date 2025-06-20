@@ -37,7 +37,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 		"models/characters/Astronaut.glb"
 	);
 	const { actions } = useAnimations(animations, armatureRef);
-	console.log("Actions: ", actions);
+	// console.log("Actions: ", actions);
 
 	const [sub, get] = useKeyboardControls();
 	const [isMoving, setIsMoving] = useState(false);
@@ -66,7 +66,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 		const targetAction = actions[actionName];
 
 		if (targetAction) {
-			console.log("Switching to animation: ", currentAnimation);
+			// console.log("Switching to animation: ", currentAnimation);
 			Object.values(actions).forEach((action) => {
 				if (action !== targetAction && action.isRunning()) {
 					action.fadeOut(0.1);

@@ -13,6 +13,7 @@
     "@react-spring/three": "^10.0.1",
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
+    "@react-three/rapier": "^2.1.0",
     "leva": "^0.10.0",
     "r3f-perf": "^7.2.3",
     "react": "^19.1.0",

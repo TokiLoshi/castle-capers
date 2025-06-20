@@ -42,6 +42,7 @@ Done:
 
 Thursday 19:
 
+- [ ] Hook up another
 - [ ] Create simple corridor/hallway system
 - [ ] Implement room transitions
 - [ ] Basic collision detection

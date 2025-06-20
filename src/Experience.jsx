@@ -3,6 +3,7 @@ import * as THREE from "three";
 import {
 	GizmoHelper,
 	GizmoViewport,
+	OrbitControls,
 	PerspectiveCamera,
 } from "@react-three/drei";
 import Room from "./Room";
@@ -12,6 +13,7 @@ import { CameraController } from "./CameraController";
 import { useRef } from "react";
 import { cameraPosition } from "three/tsl";
 import { FernandoTheFlamingo } from "./characters/AstroFlamingo";
+import { Physics } from "@react-three/rapier";
 
 export default function Experience() {
 	// Camera
@@ -26,31 +28,32 @@ export default function Experience() {
 
 	return (
 		<>
-			{/* <Player ref={playerRef} /> */}
-			<FernandoTheFlamingo ref={playerRef} />
-			<PerspectiveCamera
-				makeDefault
-				position={useCameraController ? undefined : cameraPosition}
-				// target={cameraTarget}
-				fov={fov}
-			/>
-			<CameraController target={playerRef} />
-			{/* <OrbitControls
-				enablePan={true}
-				enableZoom={true}
-				enableRotat={true}
-				minDistance={1}
-				maxDistance={50}
-			/> */}
-			<GizmoHelper alignment='bottom-right' margin={[80, 80]}>
-				<GizmoViewport
-					axisColors={["red", "green", "blue"]}
-					labelColor='black'
+			<Physics>
+				<FernandoTheFlamingo ref={playerRef} />
+				<PerspectiveCamera
+					makeDefault
+					position={useCameraController ? undefined : cameraPosition}
+					// target={cameraTarget}
+					fov={fov}
 				/>
-			</GizmoHelper>
-			<Environment />
+				<CameraController target={playerRef} />
+				<OrbitControls
+					enablePan={true}
+					enableZoom={true}
+					enableRotat={true}
+					minDistance={1}
+					maxDistance={50}
+				/>
+				<GizmoHelper alignment='bottom-right' margin={[80, 80]}>
+					<GizmoViewport
+						axisColors={["red", "green", "blue"]}
+						labelColor='black'
+					/>
+				</GizmoHelper>
+				<Environment />
 
-			<Room />
+				<Room />
+			</Physics>
 		</>
 	);
 }
