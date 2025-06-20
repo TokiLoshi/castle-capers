@@ -46,7 +46,11 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 	useEffect(() => {
 		const unsubscribe = sub(
 			(state) =>
-				state.forward || state.backward || state.leftward || state.rightward,
+				state.forward ||
+				state.backward ||
+				state.leftward ||
+				state.rightward ||
+				state.jump,
 			(pressed) => {
 				console.log("Movement key pressed: ", pressed);
 				setIsMoving(pressed);
@@ -93,13 +97,14 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 		if (!flamingoRef?.current) return;
 
 		if (isMoving) {
-			const { forward, backward, leftward, rightward } = get();
+			const { forward, backward, leftward, rightward, jump } = get();
 			const velocity = new THREE.Vector3();
 
 			if (forward) velocity.z -= 1;
 			if (backward) velocity.z += 1;
 			if (rightward) velocity.x += 1;
 			if (leftward) velocity.x -= 1;
+			if (jump) velocity.y += 1;
 
 			if (velocity.length() > 0) {
 				velocity.normalize();
