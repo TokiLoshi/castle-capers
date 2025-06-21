@@ -10,10 +10,11 @@ import Room from "./Room";
 import { Player } from "./Player";
 import Environment from "./Environment";
 import { CameraController } from "./CameraController";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { cameraPosition } from "three/tsl";
 import { FernandoTheFlamingo } from "./characters/AstroFlamingo";
 import { Physics } from "@react-three/rapier";
+import { useGameStore } from "./store/gameStore";
 
 export default function Experience() {
 	// Camera
@@ -25,6 +26,19 @@ export default function Experience() {
 	});
 
 	const playerRef = useRef();
+
+	const { initializeGame, gameStarted, currentClues } = useGameStore();
+
+	useEffect(() => {
+		if (!gameStarted) {
+			console.log("Initializing game...");
+			initializeGame();
+		}
+	}, [gameStarted, initializeGame]);
+
+	useEffect(() => {
+		console.log("Current clues: ", currentClues);
+	}, [currentClues]);
 
 	return (
 		<>

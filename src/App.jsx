@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { useControls } from "leva";
 import * as THREE from "three";
 import Experience from "./Experience";
+import ClueModal from "./clueModal";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls("Debug", {
@@ -40,6 +41,7 @@ export default function App() {
 					</Suspense>
 				</Canvas>
 			</KeyboardControls>
+			<ClueModal />
 		</>
 	);
 }
