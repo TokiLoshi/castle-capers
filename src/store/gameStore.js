@@ -41,6 +41,7 @@ export const useGameStore = create(
 		// UI state
 		activeClue: null,
 		isClueModalOpen: false,
+		isNotebookOpen: false,
 
 		initializeGame: () => {
 			const clues = {};
@@ -56,6 +57,7 @@ export const useGameStore = create(
 				foundClues: [],
 				activeClue: null,
 				isClueModalOpen: false,
+				isNotebookOpen: false,
 			});
 			console.log("Game initialized with clues: ", clues);
 		},
@@ -93,7 +95,7 @@ export const useGameStore = create(
 					console.log(`New clue found: ${clue.title}`);
 				} else {
 					set({
-						activeClue: { ...clue, objectId, alreadyFounnd: false },
+						activeClue: { ...clue, objectId, alreadyFound: false },
 						isClueModalOpen: true,
 					});
 				}
@@ -105,6 +107,18 @@ export const useGameStore = create(
 			set({
 				activeClue: null,
 				isClueModalOpen: false,
+			});
+		},
+
+		openNotebook: () => {
+			const { foundClues } = get();
+			set({ isNotebookOpen: true });
+			return foundClues;
+		},
+
+		closeNotebook: () => {
+			set({
+				isNotebookOpen: false,
 			});
 		},
 
@@ -127,9 +141,10 @@ export const useGameStore = create(
 			set({
 				gameStarted: false,
 				currentClues: {},
-				foundclues: [],
-				activeCue: null,
+				foundClues: [],
+				activeClue: null,
 				isClueModalOpen: false,
+				isNotebookOpen: false,
 			});
 		},
 	}))

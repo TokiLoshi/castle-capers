@@ -1,0 +1,29 @@
+.UI-Bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	font-family: "Georgia", serif;
+	align-items: center;
+	z-index: 900;
+	backdrop-filter: blur(4px);
+}
+
+.open-modal {
+	background-color: #8b4513;
+	margin: 1rem;
+	color: white;
+	border: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.open-modal:hover {
+	background-color: #a0522d;
+	transform: translateY(-1px);
+}

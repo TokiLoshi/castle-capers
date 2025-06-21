@@ -2,10 +2,12 @@ import { Canvas } from "@react-three/fiber";
 import { ACESFilmicToneMapping } from "three";
 import { KeyboardControls, OrbitControls, Stats } from "@react-three/drei";
 import { Suspense } from "react";
-import { useControls } from "leva";
+import { Leva, useControls } from "leva";
 import * as THREE from "three";
 import Experience from "./Experience";
 import ClueModal from "./clueModal";
+import Notebook from "./Notebook";
+import UIBar from "./UIBar";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls("Debug", {
@@ -40,8 +42,11 @@ export default function App() {
 						<Experience />
 					</Suspense>
 				</Canvas>
+				<Leva collapsed={true} />
 			</KeyboardControls>
 			<ClueModal />
+			<Notebook />
+			<UIBar />
 		</>
 	);
 }
