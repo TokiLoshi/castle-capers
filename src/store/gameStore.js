@@ -20,10 +20,11 @@ const POSSIBLE_CLUES = {
 			isClue: true,
 		},
 	],
-	cup: [
+	bucket: [
 		{
-			title: "Dried cup",
-			description: "A cup filled with strange looking liquid",
+			title: "Congealed bucket",
+			description:
+				"An iron bucket filled halfway with strange looking liquid. It smells bad, you want to move on.",
 			clueType: "mundane",
 			isClue: false,
 		},

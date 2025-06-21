@@ -60,7 +60,7 @@ export default function ClueModal() {
 				</div>
 				<div className='clue-footer'>
 					<button className='dismiss-button' onClick={handleClose}>
-						Continue Investigations
+						Continue
 					</button>
 				</div>
 			</div>

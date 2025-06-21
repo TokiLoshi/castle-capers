@@ -22,7 +22,7 @@ export default function Bedroom(props) {
 	const handlePointerOut = () => {
 		console.log("Hovering out");
 		setHoveredObject(null);
-		document.body.style.cursor = "auto";
+		document.body.style.cursor = "grab";
 	};
 
 	const handleClick = (e, objectId) => {
@@ -65,7 +65,7 @@ export default function Bedroom(props) {
 					onPointerOut={() => setHovered(false)}
 					onClick={() => handleInteraction("bed-1")}>
 					{" "}
-					{hovered && <Outlines thickness={0.8} color='aquamarine' />}{" "}
+					{hovered && <Outlines thickness={0.8} color='red' />}{" "}
 				</mesh>
 				<mesh
 					castShadow
@@ -170,7 +170,14 @@ export default function Bedroom(props) {
 				geometry={nodes.Bucket_Metal.geometry}
 				material={materials["MI_Trim_Metal.018"]}
 				position={[5.396, 0, -0.341]}
-			/>
+				onPointerOver={() => handlePointerOver("bucket")}
+				onPointerOut={() => handlePointerOut()}
+				onClick={(e) => handleClick(e, "bucket")}>
+				{hoveredObject === "bucket" && (
+					<Outlines thickness={0.6} color={getOutlineColor("bucket")} />
+				)}
+			</mesh>
+
 			<group position={[4.826, 0, -2.271]}>
 				<mesh
 					castShadow
@@ -185,18 +192,6 @@ export default function Bedroom(props) {
 					material={materials["MI_Trim_Metal.020"]}
 				/>
 			</group>
-			{/* <mesh
-				castShadow
-				receiveShadow
-				geometry={nodes.Cage_Small.geometry}
-				material={materials["MI_Trim_Metal.021"]}
-				position={[-2.518, 0, 0.936]}
-				rotation={[0, 1.482, 0]}
-				onPointerOver={() => setHovered(true)}
-				onPointerOut={() => setHovered(false)}
-				onClick={() => handleInteraction("cage")}>
-				{hovered && <Outlines thickness={0.6} color='aquamarine' />}
-			</mesh> */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -205,7 +200,7 @@ export default function Bedroom(props) {
 				position={[-2.518, 0, 0.936]}
 				rotation={[0, 1.482, 0]}
 				onPointerOver={() => handlePointerOver("cage")}
-				onPointerOut={() => handlePointerOut}
+				onPointerOut={() => handlePointerOut()}
 				onClick={(e) => handleClick(e, "cage")}>
 				{hoveredObject === "cage" && (
 					<Outlines thickness={0.6} color={getOutlineColor("cage")} />
@@ -441,7 +436,13 @@ export default function Bedroom(props) {
 				geometry={nodes.BookGroup_Small_1002.geometry}
 				material={materials["MI_Trim_Props_Vertex.010"]}
 				position={[1.19, 1.158, -2.763]}
-			/>
+				onPointerOver={() => handlePointerOver("book")}
+				onPointerOut={() => handlePointerOut()}
+				onClick={(e) => handleClick(e, "book")}>
+				{hoveredObject === "book" && (
+					<Outlines thickness={0.6} color={getOutlineColor("book")} />
+				)}
+			</mesh>
 			<mesh
 				castShadow
 				receiveShadow
