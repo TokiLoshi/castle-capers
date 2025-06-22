@@ -70,6 +70,7 @@ export const useGameStore = create(
 		isClueModalOpen: false,
 		isNotebookOpen: false,
 		isTestimonyPanelOpen: false,
+		isSolvePanelOpen: false,
 
 		initializeGame: () => {
 			const clues = {};
@@ -102,6 +103,7 @@ export const useGameStore = create(
 				isClueModalOpen: false,
 				isNotebookOpen: false,
 				isTestimonyPanelOpen: false,
+				isSolvePanelOpen: false,
 			});
 			console.log("Game initialized with clues: ", clues);
 			console.log("Game initiatied with testimonies", testimonies);
@@ -212,6 +214,21 @@ export const useGameStore = create(
 		closeTestimonyPanel: () => {
 			set({
 				isTestimonyPanelOpen: false,
+			});
+		},
+
+		// Handle Solve Panel
+		openSolvePanel: () => {
+			const solution = "No solutions yet";
+			set({
+				isSolvePanelOpen: true,
+			});
+			return solution;
+		},
+
+		closeSolvePanel: () => {
+			set({
+				isSolvePanelOpen: false,
 			});
 		},
 

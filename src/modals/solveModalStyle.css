@@ -1,4 +1,4 @@
-.notebook-overlay {
+.solution-overlay {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -13,25 +13,25 @@
 	transition: all 0.3s ease;
 }
 
-.notebook-overlay.animate-in {
+.animate-in {
 	opacity: 1;
 	transform: scale(1);
 }
 
-.notebook-overlay.animate-out {
+.animate-out {
 	opacity: 0;
 	transform: scale(0.95);
 }
 
-.notebook {
+.solve-modal {
 	background: linear-gradient(135deg, #985d25 0%, #1a0f0a 100%);
 	background-image: url("/backgrounds/parchment.png");
 	background-size: cover;
 	background-position: center;
-	border: 2px solid #c29d40;
+	border: 2px solid #c28d40;
 	border-radius: 25px;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5),
-		inset 0 1px 0 rgba(255, 255, 255, 0.1);
+		inset 0 1px rgba(255, 255, 255, 0.1);
 	max-width: 500px;
 	width: 90%;
 	max-height: 80vh;
@@ -47,12 +47,12 @@
 		opacity: 0;
 	}
 	to {
-		transform: translate(0);
+		transform: translateY(0);
 		opacity: 1;
 	}
 }
 
-.notebook-header {
+.solve-modal-header {
 	padding: 20px 24px 16px;
 	border-bottom: 1px solid rgba(128, 103, 39, 0.3);
 	display: flex;
@@ -61,17 +61,13 @@
 	gap: 16px;
 }
 
-.notebook-title {
+.solve-modal-title {
 	margin: 0;
 	font-size: 1.5rem;
 	font-weight: bold;
 	color: #412419;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	font-family: "Georgia, serif";
-	display: flex;
-	align-items: center;
-	gap: 12px;
-	flex-wrap: wrap;
 }
 
 .close-button {
@@ -107,35 +103,11 @@
 	}
 }
 
-.notebook-content {
+.solve-modal-content {
 	padding: 24px;
 }
-.foundClue {
-	margin: 0 0 16px 0;
-	font-size: 1.1rem;
-	line-height: 1.6;
-	color: #3d2817;
-	font-family: "Georgia", serif;
-	text-align: justify;
-	animation: slideIn 0.3s ease-out 0.2s both;
-}
 
-@keyframes slideIn {
-	from {
-		transform: translate(-20px);
-		opacity: 0;
-	}
-	to {
-		transform: translateX(0);
-		opacity: 1;
-	}
-}
-
-.clue-title {
-	text-decoration: solid;
-}
-
-.clue-description {
+.no-solution {
 	margin: 0 0 16px 0;
 	font-size: 1.1rem;
 	line-height: 1.6;
@@ -144,16 +116,7 @@
 	text-align: justify;
 }
 
-.no-clues {
-	margin: 0 0 16px 0;
-	font-size: 1.1rem;
-	line-height: 1.6;
-	color: #3d2817;
-	font-family: "Georgia", serif;
-	text-align: justify;
-}
-
-.notebook-footer {
+.solve-modal-footer {
 	padding: 16px 24px 24px;
 	border: none;
 	color: white;

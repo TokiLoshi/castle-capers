@@ -25,6 +25,9 @@
 
 .testimonials {
 	background: linear-gradient(135deg, #985d25 0%, #1a0f0a 100%);
+	background-image: url("/backgrounds/parchment.png");
+	background-size: cover;
+	background-position: center;
 	border: 2px solid #c29d40;
 	border-radius: 25px;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5),
@@ -62,7 +65,7 @@
 	margin: 0;
 	font-size: 1.5rem;
 	font-weight: bold;
-	color: #f4e4bc;
+	color: #412419;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	font-family: "Georgia", serif;
 	display: flex;
@@ -74,14 +77,14 @@
 .close-button {
 	background: none;
 	border: none;
-	color: #f4e4bc;
-	font-size: 2rem;
+	color: #4a390f;
+	font-size: 2.5rem;
 	cursor: pointer;
 	padding: 0;
 	width: 32px;
 	height: 32px;
 	display: flex;
-	align-items: center;
+	align-items: self-end;
 	justify-content: center;
 	border-radius: 50%;
 	transition: all 0.2s ease;
@@ -112,7 +115,7 @@
 	margin: 0 0 16px 0;
 	font-size: 1.1rem;
 	line-height: 1.6;
-	color: #e6d7c3;
+	color: #3d2817;
 	font-family: "Georgia", serif;
 	text-align: justify;
 	animation: slideIn 0.3s ease-out 0.2s both;
@@ -137,7 +140,7 @@
 	margin: 0 0 16px 0;
 	font-size: 1.1rem;
 	line-height: 1.6;
-	color: #e6d7c3;
+	color: #3d2817;
 	font-family: "Georgia", serif;
 	text-align: justify;
 }
@@ -146,7 +149,7 @@
 	margin: 0 0 16px 0;
 	font-size: 1.1rem;
 	line-height: 1.6;
-	color: #e6d7c3;
+	color: #3d2817;
 	font-family: "Georgia", serif;
 	text-align: justify;
 }

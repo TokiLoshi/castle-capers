@@ -25,6 +25,9 @@
 
 .clue-modal {
 	background: linear-gradient(135deg, #985d25 0%, #1a0f0a 100%);
+	background-image: url("/backgrounds/parchment.png");
+	background-size: cover;
+	background-position: center;
 	border: 2px solid #c29d40;
 	border-radius: 25px;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5),
@@ -62,7 +65,7 @@
 	margin: 0;
 	font-size: 1.5rem;
 	font-weight: bold;
-	color: #f4e4bc;
+	color: #412419;
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 	font-family: "Georgia", serif;
 	display: flex;
@@ -72,13 +75,13 @@
 }
 
 .clue-badge {
-	background: linear-gradient(45deg, #8b6914, #b8860b);
+	background: linear-gradient(45deg, #8b5f14, #b8860b);
 	color: #fff;
 	padding: 4px 12px;
 	border-radius: 20px;
-	font-size: 0.7rem;
+	font-size: 0.8rem;
 	font-weight: normal;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	letter-spacing: 0.5px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 	animation: pulse 2s infinite;
@@ -99,8 +102,8 @@
 .close-button {
 	background: none;
 	border: none;
-	color: #f4e4bc;
-	font-size: 2rem;
+	color: #4a390f;
+	font-size: 1.5rem;
 	cursor: pointer;
 	padding: 0;
 	width: 32px;

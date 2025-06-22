@@ -2,8 +2,13 @@ import { useGameStore } from "../store/gameStore";
 import "./UIBarStyle.css";
 
 export default function UIBar() {
-	const { foundClues, openNotebook, foundTestimonies, openTestimonyModal } =
-		useGameStore();
+	const {
+		foundClues,
+		openNotebook,
+		foundTestimonies,
+		openTestimonyModal,
+		openSolvePanel,
+	} = useGameStore();
 
 	const clueCount = foundClues.filter((clue) => clue.isClue).length;
 	console.log("Testimonies: ", foundTestimonies);
@@ -16,9 +21,9 @@ export default function UIBar() {
 	// 	openNotebook();
 	// };
 
-	const handleAccusation = () => {
-		console.log("Making accusation... ");
-	};
+	// const handleAccusation = () => {
+	// 	console.log("Making accusation... ");
+	// };
 
 	return (
 		<div className='UI-Bar'>
@@ -48,7 +53,7 @@ export default function UIBar() {
 					onClick={openTestimonyModal}>
 					🗣️ Testimonies
 				</button>
-				<button className='ui-button accusation-btn' onClick={handleAccusation}>
+				<button className='ui-button accusation-btn' onClick={openSolvePanel}>
 					⚖️ Solve Case
 				</button>
 			</div>
