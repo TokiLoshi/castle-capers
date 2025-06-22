@@ -39,7 +39,7 @@ export default function Testimonials() {
 					isAnimating ? "animate-in" : "animate-out"
 				}`}
 				onClick={handleBackdropClick}>
-				<div className='t'>
+				<div className='testimonials'>
 					<div className='testimonials-header'>
 						<h2 className='testimonials-title'>Testimonials</h2>
 						<button
