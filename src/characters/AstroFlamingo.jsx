@@ -52,7 +52,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 				state.rightward ||
 				state.jump,
 			(pressed) => {
-				console.log("Movement key pressed: ", pressed);
+				// console.log("Movement key pressed: ", pressed);
 				setIsMoving(pressed);
 
 				if (pressed && currentAnimation !== "run") {

@@ -74,6 +74,4 @@ export default function Notebook() {
 			</div>
 		</>
 	);
-
-	// if the notebook is open return null
 }

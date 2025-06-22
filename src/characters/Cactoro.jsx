@@ -18,8 +18,9 @@ export function Cactoro(props) {
 				<group name='RootNode'>
 					<group
 						name='CharacterArmature'
-						rotation={[-Math.PI / 2, 0, 0]}
-						scale={100}>
+						position={[5.5, 0, -1]}
+						rotation={[-Math.PI / 2, 0, 0.1]}
+						scale={50}>
 						<primitive object={nodes.Root} />
 					</group>
 					<group name='Cactoro' rotation={[-Math.PI / 2, 0, 0]} scale={54}>

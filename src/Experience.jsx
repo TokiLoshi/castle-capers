@@ -15,6 +15,7 @@ import { cameraPosition } from "three/tsl";
 import { FernandoTheFlamingo } from "./characters/AstroFlamingo";
 import { Physics } from "@react-three/rapier";
 import { useGameStore } from "./store/gameStore";
+import { Cactoro } from "./characters/Cactoro";
 
 export default function Experience() {
 	// Camera
@@ -44,6 +45,7 @@ export default function Experience() {
 		<>
 			<Physics>
 				<FernandoTheFlamingo ref={playerRef} />
+				<Cactoro />
 				<PerspectiveCamera
 					makeDefault
 					position={useCameraController ? undefined : cameraPosition}
