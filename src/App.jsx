@@ -8,6 +8,7 @@ import Experience from "./Experience";
 import ClueModal from "./modals/ClueModal";
 import Notebook from "./modals/Notebook";
 import UIBar from "./modals/UIBar";
+import Testimonials from "./modals/Testimonials";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls("Debug", {
@@ -46,6 +47,7 @@ export default function App() {
 			</KeyboardControls>
 			<ClueModal />
 			<Notebook />
+			<Testimonials />
 			<UIBar />
 		</>
 	);
