@@ -5,9 +5,9 @@ import { Suspense } from "react";
 import { Leva, useControls } from "leva";
 import * as THREE from "three";
 import Experience from "./Experience";
-import ClueModal from "./clueModal";
-import Notebook from "./Notebook";
-import UIBar from "./UIBar";
+import ClueModal from "./modals/ClueModal";
+import Notebook from "./modals/Notebook";
+import UIBar from "./modals/UIBar";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls("Debug", {
