@@ -31,27 +31,64 @@ const POSSIBLE_CLUES = {
 	],
 };
 
-const POSSIBLE_TESTIMONIES = {
-	chained: [
-		{
-			title: "It was Col Mustard",
-			description:
-				"I saw him sneaking around last night, he was dragging a chain around",
-			accusor: "Shaun",
-			accused: "Col Mustard",
-			weapon: "chain",
-		},
-	],
-	knived: [
-		{
-			title: "It was Siriacha Panda",
-			description:
-				"I saw her in the library polishing a sushi knife she was muttering about the lateness of the hour",
-			accusor: "AstroBee",
-			accused: "Sir Panda",
-			weapon: "knife",
-		},
-	],
+const POSSIBLE_DIALOGS = {
+	chained: {
+		id: "chained",
+		dialogSteps: [
+			{
+				text: "Well hello there, stranger!",
+				animation: "wave",
+			},
+			{
+				text: "I see you're snooping around looking for clues. Bet you want to know all about last night",
+				animation: "yes",
+			},
+			{
+				text: "Well you really should go speak to Col Mustard, he was sneaking around last night draggin a chain around. Not much of a sneak mind he, he made a horrible din.",
+				animation: "jump",
+				isTestimony: true,
+				testimony: {
+					title: "It was Col Mustard",
+					description: "Col Mustard was seen sneaking around with a chain",
+					accusor: "Cactoro",
+					accused: "Col Mustard",
+					weapon: "Chain",
+				},
+			},
+			{
+				text: "And that's all you'll get out of me!",
+				animation: "death",
+			},
+		],
+		hasBeenPlayed: false,
+	},
+	knived: {
+		id: "knived",
+		name: "AstroBee",
+		dialogSteps: [
+			{
+				text: "Buzz, buzz, I've been busy watching everything. You certainly took your time finding me!",
+				animation: "wave",
+			},
+			{
+				text: "I'm certain it was Sriracha Panda! They were sharpening a knife in the kitchen. Go ask them! I won't say anything else",
+				animation: "jump",
+				isTestimony: true,
+				testimony: {
+					title: "It was Sriracha Panda",
+					description: "She was in the kitchen sharpening a knife",
+					accusor: "AstroBee",
+					accused: "Sir Panda",
+					weapon: "knife",
+				},
+			},
+			{
+				text: "Watch your back detective, there is a murderer out there!",
+				animation: "wave",
+			},
+		],
+		hasBeenPlayed: false,
+	},
 };
 
 export const useGameStore = create(
@@ -72,10 +109,18 @@ export const useGameStore = create(
 		isTestimonyPanelOpen: false,
 		isSolvePanelOpen: false,
 
+		// Dialog state
+		currentDialogs: {},
+		activeDialog: null,
+		isDialogOpen: false,
+		currentDialogIndex: 0,
+		dialogHasEnded: false,
+
 		initializeGame: () => {
 			const clues = {};
-			const testimonies = {};
+			const dialogs = {};
 
+			// Initialize Clues
 			Object.keys(POSSIBLE_CLUES).forEach((objectId) => {
 				const possibleClues = POSSIBLE_CLUES[objectId];
 				const randomClueIndex = Math.floor(
@@ -84,17 +129,21 @@ export const useGameStore = create(
 				clues[objectId] = possibleClues[randomClueIndex];
 			});
 
-			Object.keys(POSSIBLE_TESTIMONIES).forEach((testimonyId) => {
-				const possibleTestimonies = POSSIBLE_TESTIMONIES[testimonyId];
-				const randomTestimonyIndex = Math.floor(
-					Math.random() * possibleTestimonies.length
-				);
-				testimonies[testimonyId] = possibleTestimonies[randomTestimonyIndex];
+			// Initalize Dialogs
+			Object.keys(POSSIBLE_DIALOGS).forEach((npcId) => {
+				dialogs[npcId] = {
+					...POSSIBLE_DIALOGS[npcId],
+					hasBeenPlayed: false,
+				};
 			});
 
 			set({
 				currentClues: clues,
-				currentTestimony: testimonies,
+				currentDialogs: dialogs,
+				isDialogOpen: false,
+				currentDialogIndex: 0,
+				activeDialog: null,
+				dialogHasEnded: false,
 				gameStarted: true,
 				foundClues: [],
 				foundTestimonies: [],
@@ -106,7 +155,7 @@ export const useGameStore = create(
 				isSolvePanelOpen: false,
 			});
 			console.log("Game initialized with clues: ", clues);
-			console.log("Game initiatied with testimonies", testimonies);
+			console.log("Game initiatied with dialogs", dialogs);
 		},
 
 		interactWithObject: (objectId) => {
@@ -149,36 +198,118 @@ export const useGameStore = create(
 			}
 		},
 
-		interactWithNPC: (testimonyId) => {
-			const { currentTestimonies, foundTestimonies } = get();
-			console.log("Current testimony: ", currentTestimonies);
-			const testimony = currentTestimonies[testimonyId];
+		interactWithNPC: (npcId) => {
+			const { currentDialogs } = get();
+			const npcDialog = currentDialogs[npcId];
+			console.log("Current dialog: ", npcDialog);
 
-			if (!testimony) {
-				console.log(`No testimony data for NPC: ${testimony}`);
+			if (!npcDialog) {
+				console.log(`No dialog data for npc: ${npcId}`);
 				return;
 			}
 
-			const alreadyFound = foundTestimonies.some(
-				(found) => found.testimonyId === testimonyId
-			);
+			// Start the dialog
+			set({
+				activeDialog: {
+					npcId,
+					npcName: npcDialog.name,
+					dialogSteps: npcDialog.dialogSteps,
+					hasBeenPlayed: npcDialog.hasBeenPlayed,
+				},
+				isDialogOpen: true,
+				currentDialogIndex: 0,
+				dialogHasEnded: false,
+			});
+			console.log(`A dialog has been started with ${npcDialog.name}`);
+		},
 
-			if (alreadyFound) {
+		handleNextDialog: () => {
+			const { currentDialogIndex, activeDialog } = get();
+
+			if (!activeDialog) return;
+
+			const currentStep = activeDialog.dialogSteps[currentDialogIndex];
+			if (currentStep.isTestimony) {
+				const { foundTestimonies } = get();
+				const alreadyFound = foundTestimonies.some(
+					(found) => found.testimonyId === activeDialog.npcId
+				);
+
+				if (!alreadyFound) {
+					set({
+						foundTestimonies: [
+							...foundTestimonies,
+							{
+								...currentStep.testimony,
+								testimonyId: activeDialog.npcId,
+								foundAt: Date.now(),
+							},
+						],
+					});
+					console.log(`New testimony found: ${currentStep.testimony.title}`);
+				}
+			}
+
+			const nextIndex = currentDialogIndex + 1;
+			const isLastStep = nextIndex >= activeDialog.dialogSteps.length;
+
+			if (isLastStep) {
+				const { currentDialogs } = get();
 				set({
-					activeTestimony: { ...testimony, testimonyId, alreadyFound: true },
-					isTestimonyPanelOpen: true,
+					currentDialogs: {
+						...currentDialogs,
+						[activeDialog.npcId]: {
+							...currentDialogs[activeDialog.npcId],
+							hasBeenPlayed: true,
+						},
+					},
+					dialogHasEnded: true,
 				});
 			} else {
 				set({
-					foundTestimonies: [
-						...foundTestimonies,
-						{ ...testimony, testimonyId, foundAt: Date.now() },
-					],
-					activeTestimony: { ...testimony, testimonyId, alreadyFound: false },
-					isTestimonyPanelOpen: true,
+					currentDialogIndex: nextIndex,
+					dialogHasEnded: nextIndex === activeDialog.dialogSteps.length - 1,
 				});
-				console.log(`New testimony found: ${testimony.title}`);
 			}
+		},
+
+		closeDialog: () => {
+			set({
+				activeDialog: null,
+				isDialogOpen: false,
+				currentDialogIndex: 0,
+				dialogHasEnded: false,
+			});
+		},
+
+		getCurrentDialogStep: () => {
+			const { activeDialog, currentDialogIndex } = get();
+
+			if (!activeDialog || !activeDialog.dialogSteps) return;
+			return activeDialog.dialogSteps[currentDialogIndex];
+		},
+
+		getNPCAnimation: (npcId) => {
+			const { activeDialog, currentDialogIndex, isDialogOpen } = get();
+
+			if (isDialogOpen && activeDialog && activeDialog.npcId === npcId) {
+				const currentStep = activeDialog.dialogSteps[currentDialogIndex];
+				return currentStep?.animation || "idle";
+			}
+
+			return "idle";
+		},
+
+		getNPCDialogStatus: (npcId) => {
+			const { currentDialogs } = get();
+			const npcDialog = currentDialogs[npcId];
+
+			return {
+				hasDialog: !!npcDialog,
+				hasBeenPlayed: npcDialog?.hasBeenPlayed || false,
+				canInteract: !!npcDialog,
+				name: npcDialog?.name || "Unknown",
+			};
 		},
 
 		// Close clue modals

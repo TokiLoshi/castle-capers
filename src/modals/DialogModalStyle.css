@@ -1,0 +1,83 @@
+.dialog-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.6);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9--;
+	backdrop-filter: blur(2px);
+	transition: all 0.3 ease;
+}
+
+dialog-overlay.animate-in {
+	opacity: 1;
+	transform: scale(1);
+}
+
+dialog-overlay.animate-out {
+	opacity: 0;
+	transform: scale(0.95);
+}
+
+.dialog-bubble {
+	background: linear-gradient(135deg, #f4e4bc 0%, #e6d7c3 100%);
+	background-image: url("/background/parchment.png");
+	background-size: cover;
+	background-position: center;
+	border: 3px solid #8b4514;
+	border-radius: 20px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4),
+		inset 0 1px rgba(255, 255, 255, 0.2);
+	max-width: 500px;
+	position: relative;
+	transform: translateY(0);
+	animation: bubbleIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bubbleIn {
+	from {
+		transform: translateY(50px) scale(0.8);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0) scale(1);
+		opacity: 1;
+	}
+}
+
+.dialog-header {
+}
+
+.character-name {
+}
+
+.close-button {
+}
+
+.dialog-content {
+}
+
+.dialog-text {
+}
+
+.testimony-indicator {
+}
+
+.testimony-badge {
+}
+
+.dialog-footer {
+}
+
+.dialog-progress {
+}
+
+.continue-button {
+}
+
+.bubble-tail {
+}
