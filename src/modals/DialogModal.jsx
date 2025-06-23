@@ -44,14 +44,14 @@ export default function DialogModal() {
 	};
 
 	if (!isDialogOpen || !activeDialog || !currentStep) return null;
-
+	console.log("Character's name in header: ", activeDialog);
 	return (
 		<div
 			className={`dialog-overlay ${isAnimating ? "animate-in" : "animate-out"}`}
 			onClick={handleBackdropClick}>
 			<div className='dialog-bubble'>
 				<div className='dialog-header'>
-					<div clssName='character-name'>{activeDialog.npcName}</div>
+					<div className='character-name'>{activeDialog.npcName}</div>
 					<button
 						className='close-button'
 						onClick={handleClose}

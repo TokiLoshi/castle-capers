@@ -8,31 +8,32 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	z-index: 9--;
+	z-index: 900;
 	backdrop-filter: blur(2px);
-	transition: all 0.3 ease;
+	transition: all 0.3s ease;
 }
 
-dialog-overlay.animate-in {
+.dialog-overlay.animate-in {
 	opacity: 1;
 	transform: scale(1);
 }
 
-dialog-overlay.animate-out {
+.dialog-overlay.animate-out {
 	opacity: 0;
 	transform: scale(0.95);
 }
 
 .dialog-bubble {
 	background: linear-gradient(135deg, #f4e4bc 0%, #e6d7c3 100%);
-	background-image: url("/background/parchment.png");
+	background-image: url("/backgrounds/parchment.png");
 	background-size: cover;
 	background-position: center;
 	border: 3px solid #8b4514;
 	border-radius: 20px;
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4),
-		inset 0 1px rgba(255, 255, 255, 0.2);
+		inset 0 1px 0 rgba(255, 255, 255, 0.2);
 	max-width: 500px;
+	width: 90%;
 	position: relative;
 	transform: translateY(0);
 	animation: bubbleIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -49,35 +50,177 @@ dialog-overlay.animate-out {
 	}
 }
 
+.bubble-tail {
+	background-image: url("/backgrounds/parchment.png");
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid #8b4513;
+}
+
+.bubble-tail::before {
+	content: "";
+	position: absolute;
+	bottom: 3px;
+	left: -12px;
+	width: 0;
+	height: 0;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 12px solid #f4e4bc;
+}
+
 .dialog-header {
+	padding: 20px 24px 12px;
+	border-bottom: 2px solid rgba(139, 69, 19, 0.3);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 0px 10px 0px 0px;
+	background: linear-gradient(
+		135deg,
+		rgba(139, 69, 19, 0.1),
+		rgba(160, 82, 0.1)
+	);
 }
 
 .character-name {
+	margin: 0;
+	font-size: 1.4rem;
+	font-weight: bold;
+	color: #2c1810;
+	font-family: "Georgia", serif;
+	text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .close-button {
+	background: none;
+	color: #f4e4bc;
+	font-size: 1.2rem;
+	cursor: pointer;
+	padding: 0;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: all 0.2s ease;
+	font-weight: bold;
+}
+
+.close-button:hover {
+	background: rgba(139, 69, 19, 1);
+	transform: rotate(90deg) scale(1.1);
 }
 
 .dialog-content {
+	padding: 24px;
 }
 
 .dialog-text {
+	margin: 0 0 16px 0;
+	font-size: 1.1rem;
+	line-height: 1.6;
+	color: #2c1810;
+	font-family: "Georgia", serif;
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+	text-align: left;
 }
 
 .testimony-indicator {
+	margin-top: 16px;
+	display: flex;
+	justify-content: center;
 }
 
 .testimony-badge {
+	background: linear-gradient(135deg, #8b4513, #a0522d);
+	color: #f4e4bc;
+	padding: 8px 16px;
+	border-radius: 20px;
+	font-size: 0.9rem;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px (0, 0, 0, 0.8);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.05);
+	}
 }
 
 .dialog-footer {
+	padding: 16px 24px 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-top: 2px solid rgba(139, 69, 19, 0.3);
+	background: linear-gradient(
+		135deg,
+		rgba(139, 69, 19, 0.05),
+		rgba(160, 82, 45, 0.05)
+	);
 }
 
 .dialog-progress {
+	font-size: 0.9rem;
+	color: #654321;
+	font-family: "Georgia", serif;
+	font-weight: bold;
 }
 
 .continue-button {
+	background: linear-gradient(135deg, #8b4513, #a0522d);
+	color: #f4e4bc;
+	border: 2px solid #654321;
+	padding: 0.75rem 1.5rem;
+	border-radius: 8px;
+	cursor: pointer;
+	font-family: "Georgia", serif;
+	font-size: 1rem;
+	font-weight: bold;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: all 0.2s ease;
 }
 
-.bubble-tail {
+.continue-button:hover {
+	background: linear-gradient(135deg, #a0522d, #cd853f);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.continue-button:active {
+	transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+	.dialog-bubble {
+		width: 95%;
+		margin: 20px;
+	}
+	.character-name {
+		font-size: 1.2rem;
+	}
+	.dialog-text {
+		font-size: 1.1rem;
+	}
+	.dialog-footer {
+		flex-direction: column;
+		gap: 12px;
+	}
 }

@@ -34,6 +34,7 @@ const POSSIBLE_CLUES = {
 const POSSIBLE_DIALOGS = {
 	chained: {
 		id: "chained",
+		name: "Cactoro",
 		dialogSteps: [
 			{
 				text: "Well hello there, stranger!",
@@ -45,7 +46,7 @@ const POSSIBLE_DIALOGS = {
 			},
 			{
 				text: "Well you really should go speak to Col Mustard, he was sneaking around last night draggin a chain around. Not much of a sneak mind he, he made a horrible din.",
-				animation: "jump",
+				animation: "jumpIdle",
 				isTestimony: true,
 				testimony: {
 					title: "It was Col Mustard",

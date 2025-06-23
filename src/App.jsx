@@ -10,6 +10,7 @@ import Notebook from "./modals/Notebook";
 import UIBar from "./modals/UIBar";
 import Testimonials from "./modals/Testimonials";
 import SolveModal from "./modals/SolveModal";
+import DialogModal from "./modals/DialogModal";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls("Debug", {
@@ -51,6 +52,7 @@ export default function App() {
 			<Notebook />
 			<Testimonials />
 			<SolveModal />
+			<DialogModal />
 		</>
 	);
 }
