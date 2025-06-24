@@ -1,0 +1,30 @@
+## Next Steps
+
+- [ ] Map all the animation names for Testimony characters to main animations file
+- [ ] Create clues json
+- [ ] Create testimonies json
+- [ ] Create array of possible character names
+- [ ] Create array of possible weapons
+- [ ] At start randomly decide on the answer key, the murderer and the weapon
+- [ ] Assign the victim
+- [ ] Write the story line for each possible story
+- [ ] Assign at start the different dialog
+- [ ] Assign possible rooms
+- [ ] Place testimonial characters in rooms at random but at a set position
+- [ ] As the game starts create a utils file that will assign all the game assets
+- [ ] Create an array of possible clues by room
+- [ ] At the beginning decide which ones will render at random (assign max of x clues per room and max characters)
+- [ ] Create a hall
+- [ ] Generate mechanism to move between rooms
+- [ ] Assign outlines for the clues and state for which clues are in the room - conditionally render the outline for the clues
+- [ ] Add colliders
+- [ ] Generate mechanism for user to guess which characters they think killed the victim and with which murder weapon
+- [ ] Check the user's guess against the solution
+- [ ] Generate loading page
+- [ ] Explain why the user is a flamingo from another planet
+- [ ] Create starter scene where king greets flamingo and then the screen darkens and the king falls to his death, now the flamingo must find the murderer and murder weapon to avenge the king
+- [ ] Create tutorial panel for moving around
+- [ ] Performances
+- [ ] Add audio track
+- [ ] Add voice over
+- [ ] Generate shaders and light

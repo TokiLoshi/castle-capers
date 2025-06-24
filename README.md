@@ -39,34 +39,28 @@ Done:
 - [x] Split code into logical components
 - [x] Get basic WASD movement working
 - [x] Fix camera to follow player properly
+- [x] Implement WASD movement that supports AZERTY layouts (first person movement)
+- [x] Enable object hover and interaction
+- [x] Enable NPC interactions
+- [x] Basic UI Element
+- [x] NPC dialogue system
+- [x] Evidence collection feedback
+- [x] Journal UI to track clues and guesses and inventory
+- [x] Display clues (notes, blood, items) - maybe text that describes the object and whether or not they've found a clue
 
-Thursday 19:
+To do
 
-- [ ] Hook up another
+- [ ] Game loop implementation
+- [ ] Win loss conditions
+- [ ] Add navigation between rooms
+- [ ] Room transition system
+- [ ] Bound players to room and use raycasting
+- [ ] NPC outline on hover
 - [ ] Create simple corridor/hallway system
 - [ ] Implement room transitions
 - [ ] Basic collision detection
 - [ ] Add Zustand state and create room switching
-- [ ] Basic UI Element
 - [ ] Write character stories
-
-Fiday 20:
-
-- [ ] Game loop implementation
-- [ ] Win loss conditions
-
-### 🔩 Set up
-
-#### 🗺️ Rooms and Navigation
-
-- [ ] Implement WASD movement that supports AZERTY layouts (first person movement)
-- [ ] Add navigation between rooms
-- [ ] Room transition system
-- [ ] Bound players to room and use raycasting
-- [ ] Enable object and NPC outline on hover
-
-#### ⏳ Game State
-
 - [ ] Design 6 characters and brief backstories
 - [ ] Choose 6 weapons
 - [ ] Define room, weapon and killer solution permutations
@@ -74,16 +68,7 @@ Fiday 20:
 - [ ] Add clue logic per room/weapon/character
 - [ ] Create NPC cards
 - [ ] Add NPCs and animations
-- [ ] NPC dialogue system
-- [ ] Evidence collection feedback
-- [ ] Credibility / Reputation management
-
-#### 🕵️‍♀️ Clue System
-
-- [ ] Raycasting for interactable objects (click to investigate)
-- [ ] Display clues (notes, blood, items) - maybe text that describes the object and whether or not they've found a clue
 - [ ] Guessing system to accuse NPCs (3 strikes and it's game over )
-- [ ] Journal UI to track clues and guesses and inventory
 
 #### 🔂 Game Loop
 
@@ -163,3 +148,17 @@ Ninja by [Quaternius](https://poly.pizza/m/xGYmeDpfTu)
 Astronaut by [Quaternius](https://poly.pizza/m/zbtPq4dOJL)
 Astronaut by [Quaternius](https://poly.pizza/m/OgeSH89Nmx)
 Astronaut by [Quaternius](https://poly.pizza/m/0D54W8yfrA)
+
+More appropriate models
+Victim:
+King by [Quaternius](https://poly.pizza/m/I1gTjmuK2m)
+
+Possible Players:
+
+1. Witch by Quaternius [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/QBEOV9ZUT8)
+2. Adventurer by [oQuaternius](https://poly.pizza/m/5EGWBMpuXq)
+3. Hooded Adventurer by [Quaternius](https://poly.pizza/m/5EGWBMpuXq)
+4. Man by Quaternius (https://poly.pizza/m/fjHyMd5Wxw)
+5. Animated Wizard by Quaternius [CC-BY] via Poly Pizza
+
+Your character: Fernando

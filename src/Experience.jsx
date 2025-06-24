@@ -12,10 +12,10 @@ import Environment from "./Environment";
 import { CameraController } from "./CameraController";
 import { useEffect, useRef } from "react";
 import { cameraPosition } from "three/tsl";
-import { FernandoTheFlamingo } from "./characters/AstroFlamingo";
+import { FernandoTheFlamingo } from "./characters/Monsters/AstroFlamingo";
 import { Physics } from "@react-three/rapier";
 import { useGameStore } from "./store/gameStore";
-import { Cactus } from "./characters/Cactoro";
+import { Cactus } from "./characters/Monsters/Cactoro";
 
 export default function Experience() {
 	// Camera
