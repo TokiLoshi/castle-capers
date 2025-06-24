@@ -11,7 +11,7 @@ export default function Adventurer(props) {
 		"models/characters/testimonies/Adventurer.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Actions: ", actions);
+	console.log("Adventurer Actions: ", actions);
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name='Root_Scene'>
@@ -19,7 +19,7 @@ export default function Adventurer(props) {
 					<group
 						name='CharacterArmature'
 						rotation={[-Math.PI / 2, 0, 0]}
-						scale={100}>
+						scale={80}>
 						<primitive object={nodes.Root} />
 					</group>
 					<group

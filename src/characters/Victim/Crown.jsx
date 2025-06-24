@@ -8,7 +8,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 export default function Crown(props) {
 	const group = useRef();
 	const { nodes, materials, animations } = useGLTF(
-		"models/characters/testimonies/King.glb"
+		"models/characters/victims/King.glb"
 	);
 	const { actions } = useAnimations(animations, group);
 	console.log("King actions: ", actions);
@@ -115,4 +115,4 @@ export default function Crown(props) {
 	);
 }
 
-useGLTF.preload("/King.glbmodels/characters/testimonies/King.glb");
+useGLTF.preload("models/characters/victims/King.glb");

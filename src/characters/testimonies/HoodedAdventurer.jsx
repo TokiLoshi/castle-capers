@@ -19,7 +19,7 @@ export default function HoodedAdventurer(props) {
 					<group
 						name='CharacterArmature'
 						rotation={[-Math.PI / 2, 0, 0]}
-						scale={100}>
+						scale={80}>
 						<primitive object={nodes.Root} />
 					</group>
 					<group

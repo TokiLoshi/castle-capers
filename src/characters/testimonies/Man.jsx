@@ -19,7 +19,7 @@ export default function Man(props) {
 					<group
 						name='HumanArmature'
 						rotation={[-Math.PI / 2, 0, 0]}
-						scale={100}>
+						scale={30}>
 						<primitive object={nodes.Bone} />
 					</group>
 					<group name='BaseHuman' rotation={[-Math.PI / 2, 0, 0]} scale={100}>

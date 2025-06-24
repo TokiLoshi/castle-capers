@@ -1,6 +1,7 @@
 import { Text } from "@react-three/drei";
 import { Player } from "./Player";
 import Bedroom from "./rooms/bedroom";
+import Hall from "./rooms/hall";
 
 export default function Room() {
 	return (
@@ -42,7 +43,8 @@ export default function Room() {
 				anchorY='middle'>
 				WEST (-X)
 			</Text>
-			<Bedroom />
+			{/* <Bedroom /> */}
+			<Hall />
 		</>
 	);
 }

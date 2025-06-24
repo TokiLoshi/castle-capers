@@ -19,7 +19,7 @@ export default function Witch(props) {
 					<group
 						name='CharacterArmature'
 						rotation={[-Math.PI / 2, 0, 0]}
-						scale={100}>
+						scale={75}>
 						<primitive object={nodes.Root} />
 					</group>
 					<group name='Witch_Body' rotation={[-Math.PI / 2, 0, 0]} scale={100}>

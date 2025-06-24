@@ -7,15 +7,18 @@
 - [ ] Create array of possible weapons
 - [ ] At start randomly decide on the answer key, the murderer and the weapon
 - [ ] Assign the victim
-- [ ] Write the story line for each possible story
+
 - [ ] Assign at start the different dialog
-- [ ] Assign possible rooms
+- [ ] Assign possible rooms in Zustand
+- [ ] Fill in the possible stories
+- [ ] Assign starting positions of Characters
+- [ ] Create a hall
+- [ ] Generate mechanism to move between rooms
 - [ ] Place testimonial characters in rooms at random but at a set position
 - [ ] As the game starts create a utils file that will assign all the game assets
 - [ ] Create an array of possible clues by room
 - [ ] At the beginning decide which ones will render at random (assign max of x clues per room and max characters)
-- [ ] Create a hall
-- [ ] Generate mechanism to move between rooms
+- [ ] Write the story line for each possible story
 - [ ] Assign outlines for the clues and state for which clues are in the room - conditionally render the outline for the clues
 - [ ] Add colliders
 - [ ] Generate mechanism for user to guess which characters they think killed the victim and with which murder weapon
