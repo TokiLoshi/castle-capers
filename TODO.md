@@ -24,7 +24,11 @@
 - [ ] Explain why the user is a flamingo from another planet
 - [ ] Create starter scene where king greets flamingo and then the screen darkens and the king falls to his death, now the flamingo must find the murderer and murder weapon to avenge the king
 - [ ] Create tutorial panel for moving around
+- [ ] Create life system for if user has won or they ran out of guesses
+- [ ] Create end screen with option to reset
+- [ ] Clean up and move debug and grid to behind debug
 - [ ] Performances
 - [ ] Add audio track
 - [ ] Add voice over
-- [ ] Generate shaders and light
+- [ ] Generate shaders and light effects, maybe post processing
+- [ ] Add sound effects
