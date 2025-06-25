@@ -1,6 +1,8 @@
 import { Text } from "@react-three/drei";
 import { Player } from "./Player";
 import Bedroom from "./rooms/bedroom";
+import Library from "./rooms/library";
+import Kitchen from "./rooms/kitchen";
 import Hall from "./rooms/hall";
 
 export default function Room() {
@@ -44,7 +46,9 @@ export default function Room() {
 				WEST (-X)
 			</Text>
 			{/* <Bedroom /> */}
-			<Hall />
+			{/* <Library /> */}
+			{/* <Hall /> */}
+			<Kitchen />
 		</>
 	);
 }

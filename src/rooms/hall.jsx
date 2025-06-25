@@ -30,7 +30,7 @@ export default function Hall() {
 			{/* <Fish position={[2, 0, 0]} /> */}
 			{/* <Panda position={[2, 0, 0]} /> */}
 			{/* <Ninja position={[2, 0, 0]} /> */}
-			<Zombie position={[2, 0, 0]} />
+			{/* <Zombie position={[2, 0, 0]} /> */}
 		</>
 	);
 }

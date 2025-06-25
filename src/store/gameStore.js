@@ -1,35 +1,8 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
 
-const POSSIBLE_CLUES = {
-	cage: [
-		{
-			title: "Mysterious Cage",
-			description:
-				"An ornate cage sits empty, you wonder what the owners might have used it for.",
-			clueType: "evidence",
-			isClue: true,
-		},
-	],
-	book: [
-		{
-			title: "Old book",
-			description:
-				"You have found the victim's diary. The night before they died they said they were 'scared of her'...",
-			clueType: "evidence",
-			isClue: true,
-		},
-	],
-	bucket: [
-		{
-			title: "Congealed bucket",
-			description:
-				"An iron bucket filled halfway with strange looking liquid. It smells bad, you want to move on.",
-			clueType: "mundane",
-			isClue: false,
-		},
-	],
-};
+// Need to pull clues from the data/roomClues/ const ROOM CLUES constants
+const POSSIBLE_CLUES = {};
 
 const POSSIBLE_DIALOGS = {
 	chained: {

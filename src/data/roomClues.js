@@ -1,0 +1,212 @@
+const POSSIBLE_ROOMS = ["bedroom", "hall", "kitchen", "library"];
+
+const ROOM_CLUES = {
+	bedroom: [
+		{
+			id: "bed-1",
+			title: "Exploding Feathers",
+			description:
+				"There are feathers everywhere. You wonder if the assailent stabbed the pillows and chased the victim. Someone left in a hurry and didn't make the bed, or clean up. What a mess...",
+			clueType: "evidence",
+			revealedBy: ["sword", "fork"],
+			isClue: true,
+		},
+		{
+			id: "bucket",
+			title: "Exploding Feathers",
+			description:
+				"An iron bucket filled halfway with strange looking liquid. It smells bad, you want to move on.",
+			clueType: "evidence",
+			revealedBy: ["potions", "fork"],
+			isClue: true,
+		},
+		{
+			id: "bottle",
+			title: "Missing Bottle",
+			description:
+				"This bottle looks like it was part of a set, there might be one missing. You make a note to keep an eye out for broken glass.",
+			clueType: "evidence",
+			revealedBy: ["potions", "chalice"],
+			isClue: true,
+		},
+		{
+			id: "Dairy",
+			title: "Victim's Diary",
+			description:
+				"You open the book and it appears you have found the victims' diary. You open to the entry from last night, it reads: 'I hope she doesn't come back, everyone is afaid of her.'",
+			clueType: "evidence",
+			revealedBy: ["potions", "candlestick"],
+			isClue: true,
+		},
+		{
+			id: "candlestick",
+			title: "Marked Candlestick",
+			description:
+				"The candlestick appears to be grubby, marked with some red gooey stains, you reach out and touch it. It feels sticky, you pull your hand away, and hope whatever you touched was raspberry jam.",
+			clueType: "evidence",
+			revealedBy: ["anvil", "chain"],
+			isClue: true,
+		},
+		{
+			id: "cage",
+			title: "Mysterious Cage",
+			description:
+				"An ornate cage sits empty, you wonder what the owners might have used it for.",
+			clueType: "evidence",
+			revealedBy: [],
+			isClue: true,
+		},
+		{
+			id: "books",
+			title: "Old book",
+			description:
+				"You don't have time to read, you have a murderer to catch! But you can see there is a log of finances, it appears the victim was in serious debt. Looking at the furnishings you're not surprised.",
+			clueType: "evidence",
+			revealedBy: ["chain", "anvil"],
+		},
+		{
+			id: "figure",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "chalice",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+	],
+	kitchen: [
+		{
+			id: "pourkegs",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "potions",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "standing-keg",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "couldron",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "woodenbucket",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "sack",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "mug",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "fork",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "vegetable-crate",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+	],
+	library: [
+		{
+			id: "bookstand",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "chain",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "scroll",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "crate",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "anvil",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "sword",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "potions",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "flag",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+		{
+			id: "pot",
+			title: "",
+			description: "",
+			clueType: "evidence",
+			revealedBy: [],
+		},
+	],
+};
