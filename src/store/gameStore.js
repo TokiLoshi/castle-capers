@@ -40,67 +40,7 @@ const GAME_CONFIG = {
 
 // Need to pull clues from the data/roomClues/ const ROOM CLUES constants
 const POSSIBLE_CLUES = {};
-
-const POSSIBLE_DIALOGS = {
-	chained: {
-		id: "chained",
-		name: "Cactoro",
-		dialogSteps: [
-			{
-				text: "Well hello there, stranger!",
-				animation: "wave",
-			},
-			{
-				text: "I see you're snooping around looking for clues. Bet you want to know all about last night",
-				animation: "yes",
-			},
-			{
-				text: "Well you really should go speak to Col Mustard, he was sneaking around last night draggin a chain around. Not much of a sneak mind he, he made a horrible din.",
-				animation: "jumpIdle",
-				isTestimony: true,
-				testimony: {
-					title: "It was Col Mustard",
-					description: "Col Mustard was seen sneaking around with a chain",
-					accusor: "Cactoro",
-					accused: "Col Mustard",
-					weapon: "Chain",
-				},
-			},
-			{
-				text: "And that's all you'll get out of me!",
-				animation: "death",
-			},
-		],
-		hasBeenPlayed: false,
-	},
-	knived: {
-		id: "knived",
-		name: "AstroBee",
-		dialogSteps: [
-			{
-				text: "Buzz, buzz, I've been busy watching everything. You certainly took your time finding me!",
-				animation: "wave",
-			},
-			{
-				text: "I'm certain it was Sriracha Panda! They were sharpening a knife in the kitchen. Go ask them! I won't say anything else",
-				animation: "jump",
-				isTestimony: true,
-				testimony: {
-					title: "It was Sriracha Panda",
-					description: "She was in the kitchen sharpening a knife",
-					accusor: "AstroBee",
-					accused: "Sir Panda",
-					weapon: "knife",
-				},
-			},
-			{
-				text: "Watch your back detective, there is a murderer out there!",
-				animation: "wave",
-			},
-		],
-		hasBeenPlayed: false,
-	},
-};
+const POSSIBLE_DIALOGS = {};
 
 export const useGameStore = create(
 	subscribeWithSelector((set, get) => ({
@@ -111,6 +51,8 @@ export const useGameStore = create(
 		currentTestimonies: {},
 		foundTestimonies: [],
 		victims: [],
+		murderer: null,
+		murderWeapon: null,
 
 		// UI state
 		activeClue: null,
@@ -130,6 +72,21 @@ export const useGameStore = create(
 		initializeGame: () => {
 			const clues = {};
 			const dialogs = {};
+			const murderer =
+				GAME_CONFIG.suspects[
+					Math.floor(Math.random() * GAME_CONFIG.suspects.length)
+				];
+			const murderWeapon =
+				GAME_CONFIG.weapons[
+					Math.floor(Math.random() * GAME_CONFIG.weapons.length)
+				];
+
+			console.log(
+				`Initizing game, murderer selected: ${murderer}, murderWeapon selected: ${murderWeapon}`
+			);
+			console.log(
+				`User must solve the puzzle by guessing ${murderer} with a ${murderWeapon}`
+			);
 
 			// Initialize Clues
 			Object.keys(POSSIBLE_CLUES).forEach((objectId) => {
