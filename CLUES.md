@@ -51,3 +51,60 @@ Victim:
 | Library | 7. Potions         | Adventurer, Witch             |
 | Library | 8. Flag            | HoodedAdvnetuer, Man          |
 | Library | 9. Pot             | Wizard, Shaun                 |
+
+### Accusor Map
+
+| Murderer         | Clue            | Accusor | Accused |
+| ---------------- | --------------- | ------- | ------- |
+| Adventurer       | Bed1            | personX | personY |
+| Adventurer       | Diary           | personX | personY |
+| Adventurer       | Pile of Book    | personX | personY |
+| Adventurer       | Pourkegs        | personX | personY |
+| Adventurer       | Couldron        | personX | personY |
+| Adventurer       | Mug             | personX | personY |
+| Adventurerer     | Bookstand       | personX | personY |
+| Adventurer       | Crate           | personX | personY |
+| Adventurer       | Potions         | personX | personY |
+| HoodedAdventurer | Bed1            | personX | PersonY |
+| HoodedAdventurer | Candlestick     | personX | personY |
+| HoodedAdventurer | Figure          | personX | personY |
+| HoodedAdventurer | Pourkegs        | personX | personY |
+| HoodedAdventurer | Wooden Bucket   | personX | personY |
+| HoodedAdventurer | Fork            | personX | personY |
+| HoodedAdventurer | Bookstand       | personX | personY |
+| HoodedAdventurer | Anvil           | personX | personY |
+| HoodedAdventurer | Flag            | personX | personY |
+| Man              | Bucket          | personX | PersonY |
+| Man              | Diary           | personX | personY |
+| Man              | Figure          | personX | personY |
+| Man              | Potions         | personX | personY |
+| Man              | Fork            | personX | personY |
+| Man              | Couldron        | personX | personY |
+| Man              | Chain           | personX | personY |
+| Man              | Crate           | personX | personY |
+| Man              | Flag            | personX | personY |
+| Shaun            | Standing Keg    | personX | personY |
+| Shaun            | Bottle          | personX | personY |
+| Shaun            | Cage            | personX | personY |
+| Shaun            | Chalice         | personX | personY |
+| Shaun            | Vegetable Crate | personX | personY |
+| Shaun            | Scroll          | personX | personY |
+| Shaun            | Sword           | personX | personY |
+| Shaun            | Pot             | personX | personY |
+| Witch            | Bucket          | personX | personY |
+| Witch            | Cage            | personX | personY |
+| Witch            | Pile of Books   | personX | personY |
+| Witch            | Potions         | personX | personY |
+| Witch            | Mug             | personX | personY |
+| Witch            | Chain           | personX | personY |
+| Witch            | Sword           | personX | personY |
+| Witch            | Potions         | personX | personY |
+| Wizard           | Candlestick     | personX | personY |
+| Wizard           | Bottle          | personX | personY |
+| Wizard           | Chalice         | personX | personY |
+| Wizard           | Standing Keg    | personX | personY |
+| Wizard           | Wooden Bucket   | personX | personY |
+| Wizard           | Vegetable Crate | personX | personY |
+| Wizard           | Scroll          | personX | personY |
+| Wizard           | Anvil           | personX | personY |
+| Wizard           | Pot             | personX | personY |
