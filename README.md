@@ -148,6 +148,12 @@ Ninja by [Quaternius](https://poly.pizza/m/xGYmeDpfTu)
 Astronaut by [Quaternius](https://poly.pizza/m/zbtPq4dOJL)
 Astronaut by [Quaternius](https://poly.pizza/m/OgeSH89Nmx)
 Astronaut by [Quaternius](https://poly.pizza/m/0D54W8yfrA)
+Wall by [Quaternius](https://poly.pizza/m/CkF171SeTV)
+Window Bars by [Quaternius](https://poly.pizza/m/mvTeQA5aBn)
+Wall Towers Door Seco by [Quaternius](https://poly.pizza/m/5d80r2XX3O)
+Arch Door by [Quaternius](https://poly.pizza/m/MVVMLXOfg1)
+Trap Door by [Quaternius](https://poly.pizza/m/PALqVBff9b)
+Door Round by [Quaternius](https://poly.pizza/m/4lNptAwxpV)
 
 More appropriate models
 Victim:

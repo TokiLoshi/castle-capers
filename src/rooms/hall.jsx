@@ -1,7 +1,6 @@
 // import Crown from "../characters/Victim/Crown";
 // import Wizard from "../characters/testimonies/Wizard";
 import Man from "../characters/testimonies/Man";
-
 import Adventurer from "../characters/Testimonies/Adventurer";
 import HoodedAdventurer from "../characters/Testimonies/HoodedAdventurer";
 import Witch from "../characters/Testimonies/Witch";
@@ -13,6 +12,12 @@ import Fish from "../characters/Monsters/Fish";
 import Panda from "../characters/Monsters/Panda";
 import Ninja from "../characters/Ninja";
 import Zombie from "../characters/Zombie";
+import { Wall } from "./components/Wall";
+import { ArchDoor } from "./components/ArchDoor";
+import { DoorRound } from "./components/DoorRound";
+import { TrapDoor } from "./components/TrapDoor";
+import { Window } from "./components/Window";
+import { WallTower } from "./components/WallTower";
 
 export default function Hall() {
 	return (
@@ -31,6 +36,12 @@ export default function Hall() {
 			{/* <Panda position={[2, 0, 0]} /> */}
 			{/* <Ninja position={[2, 0, 0]} /> */}
 			{/* <Zombie position={[2, 0, 0]} /> */}
+			<Wall position={[2, 0, -2]} scale={4} />
+			<Window position={[-4, 0, -2]} />
+			<ArchDoor position={[-2, 0, 3]} />
+			<DoorRound position={[2, 0, 3]} />
+			<TrapDoor position={[5, 0, 2]} />
+			<WallTower />
 		</>
 	);
 }

@@ -22,6 +22,9 @@ Victim:
 
 1. Crown of the castle
 
+Detective:
+Fernando the Space Flamingo
+
 | Room    | Clue               | Revealed When Murderer is     |
 | ------- | ------------------ | ----------------------------- |
 | Bedroom | 1. Bed-1           | Adventurer, HoodedAdventurer  |

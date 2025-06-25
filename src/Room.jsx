@@ -4,6 +4,7 @@ import Bedroom from "./rooms/bedroom";
 import Library from "./rooms/library";
 import Kitchen from "./rooms/kitchen";
 import Hall from "./rooms/hall";
+import Outside from "./rooms/outside";
 
 export default function Room() {
 	return (
@@ -48,7 +49,8 @@ export default function Room() {
 			{/* <Bedroom /> */}
 			{/* <Library /> */}
 			{/* <Hall /> */}
-			<Kitchen />
+			{/* <Kitchen /> */}
+			<Outside />
 		</>
 	);
 }
