@@ -1,5 +1,42 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
+import { ROOM_CLUES } from "../data/roomClues";
+
+const GAME_CONFIG = {
+	victim: "crown",
+	rooms: ["bedroom", "hall", "kitchen", "library"],
+	suspects: [
+		{ id: "Adventurer", room: "bedroom", position: [1.8, 0, 0] },
+		{ id: "HoodedAdventurer", room: "bedroom", position: [-1.8, 0, 0] },
+		{ id: "Man", room: "library", position: [1.8, 0, 1.2] },
+		{ id: "Shaun", room: "library", position: [-1.2, 0, -0.2] },
+		{ id: "Witch", room: "kitchen", position: [1.8, 0, 0.1] },
+		{ id: "Wizard", room: "kitchen", position: [-1.8, 0, 0.2] },
+	],
+	weapons: [
+		{
+			name: "candlestick",
+			room: "bedroom",
+		},
+		{
+			name: "chalice",
+			room: "bedroom",
+		},
+		{ name: "sword", room: "library" },
+		{
+			name: "chain",
+			room: "library",
+		},
+		{
+			name: "pot",
+			room: "kitchen",
+		},
+		{
+			name: "potions",
+			room: "kitchen",
+		},
+	],
+};
 
 // Need to pull clues from the data/roomClues/ const ROOM CLUES constants
 const POSSIBLE_CLUES = {};

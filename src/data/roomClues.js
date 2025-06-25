@@ -1,14 +1,14 @@
-const POSSIBLE_ROOMS = ["bedroom", "hall", "kitchen", "library"];
+export const ALL_ROOMS = ["bedroom", "hall", "kitchen", "library"];
 
-const ROOM_CLUES = {
+export const ROOM_CLUES = {
 	bedroom: [
 		{
-			id: "bed-1",
+			id: "bed1",
 			title: "Exploding Feathers",
 			description:
 				"There are feathers everywhere. You wonder if the assailent stabbed the pillows and chased the victim. Someone left in a hurry and didn't make the bed, or clean up. What a mess...",
 			clueType: "evidence",
-			revealedBy: ["sword", "fork"],
+			revealedBy: ["Adventurer", "HoodedAdventurer"],
 			isClue: true,
 		},
 		{
@@ -17,7 +17,7 @@ const ROOM_CLUES = {
 			description:
 				"An iron bucket filled halfway with strange looking liquid. It smells bad, you want to move on.",
 			clueType: "evidence",
-			revealedBy: ["potions", "fork"],
+			revealedBy: ["Man", "Witch"],
 			isClue: true,
 		},
 		{
