@@ -159,7 +159,7 @@ export const ROOM_CLUES = {
 			id: "Bookstand",
 			title: "Guest List",
 			description:
-				"You've discovered the guest list from last night. It has 'Shaun the Strange', 'Nicodemis the Wizard', 'Artie the Ordinary', 'Sable the Hooded', 'Gregory the Great Adventurer', and 'Wendeline the Witch'",
+				"You've discovered the guest list from last night. It has 'Shaun the Strange', 'Dorian the Grey Wizard', 'Artie the Ordinary', 'Sable the Hooded', 'Sable the Shrouded', and 'Wendeline the Witch'",
 			clueType: "evidence",
 			murderers: ["Adventurer", "HoodedAdventurer"],
 		},

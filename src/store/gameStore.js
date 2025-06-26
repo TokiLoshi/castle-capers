@@ -1,39 +1,89 @@
 import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
 import { ROOM_CLUES } from "../data/roomClues";
+import { DIALOG_TEMPLATES } from "../data/dialogs";
 
 const GAME_CONFIG = {
 	victim: "crown",
 	rooms: ["bedroom", "hall", "kitchen", "library"],
 	suspects: [
-		{ id: "Adventurer", room: "bedroom", position: [1.8, 0, 0] },
-		{ id: "HoodedAdventurer", room: "bedroom", position: [-1.8, 0, 0] },
-		{ id: "Man", room: "library", position: [1.8, 0, 1.2] },
-		{ id: "Shaun", room: "library", position: [-1.2, 0, -0.2] },
-		{ id: "Witch", room: "kitchen", position: [1.8, 0, 0.1] },
-		{ id: "Wizard", room: "kitchen", position: [-1.8, 0, 0.2] },
+		{
+			id: "Adventurer",
+			name: "Gregory The Great",
+			room: "bedroom",
+			position: [1.8, 0, 0],
+		},
+		{
+			id: "HoodedAdventurer",
+			name: "Sable the Shrouded",
+			room: "bedroom",
+			position: [-1.8, 0, 0],
+		},
+		{
+			id: "Man",
+			name: "Artie the Ordinary",
+			room: "library",
+			position: [1.8, 0, 1.2],
+		},
+		{
+			id: "Shaun",
+			name: "Shaun the Strange",
+			room: "library",
+			position: [-1.2, 0, -0.2],
+		},
+		{
+			id: "Witch",
+			name: "Wendeline the Witch",
+			room: "kitchen",
+			position: [1.8, 0, 0.1],
+		},
+		{
+			id: "Wizard",
+			name: "Dorian the Grey Wizard",
+			room: "kitchen",
+			position: [-1.8, 0, 0.2],
+		},
 	],
 	weapons: [
 		{
 			name: "candlestick",
 			room: "bedroom",
+			description: "something heavy and ornate, glinting in the candle light",
+			action: "gripping it tightly",
 		},
 		{
 			name: "chalice",
 			room: "bedroom",
+			description:
+				"a shiny chalice, that appeared to be fizzing from the top, leaving a sticky mess behind it",
+			action: "cleaning it carefully",
 		},
-		{ name: "sword", room: "library" },
+		{
+			name: "sword",
+			room: "library",
+			description: "something long and sharp that gleamed in the shadows",
+			action:
+				"taking a stab at the manequin in the bedroom before disappointed through a hidden trap door",
+		},
 		{
 			name: "chain",
 			room: "library",
+			description: "heavy metal links that clinked ominously",
+			action: "coiling it around in their hands",
 		},
 		{
 			name: "pot",
 			room: "kitchen",
+			description:
+				"a large cooking vessel that seemed to shine more than any piece of crockery should",
+			action: "scrubbing it vigorously",
 		},
 		{
 			name: "potions",
 			room: "kitchen",
+			description:
+				"small bottles with swirling and bubbling liquids reflecting in teh moonglight",
+			action: "vigorously shaking these unknown concoctions",
 		},
 	],
 };
