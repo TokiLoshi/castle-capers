@@ -1,12 +1,12 @@
 ## Next Steps
 
-- [ ] Map all the animation names for Testimony characters to main animations file
-- [ ] Create clues json
-- [ ] Create testimonies json
-- [ ] Create array of possible character names
-- [ ] Create array of possible weapons
-- [ ] At start randomly decide on the answer key, the murderer and the weapon
-- [ ] Assign the victim
+- [x] Map all the animation names for Testimony characters to main animations file
+- [x] Create clues json
+- [x] Create testimonies json
+- [x] Create array of possible character names
+- [x] Create array of possible weapons
+- [x] At start randomly decide on the answer key, the murderer and the weapon
+- [x] Assign the victim
 
 - [ ] Assign at start the different dialog
 - [ ] Assign possible rooms in Zustand
