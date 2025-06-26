@@ -5,7 +5,9 @@ export function generateDialog(
 	murderWeaponAction
 ) {
 	const dialog = {};
-	console.log(`Generating dialog with ${murderer} murderWeapon ${murderWeapon} description ${murderWeaponDescription} and ${murderWeaponAction}`)
+	console.log(
+		`Generating dialog with ${murderer} murderWeapon ${murderWeapon} description ${murderWeaponDescription} and ${murderWeaponAction}`
+	);
 	// iterate through the dialogs
 	// if key is murderer choose a different weapon and blame someone
 	// if murderer's name is already in the dialog three times blame someone else
@@ -16,612 +18,157 @@ export function generateDialog(
 	return dialog;
 }
 
-const DIALOG = {
+const DIALOG_TEMPLATE = {
 	Adventurer: {
 		name: "Gregory the Great",
 		dialogSteps: [
 			{
 				text: "Greeting, I've been waiting for you. Something went awry last night!",
 				animation: "wave",
-			}
-		]
-	}
-}
-
-const DIALOG_TEMPLATES = {
+			},
 			{
-				text: "{accused} is always skulking about, and I saw them ${action}, it {description}."
-				animation: "yes",
+				text: "{accused} is always skulking about, and I saw them ${action}, it {description}.",
+				animation: "gunShoot",
 				isTestimony: true,
 				testimony: {
-					title: `${murderer} skulking`,
-					description: `Seen ${action} ${description}`,
+					title: "{murderer} skulking",
+					description: "Seen {action} {description}",
 					accusor: "Gregory the Great",
-					accused: "Sable the Shrouded",
-					weapon: "candlestick",
+					accused: "{accused}",
+					weapon: "{weapon}",
 				},
 			},
 			{
 				text: "I do hope you catch them before they skulks off. There should only be one adventurer per castle anyway.",
-				animation: "jumpIdle",
+				animation: "kickRight",
 			},
 		],
-		Man: [
+	},
+	HoodedAdventurer: {
+		name: "Sable the Shrouded",
+		dialogSteps: [
 			{
-				text: "It's about time, I've been waiting for you!",
-				animation: "wave",
+				text: "You have traveled far, I sense, I can tell you seek truth in darkness...",
+				animation: "yes",
 			},
 			{
-				text: "It's artie again, he's always trying to be ordinary but he's hiding something! Specifically something shiny",
+				text: "I can help you on your quest for truth. I saw {accused} in the shadows. The {description} {action} tells me they are the guilty.",
 				animation: "swordSlash",
 				isTestimony: true,
 				testimony: {
-					title: "Artie Acting Suspicious",
-					description:
-						"Artie was spotted with something shiny and suspicious. Gregory has always had his doubts.",
-					accusor: "Gregory the Great",
-					accused: "Artie the Ordinary",
-					weapon: "sword",
+					title: "Spotted int he shadows",
+					description: "{accused} with {description}, {action}",
+					accusor: "Sable the Shrouded",
+					accused: "{accused}",
+					weapon: "{weapon}",
 				},
 			},
 			{
-				text: "I've always found him suspecious, please don't let him get away",
-				animation: "jump",
+				text: "Allow me to recuse myself, I have important business to achieve and you have a murderer to catch.",
+				animation: "roll",
 			},
 		],
-		Shaun: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Witch: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Wizard: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-	},
-	hoodedAdventurer: {
-		name: "Sable the Shrouded",
-		dialogsByMurderer: {
-			dialogsByMurderer: {
-				Adventurer: [
-					{ text: "", animation: "" },
-					{
-						text: "",
-						animation: "",
-						isTestimony: true,
-						testimony: {
-							title: "",
-							description: "",
-							accusor: "",
-							accused: "",
-							weapon: "",
-						},
-					},
-					{
-						text: "",
-						animation: "",
-					},
-				],
-				Man: [
-					{ text: "", animation: "" },
-					{
-						text: "",
-						animation: "",
-						isTestimony: true,
-						testimony: {
-							title: "",
-							description: "",
-							accusor: "",
-							accused: "",
-							weapon: "",
-						},
-					},
-					{
-						text: "",
-						animation: "",
-					},
-				],
-				Shaun: [
-					{ text: "", animation: "" },
-					{
-						text: "",
-						animation: "",
-						isTestimony: true,
-						testimony: {
-							title: "",
-							description: "",
-							accusor: "",
-							accused: "",
-							weapon: "",
-						},
-					},
-					{
-						text: "",
-						animation: "",
-					},
-				],
-				Witch: [
-					{ text: "", animation: "" },
-					{
-						text: "",
-						animation: "",
-						isTestimony: true,
-						testimony: {
-							title: "",
-							description: "",
-							accusor: "",
-							accused: "",
-							weapon: "",
-						},
-					},
-					{
-						text: "",
-						animation: "",
-					},
-				],
-				Wizard: [
-					{ text: "", animation: "" },
-					{
-						text: "",
-						animation: "",
-						isTestimony: true,
-						testimony: {
-							title: "",
-							description: "",
-							accusor: "",
-							accused: "",
-							weapon: "",
-						},
-					},
-					{
-						text: "",
-						animation: "",
-					},
-				],
-			},
-		},
 	},
 	Man: {
 		name: "Artie the Ordinary",
-		dialogsByMurderer: {
-			Adventurer: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
+		dialogSteps: [
+			{
+				text: "Oh good, they've sent the authorities. It's been so scary having a murderer on the loose.",
+				animation: "standing",
+			},
+			{
+				text: "I saw {description}, {accused} was {action}. Suspicious indeed...",
+				animation: "jump",
+				isTestimony: true,
+				testimony: {
+					title: "Ordinary man's account",
+					description: "{accused} {action} {description}",
+					accusor: "Artie the Ordinary",
+					accused: "{accused}",
+					weapon: "{weapon}",
 				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			HoodedAdventurer: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			Shaun: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			Witch: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			Wizard: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-		},
+			},
+			{
+				text: "I do hope you give this your most immediate attention. We deserve to feel safe.",
+				animation: "sitting",
+			},
+		],
 	},
 	Shaun: {
 		name: "Shaun the Strange",
-		dialogsByMurderer: {
-			Adventurer: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
+		dialogSteps: [
+			{
+				text: "Oh Detective, you startled me! I'm quite exciteable so I carry around this mace with me, we are going through dark times in the castle.",
+				animation: "duck",
+			},
+			{
+				text: "Last night was so creepy! {accused} was {action}, I noticed {description}",
+				animation: "punch",
+				isTestimony: true,
+				testimony: {
+					title: "Strange saw something strange",
+					description: "{accused} {action} {description}",
+					accusor: "Shaun the Strange",
+					accused: "{accused}",
+					weapon: "{weapon}",
 				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			HoodedAdventurer: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			Man: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			Witch: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-			Wizard: [
-				{ text: "", animation: "" },
-				{
-					text: "",
-					animation: "",
-					isTestimony: true,
-					testimony: {
-						title: "",
-						description: "",
-						accusor: "",
-						accused: "",
-						weapon: "",
-					},
-				},
-				{
-					text: "",
-					animation: "",
-				},
-			],
-		},
+			},
+			{
+				text: "Be careful detective, malicious forces are at work.",
+				animation: "wave",
+			},
+		],
 	},
 	Witch: {
 		name: "Wendeline the Witch",
-		Adventurer: [
-			{ text: "", animation: "" },
+		dialogSteps: [
 			{
-				text: "",
-				animation: "",
+				text: "My crystal ball predicted you were due at any moment",
+				animation: "interact",
+			},
+			{
+				text: "Last night my visions reveald {accused} to me. In my minds eye I saw {description}. When I opened my eyes I saw {accused} {action}",
+
+				animation: "punchLeft",
 				isTestimony: true,
 				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
+					title: "Mystical Vision",
+					description:
+						"Wendeline's spirits showed {accused} with {descrption} while {action}",
+					accusor: "Wendeline the Witch",
+					accused: "{accused}",
+					weapon: "{weapon}",
 				},
 			},
 			{
-				text: "",
-				animation: "",
-			},
-		],
-		HoodedAdventurer: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Man: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Shaun: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Wizard: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
+				text: "Please catch them before there is another victim",
+				animation: "death",
 			},
 		],
 	},
 	Wizard: {
-		name: "Dorian the Grey Wizard",
-		Adventurer: [
-			{ text: "", animation: "" },
+		name: "Dorian the Gray Wizard",
+		dialogSteps: [
 			{
-				text: "",
-				animation: "",
+				text: "Ah yes strange one, you're hear to solve the case. Allow me to paint you a picture of last night",
+				animation: "pickup",
+			},
+			{
+				text: "Imagine this scenario. {accused} {action} and {description}. Can you imagine!? That is just what I saw",
+				animation: "receiveHit",
 				isTestimony: true,
 				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
+					title: "Picture of Last night's Events",
+					description:
+						"Scrying revealed {accused} {description}, they were {action}",
+					accusor: "Dorian the Gray Wizard",
+					accused: "{accused}",
+					weapon: "{weapon}",
 				},
 			},
 			{
-				text: "",
-				animation: "",
-			},
-		],
-		HoodedAdventurer: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Man: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Shaun: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
-			},
-		],
-		Witch: [
-			{ text: "", animation: "" },
-			{
-				text: "",
-				animation: "",
-				isTestimony: true,
-				testimony: {
-					title: "",
-					description: "",
-					accusor: "",
-					accused: "",
-					weapon: "",
-				},
-			},
-			{
-				text: "",
-				animation: "",
+				text: "The truth is magic, detective. We could all use a little bit of magic right now.",
+				animation: "spell1",
 			},
 		],
 	},
