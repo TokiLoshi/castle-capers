@@ -6,24 +6,45 @@ import Kitchen from "./rooms/kitchen";
 import Hall from "./rooms/hall";
 import Outside from "./rooms/outside";
 import { useGameStore, GAME_CONFIG } from "./store/gameStore";
+import { ROOM_CLUES } from "./data/roomClues";
 
 export default function Room() {
 	// get the clues from the game config
 	const { currentClues, gameStarted } = useGameStore();
+
 	if (!gameStarted) {
 		console.log("Game not started, returning");
 		return null;
 	}
-
 	console.log("DEBUGGING!");
 	console.log("Current Clues: ", currentClues);
 	console.log("Current clues keys: ", Object.keys(currentClues));
 
+	const createClueToRoomMap = () => {
+		const clueToRoomMap = {};
+		Object.entries(ROOM_CLUES).forEach(([roomName, cluesArray]) => {
+			cluesArray.forEach((clue) => {
+				clueToRoomMap[clue.id] = roomName;
+			});
+		});
+		console.log("Clue to room map: ", clueToRoomMap);
+		return clueToRoomMap;
+	};
+
+	const clueToRoomMap = createClueToRoomMap();
+
 	const getCluesForRoom = (roomName) => {
 		const roomClues = {};
-		Object.entries(currentClues).forEach(([objectId, clue]) => {
-			if (clue.room === roomName) {
-				roomClues[objectId] = clue;
+
+		Object.entries(currentClues).forEach(([clueId, clue]) => {
+			const clueRoom = clueToRoomMap[clueId];
+			console.log(`Clue ${clueId} belongs to room: ${clueRoom} `);
+			if (clueRoom === roomName) {
+				console.log(`Adding clue ${clueId} to ${roomName}`);
+				roomClues[clueId] = {
+					...clue,
+					room: clueRoom,
+				};
 			}
 		});
 		return roomClues;
@@ -40,6 +61,9 @@ export default function Room() {
 	// generate a track of which room is loaded
 	// Conditionally render the models based on whether the room is loaded
 	const currentRoom = "bedroom";
+
+	console.log("Available rooms in ROOM_CLUES: ", Object.keys(ROOM_CLUES));
+	console.log("Current clues count: ", Object.keys(currentClues).length);
 
 	return (
 		<>

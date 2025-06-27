@@ -13,15 +13,19 @@ export default function Bedroom(bedroomClues, ...props) {
 	const [hoveredObject, setHoveredObject] = useState(null);
 
 	const { interactWithObject, getObjectStatus } = useGameStore();
+	const hoverableClues = Object.keys(bedroomClues["clues"]);
+	console.log("Hoverable clues: ", hoverableClues);
 
 	const handlePointerOver = (objectId) => {
 		console.log("Object id on Pointer Over: ", objectId);
+		if (!hoverableClues.includes(objectId)) return;
 		setHoveredObject(objectId);
 		document.body.style.cursor = "pointer";
 	};
 
 	const handlePointerOut = () => {
 		console.log("Hovering out");
+
 		setHoveredObject(null);
 		document.body.style.cursor = "grab";
 	};
@@ -53,7 +57,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Furniture.010"]}
 					onPointerOver={() => setHovered(true)}
 					onPointerOut={() => setHovered(false)}
-					onClick={() => handleInteraction("bed-1")}
+					onClick={() => handleClick("bed1")}
 
 					// {hovered && <Outlines thickness={0.05} color="red" angle={0} />}
 				></mesh>
@@ -62,11 +66,12 @@ export default function Bedroom(bedroomClues, ...props) {
 					receiveShadow
 					geometry={nodes.Cube001_1.geometry}
 					material={materials["MI_Trim_Metal.012"]}
-					onPointerOver={() => setHovered(true)}
-					onPointerOut={() => setHovered(false)}
-					onClick={() => handleInteraction("bed-1")}>
-					{" "}
-					{hovered && <Outlines thickness={0.8} color='red' />}{" "}
+					onPointerOver={() => handlePointerOver("bed1")}
+					onPointerOut={() => handlePointerOut()}
+					onClick={(e) => handleClick(e, "bed1")}>
+					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
+						<Outlines thickness={0.8} color='red' />
+					)}
 				</mesh>
 				<mesh
 					castShadow
@@ -203,7 +208,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				onPointerOver={() => handlePointerOver("cage")}
 				onPointerOut={() => handlePointerOut()}
 				onClick={(e) => handleClick(e, "cage")}>
-				{hoveredObject === "cage" && (
+				{hoveredObject === "cage" && hoverableClues.includes("cage") && (
 					<Outlines thickness={0.6} color={getOutlineColor("cage")} />
 				)}
 			</mesh>
