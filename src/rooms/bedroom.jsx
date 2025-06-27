@@ -6,7 +6,8 @@ import { useGLTF, Outlines } from "@react-three/drei";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 
-export default function Bedroom(props) {
+export default function Bedroom(bedroomClues, ...props) {
+	console.log("Clues passed to bedroom: ", bedroomClues);
 	const { nodes, materials } = useGLTF("models/rooms/bedroom.glb");
 	const [hovered, setHovered] = useState(false);
 	const [hoveredObject, setHoveredObject] = useState(null);

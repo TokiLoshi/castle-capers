@@ -3,7 +3,7 @@ import { subscribeWithSelector } from "zustand/middleware";
 import { ROOM_CLUES } from "../data/roomClues";
 import { DIALOG_TEMPLATES } from "../data/dialogs";
 
-const GAME_CONFIG = {
+export const GAME_CONFIG = {
 	victim: "crown",
 	rooms: ["bedroom", "hall", "kitchen", "library"],
 	suspects: [
