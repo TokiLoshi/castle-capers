@@ -21,7 +21,7 @@ export const ROOM_CLUES = {
 		},
 		{
 			id: "bottle",
-			title: "Lonely Looking Bucket",
+			title: "Lonely Looking Bottle",
 			description:
 				"This bottle looks like it was part of a set, there might be one missing. You make a note to keep an eye out for broken glass.",
 			clueType: "evidence",

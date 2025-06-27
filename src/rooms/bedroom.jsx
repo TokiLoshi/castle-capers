@@ -48,6 +48,7 @@ export default function Bedroom(bedroomClues, ...props) {
 
 	return (
 		<group {...props} dispose={null}>
+			{/* Bed 1 with blue duvet */}
 			<group position={[2.981, 0, -1.254]}>
 				<mesh
 					castShadow
@@ -78,15 +79,15 @@ export default function Bedroom(bedroomClues, ...props) {
 					receiveShadow
 					geometry={nodes.Cube001_2.geometry}
 					material={materials["MI_Trim_Cloth.003"]}
-					onPointerOver={() => setHoveredObject(true)}
-					onPointerOut={() => setHoveredObject(false)}
+					onPointerOver={() => handlePointerOver("bed1")}
+					onPointerOut={() => handlePointerOut()}
 					onClick={(e) => handleClick(e, "bed1")}>
 					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
 						<Outlines thickness={2.0} color='aquamarine' />
 					)}
 				</mesh>
 			</group>
-
+			{/* Bed2 on the left*/}
 			<group position={[-2.556, 0, -1.23]}>
 				<mesh
 					castShadow
@@ -107,6 +108,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Cloth.004"]}
 				/>
 			</group>
+			{/* Book 5 on the right bookshelf, second shelf from the top, solo book at an angle*/}
 			<mesh
 				castShadow
 				receiveShadow
@@ -115,6 +117,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				position={[0.726, 1.571, -2.721]}
 				rotation={[0, -1.176, 0]}
 			/>
+			{/* Something */}
 			<group position={[0.021, 0.614, -1.71]} rotation={[0, 0.628, 0]}>
 				<mesh
 					castShadow
@@ -143,6 +146,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Metal.016"]}
 				/>
 			</group>
+			{/* Books top shelf of left bookshelf */}
 			<group position={[-0.907, 0, -2.796]}>
 				<mesh
 					castShadow
@@ -157,6 +161,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Metal.017"]}
 				/>
 			</group>
+			{/* Books on the right side of the bottom shelf of the left bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -164,6 +169,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.010"]}
 				position={[-0.693, 0.764, -2.763]}
 			/>
+			{/* Bottle top right bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -172,6 +178,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				position={[1.259, 1.92, -2.781]}
 				scale={0.621}
 			/>
+			{/* Bucket  */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -185,7 +192,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					<Outlines thickness={0.6} color={getOutlineColor("bucket")} />
 				)}
 			</mesh>
-
+			{/* Dresser next to the right bed */}
 			<group position={[4.826, 0, -2.271]}>
 				<mesh
 					castShadow
@@ -214,6 +221,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					<Outlines thickness={0.6} color={getOutlineColor("cage")} />
 				)}
 			</mesh>
+			{/* Candle on left bookshelf second shelf from the top */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -221,6 +229,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props.001"]}
 				position={[-0.608, 1.542, -2.77]}
 			/>
+			{/* Candle on left bookshelf bottom shelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -229,6 +238,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				position={[-1.181, 0.761, -2.751]}
 				scale={0.817}
 			/>
+			{/* Empty candle stick left bookshelf top shelf on the left */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -236,6 +246,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Metal.022"]}
 				position={[-1.239, 1.914, -2.78]}
 			/>
+			{/* Big group of candle lamps on the right */}
 			<group position={[4.25, 0, 1.214]}>
 				<mesh
 					castShadow
@@ -250,6 +261,8 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Props_Vertex.014"]}
 				/>
 			</group>
+
+			{/* Candle Stick on dresser by the right bed with blue blanket */}
 			<group position={[4.419, 1, -2.266]} rotation={[0, 0.353, 0]}>
 				<mesh
 					castShadow
@@ -264,6 +277,8 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Props.003"]}
 				/>
 			</group>
+
+			{/* Chalice by the left bed on the dresser  */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -271,6 +286,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Metal.028"]}
 				position={[-4.35, 1.004, -2.286]}
 			/>
+
+			{/* Ceiling Chandelier */}
 			<group position={[0.13, 4.241, -0.682]}>
 				<mesh
 					castShadow
@@ -291,6 +308,8 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Props_Vertex.016"]}
 				/>
 			</group>
+
+			{/* Top shelf middle coin pile right bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -298,6 +317,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Metal_Vertex.001"]}
 				position={[0.842, 1.917, -2.809]}
 			/>
+
+			{/* Coin pile dresser by the right bed */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -305,6 +326,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Metal_Vertex.002"]}
 				position={[-4.684, 1.004, -2.239]}
 			/>
+
+			{/* Weapon Pell near right bed */}
 			<group position={[-5.685, 0, -0.954]} rotation={[0, 0.754, 0]}>
 				<mesh
 					castShadow
@@ -325,6 +348,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Cloth.005"]}
 				/>
 			</group>
+
 			<mesh
 				castShadow
 				receiveShadow
@@ -339,6 +363,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				)}
 			</mesh>
 
+			{/* 	Right bookshelf */}
 			<group position={[0.972, 0, -2.796]}>
 				<mesh
 					castShadow
@@ -353,6 +378,8 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Metal.017"]}
 				/>
 			</group>
+
+			{/* Candle stick lamp group on the left */}
 			<group position={[-3.861, 0, 2.058]}>
 				<mesh
 					castShadow
@@ -367,6 +394,8 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Props_Vertex.014"]}
 				/>
 			</group>
+
+			{/* Dresser drawer by the right hand side bed */}
 			<group position={[-4.492, 0, -2.239]}>
 				<mesh
 					castShadow
@@ -381,6 +410,8 @@ export default function Bedroom(bedroomClues, ...props) {
 					material={materials["MI_Trim_Metal.020"]}
 				/>
 			</group>
+
+			{/* Book group on the right of the bottom shelf of the left bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -388,6 +419,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.011"]}
 				position={[-0.468, 0.774, -2.736]}
 			/>
+
+			{/* Group of books to the right of the second shelf from the bottom of the left bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -396,6 +429,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				position={[-0.676, 1.276, -2.736]}
 				rotation={[0, -0.1, -1.587]}
 			/>
+
+			{/* Group of books to the left of the second shelf from the bottom of the left bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -403,6 +438,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.011"]}
 				position={[-1.36, 1.158, -2.736]}
 			/>
+
+			{/* Group of books to the left of the second shelf from the top of the left bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -410,6 +447,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.011"]}
 				position={[-1.081, 1.546, -2.736]}
 			/>
+
+			{/* Group of books to the top of the left bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -417,6 +456,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.011"]}
 				position={[-0.914, 1.924, -2.736]}
 			/>
+
+			{/* Empty Candle Stick on bottom shelf of bookshelf of right bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -424,6 +465,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Metal.022"]}
 				position={[1.185, 0.772, -2.78]}
 			/>
+
+			{/* Group of books to the right second shelf from the top of the right bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -431,6 +474,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.011"]}
 				position={[1.075, 1.53, -2.736]}
 			/>
+
+			{/* Group of books to the left bottom shelf of the right bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -438,6 +483,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.011"]}
 				position={[0.537, 0.775, -2.736]}
 			/>
+
+			{/* Group of books to the left of the second shelf from the top of the left bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -445,6 +492,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.010"]}
 				position={[-1.312, 1.549, -2.763]}
 			/>
+
+			{/* Books on second shelf to the right of the right bookshelf */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -458,6 +507,8 @@ export default function Bedroom(bedroomClues, ...props) {
 					<Outlines thickness={0.6} color={getOutlineColor("book")} />
 				)}
 			</mesh>
+
+			{/* Small pile of coins on the left most side of the top book shelf on the right  */}
 			<mesh
 				castShadow
 				receiveShadow
@@ -466,6 +517,11 @@ export default function Bedroom(bedroomClues, ...props) {
 				position={[0.603, 1.917, -2.809]}
 				rotation={[0, -0.417, 0]}
 				scale={0.698}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "grab")}
+				onClick={() => {
+					console.log("*** YES! Book group clicked ");
+				}}
 			/>
 		</group>
 	);
