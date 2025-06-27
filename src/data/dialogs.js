@@ -18,7 +18,7 @@ export function generateDialog(
 	return dialog;
 }
 
-const DIALOG_TEMPLATE = {
+export const DIALOG_TEMPLATES = {
 	Adventurer: {
 		name: "Gregory the Great",
 		dialogSteps: [
@@ -27,11 +27,11 @@ const DIALOG_TEMPLATE = {
 				animation: "wave",
 			},
 			{
-				text: "{accused} is always skulking about, and I saw them ${action}, it {description}.",
+				text: "{accused} is always skulking about, and I saw them {action}, it {description}.",
 				animation: "gunShoot",
 				isTestimony: true,
 				testimony: {
-					title: "{murderer} skulking",
+					title: "Someone was skulking",
 					description: "Seen {action} {description}",
 					accusor: "Gregory the Great",
 					accused: "{accused}",
@@ -56,7 +56,7 @@ const DIALOG_TEMPLATE = {
 				animation: "swordSlash",
 				isTestimony: true,
 				testimony: {
-					title: "Spotted int he shadows",
+					title: "Spotted in the shadows",
 					description: "{accused} with {description}, {action}",
 					accusor: "Sable the Shrouded",
 					accused: "{accused}",

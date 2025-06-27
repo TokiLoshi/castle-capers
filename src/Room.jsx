@@ -46,11 +46,11 @@ export default function Room() {
 				anchorY='middle'>
 				WEST (-X)
 			</Text>
-			{/* <Bedroom /> */}
+			<Bedroom />
 			{/* <Library /> */}
 			{/* <Hall /> */}
 			{/* <Kitchen /> */}
-			<Outside />
+			{/* <Outside /> */}
 		</>
 	);
 }

@@ -130,14 +130,18 @@ export const useGameStore = create(
 					Math.floor(Math.random() * GAME_CONFIG.weapons.length)
 				];
 
+			console.log("Initizing game, murderer selected:", murderer);
+			console.log("murderWeapon selected:", murderWeapon);
 			console.log(
-				`Initizing game, murderer selected: ${murderer}, murderWeapon selected: ${murderWeapon}`
+				"User must solve the puzzle by guessing the murderer",
+				murderer
 			);
 			console.log(
-				`User must solve the puzzle by guessing ${murderer} with a ${murderWeapon}`
+				"User must solve the case by guessing the weapon: ",
+				murderWeapon
 			);
 
-			const clues = getCluesForMurderer();
+			const clues = getCluesForMurderer(murderer.id);
 			const dialogs = generateDialog(murderer.id, murderWeapon.name);
 
 			// Initialize Clues
@@ -464,13 +468,14 @@ export const useGameStore = create(
 
 function getSuspectById(id) {
 	const suspect = GAME_CONFIG.suspects.find((s) => s.id === id);
-	console.log("Getting suspect: ", suspect);
+	console.log("Getting suspects for testimonials: ", suspect);
 	return suspect;
 }
 
 function getWeaponByName(name) {
 	const weapon = GAME_CONFIG.weapons.find((w) => w.name === name);
-	console.log(`Looking for ${name} and found weapon: ${weapon}`);
+	console.log("Looking for: ", name);
+	console.log("Found: ", weapon);
 	return weapon;
 }
 
@@ -481,9 +486,9 @@ function getRandomScapegoat(murderer, allSuspects) {
 	);
 	const scapeGoat =
 		availableScapegoats[Math.floor(Math.random() * availableScapegoats.length)];
-	console.log(
-		`Scape goat selected by ${murderer}, the scapeGoat is: ${scapeGoat}`
-	);
+	console.log("Scape goat selected by", murderer);
+	console.log("the scapeGoat is: ", scapeGoat);
+
 	return scapeGoat;
 }
 
@@ -492,8 +497,8 @@ function getScapegoatWeapon(murderWeapon, allWeapons) {
 		(weapon) => weapon.name !== murderWeapon
 	);
 	const scapegoatWeapon =
-		availableWeapons[Math.random(Math.floor() * availableWeapons.length)];
-	console.log(`Scapegoat weapon selected: ${scapegoatWeapon}`);
+		availableWeapons[Math.floor(Math.random() * availableWeapons.length)];
+	console.log("Scapegoat weapon selected: ", scapegoatWeapon);
 	return scapegoatWeapon;
 }
 
@@ -527,17 +532,26 @@ export function generateDialog(murderer, murderWeapon) {
 			isDeflection = true;
 			accusationCount[scapegoat.id] = (accusationCount[scapegoat.id] || 0) + 1;
 		} else {
-			accused = murderData.name;
-			weapon = murderWeapon;
-			weaponData = murderWeaponData;
-			isDeflection = false;
-
-			accusationCount[murderer] = (accusationCount[murderer] || 0) + 1;
+			if (accusationCount[murderer] >= 3) {
+				const scapegoat = getRandomScapegoat(murderer, allSuspects);
+				const scapeWeapon = getScapegoatWeapon(murderWeapon, allWeapons);
+				accused = scapegoat.name;
+				weapon = scapeWeapon.name;
+				weaponData = scapeWeapon;
+				isDeflection = true;
+				accusationCount[accused.id] = (accusationCount[accused] || 0) + 1;
+			} else {
+				accused = murderData.name;
+				weapon = murderWeapon;
+				weaponData = murderWeaponData;
+				isDeflection = false;
+				accusationCount[murderer] = (accusationCount[murderer] || 0) + 1;
+			}
 		}
 		dialogSteps.forEach((step) => {
 			// update text
 			if (step.text) {
-				step.text
+				step.text = step.text
 					.replace(/{accused}/g, accused)
 					.replace(/{action}/g, weaponData.action)
 					.replace(/{description}/g, weaponData.description)
@@ -578,7 +592,7 @@ function getCluesForMurderer(murderer) {
 
 	Object.keys(ROOM_CLUES).forEach((room) => {
 		const applicableClues = ROOM_CLUES[room].filter((clue) => {
-			clue.murderers && clue.murderers.includes(murderer);
+			return clue.murderers && clue.murderers.includes(murderer);
 		});
 
 		const shuffledClues = [...applicableClues].sort(() => 0.5 - Math.random());
