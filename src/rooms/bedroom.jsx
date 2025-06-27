@@ -8,8 +8,9 @@ import { useGameStore } from "../store/gameStore";
 
 export default function Bedroom(bedroomClues, ...props) {
 	console.log("Clues passed to bedroom: ", bedroomClues);
+
 	const { nodes, materials } = useGLTF("models/rooms/bedroom.glb");
-	const [hovered, setHovered] = useState(false);
+	// const [hovered, setHovered] = useState(false);
 	const [hoveredObject, setHoveredObject] = useState(null);
 
 	const { interactWithObject, getObjectStatus } = useGameStore();
@@ -31,13 +32,11 @@ export default function Bedroom(bedroomClues, ...props) {
 	};
 
 	const handleClick = (e, objectId) => {
-		e.stopPropagation();
+		if (e && e.stopPropagation) {
+			e.stopPropagation;
+		}
 		console.log("Clicked, id:", objectId);
 		interactWithObject(objectId);
-	};
-
-	const handleInteraction = (itemName) => {
-		console.log(`Interacted with: ${itemName}`);
 	};
 
 	const getOutlineColor = (objectId) => {
@@ -55,12 +54,13 @@ export default function Bedroom(bedroomClues, ...props) {
 					receiveShadow
 					geometry={nodes.Cube001.geometry}
 					material={materials["MI_Trim_Furniture.010"]}
-					onPointerOver={() => setHovered(true)}
-					onPointerOut={() => setHovered(false)}
-					onClick={() => handleClick("bed1")}
-
-					// {hovered && <Outlines thickness={0.05} color="red" angle={0} />}
-				></mesh>
+					onPointerOver={() => setHoveredObject(true)}
+					onPointerOut={() => setHoveredObject(false)}
+					onClick={() => handleClick("bed1")}>
+					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
+						<Outlines thickness={0.6} color={getOutlineColor("bed1")} />
+					)}
+				</mesh>
 				<mesh
 					castShadow
 					receiveShadow
@@ -78,10 +78,12 @@ export default function Bedroom(bedroomClues, ...props) {
 					receiveShadow
 					geometry={nodes.Cube001_2.geometry}
 					material={materials["MI_Trim_Cloth.003"]}
-					onPointerOver={() => setHovered(true)}
-					onPointerOut={() => setHovered(false)}
-					onClick={() => handleInteraction("bed-1")}>
-					{hovered && <Outlines thickness={2.0} color='aquamarine' />}
+					onPointerOver={() => setHoveredObject(true)}
+					onPointerOut={() => setHoveredObject(false)}
+					onClick={(e) => handleClick(e, "bed1")}>
+					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
+						<Outlines thickness={2.0} color='aquamarine' />
+					)}
 				</mesh>
 			</group>
 
@@ -329,7 +331,14 @@ export default function Bedroom(bedroomClues, ...props) {
 				geometry={nodes.Stool.geometry}
 				material={materials["MI_Trim_Furniture.023"]}
 				position={[-0.001, 0, -1.701]}
-			/>
+				onPointerOver={() => handlePointerOver("Dairy")}
+				onPointerOut={() => handlePointerOut()}
+				onClick={(e) => handleClick(e, "Dairy")}>
+				{hoveredObject === "Dairy" && (
+					<Outlines thickness={0.6} color={getOutlineColor("Dairy")} />
+				)}
+			</mesh>
+
 			<group position={[0.972, 0, -2.796]}>
 				<mesh
 					castShadow
