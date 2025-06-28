@@ -49,15 +49,20 @@ export default function Bedroom(bedroomClues, ...props) {
 	return (
 		<group {...props} dispose={null}>
 			{/* Bed 1 with blue duvet */}
-			<group position={[2.981, 0, -1.254]}>
+			<group
+				position={[2.981, 0, -1.254]}
+				onPointerOver={() => handlePointerOver("bed1")}
+				onPointerOut={() => handlePointerOut()}
+				onClick={(e) => handleClick(e, "bed1")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube001.geometry}
 					material={materials["MI_Trim_Furniture.010"]}
-					onPointerOver={() => handlePointerOver("bed1")}
-					onPointerOut={() => handlePointerOut()}
-					onClick={(e) => handleClick(e, "bed1")}>
+					// onPointerOver={() => handlePointerOver("bed1")}
+					// onPointerOut={() => handlePointerOut()}
+					// onClick={(e) => handleClick(e, "bed1")}
+				>
 					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
 						<Outlines thickness={0.6} color={getOutlineColor("bed1")} />
 					)}
@@ -67,9 +72,10 @@ export default function Bedroom(bedroomClues, ...props) {
 					receiveShadow
 					geometry={nodes.Cube001_1.geometry}
 					material={materials["MI_Trim_Metal.012"]}
-					onPointerOver={() => handlePointerOver("bed1")}
-					onPointerOut={() => handlePointerOut()}
-					onClick={(e) => handleClick(e, "bed1")}>
+					// onPointerOver={() => handlePointerOver("bed1")}
+					// onPointerOut={() => handlePointerOut()}
+					// onClick={(e) => handleClick(e, "bed1")}
+				>
 					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
 						<Outlines thickness={0.6} color={getOutlineColor("bed1")} />
 					)}
@@ -79,9 +85,10 @@ export default function Bedroom(bedroomClues, ...props) {
 					receiveShadow
 					geometry={nodes.Cube001_2.geometry}
 					material={materials["MI_Trim_Cloth.003"]}
-					onPointerOver={() => handlePointerOver("bed1")}
-					onPointerOut={() => handlePointerOut()}
-					onClick={(e) => handleClick(e, "bed1")}>
+					// onPointerOver={() => handlePointerOver("bed1")}
+					// onPointerOut={() => handlePointerOut()}
+					// onClick={(e) => handleClick(e, "bed1")}
+				>
 					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
 						<Outlines thickness={2.0} color='aquamarine' />
 					)}
@@ -177,11 +184,11 @@ export default function Bedroom(bedroomClues, ...props) {
 				material={materials["MI_Trim_Props_Vertex.013"]}
 				position={[1.259, 1.92, -2.781]}
 				scale={0.621}
-				onPointerOver={() => handlePointerOver("bed1")}
+				onPointerOver={() => handlePointerOver("bottle")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={(e) => handleClick(e, "bed1")}>
-				{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
-					<Outlines thickness={0.6} color={getOutlineColor("bed1")} />
+				onClick={(e) => handleClick(e, "bottle")}>
+				{hoveredObject === "bottle" && hoverableClues.includes("bottle") && (
+					<Outlines thickness={0.6} color={getOutlineColor("bottle")} />
 				)}
 			</mesh>
 			{/* Bucket  */}
@@ -319,8 +326,8 @@ export default function Bedroom(bedroomClues, ...props) {
 				onPointerOver={() => handlePointerOver("chalice")}
 				onPointerOut={() => handlePointerOut()}
 				onClick={(e) => handleClick(e, "chalice")}>
-				{hoveredObject === "cage" && hoverableClues.includes("cage") && (
-					<Outlines thickness={0.9} color={getOutlineColor("cage")} />
+				{hoveredObject === "chalice" && hoverableClues.includes("chalice") && (
+					<Outlines thickness={0.9} color={getOutlineColor("chalice")} />
 				)}
 			</mesh>
 
@@ -365,39 +372,30 @@ export default function Bedroom(bedroomClues, ...props) {
 			/>
 
 			{/* Weapon Pell near right bed */}
-			<group position={[-5.685, 0, -0.954]} rotation={[0, 0.754, 0]}>
+			<group
+				position={[-5.685, 0, -0.954]}
+				rotation={[0, 0.754, 0]}
+				onPointerOver={() => handlePointerOver("figure")}
+				onPointerOut={() => handlePointerOut()}
+				onClick={(e) => handleClick(e, "figure")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube223.geometry}
 					material={materials["MI_Trim_Furniture.022"]}
-					onPointerOver={() => handlePointerOver("figure")}
-					onPointerOut={() => handlePointerOut()}
-					onClick={(e) => handleClick(e, "figure")}>
-					{/* {hoveredObject === "figure" && hoverableClues.includes("figure") && (
-						<Outlines thickness={0.6} color='green' />
-					)} */}
-				</mesh>
+				/>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube223_1.geometry}
 					material={materials["MI_Trim_Metal.033"]}
-					onPointerOver={() => handlePointerOver("figure")}
-					onPointerOut={() => handlePointerOut()}
-					onClick={(e) => handleClick(e, "figure")}>
-					{/* {hoveredObject === "figure" && hoverableClues.includes("figure") && (
-						<Outlines thickness={0.6} color='green' />
-					)} */}
-				</mesh>
+				/>
+
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube223_2.geometry}
-					material={materials["MI_Trim_Cloth.005"]}
-					onPointerOver={() => handlePointerOver("figure")}
-					onPointerOut={() => handlePointerOut()}
-					onClick={(e) => handleClick(e, "figure")}>
+					material={materials["MI_Trim_Cloth.005"]}>
 					{hoveredObject === "figure" && hoverableClues.includes("figure") && (
 						<Outlines thickness={0.8} color='green' />
 					)}
@@ -555,11 +553,11 @@ export default function Bedroom(bedroomClues, ...props) {
 				geometry={nodes.BookGroup_Small_1002.geometry}
 				material={materials["MI_Trim_Props_Vertex.010"]}
 				position={[1.19, 1.158, -2.763]}
-				onPointerOver={() => handlePointerOver("book")}
+				onPointerOver={() => handlePointerOver("books")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={(e) => handleClick(e, "book")}>
-				{hoveredObject === "book" && (
-					<Outlines thickness={0.6} color={getOutlineColor("book")} />
+				onClick={(e) => handleClick(e, "books")}>
+				{hoveredObject === "books" && (
+					<Outlines thickness={0.6} color={getOutlineColor("books")} />
 				)}
 			</mesh>
 
