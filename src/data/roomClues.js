@@ -169,7 +169,7 @@ export const ROOM_CLUES = {
 	],
 	library: [
 		{
-			id: "Bookstand",
+			id: "bookstand",
 			title: "Guest List",
 			description:
 				"You've discovered the guest list from last night. It has 'Shaun the Strange', 'Dorian the Grey Wizard', 'Artie the Ordinary', 'Sable the Hooded', 'Sable the Shrouded', and 'Wendeline the Witch'",
@@ -178,7 +178,7 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Chain",
+			id: "chain",
 			title: "Suspicious Chain",
 			description:
 				"It looks heavy, and like it's been recently disturbed, someone wasn't done cleaning it.",
@@ -187,7 +187,7 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Scroll",
+			id: "scroll",
 			title: "Secret Letter",
 			description:
 				"You're surprised to see it is for you. It reads, 'Dear Detective, thank you for traveling so far. If you've found this it is too late. I don't trust her, but I also don't trust any of them, maybe Shaun but probably not. Please find my murderer and avenge me.",
@@ -196,7 +196,7 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Crate",
+			id: "crate",
 			title: "Solid Wooden Crate",
 			description:
 				"You try to open it but it appears locked. Fine, you think, keep your secrets.",
@@ -205,7 +205,7 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Anvil",
+			id: "anvil",
 			title: "Well Used Anvil",
 			description:
 				"It's well used, possibly for sharpening a sword, you notice some steel filings on the floor nearby...",
@@ -214,7 +214,7 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Sword",
+			id: "sword",
 			title: "Recently Sharpened Sword",
 			description:
 				"It's sharp, and was recently being cleaned, but whoever was cleaning it must have been interrupted...",
@@ -223,16 +223,15 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "potions",
-			title: "Polyjuice or Polish",
-			description:
-				"You open it hoping for a pleasant aroma, you are disappointed. You've found cleaning agent for metal, possibly a form of polish.",
+			id: "key",
+			title: "Strange key",
+			description: "Someone must have left this it must be important",
 			clueType: "evidence",
 			murderers: ["Adventurer", "Witch"],
 			isClue: true,
 		},
 		{
-			id: "Flag",
+			id: "flag",
 			title: "Decorated Flag",
 			description:
 				"An ornate flag with the crown's crest. You can tell the victim was proud of this place.",
@@ -241,7 +240,7 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Aromatic Pot",
+			id: "aromatic-pot",
 			title:
 				"It's filled to the brim with dried herbs, flowers, and dust. You sneeze.",
 			description: "",

@@ -25,7 +25,7 @@ export default function Kitchen(kitchenClues, ...props) {
 	const handlePointerOut = () => {
 		console.log("Hovering out");
 		setHoveredObject(null);
-		document.body.style.cursor = "grab";
+		document.body.style.cursor = "default";
 	};
 
 	const handleClick = (e, objectId) => {

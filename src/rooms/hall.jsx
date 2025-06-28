@@ -1,9 +1,9 @@
 // import Crown from "../characters/Victim/Crown";
 // import Wizard from "../characters/testimonies/Wizard";
 import Man from "../characters/testimonies/Man";
-import Adventurer from "../characters/Testimonies/Adventurer";
-import HoodedAdventurer from "../characters/Testimonies/HoodedAdventurer";
-import Witch from "../characters/Testimonies/Witch";
+import Adventurer from "../characters/testimonies/Adventurer";
+import HoodedAdventurer from "../characters/testimonies/HoodedAdventurer";
+import Witch from "../characters/testimonies/Witch";
 import AstroBee from "../characters/monsters/Astrobee";
 import AstroFrog from "../characters/Monsters/AstroFrog";
 import Bluey from "../characters/Monsters/Bluey";
