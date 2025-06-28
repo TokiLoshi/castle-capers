@@ -9,6 +9,7 @@ import { useGameStore } from "../store/gameStore";
 
 export default function Kitchen(kitchenClues, ...props) {
 	const { nodes, materials } = useGLTF("models/rooms/kitchen.glb");
+
 	const [hoveredObject, setHoveredObject] = useState(null);
 	const { interactWithObject, getObjectStatus } = useGameStore();
 	const hoverableClues = Object.keys(kitchenClues["clues"]);
@@ -28,8 +29,8 @@ export default function Kitchen(kitchenClues, ...props) {
 	};
 
 	const handleClick = (e, objectId) => {
-		if (e && e.stopPropagtion) {
-			e.stopPropagation;
+		if (e && e.stopPropagation) {
+			e.stopPropagation();
 		}
 		console.log("Clicked on: ", objectId);
 		interactWithObject(objectId);
@@ -73,7 +74,7 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[4.233, 0, -1.642]}
 				onPointerEnter={() => handlePointerOver("standing-keg")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={() => handleClick("standing-keg")}>
+				onClick={(e) => handleClick(e, "standing-keg")}>
 				<mesh
 					castShadow
 					receiveShadow
@@ -93,13 +94,13 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[1.094, 0, -1.099]}
 				onPointerEnter={() => handlePointerOver("standing-keg")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={() => handleClick("standing-keg")}>
+				onClick={(e) => handleClick(e, "standing-keg")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cylinder054.geometry}
 					material={materials["MI_Trim_Furniture.005"]}>
-					{hoveredObject === "standing-keyg" &&
+					{hoveredObject === "standing-keg" &&
 						hoverableClues.includes("standing-keg") && (
 							<Outlines
 								thickness={0.6}
@@ -118,9 +119,13 @@ export default function Kitchen(kitchenClues, ...props) {
 					receiveShadow
 					geometry={nodes.Cylinder054_2.geometry}
 					material={materials["MI_Trim_Props_Vertex.001"]}>
-					{hoveredObject === "Sack" && hoverableClues.includes("Sack") && (
-						<Outlines thickness={0.6} color={getOutlineColor("Sack")} />
-					)}
+					{hoveredObject === "standing-keg" &&
+						hoverableClues.includes("standing-keg") && (
+							<Outlines
+								thickness={0.6}
+								color={getOutlineColor("standing-keg")}
+							/>
+						)}
 				</mesh>
 			</group>
 
@@ -129,15 +134,16 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[1.776, 0, -2.524]}
 				onPointerEnter={() => handlePointerOver("pourkegs")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={() => handleClick("pourkegs")}>
+				onClick={(e) => handleClick(e, "pourkegs")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube045.geometry}
 					material={materials["MI_Trim_Furniture.006"]}>
-					{hoveredObject === "Sack" && hoverableClues.includes("Sack") && (
-						<Outlines thickness={0.6} color={getOutlineColor("Sack")} />
-					)}
+					{hoveredObject === "pourkegs" &&
+						hoverableClues.includes("pourkegs") && (
+							<Outlines thickness={0.6} color={getOutlineColor("pourkegs")} />
+						)}
 				</mesh>
 				<mesh
 					castShadow
@@ -161,19 +167,19 @@ export default function Kitchen(kitchenClues, ...props) {
 			{/* Wooden Bucket */}
 			<group
 				position={[3.199, 0, 2.733]}
-				onPointerEnter={() => handlePointerOver("Wooden Bucket")}
+				onPointerEnter={() => handlePointerOver("wooden-bucket")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={() => handleClick("Wooden Bucket")}>
+				onClick={(e) => handleClick(e, "wooden-bucket")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cylinder019.geometry}
 					material={materials["MI_Trim_Furniture.012"]}>
-					{hoveredObject === "Wooden Bucket" &&
-						hoverableClues.includes("Wooden Bucket") && (
+					{hoveredObject === "wooden-bucket" &&
+						hoverableClues.includes("wooden-bucket") && (
 							<Outlines
 								thickness={0.6}
-								color={getOutlineColor("Wooden Bucket")}
+								color={getOutlineColor("wooden-bucket")}
 							/>
 						)}
 				</mesh>
@@ -202,7 +208,7 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[4.017, 0, 0.375]}
 				onPointerEnter={() => handlePointerOver("cauldron")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={() => handleClick("cauldron")}>
+				onClick={(e) => handleClick(e, "cauldron")}>
 				{hoveredObject === "cauldron" &&
 					hoverableClues.includes("cauldron") && (
 						<Outlines thickness={0.6} color={getOutlineColor("cauldron")} />
@@ -273,13 +279,24 @@ export default function Kitchen(kitchenClues, ...props) {
 			</group>
 
 			{/* Carrot Crates */}
-			<group position={[-0.321, 0.863, -2.454]}>
+			<group
+				position={[-0.321, 0.863, -2.454]}
+				onPointerEnter={() => handlePointerOver("vegetable-crate")}
+				onPointerOut={() => handlePointerOut()}
+				onClick={(e) => handleClick(e, "vegetable-crate")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cylinder057.geometry}
-					material={materials["MI_Trim_Furniture.020"]}
-				/>
+					material={materials["MI_Trim_Furniture.020"]}>
+					{hoveredObject === "vegetable-crate" &&
+						hoverableClues.includes("vegetable-crate") && (
+							<Outlines
+								thickness={0.6}
+								color={getOutlineColor("vegetable-crate")}
+							/>
+						)}
+				</mesh>
 				<mesh
 					castShadow
 					receiveShadow
@@ -337,7 +354,7 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[-3.215, 0.816, 1.402]}
 				onPointerEnter={() => handlePointerOver("Mug")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={() => handleClick("Mug")}>
+				onClick={(e) => handleClick(e, "Mug")}>
 				<mesh
 					castShadow
 					receiveShadow
@@ -364,24 +381,33 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[-1.424, 0.827, 1.592]}
 			/>
 
+			{/* Scroll */}
 			<group
-				position={[-2.265, 0.965, 2.241]}
-				onPointerEnter={() => handlePointerOver("SOMETHING")}
+				position={[-1.165, 0.8, 1.841]}
+				onPointerEnter={() => handlePointerOver("scroll")}
 				onPointerOut={() => handlePointerOut()}
-				onClick={() => handleClick("SOMETHING")}>
+				onClick={(e) => handleClick(e, "scroll")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube152.geometry}
-					material={materials.MI_Page_Empty}
-				/>
+					material={materials.MI_Page_Empty}>
+					{hoveredObject === "scroll" && hoverableClues.includes("scroll") && (
+						<Outlines thickness={0.6} color={getOutlineColor("scroll")} />
+					)}
+				</mesh>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube152_1.geometry}
-					material={materials["MI_Trim_Props_Vertex.024"]}
-				/>
+					material={materials["MI_Trim_Props_Vertex.024"]}>
+					{hoveredObject === "scroll" && hoverableClues.includes("scroll") && (
+						<Outlines thickness={0.6} color={getOutlineColor("scroll")} />
+					)}
+				</mesh>
 			</group>
+
+			{/* Empty Shelf */}
 			<group position={[-6.112, 0.607, 0.999]} rotation={[0, 1.566, 0]}>
 				<mesh
 					castShadow
@@ -396,19 +422,34 @@ export default function Kitchen(kitchenClues, ...props) {
 					material={materials["MI_Trim_Furniture.029"]}
 				/>
 			</group>
-			<group position={[3.275, 0, -2.537]} rotation={[0, -0.376, 0]}>
+			{/* 
+			Potions */}
+			<group
+				position={[3.275, 0, -2.537]}
+				rotation={[0, -0.376, 0]}
+				onPointerEnter={() => handlePointerOver("potions")}
+				onPointerOut={() => handlePointerOut()}
+				onClick={(e) => handleClick(e, "potions")}>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube166.geometry}
-					material={materials["MI_Trim_Props_Vertex.026"]}
-				/>
+					material={materials["MI_Trim_Props_Vertex.026"]}>
+					{hoveredObject === "potions" &&
+						hoverableClues.includes("potions") && (
+							<Outlines thickness={0.6} color={getOutlineColor("potions")} />
+						)}
+				</mesh>
 				<mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube166_1.geometry}
-					material={materials["MI_Trim_Metal.042"]}
-				/>
+					material={materials["MI_Trim_Metal.042"]}>
+					{hoveredObject === "potions" &&
+						hoverableClues.includes("potions") && (
+							<Outlines thickness={0.6} color={getOutlineColor("potions")} />
+						)}
+				</mesh>
 				<mesh
 					castShadow
 					receiveShadow

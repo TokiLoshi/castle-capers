@@ -10,7 +10,7 @@ export function CameraController({ target }) {
 
 		idealCameraPosition.copy(playerPosition);
 		idealCameraPosition.z += 3;
-		idealCameraPosition.y += 0.8;
+		idealCameraPosition.y += 1.5;
 
 		// Smooth camera movement
 		state.camera.position.lerp(idealCameraPosition, 0.1);

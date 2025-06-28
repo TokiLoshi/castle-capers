@@ -62,7 +62,7 @@ export const ROOM_CLUES = {
 			description:
 				"You don't have time to read, you have a murderer to catch! But you can see there is a log of finances, it appears the victim was in serious debt.",
 			clueType: "evidence",
-			murderers: ["Adventurers", "Witch"],
+			murderers: ["Adventurer", "Witch"],
 			isClue: true,
 		},
 		{
@@ -109,11 +109,11 @@ export const ROOM_CLUES = {
 			description:
 				"You've never seen so many carrots before. You're surprised the inhabitants haven't turned orange, after all Flamingos are pink because of their diet.",
 			clueType: "evidence",
-			murderers: ["Wizard, Shaun"],
+			murderers: ["Wizard", "Shaun"],
 			isClue: true,
 		},
 		{
-			id: "couldron",
+			id: "cauldron",
 			title: "Dusty Cauldron",
 			description:
 				"It's soot stained and still warm to the touch. Whoever was cooking must have some dust on them.",
@@ -122,12 +122,12 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Wooden Bucket",
+			id: "wooden-bucket",
 			title: "Carrot Top Grave Yard",
 			description:
 				"It's full of carrot tops, and a herb, you know you've smelled that somewhere here already",
 			clueType: "evidence",
-			murderers: ["Hooded Adventurer"],
+			murderers: ["HoodedAdventurer", "Wizard"],
 			isClue: true,
 		},
 		{
@@ -149,21 +149,21 @@ export const ROOM_CLUES = {
 			isClue: true,
 		},
 		{
-			id: "Fork",
-			title: "Pointy Fork",
+			id: "scroll",
+			title: "Soiled Scroll",
 			description:
-				"You tap the prongs, they're surprisingly sharp. Someone could probably do damage if they really wanted to.",
+				"It's a warning, it says beware the one that lurks in the shadows.",
 			clueType: "evidence",
 			murderers: ["HoodedAdventurer", "Man"],
 			isClue: true,
 		},
 		{
-			id: "VegetableCrate",
+			id: "vegetable-crate",
 			title: "Deceptive Veggie Crate",
 			description:
 				"You look past the carrots and discover a hidden drawer, the perfect place to hide the murder weapon. The kitchen is a dangerous place, you think.",
 			clueType: "evidence",
-			murderers: ["Wizard, Shaun"],
+			murderers: ["Wizard", "Shaun"],
 			isClue: true,
 		},
 	],

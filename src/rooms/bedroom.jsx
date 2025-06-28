@@ -58,11 +58,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube001.geometry}
-					material={materials["MI_Trim_Furniture.010"]}
-					// onPointerOver={() => handlePointerOver("bed1")}
-					// onPointerOut={() => handlePointerOut()}
-					// onClick={(e) => handleClick(e, "bed1")}
-				>
+					material={materials["MI_Trim_Furniture.010"]}>
 					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
 						<Outlines thickness={0.6} color={getOutlineColor("bed1")} />
 					)}
@@ -71,11 +67,7 @@ export default function Bedroom(bedroomClues, ...props) {
 					castShadow
 					receiveShadow
 					geometry={nodes.Cube001_1.geometry}
-					material={materials["MI_Trim_Metal.012"]}
-					// onPointerOver={() => handlePointerOver("bed1")}
-					// onPointerOut={() => handlePointerOut()}
-					// onClick={(e) => handleClick(e, "bed1")}
-				>
+					material={materials["MI_Trim_Metal.012"]}>
 					{hoveredObject === "bed1" && hoverableClues.includes("bed1") && (
 						<Outlines thickness={0.6} color={getOutlineColor("bed1")} />
 					)}
