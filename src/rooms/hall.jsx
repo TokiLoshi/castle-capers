@@ -1,17 +1,5 @@
 // import Crown from "../characters/Victim/Crown";
 // import Wizard from "../characters/testimonies/Wizard";
-import Man from "../characters/testimonies/Man";
-import Adventurer from "../characters/testimonies/Adventurer";
-import HoodedAdventurer from "../characters/testimonies/HoodedAdventurer";
-import Witch from "../characters/testimonies/Witch";
-import AstroBee from "../characters/monsters/Astrobee";
-import AstroFrog from "../characters/Monsters/AstroFrog";
-import Bluey from "../characters/Monsters/Bluey";
-import Demon from "../characters/Monsters/Demon";
-import Fish from "../characters/Monsters/Fish";
-import Panda from "../characters/Monsters/Panda";
-import Ninja from "../characters/Ninja";
-import Zombie from "../characters/Zombie";
 import { Wall } from "./components/Wall";
 import { ArchDoor } from "./components/ArchDoor";
 import { DoorRound } from "./components/DoorRound";
