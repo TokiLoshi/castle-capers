@@ -45,7 +45,7 @@ export default function Experience() {
 		<>
 			<Physics>
 				<FernandoTheFlamingo ref={playerRef} />
-				<Cactus />
+				{/* <Cactus /> */}
 				<PerspectiveCamera
 					makeDefault
 					position={useCameraController ? undefined : cameraPosition}

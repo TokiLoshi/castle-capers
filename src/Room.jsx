@@ -60,7 +60,7 @@ export default function Room() {
 	// pass them down as props to the room
 	// generate a track of which room is loaded
 	// Conditionally render the models based on whether the room is loaded
-	const currentRoom = "bedroom";
+	const currentRoom = "kitchen";
 
 	console.log("Available rooms in ROOM_CLUES: ", Object.keys(ROOM_CLUES));
 	console.log("Current clues count: ", Object.keys(currentClues).length);
