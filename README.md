@@ -168,3 +168,6 @@ Possible Players:
 5. Animated Wizard by Quaternius [CC-BY] via Poly Pizza
 
 Your character: Fernando
+
+Stylized Wood Planks 002 Wooden Textures: https://3dtextures.me/2024/07/19/stylized-wood-planks-002/
+created by João Paulo
