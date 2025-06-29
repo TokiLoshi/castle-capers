@@ -13,10 +13,14 @@ import SolveModal from "./modals/SolveModal";
 import DialogModal from "./modals/DialogModal";
 
 export default function App() {
-	const { showStats, toneMappingEnabled } = useControls("Debug", {
-		showStats: true,
-		toneMappingEnabled: true,
-	});
+	const { showStats, toneMappingEnabled } = useControls(
+		"Debug",
+		{
+			showStats: true,
+			toneMappingEnabled: true,
+		},
+		{ collapsed: true }
+	);
 
 	return (
 		<>

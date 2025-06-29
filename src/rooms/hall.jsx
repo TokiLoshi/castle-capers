@@ -3,9 +3,9 @@
 import { Wall } from "./components/Wall";
 import { ArchDoor } from "./components/ArchDoor";
 import { DoorRound } from "./components/DoorRound";
-import { TrapDoor } from "./components/TrapDoor";
+// import { TrapDoor } from "./components/TrapDoor";
 import { Window } from "./components/Window";
-import { WallTower } from "./components/WallTower";
+// import { WallTower } from "./components/WallTower";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { useControls, folder } from "leva";
@@ -19,6 +19,24 @@ export default function Hall() {
 	const [hoveredDoor, setHoveredDoor] = useState(null);
 
 	const {
+		door1Px,
+		door1Py,
+		door1Pz,
+		door1Rx,
+		door1Ry,
+		door1Rz,
+		door2Px,
+		door2Py,
+		door2Pz,
+		door2Rx,
+		door2Ry,
+		door2Rz,
+		door3Px,
+		door3Py,
+		door3Pz,
+		door3Rx,
+		door3Ry,
+		door3Rz,
 		wall1Px,
 		wall1Py,
 		wall1Pz,
@@ -50,32 +68,82 @@ export default function Hall() {
 		window2Ry,
 		window2Rz,
 	} = useControls({
-		Walls: folder({
-			// wall 1 Position
-			wall1Px: { value: 2.9, min: -10, max: 10, step: 0.01 },
-			wall1Py: { value: 0, min: -10, max: 10, step: 0.01 },
-			wall1Pz: { value: -2, min: -10, max: 10, step: 0.01 },
-			// wall 1 Rotation
-			wall1RotationX: { value: 0, min: -3, max: 3, step: 0.01 },
-			wall1RotationY: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
-			wall1RotationZ: { value: 0, min: -3, max: 3, step: 0.01 },
-			// wall 2 Position
-			wall2Px: { value: -3, min: -10, max: 10, step: 0.01 },
-			wall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
-			wall2Pz: { value: 4, min: -10, max: 10, step: 0.01 },
-			// wall 2 Rotation
-			wall2RotationX: { value: 0, min: -3, max: 3, step: 0.01 },
-			wall2RotationY: { value: -Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
-			wall2RotationZ: { value: 0, min: -3, max: 3, step: 0.01 },
-			// wall 3 Position
-			wall3Px: { value: 2.9, min: -10, max: 10, step: 0.01 },
-			wall3Py: { value: 2.9, min: -10, max: 10, step: 0.01 },
-			wall3Pz: { value: 2.9, min: -10, max: 10, step: 0.01 },
-			// wall 3 Rotation
-			wall3RotationX: { value: 0, min: -3, max: 3, step: 0.01 },
-			wall3RotationY: { value: 0, min: -3, max: 3, step: 0.01 },
-			wall3RotationZ: { value: 0, min: -3, max: 3, step: 0.01 },
-		}),
+		Doors: folder(
+			{
+				door1Px: { value: 2, min: -10, max: 10, step: 0.01 },
+				door1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				door1Pz: { value: 3, min: -10, max: 10, step: 0.01 },
+				door1Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				door1Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				door1Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				door1Scale: { value: 0.5, min: -1, max: 10, step: 0.01 },
+				door2Px: { value: -2, min: -10, max: 10, step: 0.01 },
+				door2Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				door2Pz: { value: -3, min: -10, max: 10, step: 0.01 },
+				door2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				door2Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				door2Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				door2Scale: { value: 0.5, min: -1, max: 10, step: 0.01 },
+				door3Px: { value: 2, min: -10, max: 10, step: 0.01 },
+				door3Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				door3Pz: { value: 7, min: -10, max: 10, step: 0.01 },
+				door3Scale: { value: 0.5, min: -1, max: 10, step: 0.01 },
+				door3Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				door3Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				door3Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
+		Walls: folder(
+			{
+				// wall 1 Position
+				wall1Px: { value: 2.9, min: -10, max: 10, step: 0.01 },
+				wall1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				wall1Pz: { value: -2, min: -10, max: 10, step: 0.01 },
+				// wall 1 Rotation
+				wall1Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				wall1Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				wall1Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// wall 2 Position
+				wall2Px: { value: -3, min: -10, max: 10, step: 0.01 },
+				wall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				wall2Pz: { value: 4, min: -10, max: 10, step: 0.01 },
+				// wall 2 Rotation
+				wall2Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				wall2Ry: { value: -Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				wall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// wall 3 Position
+				wall3Px: { value: -2.9, min: -10, max: 10, step: 0.01 },
+				wall3Py: { value: 2.9, min: -10, max: 10, step: 0.01 },
+				wall3Pz: { value: 2.9, min: -10, max: 10, step: 0.01 },
+				// wall 3 Rotation
+				wall3Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				wall3Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				wall3Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// window 1 position
+			},
+			{ collapsed: true }
+		),
+		Windows: folder(
+			{
+				window1Px: { value: 0, min: -10, max: 10, step: 0.01 },
+				window1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				window1Pz: { value: 0, min: -10, max: 10, step: 0.01 },
+				// window 1 rotation
+				window1Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				window1Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				window1Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				// window 2 position
+				window2Px: { value: 0, min: -20, max: 20, step: 0.01 },
+				window2Py: { value: 0, min: -20, max: 20, step: 0.01 },
+				window2Pz: { value: 0, min: -20, max: 20, step: 0.01 },
+				// window 2 rotation
+				window2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				window2Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				window2Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
 	});
 
 	const handleDoorClick = (roomName) => {
@@ -97,7 +165,11 @@ export default function Hall() {
 
 	return (
 		<>
-			<Wall position={[wall1Px, wall1Py, wall1Pz]} scale={3} />
+			<Wall
+				position={[wall1Px, wall1Py, wall1Pz]}
+				rotation={[wall1Rx, wall1Ry, wall1Rz]}
+				scale={3}
+			/>
 			<Wall
 				position={[wall2Px, wall2Py, wall2Pz]}
 				scale={3}
@@ -108,24 +180,34 @@ export default function Hall() {
 				rotation={[wall3Rx, wall3Ry, wall3Rz]}
 				scale={3}
 			/>
-			<Window position={[-4, 0, -2]} />
-			<ArchDoor position={[-2, 0, 3]} />
+			<Window
+				position={[window1Px, window1Py, window1Pz]}
+				rotation={[window1Rx, window1Ry, window1Rz]}
+			/>
+			<Window
+				position={[window2Px, window2Py, window2Pz]}
+				rotation={[window2Rx, window2Ry, window2Rz]}
+			/>
+			{/* <ArchDoor position={[-2, 0, 3]} /> */}
 			<DoorRound
-				position={[2, 0, 3]}
+				position={[door1Px, door1Py, door1Pz]}
+				rotation={[door1Rx, door1Ry, door1Rz]}
 				onPointerOver={() => handleDoorHover("bedroom")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("bedroom")}
 				isHovered={hoveredDoor === "bedroom"}
 			/>
 			<DoorRound
-				position={[2, 0, 5]}
+				position={[door2Px, door2Py, door2Pz]}
+				rotation={[door2Rx, door2Ry, door2Rz]}
 				onPointerOver={() => handleDoorHover("library")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("library")}
 				isHovered={hoveredDoor === "library"}
 			/>
 			<DoorRound
-				position={[2, 0, 7]}
+				position={[door3Px, door3Py, door3Pz]}
+				rotation={[door3Rx, door3Ry, door3Rz]}
 				onPointerOver={() => handleDoorHover("kitchen")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("kitchen")}

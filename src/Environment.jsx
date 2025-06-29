@@ -10,23 +10,31 @@ export default function Environment() {
 		directionalPosition,
 		enableShadows,
 		shadowOpacity,
-	} = useControls("Lighting", {
-		ambientIntensity: { value: 1.0, min: 0, max: 2, step: 0.1 },
-		directionalIntensity: { value: 1, min: 0, max: 3, step: 0.1 },
-		directionalPosition: { value: [10, 10, 5], step: 0.5 },
-		enableShadows: true,
-		shadowOpacity: { value: 0.4, min: 0, max: 1, step: 0.1 },
-	});
+	} = useControls(
+		"Lighting",
+		{
+			ambientIntensity: { value: 1.0, min: 0, max: 2, step: 0.1 },
+			directionalIntensity: { value: 1, min: 0, max: 3, step: 0.1 },
+			directionalPosition: { value: [10, 10, 5], step: 0.5 },
+			enableShadows: true,
+			shadowOpacity: { value: 0.4, min: 0, max: 1, step: 0.1 },
+		},
+		{ collapsed: true }
+	);
 
 	// Grid:
 	const { showGrid, gridSize, gridDivisions, gridColor, followCamera } =
-		useControls("Grid", {
-			showGrid: true,
-			gridSize: { value: 20, min: 5, max: 50 },
-			gridDivisions: { value: 20, min: 5, max: 50 },
-			gridColor: "#ff0000",
-			followCamera: false,
-		});
+		useControls(
+			"Grid",
+			{
+				showGrid: true,
+				gridSize: { value: 20, min: 5, max: 50 },
+				gridDivisions: { value: 20, min: 5, max: 50 },
+				gridColor: "#ff0000",
+				followCamera: false,
+			},
+			{ collapsed: true }
+		);
 
 	return (
 		<>
