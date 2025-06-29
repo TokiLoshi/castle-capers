@@ -104,6 +104,10 @@ export const useGameStore = create(
 		murderer: null,
 		murderWeapon: null,
 
+		// Game navigation
+		currentRoom: "hall",
+		previousRoom: null,
+
 		// UI state
 		activeClue: null,
 		activeTestimony: null,
@@ -118,6 +122,29 @@ export const useGameStore = create(
 		isDialogOpen: false,
 		currentDialogIndex: 0,
 		dialogHasEnded: false,
+
+		changeRoom: (newRoom) => {
+			const { currentRoom } = get();
+			console.log(`Changing from ${currentRoom} to ${newRoom}`);
+			set({
+				previousRoom: currentRoom,
+				currentRoom: newRoom,
+			});
+		},
+
+		goBacktToHall: () => {
+			const { currentRoom } = get();
+			console.log(`Going back tot he hall from ${currentRoom}`);
+			set({
+				previousRoom: currentRoom,
+				currentRoom: "hall",
+			});
+		},
+
+		getCurrentRoom: () => {
+			const { currentRoom } = get();
+			return currentRoom;
+		},
 
 		initializeGame: () => {
 			console.log("Initializing game! Standby...");

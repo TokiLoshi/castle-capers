@@ -56,8 +56,8 @@ export default function Adventurer(props) {
 	console.log("Current Animation: ", currentAnimation);
 
 	const handlePointerOver = () => {
-		console.log(`Hovered over: ${npcId}`);
 		setHoveredCharacter(npcId);
+		console.log(`Hovered over: ${hoveredCharacter}`);
 		document.body.style.cursor = "pointer";
 	};
 

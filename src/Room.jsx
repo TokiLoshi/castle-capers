@@ -16,7 +16,7 @@ import Wizard from "./characters/testimonies/Wizard";
 
 export default function Room() {
 	// get the clues from the game config
-	const { currentClues, gameStarted } = useGameStore();
+	const { currentClues, gameStarted, currentRoom } = useGameStore();
 
 	if (!gameStarted) {
 		console.log("Game not started, returning");
@@ -24,6 +24,7 @@ export default function Room() {
 	}
 	console.log("DEBUGGING!");
 	console.log("Current Clues: ", currentClues);
+	console.log("Currrent Room: ", currentRoom);
 	console.log("Current clues keys: ", Object.keys(currentClues));
 
 	const createClueToRoomMap = () => {
@@ -44,9 +45,9 @@ export default function Room() {
 
 		Object.entries(currentClues).forEach(([clueId, clue]) => {
 			const clueRoom = clueToRoomMap[clueId];
-			console.log(`Clue ${clueId} belongs to room: ${clueRoom} `);
+			// console.log(`Clue ${clueId} belongs to room: ${clueRoom} `);
 			if (clueRoom === roomName) {
-				console.log(`Adding clue ${clueId} to ${roomName}`);
+				// console.log(`Adding clue ${clueId} to ${roomName}`);
 				roomClues[clueId] = {
 					...clue,
 					room: clueRoom,
@@ -66,7 +67,7 @@ export default function Room() {
 	// pass them down as props to the room
 	// generate a track of which room is loaded
 	// Conditionally render the models based on whether the room is loaded
-	const currentRoom = "library";
+	// const currentRoom = "hall";
 
 	console.log("Available rooms in ROOM_CLUES: ", Object.keys(ROOM_CLUES));
 	console.log("Current clues count: ", Object.keys(currentClues).length);

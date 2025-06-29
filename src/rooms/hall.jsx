@@ -6,29 +6,58 @@ import { DoorRound } from "./components/DoorRound";
 import { TrapDoor } from "./components/TrapDoor";
 import { Window } from "./components/Window";
 import { WallTower } from "./components/WallTower";
+import { useState } from "react";
+import { useGameStore } from "../store/gameStore";
 
 export default function Hall() {
+	// const bedroomRef = useRef();
+	// const libraryRef = useRef();
+	// const kitchenRef = useRef();
+
+	const { changeRoom } = useGameStore();
+	const [hoveredDoor, setHoveredDoor] = useState(null);
+
+	const handleDoorClick = (roomName) => {
+		console.log(`Clicked door to ${roomName}`);
+		changeRoom(roomName);
+	};
+
+	const handleDoorHover = (doorName) => {
+		setHoveredDoor(doorName);
+		console.log(`Hovered over: ${hoveredDoor}`);
+		document.body.style.cursor = "pointer";
+	};
+
+	const handleDoorHoverOut = () => {
+		setHoveredDoor(null);
+		document.body.style.cursor = "default";
+	};
+
 	return (
 		<>
-			{/* <Crown position={[2, 0, 0]} /> */}
-			{/* <Wizard position={[2, 0, 0]} /> */}
-			{/* <Adventurer position={[2, 0, 0]} /> */}
-			{/* <HoodedAdventurer position={[2, 0, 0]} /> */}
-			{/* <Man position={[2, 0, 0]} /> */}
-			{/* <Witch position={[2, 0, 0]} /> */}
-			{/* <AstroBee position={[2, 0, 0]} /> */}
-			{/* <AstroFrog position={[2, 0, 0]} /> */}
-			{/* <Bluey position={[2, 0, 0]} /> */}
-			{/* <Demon position={[2, 0, 0]} /> */}
-			{/* <Fish position={[2, 0, 0]} /> */}
-			{/* <Panda position={[2, 0, 0]} /> */}
-			{/* <Ninja position={[2, 0, 0]} /> */}
-			{/* <Zombie position={[2, 0, 0]} /> */}
 			<Wall position={[2, 0, -2]} scale={4} />
 			<Window position={[-4, 0, -2]} />
 			<ArchDoor position={[-2, 0, 3]} />
-			<DoorRound position={[2, 0, 3]} />
-			<TrapDoor position={[5, 0, 2]} />
+			<DoorRound
+				position={[2, 0, 3]}
+				onPointerOver={() => handleDoorHover("bedroom")}
+				onPointerOut={() => handleDoorHoverOut()}
+				onClick={() => handleDoorClick("bedroom")}
+				hovered={hoveredDoor}
+			/>
+			<DoorRound
+				position={[2, 0, 5]}
+				onPointerOver={() => handleDoorHover("library")}
+				onPointerOut={() => handleDoorHoverOut()}
+				onClick={() => handleDoorClick("library")}
+			/>
+			<DoorRound
+				position={[2, 0, 7]}
+				onPointerOver={() => handleDoorHover("kitchen")}
+				onPointerOut={() => handleDoorHoverOut()}
+				onClick={() => handleDoorClick("kitchen")}
+			/>
+			<TrapDoor position={[3, 0, 2]} />
 			<WallTower />
 		</>
 	);
