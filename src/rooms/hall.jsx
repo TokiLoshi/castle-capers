@@ -8,6 +8,7 @@ import { Window } from "./components/Window";
 import { WallTower } from "./components/WallTower";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
+import { useControls, folder } from "leva";
 
 export default function Hall() {
 	// const bedroomRef = useRef();
@@ -16,6 +17,66 @@ export default function Hall() {
 
 	const { changeRoom } = useGameStore();
 	const [hoveredDoor, setHoveredDoor] = useState(null);
+
+	const {
+		wall1Px,
+		wall1Py,
+		wall1Pz,
+		wall1Rx,
+		wall1Ry,
+		wall1Rz,
+		wall2Px,
+		wall2Py,
+		wall2Pz,
+		wall2Rx,
+		wall2Ry,
+		wall2Rz,
+		wall3Px,
+		wall3Py,
+		wall3Pz,
+		wall3Rx,
+		wall3Ry,
+		wall3Rz,
+		window1Px,
+		window1Py,
+		window1Pz,
+		window1Rx,
+		window1Ry,
+		window1Rz,
+		window2Px,
+		window2Py,
+		window2Pz,
+		window2Rx,
+		window2Ry,
+		window2Rz,
+	} = useControls({
+		Walls: folder({
+			// wall 1 Position
+			wall1Px: { value: 2.9, min: -10, max: 10, step: 0.01 },
+			wall1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+			wall1Pz: { value: -2, min: -10, max: 10, step: 0.01 },
+			// wall 1 Rotation
+			wall1RotationX: { value: 0, min: -3, max: 3, step: 0.01 },
+			wall1RotationY: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+			wall1RotationZ: { value: 0, min: -3, max: 3, step: 0.01 },
+			// wall 2 Position
+			wall2Px: { value: -3, min: -10, max: 10, step: 0.01 },
+			wall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
+			wall2Pz: { value: 4, min: -10, max: 10, step: 0.01 },
+			// wall 2 Rotation
+			wall2RotationX: { value: 0, min: -3, max: 3, step: 0.01 },
+			wall2RotationY: { value: -Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+			wall2RotationZ: { value: 0, min: -3, max: 3, step: 0.01 },
+			// wall 3 Position
+			wall3Px: { value: 2.9, min: -10, max: 10, step: 0.01 },
+			wall3Py: { value: 2.9, min: -10, max: 10, step: 0.01 },
+			wall3Pz: { value: 2.9, min: -10, max: 10, step: 0.01 },
+			// wall 3 Rotation
+			wall3RotationX: { value: 0, min: -3, max: 3, step: 0.01 },
+			wall3RotationY: { value: 0, min: -3, max: 3, step: 0.01 },
+			wall3RotationZ: { value: 0, min: -3, max: 3, step: 0.01 },
+		}),
+	});
 
 	const handleDoorClick = (roomName) => {
 		console.log(`Clicked door to ${roomName}`);
@@ -36,7 +97,17 @@ export default function Hall() {
 
 	return (
 		<>
-			<Wall position={[2, 0, -2]} scale={4} />
+			<Wall position={[wall1Px, wall1Py, wall1Pz]} scale={3} />
+			<Wall
+				position={[wall2Px, wall2Py, wall2Pz]}
+				scale={3}
+				rotation={[wall2Rx, wall2Ry, wall2Rz]}
+			/>
+			<Wall
+				position={[wall3Px, wall3Py, wall3Pz]}
+				rotation={[wall3Rx, wall3Ry, wall3Rz]}
+				scale={3}
+			/>
 			<Window position={[-4, 0, -2]} />
 			<ArchDoor position={[-2, 0, 3]} />
 			<DoorRound
@@ -60,8 +131,8 @@ export default function Hall() {
 				onClick={() => handleDoorClick("kitchen")}
 				isHovered={hoveredDoor === "kitchen"}
 			/>
-			<TrapDoor position={[3, 0, 2]} />
-			<WallTower />
+			{/* <TrapDoor position={[3, 0, 2]} />
+			<WallTower /> */}
 		</>
 	);
 }
