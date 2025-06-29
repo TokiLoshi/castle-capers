@@ -7,6 +7,12 @@ import Hall from "./rooms/hall";
 import Outside from "./rooms/outside";
 import { useGameStore, GAME_CONFIG } from "./store/gameStore";
 import { ROOM_CLUES } from "./data/roomClues";
+import Adventurer from "./characters/testimonies/Adventurer";
+import HoodedAdventurer from "./characters/testimonies/HoodedAdventurer";
+import Man from "./characters/testimonies/Man";
+import Shaun from "./characters/testimonies/Shaun";
+import Witch from "./characters/testimonies/Witch";
+import Wizard from "./characters/testimonies/Wizard";
 
 export default function Room() {
 	// get the clues from the game config
@@ -104,10 +110,35 @@ export default function Room() {
 				anchorY='middle'>
 				WEST (-X)
 			</Text>
-			{currentRoom === "bedroom" && <Bedroom clues={bedroomClues} />}
-			{currentRoom === "library" && <Library clues={libraryClues} />}
-			{currentRoom === "kitchen" && <Kitchen clues={kitchenClues} />}
-			{/* <Bedroom clues={bedroomClues} /> */}
+			{currentRoom === "bedroom" && (
+				<>
+					<Bedroom clues={bedroomClues} />
+					<Adventurer position={[2.8, 0, 1]} />
+					<HoodedAdventurer position={[-3.8, 0, -1]} />
+				</>
+			)}
+
+			{currentRoom === "kitchen" && (
+				<>
+					<Kitchen clues={kitchenClues} />
+					<Man position={[-4.7, 0, 1.2]} rotation={[0, -0.3, 0]} />
+					<Shaun position={[2.8, 0, 1.5]} rotation={[0, -0.7, 0]} />
+				</>
+			)}
+			{currentRoom === "library" && (
+				<>
+					<Library clues={libraryClues} />
+					<Witch position={[0.8, 0, -3.1]} rotation={[0, -0.5, 0]} />
+					<Wizard position={[-4.8, 0, -3.1]} rotation={[0, 0.7, 0]} />
+				</>
+			)}
+
+			{currentRoom === "hall" && (
+				<>
+					<Hall />
+				</>
+			)}
+
 			{/* <Library /> */}
 			{/* <Hall /> */}
 			{/* <Kitchen /> */}
