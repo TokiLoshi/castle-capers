@@ -7,6 +7,9 @@ import { useGLTF, Outlines } from "@react-three/drei";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { DoorRound } from "./components/DoorRound";
+import { Wall } from "./components/Wall";
+import { folder, useControls } from "leva";
+import { Window } from "./components/Window";
 
 export default function Kitchen(kitchenClues, ...props) {
 	const { nodes, materials } = useGLTF("models/rooms/kitchen.glb");
@@ -63,19 +66,166 @@ export default function Kitchen(kitchenClues, ...props) {
 		document.body.style.cursor = "default";
 	};
 
+	const {
+		lWall1Px,
+		lWall1Py,
+		lWall1Pz,
+		lWall1Rx,
+		lWall1Ry,
+		lWall1Rz,
+		lWall2Px,
+		lWall2Py,
+		lWall2Pz,
+		lWall2Rx,
+		lWall2Ry,
+		lWall2Rz,
+		lWall3Px,
+		lWall3Py,
+		lWall3Pz,
+		lWall3Rx,
+		lWall3Ry,
+		lWall3Rz,
+		lWall4Px,
+		lWall4Py,
+		lWall4Pz,
+		lWall4Rx,
+		lWall4Ry,
+		lWall4Rz,
+		lWall5Px,
+		lWall5Py,
+		lWall5Pz,
+		lWall5Rx,
+		lWall5Ry,
+		lWall5Rz,
+		lWin1Px,
+		lWin1Py,
+		lWin1Pz,
+		lWin1Rx,
+		lWin1Ry,
+		lWin1Rz,
+		lWin2Px,
+		lWin2Py,
+		lWin2Pz,
+		lWin2Rx,
+		lWin2Ry,
+		lWin2Rz,
+	} = useControls({
+		lWalls: folder(
+			{
+				// wall 1 Position
+				lWall1Px: { value: 1.65, min: -10, max: 10, step: 0.01 },
+				lWall1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWall1Pz: { value: -3.2, min: -10, max: 10, step: 0.01 },
+				// lWall 1 Rotation
+				lWall1Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall1Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall1Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 2 Position
+				lWall2Px: { value: -5.6, min: -10, max: 10, step: 0.01 },
+				lWall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWall2Pz: { value: -1.9, min: -10, max: 10, step: 0.01 },
+				// lWall 2 Rotation
+				lWall2Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall2Ry: { value: 0.69, min: -3, max: 3, step: 0.01 },
+				lWall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 3 Position
+				lWall3Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				lWall3Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWall3Pz: { value: -2, min: -10, max: 10, step: 0.01 },
+				// lWall 3 Rotation
+				lWall3Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall3Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				lWall3Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 4 Position
+				lWall4Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				lWall4Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWall4Pz: { value: 2, min: -10, max: 10, step: 0.01 },
+				// lWall 4 Rotation
+				lWall4Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall4Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				lWall4Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 4 Position
+				lWall5Px: { value: 5.56, min: -10, max: 10, step: 0.01 },
+				lWall5Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWall5Pz: { value: -3.2, min: -10, max: 10, step: 0.01 },
+				// lWall 4 Rotation
+				lWall5Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall5Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall5Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
+		Windows: folder(
+			{
+				lWin1Px: { value: -2.2, min: -10, max: 10, step: 0.01 },
+				lWin1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWin1Pz: { value: -3.1, min: -10, max: 10, step: 0.01 },
+				// lWin 1 rotation
+				lWin1Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWin1Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWin1Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				// lWin 2 position
+				lWin2Px: { value: -6.8, min: -20, max: 20, step: 0.01 },
+				lWin2Py: { value: 0, min: -20, max: 20, step: 0.01 },
+				lWin2Pz: { value: 0.89, min: -20, max: 20, step: 0.01 },
+				// lWin 2 rotation
+				lWin2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWin2Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
+				lWin2Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
+	});
+
 	return (
 		<>
+			<Wall
+				position={[lWall1Px, lWall1Py, lWall1Pz]}
+				rotation={[lWall1Rx, lWall1Ry, lWall1Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[lWall2Px, lWall2Py, lWall2Pz]}
+				scale={2}
+				rotation={[lWall2Rx, lWall2Ry, lWall2Rz]}
+			/>
+			<Wall
+				position={[lWall3Px, lWall3Py, lWall3Pz]}
+				rotation={[lWall3Rx, lWall3Ry, lWall3Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[lWall4Px, lWall4Py, lWall4Pz]}
+				rotation={[lWall4Rx, lWall4Ry, lWall4Rz]}
+				scale={2}
+			/>
+			<Window
+				scale={2}
+				position={[lWin1Px, lWin1Py, lWin1Pz]}
+				rotation={[lWin1Rx, lWin1Ry, lWin1Rz]}
+			/>
+			<Window
+				position={[lWin2Px, lWin2Py, lWin2Pz]}
+				rotation={[lWin2Rx, lWin2Ry, lWin2Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[lWall5Px, lWall5Py, lWall5Pz]}
+				rotation={[lWall5Rx, lWall5Ry, lWall5Rz]}
+				scale={2}
+			/>
+			<DoorRound
+				position={[6.1, 0, 2.3]}
+				scale={3}
+				rotation={[0, -Math.PI * 0.5, 0]}
+				onPointerOver={() => handleDoorHover("hall")}
+				onPointerOut={() => handleDoorHoverOut()}
+				onClick={() => handleDoorClick("hall")}
+				isHovered={hoveredDoor === "hall"}
+			/>
 			<group {...props} dispose={null}>
 				{/* Large sack by the empty shelf */}
-				<DoorRound
-					position={[4.5, 0, 4.3]}
-					scale={3}
-					rotation={[0, -Math.PI * 0.5, 0]}
-					onPointerOver={() => handleDoorHover("hall")}
-					onPointerOut={() => handleDoorHoverOut()}
-					onClick={() => handleDoorClick("hall")}
-					isHovered={hoveredDoor === "hall"}
-				/>
+
 				<group
 					position={[-5.715, 0, 2.03]}
 					rotation={[-Math.PI, 0.95, -Math.PI]}
