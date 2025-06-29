@@ -74,7 +74,7 @@ export default function Room() {
 
 	return (
 		<>
-			<Text
+			{/* <Text
 				position={[0, 0.1, 5]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				fontSize={1}
@@ -82,8 +82,8 @@ export default function Room() {
 				anchorX='center'
 				anchorY='middle'>
 				NORTH (+Z)
-			</Text>
-			<Text
+			</Text> */}
+			{/* <Text
 				position={[0, 0.1, -5]}
 				rotation={[-Math.PI / 2, 0, 0]}
 				fontSize={1}
@@ -110,7 +110,7 @@ export default function Room() {
 				anchorX='center'
 				anchorY='middle'>
 				WEST (-X)
-			</Text>
+			</Text> */}
 			{currentRoom === "bedroom" && (
 				<>
 					<Bedroom clues={bedroomClues} />

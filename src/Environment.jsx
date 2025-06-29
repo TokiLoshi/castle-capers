@@ -48,7 +48,7 @@ export default function Environment() {
 		"Floor Material",
 		{
 			useTextures: true,
-			floorRepeat: { value: 4, min: 1, max: 20, step: 1 },
+			floorRepeat: { value: 10, min: 1, max: 20, step: 1 },
 			floorRoughness: { value: 0.9, min: 0, max: 1, step: 0.01 },
 			floorMetalness: { value: 0.1, min: 0, max: 1, step: 0.01 },
 			displacementScale: { value: 0.05, min: 0, max: 0.1, step: 0.01 },

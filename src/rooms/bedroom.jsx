@@ -6,6 +6,9 @@ import { useGLTF, Outlines } from "@react-three/drei";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { DoorRound } from "./components/DoorRound";
+import { Wall } from "./components/Wall";
+import { folder, useControls } from "leva";
+import { Window } from "./components/Window";
 
 export default function Bedroom(bedroomClues, ...props) {
 	console.log("Clues passed to bedroom: ", bedroomClues);
@@ -66,16 +69,162 @@ export default function Bedroom(bedroomClues, ...props) {
 		document.body.style.cursor = "grab";
 	};
 
+	const {
+		bWall1Px,
+		bWall1Py,
+		bWall1Pz,
+		bWall1Rx,
+		bWall1Ry,
+		bWall1Rz,
+		bWall2Px,
+		bWall2Py,
+		bWall2Pz,
+		bWall2Rx,
+		bWall2Ry,
+		bWall2Rz,
+		bWall3Px,
+		bWall3Py,
+		bWall3Pz,
+		bWall3Rx,
+		bWall3Ry,
+		bWall3Rz,
+		bWall4Px,
+		bWall4Py,
+		bWall4Pz,
+		bWall4Rx,
+		bWall4Ry,
+		bWall4Rz,
+		bWall5Px,
+		bWall5Py,
+		bWall5Pz,
+		bWall5Rx,
+		bWall5Ry,
+		bWall5Rz,
+		bWin1Px,
+		bWin1Py,
+		bWin1Pz,
+		bWin1Rx,
+		bWin1Ry,
+		bWin1Rz,
+		bWin2Px,
+		bWin2Py,
+		bWin2Pz,
+		bWin2Rx,
+		bWin2Ry,
+		bWin2Rz,
+	} = useControls({
+		BWalls: folder(
+			{
+				// wall 1 Position
+				bWall1Px: { value: 1.65, min: -10, max: 10, step: 0.01 },
+				bWall1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWall1Pz: { value: -3.2, min: -10, max: 10, step: 0.01 },
+				// bWall 1 Rotation
+				bWall1Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				bWall1Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				bWall1Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// bWall 2 Position
+				bWall2Px: { value: -5.6, min: -10, max: 10, step: 0.01 },
+				bWall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWall2Pz: { value: -1.9, min: -10, max: 10, step: 0.01 },
+				// bWall 2 Rotation
+				bWall2Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				bWall2Ry: { value: 0.69, min: -3, max: 3, step: 0.01 },
+				bWall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// bWall 3 Position
+				bWall3Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				bWall3Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWall3Pz: { value: -2, min: -10, max: 10, step: 0.01 },
+				// bWall 3 Rotation
+				bWall3Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				bWall3Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				bWall3Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// bWall 4 Position
+				bWall4Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				bWall4Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWall4Pz: { value: 2, min: -10, max: 10, step: 0.01 },
+				// bWall 4 Rotation
+				bWall4Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				bWall4Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				bWall4Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// bWall 4 Position
+				bWall5Px: { value: 5.56, min: -10, max: 10, step: 0.01 },
+				bWall5Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWall5Pz: { value: -3.2, min: -10, max: 10, step: 0.01 },
+				// bWall 4 Rotation
+				bWall5Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				bWall5Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				bWall5Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
+		Windows: folder(
+			{
+				bWin1Px: { value: -2.2, min: -10, max: 10, step: 0.01 },
+				bWin1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWin1Pz: { value: -3.1, min: -10, max: 10, step: 0.01 },
+				// bWin 1 rotation
+				bWin1Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWin1Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWin1Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				// bWin 2 position
+				bWin2Px: { value: -6.8, min: -20, max: 20, step: 0.01 },
+				bWin2Py: { value: 0, min: -20, max: 20, step: 0.01 },
+				bWin2Pz: { value: 0.89, min: -20, max: 20, step: 0.01 },
+				// bWin 2 rotation
+				bWin2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWin2Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
+				bWin2Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
+	});
+
 	return (
 		<>
 			<DoorRound
-				position={[5.5, 0, -0.3]}
+				position={[6.1, 0, 1.3]}
 				scale={3}
 				rotation={[0, -Math.PI * 0.5, 0]}
 				onPointerOver={() => handleDoorHover("hall")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("hall")}
 				isHovered={hoveredDoor === "hall"}
+			/>
+			<Wall
+				position={[bWall1Px, bWall1Py, bWall1Pz]}
+				rotation={[bWall1Rx, bWall1Ry, bWall1Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[bWall2Px, bWall2Py, bWall2Pz]}
+				scale={2}
+				rotation={[bWall2Rx, bWall2Ry, bWall2Rz]}
+			/>
+			<Wall
+				position={[bWall3Px, bWall3Py, bWall3Pz]}
+				rotation={[bWall3Rx, bWall3Ry, bWall3Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[bWall4Px, bWall4Py, bWall4Pz]}
+				rotation={[bWall4Rx, bWall4Ry, bWall4Rz]}
+				scale={2}
+			/>
+			<Window
+				scale={2}
+				position={[bWin1Px, bWin1Py, bWin1Pz]}
+				rotation={[bWin1Rx, bWin1Ry, bWin1Rz]}
+			/>
+			<Window
+				position={[bWin2Px, bWin2Py, bWin2Pz]}
+				rotation={[bWin2Rx, bWin2Ry, bWin2Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[bWall5Px, bWall5Py, bWall5Pz]}
+				rotation={[bWall5Rx, bWall5Ry, bWall5Rz]}
+				scale={2}
 			/>
 
 			<group {...props} dispose={null}>
