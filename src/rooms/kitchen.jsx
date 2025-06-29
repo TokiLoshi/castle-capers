@@ -74,6 +74,7 @@ export default function Kitchen(kitchenClues, ...props) {
 					onPointerOver={() => handleDoorHover("hall")}
 					onPointerOut={() => handleDoorHoverOut()}
 					onClick={() => handleDoorClick("hall")}
+					isHovered={hoveredDoor === "hall"}
 				/>
 				<group
 					position={[-5.715, 0, 2.03]}

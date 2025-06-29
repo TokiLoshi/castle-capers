@@ -24,13 +24,14 @@ export default function Hall() {
 
 	const handleDoorHover = (doorName) => {
 		setHoveredDoor(doorName);
-		console.log(`Hovered over: ${hoveredDoor}`);
+		console.log(`Hovered over: ${doorName}`);
 		document.body.style.cursor = "pointer";
 	};
 
 	const handleDoorHoverOut = () => {
 		setHoveredDoor(null);
-		document.body.style.cursor = "default";
+		console.log("Hovered out");
+		document.body.style.cursor = "grab";
 	};
 
 	return (
@@ -43,19 +44,21 @@ export default function Hall() {
 				onPointerOver={() => handleDoorHover("bedroom")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("bedroom")}
-				hovered={hoveredDoor}
+				isHovered={hoveredDoor === "bedroom"}
 			/>
 			<DoorRound
 				position={[2, 0, 5]}
 				onPointerOver={() => handleDoorHover("library")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("library")}
+				isHovered={hoveredDoor === "library"}
 			/>
 			<DoorRound
 				position={[2, 0, 7]}
 				onPointerOver={() => handleDoorHover("kitchen")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("kitchen")}
+				isHovered={hoveredDoor === "kitchen"}
 			/>
 			<TrapDoor position={[3, 0, 2]} />
 			<WallTower />

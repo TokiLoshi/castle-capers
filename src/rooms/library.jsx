@@ -73,6 +73,7 @@ export default function Library(libraryClues, ...props) {
 				onPointerOver={() => handleDoorHover("hall")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("hall")}
+				isHovered={hoveredDoor === "hall"}
 			/>
 
 			<group {...props} dispose={null}>

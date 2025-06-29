@@ -63,18 +63,19 @@ export default function Bedroom(bedroomClues, ...props) {
 
 	const handleDoorHoverOut = () => {
 		setHoveredDoor(null);
-		document.body.style.cursor = "default";
+		document.body.style.cursor = "grab";
 	};
 
 	return (
 		<>
 			<DoorRound
 				position={[5.5, 0, -0.3]}
-				scale={5}
+				scale={3}
 				rotation={[0, -Math.PI * 0.5, 0]}
 				onPointerOver={() => handleDoorHover("hall")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("hall")}
+				isHovered={hoveredDoor === "hall"}
 			/>
 
 			<group {...props} dispose={null}>
