@@ -123,6 +123,17 @@ export const useGameStore = create(
 		currentDialogIndex: 0,
 		dialogHasEnded: false,
 
+		// Solution state
+		guessesRemaining: 3,
+		gameEnded: false,
+		gameWon: false,
+		gameLost: false,
+		currentCuess: {
+			murderer: null,
+			weapon: null,
+		},
+		guessHistory: [],
+
 		changeRoom: (newRoom) => {
 			const { currentRoom } = get();
 			console.log(`Changing from ${currentRoom} to ${newRoom}`);
