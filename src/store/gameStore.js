@@ -128,7 +128,7 @@ export const useGameStore = create(
 		gameEnded: false,
 		gameWon: false,
 		gameLost: false,
-		currentCuess: {
+		currentGuess: {
 			murderer: null,
 			weapon: null,
 		},
@@ -427,9 +427,19 @@ export const useGameStore = create(
 			});
 		},
 
+		updateCurrentGuess: (field, value) => {
+			const { currentGuess } = get();
+			set({
+				currentGuess: {
+					...currentGuess,
+					[field]: value,
+				},
+			});
+		},
+
 		// Check player's guess
 		checkSolution: (guessedMurderer, guessedWeapon) => {
-			const { murderer, murderWeapon } = get();
+			const { murderer, murderWeapon, guessesRemaining } = get();
 			const isCorrect =
 				guessedMurderer === murderer && guessedWeapon === murderWeapon;
 			console.log(
@@ -439,6 +449,13 @@ export const useGameStore = create(
 				`Player guessed: ${guessedWeapon} as the weapon, the solution is: ${murderWeapon}`
 			);
 			console.log(`Was player correct? ${isCorrect}`);
+			set({
+				guessesRemaining: guessesRemaining - 1,
+				currentGuess: {
+					murderer: guessedMurderer,
+					weapon: guessedWeapon,
+				},
+			});
 			return isCorrect;
 		},
 
