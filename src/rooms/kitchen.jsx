@@ -121,12 +121,12 @@ export default function Kitchen(kitchenClues, ...props) {
 				lWall1Ry: { value: 0, min: -3, max: 3, step: 0.01 },
 				lWall1Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// lWall 2 Position
-				lWall2Px: { value: -5.6, min: -10, max: 10, step: 0.01 },
+				lWall2Px: { value: -5.8, min: -10, max: 10, step: 0.01 },
 				lWall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				lWall2Pz: { value: -1.9, min: -10, max: 10, step: 0.01 },
+				lWall2Pz: { value: -2.6, min: -10, max: 10, step: 0.01 },
 				// lWall 2 Rotation
 				lWall2Rx: { value: 0, min: -3, max: 3, step: 0.01 },
-				lWall2Ry: { value: 0.69, min: -3, max: 3, step: 0.01 },
+				lWall2Ry: { value: 0.51, min: -3, max: 3, step: 0.01 },
 				lWall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// lWall 3 Position
 				lWall3Px: { value: 7, min: -10, max: 10, step: 0.01 },

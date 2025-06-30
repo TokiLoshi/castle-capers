@@ -7,6 +7,9 @@ import { useGLTF, Outlines } from "@react-three/drei";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { DoorRound } from "./components/DoorRound";
+import { Wall } from "./components/Wall";
+import { folder, useControls } from "leva";
+import { Window } from "./components/Window";
 
 export default function Library(libraryClues, ...props) {
 	const { nodes, materials } = useGLTF("models/library.glb");
@@ -64,16 +67,200 @@ export default function Library(libraryClues, ...props) {
 		document.body.style.cursor = "default";
 	};
 
+	const {
+		kWall1Px,
+		kWall1Py,
+		kWall1Pz,
+		kWall1Rx,
+		kWall1Ry,
+		kWall1Rz,
+		kWall2Px,
+		kWall2Py,
+		kWall2Pz,
+		kWall2Rx,
+		kWall2Ry,
+		kWall2Rz,
+		kWall3Px,
+		kWall3Py,
+		kWall3Pz,
+		kWall3Rx,
+		kWall3Ry,
+		kWall3Rz,
+		kWall4Px,
+		kWall4Py,
+		kWall4Pz,
+		kWall4Rx,
+		kWall4Ry,
+		kWall4Rz,
+		kWall5Px,
+		kWall5Py,
+		kWall5Pz,
+		kWall5Rx,
+		kWall5Ry,
+		kWall5Rz,
+		kWall6Px,
+		kWall6Py,
+		kWall6Pz,
+		kWall6Rx,
+		kWall6Ry,
+		kWall6Rz,
+		kWall7Px,
+		kWall7Py,
+		kWall7Pz,
+		kWall7Rx,
+		kWall7Ry,
+		kWall7Rz,
+		kWin1Px,
+		kWin1Py,
+		kWin1Pz,
+		kWin1Rx,
+		kWin1Ry,
+		kWin1Rz,
+		kWin2Px,
+		kWin2Py,
+		kWin2Pz,
+		kWin2Rx,
+		kWin2Ry,
+		kWin2Rz,
+	} = useControls({
+		kWalls: folder(
+			{
+				// wall 1 Position
+				kWall1Px: { value: 1.65, min: -10, max: 10, step: 0.01 },
+				kWall1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall1Pz: { value: -6.8, min: -10, max: 10, step: 0.01 },
+				// lWall 1 Rotation
+				kWall1Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall1Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall1Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 2 Position
+				kWall2Px: { value: -6.1, min: -10, max: 10, step: 0.01 },
+				kWall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall2Pz: { value: -6.8, min: -10, max: 10, step: 0.01 },
+				// lWall 2 Rotation
+				kWall2Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall2Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 3 Position
+				kWall3Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				kWall3Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall3Pz: { value: -4.3, min: -10, max: 10, step: 0.01 },
+				// lWall 3 Rotation
+				kWall3Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall3Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				kWall3Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 4 Position
+				kWall4Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				kWall4Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall4Pz: { value: -0.4, min: -10, max: 10, step: 0.01 },
+				// lWall 4 Rotation
+				kWall4Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall4Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				kWall4Rz: { value: -0, min: -3, max: 3, step: 0.01 },
+				// lWall 5 Position
+				kWall5Px: { value: 5.56, min: -10, max: 10, step: 0.01 },
+				kWall5Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall5Pz: { value: -6.8, min: -10, max: 10, step: 0.01 },
+				// lWall 5 Rotation
+				kWall5Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall5Ry: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall5Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 6 Position
+				kWall6Px: { value: -9.4, min: -10, max: 10, step: 0.01 },
+				kWall6Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall6Pz: { value: -5.7, min: -10, max: 10, step: 0.01 },
+				// lWall 6 Rotation
+				kWall6Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall6Ry: { value: 0.69, min: -3, max: 3, step: 0.01 },
+				kWall6Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 4 Position
+				kWall7Px: { value: -10, min: -10, max: 10, step: 0.01 },
+				kWall7Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall7Pz: { value: 1.72, min: -10, max: 10, step: 0.01 },
+				// lWall 4 Rotation
+				kWall7Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall7Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				kWall7Rz: { value: -0, min: -3, max: 3, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
+		Windows: folder(
+			{
+				kWin1Px: { value: -2.2, min: -10, max: 10, step: 0.01 },
+				kWin1Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWin1Pz: { value: -6.8, min: -10, max: 10, step: 0.01 },
+				// lWin 1 rotation
+				kWin1Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWin1Ry: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWin1Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				// lWin 2 position
+				kWin2Px: { value: -10, min: -20, max: 20, step: 0.01 },
+				kWin2Py: { value: 0, min: -20, max: 20, step: 0.01 },
+				kWin2Pz: { value: -2, min: -20, max: 20, step: 0.01 },
+				// lWin 2 rotation
+				kWin2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWin2Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
+				kWin2Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+			},
+			{ collapsed: true }
+		),
+	});
+
 	return (
 		<>
 			<DoorRound
-				position={[4.5, 0, -0.3]}
+				position={[6, 0, -0.3]}
 				scale={3}
 				rotation={[0, -Math.PI * 0.5, 0]}
 				onPointerOver={() => handleDoorHover("hall")}
 				onPointerOut={() => handleDoorHoverOut()}
 				onClick={() => handleDoorClick("hall")}
 				isHovered={hoveredDoor === "hall"}
+			/>
+			<Wall
+				position={[kWall1Px, kWall1Py, kWall1Pz]}
+				rotation={[kWall1Rx, kWall1Ry, kWall1Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[kWall2Px, kWall2Py, kWall2Pz]}
+				scale={2}
+				rotation={[kWall2Rx, kWall2Ry, kWall2Rz]}
+			/>
+			<Wall
+				position={[kWall3Px, kWall3Py, kWall3Pz]}
+				rotation={[kWall3Rx, kWall3Ry, kWall3Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[kWall4Px, kWall4Py, kWall4Pz]}
+				rotation={[kWall4Rx, kWall4Ry, kWall4Rz]}
+				scale={2}
+			/>
+			<Window
+				scale={2}
+				position={[kWin1Px, kWin1Py, kWin1Pz]}
+				rotation={[kWin1Rx, kWin1Ry, kWin1Rz]}
+			/>
+			<Window
+				position={[kWin2Px, kWin2Py, kWin2Pz]}
+				rotation={[kWin2Rx, kWin2Ry, kWin2Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[kWall5Px, kWall5Py, kWall5Pz]}
+				rotation={[kWall5Rx, kWall5Ry, kWall5Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[kWall6Px, kWall6Py, kWall6Pz]}
+				rotation={[kWall6Rx, kWall6Ry, kWall6Rz]}
+				scale={2}
+			/>
+			<Wall
+				position={[kWall7Px, kWall7Py, kWall7Pz]}
+				rotation={[kWall7Rx, kWall7Ry, kWall7Rz]}
+				scale={2}
 			/>
 
 			<group {...props} dispose={null}>
