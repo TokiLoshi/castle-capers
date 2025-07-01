@@ -1,6 +1,11 @@
 import { Canvas } from "@react-three/fiber";
 import { ACESFilmicToneMapping } from "three";
-import { KeyboardControls, OrbitControls, Stats } from "@react-three/drei";
+import {
+	KeyboardControls,
+	Loader,
+	OrbitControls,
+	Stats,
+} from "@react-three/drei";
 import { Suspense } from "react";
 import { Leva, useControls } from "leva";
 import * as THREE from "three";
@@ -55,6 +60,27 @@ export default function App() {
 				</Canvas>
 				<Leva collapsed={true} />
 			</KeyboardControls>
+			<Loader
+				containerStyles={{
+					background: "linear-gradient(135deg, #1a0f0a 0%, #985d25 100%)",
+				}}
+				innerStyles={{
+					background: "rgba(255, 255, 255, 0.1)",
+					color: "#e6d7c3",
+				}}
+				barStyles={{
+					background: "linear-gradient(135deg, #8b6914, #b8860b)",
+				}}
+				dataStyles={{
+					color: "#e6d7c3",
+					fontFamily: "Georgia, serif",
+					textAlign: "center",
+					fontSize: "18px",
+				}}
+				dataInterpolation={(p) =>
+					`Castle Capers\n\nLoading Mystery... ${p.toFixed(0)}%`
+				}
+			/>
 			<UIBar />
 			<ClueModal />
 			<Notebook />

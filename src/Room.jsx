@@ -24,10 +24,10 @@ export default function Room() {
 		return null;
 	}
 
-	console.log("DEBUGGING!");
-	console.log("Current Clues: ", currentClues);
-	console.log("Currrent Room: ", currentRoom);
-	console.log("Current clues keys: ", Object.keys(currentClues));
+	// console.log("DEBUGGING!");
+	// console.log("Current Clues: ", currentClues);
+	// console.log("Currrent Room: ", currentRoom);
+	// console.log("Current clues keys: ", Object.keys(currentClues));
 
 	const createClueToRoomMap = () => {
 		const clueToRoomMap = {};
