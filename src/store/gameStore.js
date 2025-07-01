@@ -494,6 +494,8 @@ export const useGameStore = create(
 		resetGame: () => {
 			set({
 				gameStarted: false,
+				gameEnded: false,
+				gameWon: false,
 				currentClues: {},
 				foundClues: [],
 				currentTestimonies: {},
@@ -511,6 +513,8 @@ export const useGameStore = create(
 				isDialogOpen: false,
 				currentDialogIndex: 0,
 				dialogHasEnded: false,
+				guessesRemaining: 3,
+				currentRoom: "hall",
 			});
 		},
 		getGameState: () => {

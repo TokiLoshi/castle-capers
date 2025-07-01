@@ -10,7 +10,6 @@ export default function SolveModal() {
 		checkSolution,
 		guessesRemaining,
 		gameEnded,
-		gameWon,
 
 		// gameLost,
 	} = useGameStore();
@@ -33,6 +32,15 @@ export default function SolveModal() {
 			setHasSubmitted(false);
 		}
 	}, [isSolvePanelOpen]);
+
+	useEffect(() => {
+		if (gameEnded) {
+			setIsAnimating(false);
+			setTimeout(() => {
+				closeSolvePanel();
+			}, 3000);
+		}
+	}, [gameEnded, closeSolvePanel]);
 
 	const handleClose = () => {
 		setIsAnimating(false);
@@ -95,12 +103,12 @@ export default function SolveModal() {
 				<div className='solve-modal-content'>
 					{gameEnded ? (
 						<div className='game-ended'>
-							<h3>{gameWon ? "🥳 Case Solved!" : "🙁 Case Closed"}</h3>
+							{/* <h3>{gameWon ? "🥳 Case Solved!" : "🙁 Case Closed"}</h3>
 							<p>
 								{gameWon
 									? "Congratulations, detective, the Castle thanks you!"
 									: "Better luck next time, Detective. The castle will remain on their toes while the killer is still at large"}
-							</p>
+							</p> */}
 						</div>
 					) : (
 						<>
@@ -161,7 +169,7 @@ export default function SolveModal() {
 											<h3>Incorrect</h3>
 											<p>
 												That's not correct.{" "}
-												{guessesRemaining - 1 > 0
+												{guessesRemaining - 1 >= 0
 													? "keep investigating and catch the killer"
 													: "No more guesses remaining. The killer has gone undetected."}
 											</p>

@@ -13,6 +13,7 @@ import Man from "./characters/testimonies/Man";
 import Shaun from "./characters/testimonies/Shaun";
 import Witch from "./characters/testimonies/Witch";
 import Wizard from "./characters/testimonies/Wizard";
+import GameOver from "./modals/GameOverModal";
 
 export default function Room() {
 	// get the clues from the game config
@@ -22,6 +23,7 @@ export default function Room() {
 		console.log("Game not started, returning");
 		return null;
 	}
+
 	console.log("DEBUGGING!");
 	console.log("Current Clues: ", currentClues);
 	console.log("Currrent Room: ", currentRoom);
@@ -74,43 +76,6 @@ export default function Room() {
 
 	return (
 		<>
-			{/* <Text
-				position={[0, 0.1, 5]}
-				rotation={[-Math.PI / 2, 0, 0]}
-				fontSize={1}
-				color='white'
-				anchorX='center'
-				anchorY='middle'>
-				NORTH (+Z)
-			</Text> */}
-			{/* <Text
-				position={[0, 0.1, -5]}
-				rotation={[-Math.PI / 2, 0, 0]}
-				fontSize={1}
-				color='white'
-				anchorX='center'
-				anchorY='middle'>
-				SOUTH (-Z)
-			</Text>
-
-			<Text
-				position={[6, 0.1, 0]}
-				rotation={[-Math.PI / 2, 0, 0]}
-				fontSize={1}
-				color='white'
-				anchorX='center'
-				anchorY='middle'>
-				EAST (+X)
-			</Text>
-			<Text
-				position={[-7, 0.1, 0]}
-				rotation={[-Math.PI / 2, 0, 0]}
-				fontSize={1}
-				color='white'
-				anchorX='center'
-				anchorY='middle'>
-				WEST (-X)
-			</Text> */}
 			{currentRoom === "bedroom" && (
 				<>
 					<Bedroom clues={bedroomClues} />
@@ -139,11 +104,6 @@ export default function Room() {
 					<Hall />
 				</>
 			)}
-
-			{/* <Library /> */}
-			{/* <Hall /> */}
-			{/* <Kitchen /> */}
-			{/* <Outside /> */}
 		</>
 	);
 }

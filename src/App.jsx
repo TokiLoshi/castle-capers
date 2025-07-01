@@ -11,6 +11,8 @@ import UIBar from "./modals/UIBar";
 import Testimonials from "./modals/Testimonials";
 import SolveModal from "./modals/SolveModal";
 import DialogModal from "./modals/DialogModal";
+import { useGameStore } from "./store/gameStore";
+import GameOverModal from "./modals/GameOverModal";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls(
@@ -21,6 +23,8 @@ export default function App() {
 		},
 		{ collapsed: true }
 	);
+
+	const { gameEnded } = useGameStore();
 
 	return (
 		<>
@@ -57,6 +61,7 @@ export default function App() {
 			<Testimonials />
 			<SolveModal />
 			<DialogModal />
+			{gameEnded && <GameOverModal />}
 		</>
 	);
 }
