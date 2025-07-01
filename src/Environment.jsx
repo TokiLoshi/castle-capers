@@ -24,18 +24,18 @@ export default function Environment() {
 	);
 
 	// Grid:
-	const { showGrid, gridSize, gridDivisions, gridColor, followCamera } =
-		useControls(
-			"Grid",
-			{
-				showGrid: true,
-				gridSize: { value: 20, min: 5, max: 50 },
-				gridDivisions: { value: 20, min: 5, max: 50 },
-				gridColor: "#ff0000",
-				followCamera: false,
-			},
-			{ collapsed: true }
-		);
+	// const { showGrid, gridSize, gridDivisions, gridColor, followCamera } =
+	// 	useControls(
+	// 		"Grid",
+	// 		{
+	// 			showGrid: true,
+	// 			gridSize: { value: 20, min: 5, max: 50 },
+	// 			gridDivisions: { value: 20, min: 5, max: 50 },
+	// 			gridColor: "#ff0000",
+	// 			followCamera: false,
+	// 		},
+	// 		{ collapsed: true }
+	// 	);
 
 	// Floor materials
 	const {
@@ -146,7 +146,7 @@ export default function Environment() {
 					metalness={floorMetalness}
 				/>
 			</mesh>
-			{showGrid && (
+			{/* {showGrid && (
 				<Grid
 					args={[gridSize, gridDivisions]}
 					cellColor={gridColor}
@@ -158,7 +158,7 @@ export default function Environment() {
 					fadeDistance={100}
 					fadeStrength={1}
 				/>
-			)}
+			)} */}
 		</>
 	);
 }

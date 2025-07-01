@@ -24,7 +24,7 @@ export default function App() {
 	const { showStats, toneMappingEnabled } = useControls(
 		"Debug",
 		{
-			showStats: true,
+			showStats: false,
 			toneMappingEnabled: true,
 		},
 		{ collapsed: true }
