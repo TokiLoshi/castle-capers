@@ -18,6 +18,7 @@ import SolveModal from "./modals/SolveModal";
 import DialogModal from "./modals/DialogModal";
 import { useGameStore } from "./store/gameStore";
 import GameOverModal from "./modals/GameOverModal";
+import InstructionsModal from "./modals/InstructionsModal";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls(
@@ -87,6 +88,7 @@ export default function App() {
 			<Testimonials />
 			<SolveModal />
 			<DialogModal />
+			<InstructionsModal />
 			{gameEnded && <GameOverModal />}
 		</>
 	);

@@ -70,7 +70,7 @@ export default function InstructionsModal() {
 							</li>
 							<li>
 								<strong>Interrogate:</strong> Click on other characters to get
-								their testimony, bweware one of them is a liar.
+								their testimony, beware one of them is a liar.
 							</li>
 						</ul>
 					</div>

@@ -115,6 +115,7 @@ export const useGameStore = create(
 		isNotebookOpen: false,
 		isTestimonyPanelOpen: false,
 		isSolvePanelOpen: false,
+		showInstructions: true,
 
 		// Dialog state
 		currentDialogs: {},
@@ -133,6 +134,16 @@ export const useGameStore = create(
 			weapon: null,
 		},
 		guessHistory: [],
+
+		hideInstructions: () => {
+			set({
+				showInstructions: false,
+			});
+		},
+
+		showInstructionsModal: () => {
+			set({ showInstructions: true });
+		},
 
 		changeRoom: (newRoom) => {
 			const { currentRoom } = get();
