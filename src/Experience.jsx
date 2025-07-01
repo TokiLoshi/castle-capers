@@ -1,34 +1,42 @@
-import { useControls } from "leva";
+// import { useControls } from "leva";
 import * as THREE from "three";
 import {
-	GizmoHelper,
-	GizmoViewport,
-	OrbitControls,
-	PerspectiveCamera,
+	// GizmoHelper,
+	// GizmoViewport,
+	// OrbitControls,
+	CameraControls,
+	Bvh,
 } from "@react-three/drei";
 import Room from "./Room";
-import { Player } from "./Player";
 import Environment from "./Environment";
-import { CameraController } from "./CameraController";
 import { useEffect, useRef } from "react";
-import { cameraPosition } from "three/tsl";
 import { FernandoTheFlamingo } from "./characters/Monsters/AstroFlamingo";
-import { Physics } from "@react-three/rapier";
 import { useGameStore } from "./store/gameStore";
-import { Cactus } from "./characters/Monsters/Cactoro";
+import BVHEcctrl, { useEcctrlStore } from "bvhecctrl";
+import { useFrame } from "@react-three/fiber";
+import { button, useControls } from "leva";
 
 export default function Experience() {
 	// Camera
-	const { useCameraController, fov } = useControls("Camera", {
-		useCameraController: true,
-		// cameraPosition: { value: [5, 5, 5], step: 0.1 },
-		// cameraTarget: { value: [0, 0, 0], step: 0.1 },
-		fov: { value: 75, min: 10, max: 120 },
-	});
+	// const { fov } = useControls("Camera", {
+	// 	fov: { value: 75, min: 10, max: 120 },
+	// });
 
-	const playerRef = useRef();
+	const flamingoRef = useRef();
+	const cameraRef = useRef();
+
+	const colliderMeshesArray = useEcctrlStore(
+		(state) => state.colliderMeshesArray
+	);
 
 	const { initializeGame, gameStarted, currentClues } = useGameStore();
+
+	useControls("Character: ", {
+		ResetPlayer: button(() => {
+			flamingoRef.current?.group?.position.set(0, 0, 0);
+			flamingoRef.current?.resetLinvel();
+		}),
+	});
 
 	useEffect(() => {
 		if (!gameStarted) {
@@ -41,35 +49,42 @@ export default function Experience() {
 		console.log("Current clues: ", currentClues);
 	}, [currentClues]);
 
+	useFrame(() => {
+		if (flamingoRef.current?.group && cameraRef.current) {
+			const flamingo = flamingoRef.current.group.position;
+			cameraRef.current.moveTo(flamingo.x, flamingo.y, flamingo.z, true);
+		}
+	});
+
 	return (
 		<>
-			<Physics>
-				<FernandoTheFlamingo ref={playerRef} />
-				{/* <Cactus /> */}
-				<PerspectiveCamera
-					makeDefault
-					position={useCameraController ? undefined : cameraPosition}
-					// target={cameraTarget}
-					fov={fov}
-				/>
-				<CameraController target={playerRef} />
-				<OrbitControls
-					enablePan={true}
-					enableZoom={true}
-					enableRotat={true}
-					minDistance={1}
-					maxDistance={50}
-				/>
-				<GizmoHelper alignment='bottom-right' margin={[80, 80]}>
-					<GizmoViewport
-						axisColors={["red", "green", "blue"]}
-						labelColor='black'
-					/>
-				</GizmoHelper>
+			<Bvh>
 				<Environment />
 
 				<Room />
-			</Physics>
+				{/* <CameraController
+					ref={cameraControlsRef}
+					enablePan={false}
+					enableZoom={true}
+					enableRotate={true}
+					minDistance={2}
+					maxDistance={20}
+					// fov={fov}
+				/> */}
+				<CameraControls
+					ref={cameraRef}
+					colliderMeshes={colliderMeshesArray}
+					smoothTime={0.1}
+					makeDefault
+				/>
+				<BVHEcctrl
+					ref={flamingoRef}
+					debug={false}
+					animated={true}
+					position={[0, 1, 0]}>
+					<FernandoTheFlamingo />
+				</BVHEcctrl>
+			</Bvh>
 		</>
 	);
 }

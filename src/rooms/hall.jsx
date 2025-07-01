@@ -9,6 +9,7 @@ import { Window } from "./components/Window";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { useControls, folder } from "leva";
+import { StaticCollider } from "bvhecctrl";
 
 export default function Hall() {
 	// const bedroomRef = useRef();
@@ -181,64 +182,88 @@ export default function Hall() {
 
 	return (
 		<>
-			<Wall
-				position={[wall1Px, wall1Py, wall1Pz]}
-				rotation={[wall1Rx, wall1Ry, wall1Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[wall2Px, wall2Py, wall2Pz]}
-				scale={2}
-				rotation={[wall2Rx, wall2Ry, wall2Rz]}
-			/>
-			<Wall
-				position={[wall3Px, wall3Py, wall3Pz]}
-				rotation={[wall3Rx, wall3Ry, wall3Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[wall4Px, wall4Py, wall4Pz]}
-				rotation={[wall4Rx, wall4Ry, wall4Rz]}
-				scale={2}
-			/>
-			<Window
-				scale={2}
-				position={[window1Px, window1Py, window1Pz]}
-				rotation={[window1Rx, window1Ry, window1Rz]}
-			/>
-			<Window
-				position={[window2Px, window2Py, window2Pz]}
-				rotation={[window2Rx, window2Ry, window2Rz]}
-				scale={2}
-			/>
+			<StaticCollider>
+				<Wall
+					position={[wall1Px, wall1Py, wall1Pz]}
+					rotation={[wall1Rx, wall1Ry, wall1Rz]}
+					scale={2}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<Wall
+					position={[wall2Px, wall2Py, wall2Pz]}
+					scale={2}
+					rotation={[wall2Rx, wall2Ry, wall2Rz]}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<Wall
+					position={[wall3Px, wall3Py, wall3Pz]}
+					rotation={[wall3Rx, wall3Ry, wall3Rz]}
+					scale={2}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<Wall
+					position={[wall4Px, wall4Py, wall4Pz]}
+					rotation={[wall4Rx, wall4Ry, wall4Rz]}
+					scale={2}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<Window
+					scale={2}
+					position={[window1Px, window1Py, window1Pz]}
+					rotation={[window1Rx, window1Ry, window1Rz]}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<Window
+					position={[window2Px, window2Py, window2Pz]}
+					rotation={[window2Rx, window2Ry, window2Rz]}
+					scale={2}
+				/>
+			</StaticCollider>
 			{/* <ArchDoor position={[-2, 0, 3]} /> */}
-			<DoorRound
-				position={[door1Px, door1Py, door1Pz]}
-				rotation={[door1Rx, door1Ry, door1Rz]}
-				onPointerOver={() => handleDoorHover("bedroom")}
-				onPointerOut={() => handleDoorHoverOut()}
-				onClick={() => handleDoorClick("bedroom")}
-				isHovered={hoveredDoor === "bedroom"}
-				scale={3}
-			/>
-			<DoorRound
-				position={[door2Px, door2Py, door2Pz]}
-				rotation={[door2Rx, door2Ry, door2Rz]}
-				onPointerOver={() => handleDoorHover("library")}
-				onPointerOut={() => handleDoorHoverOut()}
-				onClick={() => handleDoorClick("library")}
-				isHovered={hoveredDoor === "library"}
-				scale={3}
-			/>
-			<DoorRound
-				position={[door3Px, door3Py, door3Pz]}
-				rotation={[door3Rx, door3Ry, door3Rz]}
-				onPointerOver={() => handleDoorHover("kitchen")}
-				onPointerOut={() => handleDoorHoverOut()}
-				onClick={() => handleDoorClick("kitchen")}
-				isHovered={hoveredDoor === "kitchen"}
-				scale={3}
-			/>
+			<StaticCollider>
+				<DoorRound
+					position={[door1Px, door1Py, door1Pz]}
+					rotation={[door1Rx, door1Ry, door1Rz]}
+					onPointerOver={() => handleDoorHover("bedroom")}
+					onPointerOut={() => handleDoorHoverOut()}
+					onClick={() => handleDoorClick("bedroom")}
+					isHovered={hoveredDoor === "bedroom"}
+					scale={3}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<DoorRound
+					position={[door2Px, door2Py, door2Pz]}
+					rotation={[door2Rx, door2Ry, door2Rz]}
+					onPointerOver={() => handleDoorHover("library")}
+					onPointerOut={() => handleDoorHoverOut()}
+					onClick={() => handleDoorClick("library")}
+					isHovered={hoveredDoor === "library"}
+					scale={3}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<DoorRound
+					position={[door3Px, door3Py, door3Pz]}
+					rotation={[door3Rx, door3Ry, door3Rz]}
+					onPointerOver={() => handleDoorHover("kitchen")}
+					onPointerOut={() => handleDoorHoverOut()}
+					onClick={() => handleDoorClick("kitchen")}
+					isHovered={hoveredDoor === "kitchen"}
+					scale={3}
+				/>
+			</StaticCollider>
+			<StaticCollider>
+				<mesh position={[0, 1, 4]} visible={false}>
+					<boxGeometry args={[8, 3, 0.2]} />
+					<meshBasicMaterial transparent opacity={0} />
+				</mesh>
+			</StaticCollider>
 			{/* <TrapDoor position={[3, 0, 2]} />
 			<WallTower /> */}
 		</>

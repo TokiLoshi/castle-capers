@@ -32,16 +32,18 @@ export default function App() {
 
 	const { gameEnded } = useGameStore();
 
+	const keyboardMap = [
+		{ name: "forward", keys: ["ArrowUp", "KeyW"] },
+		{ name: "backward", keys: ["ArrowDown", "KeyS"] },
+		{ name: "leftward", keys: ["ArrowLeft", "KeyA"] },
+		{ name: "rightward", keys: ["ArrowRight", "KeyD"] },
+		{ name: "jump", keys: ["Space"] },
+		{ name: "run", keys: ["Shift"] },
+	];
+
 	return (
 		<>
-			<KeyboardControls
-				map={[
-					{ name: "forward", keys: ["ArrowUp", "KeyW"] },
-					{ name: "backward", keys: ["ArrowDown", "KeyS"] },
-					{ name: "leftward", keys: ["ArrowLeft", "KeyA"] },
-					{ name: "rightward", keys: ["ArrowRight", "KeyD"] },
-					{ name: "jump", keys: ["Space"] },
-				]}>
+			<KeyboardControls map={keyboardMap}>
 				{showStats && <Stats />}
 				<Canvas
 					shadows
@@ -51,7 +53,6 @@ export default function App() {
 							? ACESFilmicToneMapping
 							: THREE.NoToneMapping,
 					}}>
-					<OrbitControls />
 					<ambientLight intensity={0.5} />
 					<directionalLight position={[5, 5, 5]} intensity={1} />
 					<directionalLight position={[-5, 5, 5]} intensity={1} />
@@ -59,7 +60,7 @@ export default function App() {
 						<Experience />
 					</Suspense>
 				</Canvas>
-				<Leva collapsed={true} />
+				<Leva collapsed={true} hidden={location.hash !== "#debug"} />
 			</KeyboardControls>
 			<Loader
 				containerStyles={{

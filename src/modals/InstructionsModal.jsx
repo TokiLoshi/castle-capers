@@ -93,7 +93,7 @@ export default function InstructionsModal() {
 					</div>
 				</div>
 				<div className='instructions-footer'>
-					<button className='start-button' onCLick={handleClose}>
+					<button className='start-button' onClick={handleClose}>
 						🔎 Start investigating
 					</button>
 				</div>
