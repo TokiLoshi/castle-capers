@@ -27,11 +27,11 @@ export default function SolveModal() {
 	useEffect(() => {
 		if (isSolvePanelOpen) {
 			setIsAnimating(true);
+			setSelectedMurderer("");
+			setSelectedMurderWeapon("");
+			setShowResult(false);
+			setHasSubmitted(false);
 		}
-		setSelectedMurderer("");
-		setSelectedMurderWeapon("");
-		setShowResult(false);
-		setHasSubmitted(false);
 	}, [isSolvePanelOpen]);
 
 	const handleClose = () => {
@@ -47,12 +47,17 @@ export default function SolveModal() {
 		}
 	};
 
-	const handleSubmitGuess = (selectedMurderer, selectedWeapon) => {
+	const handleSubmitGuess = () => {
 		if (!selectedMurderer || !selectedMurderWeapon) {
 			alert("Please select both a murderer and a weapon");
 			return;
 		}
-		const correct = checkSolution(selectedMurderer, selectedWeapon);
+		console.log(
+			"Debugging: user has chosen: ",
+			selectedMurderer,
+			selectedMurderWeapon
+		);
+		const correct = checkSolution(selectedMurderer, selectedMurderWeapon);
 		setIsCorrect(correct);
 		setShowResult(true);
 		setHasSubmitted(true);
@@ -90,7 +95,7 @@ export default function SolveModal() {
 				<div className='solve-modal-content'>
 					{gameEnded ? (
 						<div className='game-ended'>
-							<h3>{gameWon ? "🥳 Case Solved!" : "🙁Case Closed"}</h3>
+							<h3>{gameWon ? "🥳 Case Solved!" : "🙁 Case Closed"}</h3>
 							<p>
 								{gameWon
 									? "Congratulations, detective, the Castle thanks you!"
@@ -122,8 +127,8 @@ export default function SolveModal() {
 									</select>
 								</div>
 								<div className='selection-group'>
-									<label className='selection-group'>
-										What was the murder weapon
+									<label className='selection-label'>
+										What was the murder weapon?
 									</label>
 									<select
 										value={selectedMurderWeapon}
@@ -152,13 +157,13 @@ export default function SolveModal() {
 											<p>The castle celebrates your victory</p>
 										</div>
 									) : (
-										<div classNae='failure-message'>
+										<div className='failure-message'>
 											<h3>Incorrect</h3>
 											<p>
-												Tha'ts not correct.{" "}
+												That's not correct.{" "}
 												{guessesRemaining - 1 > 0
 													? "keep investigating and catch the killer"
-													: "No more guesses remaining. The killer has gone undedtected."}
+													: "No more guesses remaining. The killer has gone undetected."}
 											</p>
 										</div>
 									)}

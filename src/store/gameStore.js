@@ -449,8 +449,12 @@ export const useGameStore = create(
 				`Player guessed: ${guessedWeapon} as the weapon, the solution is: ${murderWeapon}`
 			);
 			console.log(`Was player correct? ${isCorrect}`);
+			const newGuessesRemaining = guessesRemaining - 1;
 			set({
-				guessesRemaining: guessesRemaining - 1,
+				guessesRemaining: newGuessesRemaining,
+				gameEnded: isCorrect || newGuessesRemaining <= 0,
+				gameWon: isCorrect,
+				gameLost: !isCorrect && newGuessesRemaining <= 0,
 				currentGuess: {
 					murderer: guessedMurderer,
 					weapon: guessedWeapon,
