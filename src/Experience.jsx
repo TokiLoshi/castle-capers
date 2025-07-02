@@ -54,7 +54,7 @@ export default function Experience() {
 			const roomSpawnPositions = {
 				hall: [0, 0, 0],
 				bedroom: [0, 0, 2],
-				kitchen: [0, 0, 0],
+				kitchen: [1, 0, 1],
 				library: [0, 0, 2],
 			};
 			const spawnPos = roomSpawnPositions[currentRoom] || [0, 0, 0];
