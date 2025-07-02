@@ -10,6 +10,7 @@ import { DoorRound } from "./components/DoorRound";
 import { Wall } from "./components/Wall";
 import { folder, useControls } from "leva";
 import { Window } from "./components/Window";
+import { StaticCollider } from "bvhecctrl";
 
 export default function Kitchen(kitchenClues, ...props) {
 	const { nodes, materials } = useGLTF("models/rooms/kitchen.glb");
@@ -97,6 +98,12 @@ export default function Kitchen(kitchenClues, ...props) {
 		lWall5Rx,
 		lWall5Ry,
 		lWall5Rz,
+		lWall6Px,
+		lWall6Py,
+		lWall6Pz,
+		lWall6Rx,
+		lWall6Ry,
+		lWall6Rz,
 		lWin1Px,
 		lWin1Py,
 		lWin1Pz,
@@ -109,6 +116,12 @@ export default function Kitchen(kitchenClues, ...props) {
 		lWin2Rx,
 		lWin2Ry,
 		lWin2Rz,
+		lWin3Px,
+		lWin3Py,
+		lWin3Pz,
+		lWin3Rx,
+		lWin3Ry,
+		lWin3Rz,
 	} = useControls({
 		lWalls: folder(
 			{
@@ -123,35 +136,43 @@ export default function Kitchen(kitchenClues, ...props) {
 				// lWall 2 Position
 				lWall2Px: { value: -5.8, min: -10, max: 10, step: 0.01 },
 				lWall2Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				lWall2Pz: { value: -2.6, min: -10, max: 10, step: 0.01 },
+				lWall2Pz: { value: -3.2, min: -10, max: 10, step: 0.01 },
 				// lWall 2 Rotation
 				lWall2Rx: { value: 0, min: -3, max: 3, step: 0.01 },
-				lWall2Ry: { value: 0.51, min: -3, max: 3, step: 0.01 },
+				lWall2Ry: { value: 0, min: -3, max: 3, step: 0.01 },
 				lWall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// lWall 3 Position
-				lWall3Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				lWall3Px: { value: 7.59, min: -10, max: 10, step: 0.01 },
 				lWall3Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				lWall3Pz: { value: -2, min: -10, max: 10, step: 0.01 },
+				lWall3Pz: { value: -1.3, min: -10, max: 10, step: 0.01 },
 				// lWall 3 Rotation
 				lWall3Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				lWall3Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				lWall3Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// lWall 4 Position
-				lWall4Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				lWall4Px: { value: 7.59, min: -10, max: 10, step: 0.01 },
 				lWall4Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				lWall4Pz: { value: 2, min: -10, max: 10, step: 0.01 },
+				lWall4Pz: { value: 2.47, min: -10, max: 10, step: 0.01 },
 				// lWall 4 Rotation
 				lWall4Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				lWall4Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				lWall4Rz: { value: 0, min: -3, max: 3, step: 0.01 },
-				// lWall 4 Position
+				// lWall 5 Position
 				lWall5Px: { value: 5.56, min: -10, max: 10, step: 0.01 },
 				lWall5Py: { value: 0, min: -10, max: 10, step: 0.01 },
 				lWall5Pz: { value: -3.2, min: -10, max: 10, step: 0.01 },
-				// lWall 4 Rotation
+				// lWall 5 Rotation
 				lWall5Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				lWall5Ry: { value: 0, min: -3, max: 3, step: 0.01 },
 				lWall5Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 6 Position
+				lWall6Px: { value: -7.2, min: -10, max: 10, step: 0.01 },
+				lWall6Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWall6Pz: { value: 2.49, min: -10, max: 10, step: 0.01 },
+				// lWall 6 Rotation
+				lWall6Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall6Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				lWall6Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 			},
 			{ collapsed: true }
 		),
@@ -165,9 +186,9 @@ export default function Kitchen(kitchenClues, ...props) {
 				lWin1Ry: { value: 0, min: -10, max: 10, step: 0.01 },
 				lWin1Rz: { value: 0, min: -10, max: 10, step: 0.01 },
 				// lWin 2 position
-				lWin2Px: { value: -6.8, min: -20, max: 20, step: 0.01 },
+				lWin2Px: { value: -7.3, min: -20, max: 20, step: 0.01 },
 				lWin2Py: { value: 0, min: -20, max: 20, step: 0.01 },
-				lWin2Pz: { value: 0.89, min: -20, max: 20, step: 0.01 },
+				lWin2Pz: { value: -1.2, min: -20, max: 20, step: 0.01 },
 				// lWin 2 rotation
 				lWin2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
 				lWin2Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
@@ -183,39 +204,64 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[lWall1Px, lWall1Py, lWall1Pz]}
 				rotation={[lWall1Rx, lWall1Ry, lWall1Rz]}
 				scale={2}
+				onClick={() => console.log("Clicked on wall1")}
 			/>
 			<Wall
 				position={[lWall2Px, lWall2Py, lWall2Pz]}
 				scale={2}
 				rotation={[lWall2Rx, lWall2Ry, lWall2Rz]}
+				onClick={() => console.log("Clicked on wall2")}
 			/>
 			<Wall
 				position={[lWall3Px, lWall3Py, lWall3Pz]}
 				rotation={[lWall3Rx, lWall3Ry, lWall3Rz]}
 				scale={2}
+				onClick={() => console.log("Clicked on wall3")}
 			/>
 			<Wall
 				position={[lWall4Px, lWall4Py, lWall4Pz]}
 				rotation={[lWall4Rx, lWall4Ry, lWall4Rz]}
 				scale={2}
+				onClick={() => console.log("Clicked on Wall 4")}
 			/>
+			<StaticCollider>
+				<mesh position={[0, 1, 4]} visible={true}>
+					<boxGeometry args={[15, 3, 0.2]} />
+					<meshBasicMaterial transparent opacity={0} />
+				</mesh>
+			</StaticCollider>
 			<Window
 				scale={2}
 				position={[lWin1Px, lWin1Py, lWin1Pz]}
 				rotation={[lWin1Rx, lWin1Ry, lWin1Rz]}
+				onClick={() => console.log("Clicked on window 1")}
 			/>
+
 			<Window
 				position={[lWin2Px, lWin2Py, lWin2Pz]}
 				rotation={[lWin2Rx, lWin2Ry, lWin2Rz]}
+				onClick={() => console.log("Clicked on Window 2")}
 				scale={2}
+			/>
+			<Window
+				scale={2}
+				position={[lWin3Px, lWin3Py, lWin3Pz]}
+				rotation={[lWin3Rx, lWin3Ry, lWin3Rz]}
+				onClick={() => console.log("Clicked on window 3")}
 			/>
 			<Wall
 				position={[lWall5Px, lWall5Py, lWall5Pz]}
 				rotation={[lWall5Rx, lWall5Ry, lWall5Rz]}
 				scale={2}
 			/>
+			<Wall
+				position={[lWall6Px, lWall6Py, lWall6Pz]}
+				rotation={[lWall6Rx, lWall6Ry, lWall6Rz]}
+				scale={2}
+				onClick={() => console.log("Clicked on Wall 6")}
+			/>
 			<DoorRound
-				position={[6.1, 0, 2.3]}
+				position={[6.66, 0, 2.3]}
 				scale={3}
 				rotation={[0, -Math.PI * 0.5, 0]}
 				onPointerOver={() => handleDoorHover("hall")}
