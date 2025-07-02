@@ -110,6 +110,12 @@ export default function Library(libraryClues, ...props) {
 		kWall7Rx,
 		kWall7Ry,
 		kWall7Rz,
+		kWall8Px,
+		kWall8Py,
+		kWall8Pz,
+		kWall8Rx,
+		kWall8Ry,
+		kWall8Rz,
 		kWin1Px,
 		kWin1Py,
 		kWin1Pz,
@@ -142,17 +148,17 @@ export default function Library(libraryClues, ...props) {
 				kWall2Ry: { value: 0, min: -3, max: 3, step: 0.01 },
 				kWall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// lWall 3 Position
-				kWall3Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				kWall3Px: { value: 7.54, min: -10, max: 10, step: 0.01 },
 				kWall3Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				kWall3Pz: { value: -4.3, min: -10, max: 10, step: 0.01 },
+				kWall3Pz: { value: -4.8, min: -10, max: 10, step: 0.01 },
 				// lWall 3 Rotation
 				kWall3Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				kWall3Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				kWall3Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// lWall 4 Position
-				kWall4Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				kWall4Px: { value: 7.54, min: -10, max: 10, step: 0.01 },
 				kWall4Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				kWall4Pz: { value: -0.4, min: -10, max: 10, step: 0.01 },
+				kWall4Pz: { value: -0.85, min: -10, max: 10, step: 0.01 },
 				// lWall 4 Rotation
 				kWall4Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				kWall4Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
@@ -166,21 +172,29 @@ export default function Library(libraryClues, ...props) {
 				kWall5Ry: { value: 0, min: -3, max: 3, step: 0.01 },
 				kWall5Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// lWall 6 Position
-				kWall6Px: { value: -9.4, min: -10, max: 10, step: 0.01 },
+				kWall6Px: { value: -8.7, min: -10, max: 10, step: 0.01 },
 				kWall6Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				kWall6Pz: { value: -5.7, min: -10, max: 10, step: 0.01 },
+				kWall6Pz: { value: -6, min: -10, max: 10, step: 0.01 },
 				// lWall 6 Rotation
 				kWall6Rx: { value: 0, min: -3, max: 3, step: 0.01 },
-				kWall6Ry: { value: 0.69, min: -3, max: 3, step: 0.01 },
+				kWall6Ry: { value: 0.92, min: -3, max: 3, step: 0.01 },
 				kWall6Rz: { value: 0, min: -3, max: 3, step: 0.01 },
-				// lWall 4 Position
-				kWall7Px: { value: -10, min: -10, max: 10, step: 0.01 },
+				// lWall 7 Position
+				kWall7Px: { value: -9.6, min: -10, max: 10, step: 0.01 },
 				kWall7Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				kWall7Pz: { value: 1.72, min: -10, max: 10, step: 0.01 },
-				// lWall 4 Rotation
+				kWall7Pz: { value: 1.12, min: -10, max: 10, step: 0.01 },
+				// lWall 7 Rotation
 				kWall7Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				kWall7Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				kWall7Rz: { value: -0, min: -3, max: 3, step: 0.01 },
+				// lWall 8 Position
+				kWall8Px: { value: 7.54, min: -10, max: 10, step: 0.01 },
+				kWall8Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				kWall8Pz: { value: 1.72, min: -10, max: 10, step: 0.01 },
+				// lWall 8 Rotation
+				kWall8Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				kWall8Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				kWall8Rz: { value: -0, min: -3, max: 3, step: 0.01 },
 			},
 			{ collapsed: true }
 		),
@@ -194,9 +208,9 @@ export default function Library(libraryClues, ...props) {
 				kWin1Ry: { value: 0, min: -10, max: 10, step: 0.01 },
 				kWin1Rz: { value: 0, min: -10, max: 10, step: 0.01 },
 				// lWin 2 position
-				kWin2Px: { value: -10, min: -20, max: 20, step: 0.01 },
+				kWin2Px: { value: -9.6, min: -20, max: 20, step: 0.01 },
 				kWin2Py: { value: 0, min: -20, max: 20, step: 0.01 },
-				kWin2Pz: { value: -2, min: -20, max: 20, step: 0.01 },
+				kWin2Pz: { value: -2.8, min: -20, max: 20, step: 0.01 },
 				// lWin 2 rotation
 				kWin2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
 				kWin2Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
@@ -209,7 +223,7 @@ export default function Library(libraryClues, ...props) {
 	return (
 		<>
 			<DoorRound
-				position={[6, 0, -0.3]}
+				position={[6.5, 0, -0.3]}
 				scale={3}
 				rotation={[0, -Math.PI * 0.5, 0]}
 				onPointerOver={() => handleDoorHover("hall")}
@@ -221,47 +235,66 @@ export default function Library(libraryClues, ...props) {
 				position={[kWall1Px, kWall1Py, kWall1Pz]}
 				rotation={[kWall1Rx, kWall1Ry, kWall1Rz]}
 				scale={2}
+				onClick={() => console.log("Wall one clicked")}
 			/>
 			<Wall
 				position={[kWall2Px, kWall2Py, kWall2Pz]}
 				scale={2}
 				rotation={[kWall2Rx, kWall2Ry, kWall2Rz]}
+				onClick={() => console.log("Wall 2 clicked")}
 			/>
 			<Wall
 				position={[kWall3Px, kWall3Py, kWall3Pz]}
 				rotation={[kWall3Rx, kWall3Ry, kWall3Rz]}
 				scale={2}
+				onClick={() => console.log("Wall 3 clicked")}
 			/>
 			<Wall
 				position={[kWall4Px, kWall4Py, kWall4Pz]}
 				rotation={[kWall4Rx, kWall4Ry, kWall4Rz]}
 				scale={2}
+				onClicke={() => console.log("Wall 4 clicked")}
 			/>
 			<Window
 				scale={2}
 				position={[kWin1Px, kWin1Py, kWin1Pz]}
 				rotation={[kWin1Rx, kWin1Ry, kWin1Rz]}
+				onClick={() => console.log("Window 1 clicked")}
 			/>
 			<Window
 				position={[kWin2Px, kWin2Py, kWin2Pz]}
 				rotation={[kWin2Rx, kWin2Ry, kWin2Rz]}
 				scale={2}
+				onClick={() => console.log("Window 2 clicked")}
 			/>
 			<Wall
 				position={[kWall5Px, kWall5Py, kWall5Pz]}
 				rotation={[kWall5Rx, kWall5Ry, kWall5Rz]}
 				scale={2}
+				onClick={() => console.log("Wall 5 clicked")}
 			/>
 			<Wall
 				position={[kWall6Px, kWall6Py, kWall6Pz]}
 				rotation={[kWall6Rx, kWall6Ry, kWall6Rz]}
 				scale={2}
+				onClick={() => console.log("Wall 6 clicked")}
 			/>
 			<Wall
 				position={[kWall7Px, kWall7Py, kWall7Pz]}
 				rotation={[kWall7Rx, kWall7Ry, kWall7Rz]}
 				scale={2}
+				onClick={() => console.log("Wall 7 clicked ")}
 			/>
+			<Wall
+				position={[kWall8Px, kWall8Py, kWall8Pz]}
+				rotation={[kWall8Rx, kWall8Ry, kWall8Rz]}
+				onClick={() => console.log("Wall 8 clicked")}
+				scale={2}
+			/>
+			<mesh position={[-1, 1, 3]} visible={false}>
+				<boxGeometry args={[18, 3, 0.2]} />
+				<meshBasicMaterial transparent opacity={0} />
+			</mesh>
 
 			<group {...props} dispose={null}>
 				{/* Anvil */}
@@ -439,13 +472,13 @@ export default function Library(libraryClues, ...props) {
 					position={[-3.342, 1.148, -6.535]}
 				/>
 				{/* Books on floating shelf on left */}
-				<mesh
+				{/* <mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.BookGroup_Medium_2.geometry}
 					material={materials["MI_Trim_Props_Vertex.008"]}
 					position={[-8.045, 1.096, -6.566]}
-				/>
+				/> */}
 
 				{/* Books bottom shelf of middle left bookshelf */}
 				<mesh
@@ -726,13 +759,13 @@ export default function Library(libraryClues, ...props) {
 				</group>
 
 				{/* Shelf */}
-				<mesh
+				{/* <mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Shelf_Simple.geometry}
 					material={materials["MI_Trim_Furniture.030"]}
 					position={[-8.041, 0.417, -6.793]}
-				/>
+				/> */}
 
 				{/* Potions */}
 				<group
@@ -992,13 +1025,13 @@ export default function Library(libraryClues, ...props) {
 					/>
 				</group>
 				{/* Simple shelf */}
-				<mesh
+				{/* <mesh
 					castShadow
 					receiveShadow
 					geometry={nodes.Shelf_Simple001.geometry}
 					material={materials["MI_Trim_Furniture.030"]}
 					position={[-8.041, 0.987, -6.793]}
-				/>
+				/> */}
 				{/* Second top shelf books on left bookshelf */}
 				<mesh
 					castShadow

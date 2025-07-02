@@ -62,6 +62,18 @@ export default function Hall() {
 		wall4Rx,
 		wall4Ry,
 		wall4Rz,
+		wall5Px,
+		wall5Py,
+		wall5Pz,
+		wall5Rx,
+		wall5Ry,
+		wall5Rz,
+		wall6Px,
+		wall6Py,
+		wall6Pz,
+		wall6Rx,
+		wall6Ry,
+		wall6Rz,
 		window1Px,
 		window1Py,
 		window1Pz,
@@ -138,6 +150,22 @@ export default function Hall() {
 				wall4Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				wall4Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				wall4Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// wall 5 Position
+				wall5Px: { value: 3.85, min: -10, max: 10, step: 0.01 },
+				wall5Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				wall5Pz: { value: 5.9, min: -10, max: 10, step: 0.01 },
+				// wall 5 Rotation
+				wall5Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				wall5Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				wall5Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// wall 6 Position
+				wall6Px: { value: -4.2, min: -10, max: 10, step: 0.01 },
+				wall6Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				wall6Pz: { value: 5.9, min: -10, max: 10, step: 0.01 },
+				// wall 6 Rotation
+				wall6Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				wall6Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				wall6Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 			},
 			{ collapsed: true }
 		),
@@ -204,6 +232,16 @@ export default function Hall() {
 				<Wall
 					position={[wall4Px, wall4Py, wall4Pz]}
 					rotation={[wall4Rx, wall4Ry, wall4Rz]}
+					scale={2}
+				/>
+				<Wall
+					position={[wall5Px, wall5Py, wall5Pz]}
+					rotation={[wall5Rx, wall5Ry, wall5Rz]}
+					scale={2}
+				/>
+				<Wall
+					position={[wall6Px, wall6Py, wall6Pz]}
+					rotation={[wall6Rx, wall6Ry, wall6Rz]}
 					scale={2}
 				/>
 
