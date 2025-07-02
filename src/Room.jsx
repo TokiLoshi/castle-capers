@@ -14,6 +14,7 @@ import Shaun from "./characters/testimonies/Shaun";
 import Witch from "./characters/testimonies/Witch";
 import Wizard from "./characters/testimonies/Wizard";
 import GameOver from "./modals/GameOverModal";
+import { StaticCollider } from "bvhecctrl";
 
 export default function Room() {
 	// get the clues from the game config
@@ -78,24 +79,30 @@ export default function Room() {
 		<>
 			{currentRoom === "bedroom" && (
 				<>
-					<Bedroom clues={bedroomClues} />
-					<Adventurer position={[2.8, 0, 1]} />
-					<HoodedAdventurer position={[-3.8, 0, -1]} />
+					<StaticCollider>
+						<Bedroom clues={bedroomClues} />
+						<Adventurer position={[2.8, 0, 1]} />
+						<HoodedAdventurer position={[-3.8, 0, -1]} />
+					</StaticCollider>
 				</>
 			)}
 
 			{currentRoom === "kitchen" && (
 				<>
-					<Kitchen clues={kitchenClues} />
-					<Man position={[-4.7, 0, 1.2]} rotation={[0, -0.3, 0]} />
-					<Shaun position={[2.8, 0, 1.5]} rotation={[0, -0.7, 0]} />
+					<StaticCollider>
+						<Kitchen clues={kitchenClues} />
+						<Man position={[-4.7, 0, 1.2]} rotation={[0, -0.3, 0]} />
+						<Shaun position={[2.8, 0, 1.5]} rotation={[0, -0.7, 0]} />
+					</StaticCollider>
 				</>
 			)}
 			{currentRoom === "library" && (
 				<>
-					<Library clues={libraryClues} />
-					<Witch position={[0.8, 0, -3.1]} rotation={[0, -0.5, 0]} />
-					<Wizard position={[-4.8, 0, -3.1]} rotation={[0, 0.7, 0]} />
+					<StaticCollider>
+						<Library clues={libraryClues} />
+						<Witch position={[0.8, 0, -3.1]} rotation={[0, -0.5, 0]} />
+						<Wizard position={[-4.8, 0, -3.1]} rotation={[0, 0.7, 0]} />
+					</StaticCollider>
 				</>
 			)}
 

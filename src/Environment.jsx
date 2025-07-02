@@ -2,6 +2,7 @@ import { ContactShadows, Grid, Plane, useTexture } from "@react-three/drei";
 import { useControls } from "leva";
 import { useEffect } from "react";
 import * as THREE from "three";
+import { StaticCollider } from "bvhecctrl";
 
 export default function Environment() {
 	// Lighting
@@ -101,8 +102,8 @@ export default function Environment() {
 				position={directionalPosition}
 				intensity={directionalIntensity}
 				castShadow={enableShadows}
-				shadow-mapSize-width={2048}
-				shadow-mapSize-height={2048}
+				shadow-mapSize-width={1048}
+				shadow-mapSize-height={1048}
 				shadow-camera-far={50}
 				shadow-camera-left={-20}
 				// shaodw-camera-right={20}
@@ -123,29 +124,32 @@ export default function Environment() {
 				receiveShadow>
 				<meshStandardMaterial color='#404040' roughness={0.8} metalness={0.1} />
 			</Plane> */}
-			<mesh
-				position={[0, -0.1, 0]}
-				rotation={[-Math.PI / 2, 0, 0]}
-				receiveShadow>
-				<planeGeometry args={[30, 30]} />
-				{/* <meshStandardMaterial
+			<StaticCollider>
+				<mesh
+					position={[0, -0.1, 0]}
+					rotation={[-Math.PI / 2, 0, 0]}
+					receiveShadow>
+					<planeGeometry args={[30, 30]} />
+					{/* <meshStandardMaterial
 					color='grey'
 					roughness={0.8}
 					metalness={0.3}
 					side={THREE.DoubleSide}
 				/> */}
-				<meshStandardMaterial
-					map={baseColorMap}
-					normalMap={normalMap}
-					roughnessMap={roughnessMap}
-					aoMap={ambientOcclusionMap}
-					displacementMap={heightMap}
-					displacementScale={displacementScale}
-					normalScale={[normalScale, normalScale]}
-					roughness={floorRoughness}
-					metalness={floorMetalness}
-				/>
-			</mesh>
+
+					<meshStandardMaterial
+						map={baseColorMap}
+						normalMap={normalMap}
+						roughnessMap={roughnessMap}
+						aoMap={ambientOcclusionMap}
+						displacementMap={heightMap}
+						displacementScale={displacementScale}
+						normalScale={[normalScale, normalScale]}
+						roughness={floorRoughness}
+						metalness={floorMetalness}
+					/>
+				</mesh>
+			</StaticCollider>
 			{/* {showGrid && (
 				<Grid
 					args={[gridSize, gridDivisions]}
