@@ -47,7 +47,7 @@ export default function App() {
 				{showStats && <Stats />}
 				<Canvas
 					shadows
-					camera={{ position: [5, 5, 5], fov: 75 }}
+					// camera={{ position: [5, 5, 5], fov: 75 }}
 					gl={{
 						toneMapping: toneMappingEnabled
 							? ACESFilmicToneMapping

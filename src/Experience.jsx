@@ -29,7 +29,7 @@ export default function Experience() {
 		(state) => state.colliderMeshesArray
 	);
 
-	const { initializeGame, gameStarted, currentClues } = useGameStore();
+	const { initializeGame, gameStarted, currentRoom } = useGameStore();
 
 	useControls("Character: ", {
 		ResetPlayer: button(() => {
@@ -45,14 +45,33 @@ export default function Experience() {
 		}
 	}, [gameStarted, initializeGame]);
 
+	// useEffect(() => {
+	// 	console.log("Current clues: ", currentClues);
+	// }, [currentClues]);
+
 	useEffect(() => {
-		console.log("Current clues: ", currentClues);
-	}, [currentClues]);
+		if (flamingoRef.current?.group && currentRoom) {
+			const roomSpawnPositions = {
+				hall: [0, 0, 0],
+				bedroom: [0, 0, 2],
+				kitchen: [0, 0, 0],
+				library: [0, 0, 2],
+			};
+			const spawnPos = roomSpawnPositions[currentRoom] || [0, 0, 0];
+			flamingoRef.current.group.position.set(...spawnPos);
+			flamingoRef.current?.resetLinVel();
+			console.log("Moving Fernando");
+		}
+	}, [currentRoom]);
 
 	useFrame(() => {
-		if (flamingoRef.current?.group && cameraRef.current) {
-			const flamingo = flamingoRef.current.group.position;
-			cameraRef.current.moveTo(flamingo.x, flamingo.y, flamingo.z, true);
+		if (flamingoRef.current && flamingoRef.current.group && cameraRef.current) {
+			cameraRef.current.moveTo(
+				flamingoRef.current.group.position.x,
+				flamingoRef.current.group.position.y + 0.3,
+				flamingoRef.current.group.position.z + 0.2,
+				true
+			);
 		}
 	});
 
@@ -62,15 +81,6 @@ export default function Experience() {
 				<Environment />
 
 				<Room />
-				{/* <CameraController
-					ref={cameraControlsRef}
-					enablePan={false}
-					enableZoom={true}
-					enableRotate={true}
-					minDistance={2}
-					maxDistance={20}
-					// fov={fov}
-				/> */}
 				<CameraControls
 					ref={cameraRef}
 					colliderMeshes={colliderMeshesArray}
@@ -81,7 +91,7 @@ export default function Experience() {
 					ref={flamingoRef}
 					debug={false}
 					animated={true}
-					position={[0, 1, 0]}>
+					position={[0, 0, 0]}>
 					<FernandoTheFlamingo />
 				</BVHEcctrl>
 			</Bvh>
