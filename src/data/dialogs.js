@@ -134,7 +134,7 @@ export const DIALOG_TEMPLATES = {
 				testimony: {
 					title: "Mystical Vision",
 					description:
-						"Wendeline's spirits showed {accused} with {descrption} while {action}",
+						"Wendeline's spirits showed {accused} with {description} while {action}",
 					accusor: "Wendeline the Witch",
 					accused: "{accused}",
 					weapon: "{weapon}",

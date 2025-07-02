@@ -9,6 +9,7 @@ import { DoorRound } from "./components/DoorRound";
 import { Wall } from "./components/Wall";
 import { folder, useControls } from "leva";
 import { Window } from "./components/Window";
+import { StaticCollider } from "bvhecctrl";
 
 export default function Bedroom(bedroomClues, ...props) {
 	console.log("Clues passed to bedroom: ", bedroomClues);
@@ -100,6 +101,12 @@ export default function Bedroom(bedroomClues, ...props) {
 		bWall5Rx,
 		bWall5Ry,
 		bWall5Rz,
+		bWall6Px,
+		bWall6Py,
+		bWall6Pz,
+		bWall6Rx,
+		bWall6Ry,
+		bWall6Rz,
 		bWin1Px,
 		bWin1Py,
 		bWin1Pz,
@@ -112,6 +119,12 @@ export default function Bedroom(bedroomClues, ...props) {
 		bWin2Rx,
 		bWin2Ry,
 		bWin2Rz,
+		bWin3Px,
+		bWin3Py,
+		bWin3Pz,
+		bWin3Rx,
+		bWin3Ry,
+		bWin3Rz,
 	} = useControls({
 		BWalls: folder(
 			{
@@ -132,29 +145,37 @@ export default function Bedroom(bedroomClues, ...props) {
 				bWall2Ry: { value: 0.69, min: -3, max: 3, step: 0.01 },
 				bWall2Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// bWall 3 Position
-				bWall3Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				bWall3Px: { value: 8, min: -10, max: 10, step: 0.01 },
 				bWall3Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				bWall3Pz: { value: -2, min: -10, max: 10, step: 0.01 },
+				bWall3Pz: { value: -1.6, min: -10, max: 10, step: 0.01 },
 				// bWall 3 Rotation
 				bWall3Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				bWall3Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				bWall3Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 				// bWall 4 Position
-				bWall4Px: { value: 7, min: -10, max: 10, step: 0.01 },
+				bWall4Px: { value: 8, min: -10, max: 10, step: 0.01 },
 				bWall4Py: { value: 0, min: -10, max: 10, step: 0.01 },
-				bWall4Pz: { value: 2, min: -10, max: 10, step: 0.01 },
+				bWall4Pz: { value: 2.33, min: -10, max: 10, step: 0.01 },
 				// bWall 4 Rotation
 				bWall4Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				bWall4Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				bWall4Rz: { value: 0, min: -3, max: 3, step: 0.01 },
-				// bWall 4 Position
+				// bWall 5 Position
 				bWall5Px: { value: 5.56, min: -10, max: 10, step: 0.01 },
 				bWall5Py: { value: 0, min: -10, max: 10, step: 0.01 },
 				bWall5Pz: { value: -3.2, min: -10, max: 10, step: 0.01 },
-				// bWall 4 Rotation
+				// bWall 5 Rotation
 				bWall5Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				bWall5Ry: { value: 0, min: -3, max: 3, step: 0.01 },
 				bWall5Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// bWall 6 Position
+				bWall6Px: { value: -6.8, min: -20, max: 20, step: 0.01 },
+				bWall6Py: { value: 0, min: -20, max: 20, step: 0.01 },
+				bWall6Pz: { value: 4.8, min: -20, max: 20, step: 0.01 },
+				// bWall 6 Rotation
+				bWall6Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWall6Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
+				bWall6Rz: { value: 0, min: -10, max: 10, step: 0.01 },
 			},
 			{ collapsed: true }
 		),
@@ -175,6 +196,14 @@ export default function Bedroom(bedroomClues, ...props) {
 				bWin2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
 				bWin2Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
 				bWin2Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				// bWin 3 position
+				bWin3Px: { value: 7.58, min: -20, max: 20, step: 0.01 },
+				bWin3Py: { value: 0, min: -20, max: 20, step: 0.01 },
+				bWin3Pz: { value: 6.24, min: -20, max: 20, step: 0.01 },
+				// bWin 3 rotation
+				bWin3Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				bWin3Ry: { value: -1.55, min: -10, max: 10, step: 0.01 },
+				bWin3Rz: { value: 0, min: -10, max: 10, step: 0.01 },
 			},
 			{ collapsed: true }
 		),
@@ -183,7 +212,7 @@ export default function Bedroom(bedroomClues, ...props) {
 	return (
 		<>
 			<DoorRound
-				position={[6.1, 0, 1.3]}
+				position={[7.1, 0, 1.3]}
 				scale={3}
 				rotation={[0, -Math.PI * 0.5, 0]}
 				onPointerOver={() => handleDoorHover("hall")}
@@ -221,11 +250,27 @@ export default function Bedroom(bedroomClues, ...props) {
 				rotation={[bWin2Rx, bWin2Ry, bWin2Rz]}
 				scale={2}
 			/>
+			<Window
+				position={[bWin3Px, bWin3Py, bWin3Pz]}
+				rotation={[bWin3Rx, bWin3Ry, bWin3Rz]}
+				scale={2}
+			/>
 			<Wall
 				position={[bWall5Px, bWall5Py, bWall5Pz]}
 				rotation={[bWall5Rx, bWall5Ry, bWall5Rz]}
 				scale={2}
 			/>
+			<Wall
+				position={[bWall6Px, bWall6Py, bWall6Pz]}
+				rotation={[bWall6Rx, bWall6Ry, bWall6Rz]}
+				scale={2}
+			/>
+			<StaticCollider>
+				<mesh position={[0, 1, 6.7]} visible={false}>
+					<boxGeometry args={[16, 5, 0.2]} />
+					<meshBasicMaterial transparent opacity={0} />
+				</mesh>
+			</StaticCollider>
 
 			<group {...props} dispose={null}>
 				{/* Bed 1 with blue duvet */}
