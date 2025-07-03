@@ -88,7 +88,9 @@ export default function Room() {
 
 			{currentRoom === "hall" && (
 				<>
-					<Hall />
+					<StaticCollider>
+						<Hall />
+					</StaticCollider>
 				</>
 			)}
 		</>

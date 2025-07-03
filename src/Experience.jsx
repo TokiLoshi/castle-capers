@@ -35,7 +35,7 @@ export default function Experience() {
 	useControls("Character: ", {
 		ResetPlayer: button(() => {
 			flamingoRef.current?.group?.position.set(0, 0, 0);
-			flamingoRef.current?.resetLinvel();
+			flamingoRef.current?.resetLinVel();
 		}),
 	});
 
@@ -48,12 +48,12 @@ export default function Experience() {
 	useEffect(() => {
 		if (flamingoRef.current?.group && currentRoom) {
 			const roomSpawnPositions = {
-				hall: [0, 0, 1],
-				bedroom: [0, 0, 1],
-				kitchen: [0, 0, 1],
-				library: [0, 0, -1.5],
+				hall: [0, 1, 1],
+				bedroom: [0, 1, 1],
+				kitchen: [0, 1, 1],
+				library: [0, 1, -1.5],
 			};
-			const spawnPos = roomSpawnPositions[currentRoom] || [0, 0, 0];
+			const spawnPos = roomSpawnPositions[currentRoom] || [0, 1, 0];
 			flamingoRef.current.group.position.set(...spawnPos);
 			flamingoRef.current?.resetLinVel();
 		}
@@ -63,7 +63,7 @@ export default function Experience() {
 		if (flamingoRef.current && flamingoRef.current.group && cameraRef.current) {
 			cameraRef.current.moveTo(
 				flamingoRef.current.group.position.x,
-				flamingoRef.current.group.position.y + 0.3,
+				flamingoRef.current.group.position.y + 0.5,
 				flamingoRef.current.group.position.z + 0.2,
 				true
 			);
@@ -90,12 +90,17 @@ export default function Experience() {
 				/>
 				<BVHEcctrl
 					ref={flamingoRef}
-					debug={false}
+					debug={true}
 					animated={true}
-					floatHeight={0.1}
-					// floatDamping={26}
+					floatHeight={0.01}
+					floatDamping={26}
 					capsuleHalfHeight={1}
-					position={[0, 0, 0]}>
+					capsuleRadius={0.5}
+					position={[0, 1, 0]}
+					speed={1.6}
+					linearDamping = {3}
+					angularDamping={3}>
+
 					<FernandoTheFlamingo />
 				</BVHEcctrl>
 			</Bvh>
