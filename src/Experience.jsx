@@ -48,10 +48,10 @@ export default function Experience() {
 	useEffect(() => {
 		if (flamingoRef.current?.group && currentRoom) {
 			const roomSpawnPositions = {
-				hall: [0, 0, 0],
-				bedroom: [0, 0, 2],
-				kitchen: [1, 0, 1],
-				library: [0, 0, 2],
+				hall: [0, 0, 1],
+				bedroom: [0, 0, 1],
+				kitchen: [0, 0, 1],
+				library: [0, 0, 1],
 			};
 			const spawnPos = roomSpawnPositions[currentRoom] || [0, 0, 0];
 			flamingoRef.current.group.position.set(...spawnPos);
@@ -81,13 +81,18 @@ export default function Experience() {
 					// colliderMeshes={colliderMeshesArray}
 					smoothTime={0.1}
 					makeDefault
+					minPolarAngle={-Math.PI * 0.5}
+					maxPolarAngle={Math.PI / 2.2}
+					minAzimuthAngle={-Math.PI * 0.1}
+					maxAzimuthAngle={Math.PI * 0.1}
 				/>
 				<BVHEcctrl
 					ref={flamingoRef}
-					debug={false}
+					debug={true}
 					animated={true}
 					floatHeight={0.1}
-					capsuleHalfHeight={1.0}
+					floatDamping={26}
+					capsuleHalfHeight={1}
 					position={[0, 0, 0]}>
 					<FernandoTheFlamingo />
 				</BVHEcctrl>

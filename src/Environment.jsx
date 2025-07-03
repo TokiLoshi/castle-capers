@@ -129,7 +129,7 @@ export default function Environment() {
 					position={[0, -0.1, 0]}
 					rotation={[-Math.PI / 2, 0, 0]}
 					receiveShadow>
-					<planeGeometry args={[30, 30]} />
+					<planeGeometry args={[20, 20]} />
 					{/* <meshStandardMaterial
 					color='grey'
 					roughness={0.8}

@@ -98,6 +98,12 @@ export default function Kitchen(kitchenClues, ...props) {
 		lWall6Rx,
 		lWall6Ry,
 		lWall6Rz,
+		lWall7Px,
+		lWall7Py,
+		lWall7Pz,
+		lWall7Rx,
+		lWall7Ry,
+		lWall7Rz,
 		lWin1Px,
 		lWin1Py,
 		lWin1Pz,
@@ -167,6 +173,14 @@ export default function Kitchen(kitchenClues, ...props) {
 				lWall6Rx: { value: 0, min: -3, max: 3, step: 0.01 },
 				lWall6Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
 				lWall6Rz: { value: 0, min: -3, max: 3, step: 0.01 },
+				// lWall 7 Position
+				lWall7Px: { value: -7.2, min: -10, max: 10, step: 0.01 },
+				lWall7Py: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWall7Pz: { value: 6.38, min: -10, max: 10, step: 0.01 },
+				// lWall 7 Rotation
+				lWall7Rx: { value: 0, min: -3, max: 3, step: 0.01 },
+				lWall7Ry: { value: Math.PI * 0.5, min: -3, max: 3, step: 0.01 },
+				lWall7Rz: { value: 0, min: -3, max: 3, step: 0.01 },
 			},
 			{ collapsed: true }
 		),
@@ -187,6 +201,14 @@ export default function Kitchen(kitchenClues, ...props) {
 				lWin2Rx: { value: 0, min: -10, max: 10, step: 0.01 },
 				lWin2Ry: { value: 1.57, min: -10, max: 10, step: 0.01 },
 				lWin2Rz: { value: 0, min: -10, max: 10, step: 0.01 },
+				// lWin 3 position
+				lWin3Px: { value: 7.14, min: -20, max: 20, step: 0.01 },
+				lWin3Py: { value: 0, min: -20, max: 20, step: 0.01 },
+				lWin3Pz: { value: 6.12, min: -20, max: 20, step: 0.01 },
+				// lWin 3 rotation
+				lWin3Rx: { value: 0, min: -10, max: 10, step: 0.01 },
+				lWin3Ry: { value: -1.57, min: -10, max: 10, step: 0.01 },
+				lWin3Rz: { value: 0, min: -10, max: 10, step: 0.01 },
 			},
 			{ collapsed: true }
 		),
@@ -224,26 +246,43 @@ export default function Kitchen(kitchenClues, ...props) {
 				scale={2}
 				position={[lWin1Px, lWin1Py, lWin1Pz]}
 				rotation={[lWin1Rx, lWin1Ry, lWin1Rz]}
+				onClick={() => console.log("Clicked on window 1")}
 			/>
 
 			<Window
 				position={[lWin2Px, lWin2Py, lWin2Pz]}
 				rotation={[lWin2Rx, lWin2Ry, lWin2Rz]}
+				onClick={() => console.log("Clicked on window 2")}
 				scale={2}
 			/>
 			<Window
 				scale={2}
 				position={[lWin3Px, lWin3Py, lWin3Pz]}
 				rotation={[lWin3Rx, lWin3Ry, lWin3Rz]}
+				onClick={() => console.log("Clicked on window 3")}
 			/>
 			<Wall
 				position={[lWall5Px, lWall5Py, lWall5Pz]}
 				rotation={[lWall5Rx, lWall5Ry, lWall5Rz]}
+				onClick={() => console.log("Clicked on wall 5")}
 				scale={2}
 			/>
 			<Wall
 				position={[lWall6Px, lWall6Py, lWall6Pz]}
 				rotation={[lWall6Rx, lWall6Ry, lWall6Rz]}
+				onClick={() => console.log("Clicked on wall 6")}
+				scale={2}
+			/>
+			<Window
+				scale={2}
+				position={[lWin3Px, lWin3Py, lWin3Pz]}
+				rotation={[lWin3Rx, lWin3Ry, lWin3Rz]}
+				onClick={() => console.log("Clicked on window 3")}
+			/>
+			<Wall
+				position={[lWall7Px, lWall7Py, lWall7Pz]}
+				rotation={[lWall7Rx, lWall7Ry, lWall7Rz]}
+				onClick={() => console.log("Clicked on wall 7")}
 				scale={2}
 			/>
 			<DoorRound
