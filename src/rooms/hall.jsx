@@ -192,19 +192,16 @@ export default function Hall() {
 	});
 
 	const handleDoorClick = (roomName) => {
-		console.log(`Clicked door to ${roomName}`);
 		changeRoom(roomName);
 	};
 
 	const handleDoorHover = (doorName) => {
 		setHoveredDoor(doorName);
-		console.log(`Hovered over: ${doorName}`);
 		document.body.style.cursor = "pointer";
 	};
 
 	const handleDoorHoverOut = () => {
 		setHoveredDoor(null);
-		console.log("Hovered out");
 		document.body.style.cursor = "grab";
 	};
 

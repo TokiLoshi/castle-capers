@@ -40,10 +40,6 @@ export default function Wizard(props) {
 	const currentAnimation = getNPCAnimation(npcId);
 	const npcStatus = getNPCDialogStatus(npcId);
 
-	console.log("Wizard Actions: ", actions);
-	console.log("NPC Status: ", npcStatus);
-	console.log("Current Animation: ", currentAnimation);
-
 	const handlePointerOver = () => {
 		setHoveredCharacter(npcId);
 		console.log(`Hovered over: ${hoveredCharacter}`);
@@ -51,32 +47,18 @@ export default function Wizard(props) {
 	};
 
 	const handlePointerOut = () => {
-		console.log("Hovering away from character");
 		setHoveredCharacter(null);
 		document.body.style.cursor = "default";
 	};
 
 	const handleClick = (e) => {
 		e.stopPropagation();
-		console.log("Clicked on character: ", npcId);
 		if (npcStatus.canInteract) {
-			console.log("Can interact with npc, starting interaction: ");
 			interactWithNPC(npcId);
 		} else {
 			console.log("Can't interact with this NPC");
 		}
 	};
-
-	// const getOutlineColor = () => {
-	// 	if (npcStatus.hasBeenPlayed) {
-	// 		return "#666666";
-	// 	} else if (hoveredCharacter === npcId) {
-	// 		return "#00ff00";
-	// 	} else if (npcStatus.hasDialog) {
-	// 		return "#fff00";
-	// 	}
-	// 	return "#ffffff";
-	// };
 
 	useEffect(() => {
 		if (!actions || Object.keys(actions).length === 0) return;
@@ -84,8 +66,6 @@ export default function Wizard(props) {
 		const targetAction = actions[actionName];
 
 		if (targetAction) {
-			console.log(`Switching to animation: ${actionName}`);
-
 			Object.values(actions).forEach((action) => {
 				if (action !== targetAction && action.isRunning()) {
 					action.fadeOut(0.1);

@@ -45,22 +45,18 @@ export function Cactus(props) {
 	const npcStatus = getNPCDialogStatus(npcId);
 
 	const handlePointerOver = (characterId) => {
-		console.log(`Hovered over: ${characterId}`);
 		setHoveredCharacter(characterId);
 		document.body.style.cursor = "pointer";
 	};
 
 	const handlePointerOut = () => {
-		console.log("Hovering out of character");
 		setHoveredCharacter(null);
 		document.body.style.cursor = "grab";
 	};
 
 	const handleClick = (e) => {
 		e.stopPropagation();
-		console.log("Clicked on character: cactus");
 		if (npcStatus.canInteract) {
-			console.log("Can interactWithNPC, starting interaction:");
 			interactWithNPC("chained");
 		}
 	};
@@ -82,8 +78,6 @@ export function Cactus(props) {
 		const targetAction = actions[actionName];
 
 		if (targetAction) {
-			console.log(`Switching from ${currentAnimation} to ${targetAction}`);
-
 			Object.values(actions).forEach((action) => {
 				if (action !== targetAction && action.isRunning()) {
 					action.fadeOut(0.1);

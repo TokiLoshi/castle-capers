@@ -6,22 +6,19 @@ export default function SolveModal() {
 	const {
 		isSolvePanelOpen,
 		closeSolvePanel,
-		solution,
+		// solution,
 		checkSolution,
 		guessesRemaining,
 		gameEnded,
 
 		// gameLost,
 	} = useGameStore();
-	console.log("Solution: ", solution);
 	const [isAnimating, setIsAnimating] = useState(false);
 	const [selectedMurderer, setSelectedMurderer] = useState("");
 	const [selectedMurderWeapon, setSelectedMurderWeapon] = useState("");
 	const [showResult, setShowResult] = useState(false);
 	const [isCorrect, setIsCorrect] = useState(false);
 	const [hasSubmitted, setHasSubmitted] = useState(false);
-
-	console.log("Solve Panel: isSolvePanelOpen: ", isSolvePanelOpen);
 
 	useEffect(() => {
 		if (isSolvePanelOpen) {
@@ -60,11 +57,11 @@ export default function SolveModal() {
 			alert("Please select both a murderer and a weapon");
 			return;
 		}
-		console.log(
-			"Debugging: user has chosen: ",
-			selectedMurderer,
-			selectedMurderWeapon
-		);
+		// console.log(
+		// 	"Debugging: user has chosen: ",
+		// 	selectedMurderer,
+		// 	selectedMurderWeapon
+		// );
 		const correct = checkSolution(selectedMurderer, selectedMurderWeapon);
 		setIsCorrect(correct);
 		setShowResult(true);
@@ -82,7 +79,7 @@ export default function SolveModal() {
 
 	if (!isSolvePanelOpen) return null;
 
-	console.log("Solution from game store: ", solution);
+	// console.log("Solution from game store: ", solution);
 
 	return (
 		<div

@@ -18,17 +18,14 @@ export default function Kitchen(kitchenClues, ...props) {
 	const [hoveredObject, setHoveredObject] = useState(null);
 	const { interactWithObject, getObjectStatus } = useGameStore();
 	const hoverableClues = Object.keys(kitchenClues["clues"]);
-	console.log("Hoverable clues from kitchen: ", hoverableClues);
 
 	const handlePointerOver = (objectId) => {
-		console.log("Object id on Pointer Over: ", objectId);
 		if (!hoverableClues.includes(objectId)) return;
 		setHoveredObject(objectId);
 		document.body.style.cursor = "pointer";
 	};
 
 	const handlePointerOut = () => {
-		console.log("Hovering out");
 		setHoveredObject(null);
 		document.body.style.cursor = "default";
 	};
@@ -37,7 +34,6 @@ export default function Kitchen(kitchenClues, ...props) {
 		if (e && e.stopPropagation) {
 			e.stopPropagation();
 		}
-		console.log("Clicked on: ", objectId);
 		interactWithObject(objectId);
 	};
 
@@ -52,13 +48,11 @@ export default function Kitchen(kitchenClues, ...props) {
 	const [hoveredDoor, setHoveredDoor] = useState(null);
 
 	const handleDoorClick = (roomName) => {
-		console.log(`Clicked door to ${roomName}`);
 		changeRoom(roomName);
 	};
 
 	const handleDoorHover = (doorName) => {
 		setHoveredDoor(doorName);
-		console.log(`Hovered over: ${hoveredDoor}`);
 		document.body.style.cursor = "pointer";
 	};
 
@@ -204,25 +198,21 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[lWall1Px, lWall1Py, lWall1Pz]}
 				rotation={[lWall1Rx, lWall1Ry, lWall1Rz]}
 				scale={2}
-				onClick={() => console.log("Clicked on wall1")}
 			/>
 			<Wall
 				position={[lWall2Px, lWall2Py, lWall2Pz]}
 				scale={2}
 				rotation={[lWall2Rx, lWall2Ry, lWall2Rz]}
-				onClick={() => console.log("Clicked on wall2")}
 			/>
 			<Wall
 				position={[lWall3Px, lWall3Py, lWall3Pz]}
 				rotation={[lWall3Rx, lWall3Ry, lWall3Rz]}
 				scale={2}
-				onClick={() => console.log("Clicked on wall3")}
 			/>
 			<Wall
 				position={[lWall4Px, lWall4Py, lWall4Pz]}
 				rotation={[lWall4Rx, lWall4Ry, lWall4Rz]}
 				scale={2}
-				onClick={() => console.log("Clicked on Wall 4")}
 			/>
 			<StaticCollider>
 				<mesh position={[0, 1, 4]} visible={true}>
@@ -234,20 +224,17 @@ export default function Kitchen(kitchenClues, ...props) {
 				scale={2}
 				position={[lWin1Px, lWin1Py, lWin1Pz]}
 				rotation={[lWin1Rx, lWin1Ry, lWin1Rz]}
-				onClick={() => console.log("Clicked on window 1")}
 			/>
 
 			<Window
 				position={[lWin2Px, lWin2Py, lWin2Pz]}
 				rotation={[lWin2Rx, lWin2Ry, lWin2Rz]}
-				onClick={() => console.log("Clicked on Window 2")}
 				scale={2}
 			/>
 			<Window
 				scale={2}
 				position={[lWin3Px, lWin3Py, lWin3Pz]}
 				rotation={[lWin3Rx, lWin3Ry, lWin3Rz]}
-				onClick={() => console.log("Clicked on window 3")}
 			/>
 			<Wall
 				position={[lWall5Px, lWall5Py, lWall5Pz]}
@@ -258,7 +245,6 @@ export default function Kitchen(kitchenClues, ...props) {
 				position={[lWall6Px, lWall6Py, lWall6Pz]}
 				rotation={[lWall6Rx, lWall6Ry, lWall6Rz]}
 				scale={2}
-				onClick={() => console.log("Clicked on Wall 6")}
 			/>
 			<DoorRound
 				position={[6.66, 0, 2.3]}

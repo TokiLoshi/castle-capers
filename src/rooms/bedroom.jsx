@@ -12,26 +12,20 @@ import { Window } from "./components/Window";
 import { StaticCollider } from "bvhecctrl";
 
 export default function Bedroom(bedroomClues, ...props) {
-	console.log("Clues passed to bedroom: ", bedroomClues);
-
 	const { nodes, materials } = useGLTF("models/rooms/bedroom.glb");
 	// const [hovered, setHovered] = useState(false);
 	const [hoveredObject, setHoveredObject] = useState(null);
 
 	const { interactWithObject, getObjectStatus } = useGameStore();
 	const hoverableClues = Object.keys(bedroomClues["clues"]);
-	console.log("Hoverable clues: ", hoverableClues);
 
 	const handlePointerOver = (objectId) => {
-		console.log("Object id on Pointer Over: ", objectId);
 		if (!hoverableClues.includes(objectId)) return;
 		setHoveredObject(objectId);
 		document.body.style.cursor = "pointer";
 	};
 
 	const handlePointerOut = () => {
-		console.log("Hovering out");
-
 		setHoveredObject(null);
 		document.body.style.cursor = "grab";
 	};
@@ -40,7 +34,6 @@ export default function Bedroom(bedroomClues, ...props) {
 		if (e && e.stopPropagation) {
 			e.stopPropagation();
 		}
-		console.log("Clicked, id:", objectId);
 		interactWithObject(objectId);
 	};
 
@@ -55,13 +48,11 @@ export default function Bedroom(bedroomClues, ...props) {
 	const [hoveredDoor, setHoveredDoor] = useState(null);
 
 	const handleDoorClick = (roomName) => {
-		console.log(`Clicked door to ${roomName}`);
 		changeRoom(roomName);
 	};
 
 	const handleDoorHover = (doorName) => {
 		setHoveredDoor(doorName);
-		console.log(`Hovered over: ${hoveredDoor}`);
 		document.body.style.cursor = "pointer";
 	};
 
@@ -797,9 +788,6 @@ export default function Bedroom(bedroomClues, ...props) {
 					scale={0.698}
 					onPointerEnter={() => (document.body.style.cursor = "pointer")}
 					onPointerLeave={() => (document.body.style.cursor = "grab")}
-					onClick={() => {
-						console.log("*** YES! Book group clicked ");
-					}}
 				/>
 			</group>
 		</>

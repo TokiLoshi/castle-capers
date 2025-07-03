@@ -6,8 +6,6 @@ export default function Notebook() {
 	const { foundClues, isNotebookOpen, closeNotebook } = useGameStore();
 	const [isAnimating, setIsAnimating] = useState(false);
 
-	console.log("Notebook render - isNotebookOpen: ", isNotebookOpen);
-
 	useEffect(() => {
 		if (isNotebookOpen) {
 			setIsAnimating(true);
@@ -29,7 +27,6 @@ export default function Notebook() {
 	if (!isNotebookOpen) return null;
 
 	const actualClues = foundClues.filter((clue) => clue.isClue);
-	console.log("Actual clues: ", actualClues);
 
 	return (
 		<>

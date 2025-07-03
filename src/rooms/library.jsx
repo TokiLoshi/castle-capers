@@ -13,22 +13,18 @@ import { Window } from "./components/Window";
 
 export default function Library(libraryClues, ...props) {
 	const { nodes, materials } = useGLTF("models/library.glb");
-	console.log("Library clues: ", libraryClues);
 
 	const [hoveredObject, setHoveredObject] = useState(null);
 	const { interactWithObject, getObjectStatus } = useGameStore();
 	const hoverableClues = Object.keys(libraryClues["clues"]);
-	console.log("Hoverable clues in library: ", hoverableClues);
 
 	const handlePointerOver = (objectId) => {
-		console.log("Objject id on Pointer Over: ", objectId);
 		if (!hoverableClues.includes(objectId)) return;
 		setHoveredObject(objectId);
 		document.body.style.cursor = "pointer";
 	};
 
 	const handlePointerOut = () => {
-		console.log("Hovering out");
 		setHoveredObject(null);
 		document.body.style.cursor = "default";
 	};
@@ -37,7 +33,6 @@ export default function Library(libraryClues, ...props) {
 		if (e && e.stopPropagation) {
 			e.stopPropagation();
 		}
-		console.log("Clicked: ", objectId);
 		interactWithObject(objectId);
 	};
 
@@ -52,13 +47,11 @@ export default function Library(libraryClues, ...props) {
 	const [hoveredDoor, setHoveredDoor] = useState(null);
 
 	const handleDoorClick = (roomName) => {
-		console.log(`Clicked door to ${roomName}`);
 		changeRoom(roomName);
 	};
 
 	const handleDoorHover = (doorName) => {
 		setHoveredDoor(doorName);
-		console.log(`Hovered over: ${hoveredDoor}`);
 		document.body.style.cursor = "pointer";
 	};
 
@@ -235,60 +228,50 @@ export default function Library(libraryClues, ...props) {
 				position={[kWall1Px, kWall1Py, kWall1Pz]}
 				rotation={[kWall1Rx, kWall1Ry, kWall1Rz]}
 				scale={2}
-				onClick={() => console.log("Wall one clicked")}
 			/>
 			<Wall
 				position={[kWall2Px, kWall2Py, kWall2Pz]}
 				scale={2}
 				rotation={[kWall2Rx, kWall2Ry, kWall2Rz]}
-				onClick={() => console.log("Wall 2 clicked")}
 			/>
 			<Wall
 				position={[kWall3Px, kWall3Py, kWall3Pz]}
 				rotation={[kWall3Rx, kWall3Ry, kWall3Rz]}
 				scale={2}
-				onClick={() => console.log("Wall 3 clicked")}
 			/>
 			<Wall
 				position={[kWall4Px, kWall4Py, kWall4Pz]}
 				rotation={[kWall4Rx, kWall4Ry, kWall4Rz]}
 				scale={2}
-				onClicke={() => console.log("Wall 4 clicked")}
 			/>
 			<Window
 				scale={2}
 				position={[kWin1Px, kWin1Py, kWin1Pz]}
 				rotation={[kWin1Rx, kWin1Ry, kWin1Rz]}
-				onClick={() => console.log("Window 1 clicked")}
 			/>
 			<Window
 				position={[kWin2Px, kWin2Py, kWin2Pz]}
 				rotation={[kWin2Rx, kWin2Ry, kWin2Rz]}
 				scale={2}
-				onClick={() => console.log("Window 2 clicked")}
 			/>
 			<Wall
 				position={[kWall5Px, kWall5Py, kWall5Pz]}
 				rotation={[kWall5Rx, kWall5Ry, kWall5Rz]}
 				scale={2}
-				onClick={() => console.log("Wall 5 clicked")}
 			/>
 			<Wall
 				position={[kWall6Px, kWall6Py, kWall6Pz]}
 				rotation={[kWall6Rx, kWall6Ry, kWall6Rz]}
 				scale={2}
-				onClick={() => console.log("Wall 6 clicked")}
 			/>
 			<Wall
 				position={[kWall7Px, kWall7Py, kWall7Pz]}
 				rotation={[kWall7Rx, kWall7Ry, kWall7Rz]}
 				scale={2}
-				onClick={() => console.log("Wall 7 clicked ")}
 			/>
 			<Wall
 				position={[kWall8Px, kWall8Py, kWall8Pz]}
 				rotation={[kWall8Rx, kWall8Ry, kWall8Rz]}
-				onClick={() => console.log("Wall 8 clicked")}
 				scale={2}
 			/>
 			<mesh position={[-1, 1, 3]} visible={false}>

@@ -6,10 +6,6 @@ export default function Testimonials() {
 	const { foundTestimonies, isTestimonyPanelOpen, closeTestimonyPanel } =
 		useGameStore();
 	const [isAnimating, setIsAnimating] = useState(false);
-	console.log(
-		"Testimonial render - isTestimonyPanelOpen: ",
-		isTestimonyPanelOpen
-	);
 
 	useEffect(() => {
 		if (isTestimonyPanelOpen) {

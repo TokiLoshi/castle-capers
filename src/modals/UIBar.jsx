@@ -11,19 +11,8 @@ export default function UIBar() {
 	} = useGameStore();
 
 	const clueCount = foundClues.filter((clue) => clue.isClue).length;
-	console.log("Testimonies: ", foundTestimonies);
 
 	const testimoniesCount = foundTestimonies.length;
-	console.log("Testimonies Count: ", testimoniesCount);
-
-	// const handleOpenNotebook = () => {
-	// 	console.log("Opening notebooke with: ", foundClues);
-	// 	openNotebook();
-	// };
-
-	// const handleAccusation = () => {
-	// 	console.log("Making accusation... ");
-	// };
 
 	return (
 		<div className='UI-Bar'>

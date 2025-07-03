@@ -41,14 +41,9 @@ export default function Experience() {
 
 	useEffect(() => {
 		if (!gameStarted) {
-			console.log("Initializing game...");
 			initializeGame();
 		}
 	}, [gameStarted, initializeGame]);
-
-	// useEffect(() => {
-	// 	console.log("Current clues: ", currentClues);
-	// }, [currentClues]);
 
 	useEffect(() => {
 		if (flamingoRef.current?.group && currentRoom) {
@@ -61,7 +56,6 @@ export default function Experience() {
 			const spawnPos = roomSpawnPositions[currentRoom] || [0, 0, 0];
 			flamingoRef.current.group.position.set(...spawnPos);
 			flamingoRef.current?.resetLinVel();
-			console.log("Moving Fernando");
 		}
 	}, [currentRoom]);
 

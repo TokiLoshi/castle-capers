@@ -1,23 +1,3 @@
-// export function generateDialog(
-// 	murderer,
-// 	murderWeapon,
-// 	murderWeaponDescription,
-// 	murderWeaponAction
-// ) {
-// 	const dialog = {};
-// 	console.log(
-// 		`Generating dialog with ${murderer} murderWeapon ${murderWeapon} description ${murderWeaponDescription} and ${murderWeaponAction}`
-// 	);
-// 	// iterate through the dialogs
-// 	// if key is murderer choose a different weapon and blame someone
-// 	// if murderer's name is already in the dialog three times blame someone else
-// 	// otherwise blame murderer with the murderweapon
-// 	// Adjust the testimony to include the murder description and the murder action
-// 	// append dialog copy witht he adjusted testimony
-
-// 	return dialog;
-// }
-
 export const DIALOG_TEMPLATES = {
 	Adventurer: {
 		name: "Gregory the Great",

@@ -36,7 +36,6 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 		"models/characters/Astronaut.glb"
 	);
 	const { actions } = useAnimations(animations, armatureRef);
-	// console.log("Actions: ", actions);
 
 	const [sub, _] = useKeyboardControls();
 	// const [isMoving, setIsMoving] = useState(false);
@@ -51,9 +50,6 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 				state.rightward ||
 				state.jump,
 			(pressed) => {
-				// console.log("Movement key pressed: ", pressed);
-				// setIsMoving(pressed);
-
 				if (pressed && currentAnimation !== "run") {
 					setCurrentAnimation("run");
 				} else if (!pressed && currentAnimation !== "idle") {
@@ -69,7 +65,6 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 		const targetAction = actions[actionName];
 
 		if (targetAction) {
-			// console.log("Switching to animation: ", currentAnimation);
 			Object.values(actions).forEach((action) => {
 				if (action !== targetAction && action.isRunning()) {
 					action.fadeOut(0.1);
@@ -123,7 +118,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 					<group
 						ref={armatureRef}
 						name='CharacterArmature'
-						position={[0, -0.5, 0]}
+						position={[0, 0, 0]}
 						rotation={[-Math.PI / 2, 0, 0]}
 						scale={50}>
 						<primitive object={nodes.Root} />

@@ -25,7 +25,6 @@ export const Player = forwardRef(function Player(
 			playerRef.current.position.add(velocity);
 		}
 	});
-	console.log("Player ref: ", playerRef);
 	return (
 		<group ref={playerRef} position={position}>
 			<mesh position={[0, 0.5, 0]} castShadow>

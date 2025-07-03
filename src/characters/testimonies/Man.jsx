@@ -29,17 +29,12 @@ export default function Man(props) {
 		"models/characters/testimonies/Man.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Man Actions: ", actions);
 
 	const { interactWithNPC, getNPCAnimation, getNPCDialogStatus } =
 		useGameStore();
 
 	const currentAnimation = getNPCAnimation(npcId);
 	const npcStatus = getNPCDialogStatus(npcId);
-
-	console.log("Hooded Adventurer Actions: ", actions);
-	console.log("NPC Status: ", npcStatus);
-	console.log("Current Animation: ", currentAnimation);
 
 	const handlePointerOver = () => {
 		setHoveredCharacter(npcId);
@@ -48,16 +43,13 @@ export default function Man(props) {
 	};
 
 	const handlePointerOut = () => {
-		console.log("Hovering away from character");
 		setHoveredCharacter(null);
 		document.body.style.cursor = "default";
 	};
 
 	const handleClick = (e) => {
 		e.stopPropagation();
-		console.log("Clicked on character: ", npcId);
 		if (npcStatus.canInteract) {
-			console.log("Can interact with npc, starting interaction: ");
 			interactWithNPC(npcId);
 		} else {
 			console.log("Can't interact with this NPC");
@@ -70,8 +62,6 @@ export default function Man(props) {
 		const targetAction = actions[actionName];
 
 		if (targetAction) {
-			console.log(`Switching to animation: ${actionName}`);
-
 			Object.values(actions).forEach((action) => {
 				if (action !== targetAction && action.isRunning()) {
 					action.fadeOut(0.1);

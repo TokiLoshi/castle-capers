@@ -147,7 +147,6 @@ export const useGameStore = create(
 
 		changeRoom: (newRoom) => {
 			const { currentRoom } = get();
-			console.log(`Changing from ${currentRoom} to ${newRoom}`);
 			set({
 				previousRoom: currentRoom,
 				currentRoom: newRoom,
@@ -156,7 +155,6 @@ export const useGameStore = create(
 
 		goBacktToHall: () => {
 			const { currentRoom } = get();
-			console.log(`Going back tot he hall from ${currentRoom}`);
 			set({
 				previousRoom: currentRoom,
 				currentRoom: "hall",
@@ -169,7 +167,6 @@ export const useGameStore = create(
 		},
 
 		initializeGame: () => {
-			console.log("Initializing game! Standby...");
 			const murderer =
 				GAME_CONFIG.suspects[
 					Math.floor(Math.random() * GAME_CONFIG.suspects.length)
@@ -178,17 +175,6 @@ export const useGameStore = create(
 				GAME_CONFIG.weapons[
 					Math.floor(Math.random() * GAME_CONFIG.weapons.length)
 				];
-
-			console.log("Initizing game, murderer selected:", murderer);
-			console.log("murderWeapon selected:", murderWeapon);
-			console.log(
-				"User must solve the puzzle by guessing the murderer",
-				murderer
-			);
-			console.log(
-				"User must solve the case by guessing the weapon: ",
-				murderWeapon
-			);
 
 			const clues = getCluesForMurderer(murderer.id);
 			const dialogs = generateDialog(murderer.id, murderWeapon.name);
@@ -229,8 +215,6 @@ export const useGameStore = create(
 				isTestimonyPanelOpen: false,
 				isSolvePanelOpen: false,
 			});
-			console.log("Game initialized with clues: ", clues);
-			console.log("Game initiatied with dialogs", dialogs);
 		},
 
 		interactWithObject: (objectId) => {
@@ -238,7 +222,6 @@ export const useGameStore = create(
 			const clue = currentClues[objectId];
 
 			if (!clue) {
-				console.log(`No clue data for object: ${objectId}`);
 				return;
 			}
 
@@ -263,7 +246,6 @@ export const useGameStore = create(
 						activeClue: { ...clue, objectId, alreadyFound: false },
 						isClueModalOpen: true,
 					});
-					console.log(`New clue found: ${clue.title}`);
 				} else {
 					set({
 						activeClue: { ...clue, objectId, alreadyFound: false },
@@ -276,10 +258,8 @@ export const useGameStore = create(
 		interactWithNPC: (npcId) => {
 			const { currentDialogs } = get();
 			const npcDialog = currentDialogs[npcId];
-			console.log("Current dialog: ", npcDialog);
 
 			if (!npcDialog) {
-				console.log(`No dialog data for npc: ${npcId}`);
 				return;
 			}
 
@@ -295,7 +275,6 @@ export const useGameStore = create(
 				currentDialogIndex: 0,
 				dialogHasEnded: false,
 			});
-			console.log(`A dialog has been started with ${npcDialog.name}`);
 		},
 
 		handleNextDialog: () => {
@@ -321,7 +300,6 @@ export const useGameStore = create(
 							},
 						],
 					});
-					console.log(`New testimony found: ${currentStep.testimony.title}`);
 				}
 			}
 
@@ -453,13 +431,6 @@ export const useGameStore = create(
 			const { murderer, murderWeapon, guessesRemaining } = get();
 			const isCorrect =
 				guessedMurderer === murderer && guessedWeapon === murderWeapon;
-			console.log(
-				`Player guessed: ${guessedMurderer} was the murderer, the solution is ${murderer}`
-			);
-			console.log(
-				`Player guessed: ${guessedWeapon} as the weapon, the solution is: ${murderWeapon}`
-			);
-			console.log(`Was player correct? ${isCorrect}`);
 			const newGuessesRemaining = guessesRemaining - 1;
 			set({
 				guessesRemaining: newGuessesRemaining,
@@ -542,14 +513,11 @@ export const useGameStore = create(
 
 function getSuspectById(id) {
 	const suspect = GAME_CONFIG.suspects.find((s) => s.id === id);
-	console.log("Getting suspects for testimonials: ", suspect);
 	return suspect;
 }
 
 function getWeaponByName(name) {
 	const weapon = GAME_CONFIG.weapons.find((w) => w.name === name);
-	console.log("Looking for: ", name);
-	console.log("Found: ", weapon);
 	return weapon;
 }
 
@@ -560,8 +528,6 @@ function getRandomScapegoat(murderer, allSuspects) {
 	);
 	const scapeGoat =
 		availableScapegoats[Math.floor(Math.random() * availableScapegoats.length)];
-	console.log("Scape goat selected by", murderer);
-	console.log("the scapeGoat is: ", scapeGoat);
 
 	return scapeGoat;
 }
@@ -572,7 +538,6 @@ function getScapegoatWeapon(murderWeapon, allWeapons) {
 	);
 	const scapegoatWeapon =
 		availableWeapons[Math.floor(Math.random() * availableWeapons.length)];
-	console.log("Scapegoat weapon selected: ", scapegoatWeapon);
 	return scapegoatWeapon;
 }
 
@@ -657,7 +622,6 @@ export function generateDialog(murderer, murderWeapon) {
 			hasBeenPlayed: false,
 		};
 	});
-	console.log("Accusation breakdown:", accusationCount);
 	return dialogs;
 }
 

@@ -1,3 +1,3 @@
-export default function animate(animationName) {
-	console.log("Animation Name: ", animationName);
+export default function animate() {
+	return;
 }

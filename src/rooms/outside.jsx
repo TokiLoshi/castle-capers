@@ -3,7 +3,6 @@ import { FernandoTheFlamingo } from "../characters/Monsters/AstroFlamingo";
 import Crown from "../characters/Victim/Crown";
 
 export default function Outside() {
-	console.log("The game is starting!");
 	return (
 		<>
 			<WallTower position={[0, 0, -3]} scale={4} />

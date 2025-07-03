@@ -39,17 +39,12 @@ export default function Shaun(props) {
 		"models/characters/testimonies/Shaun.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Actions: ", actions);
 
 	const { interactWithNPC, getNPCAnimation, getNPCDialogStatus } =
 		useGameStore();
 
 	const currentAnimation = getNPCAnimation(npcId);
 	const npcStatus = getNPCDialogStatus(npcId);
-
-	console.log("Adventurer Actions: ", actions);
-	console.log("NPC Status: ", npcStatus);
-	console.log("Current Animation: ", currentAnimation);
 
 	const handlePointerOver = () => {
 		setHoveredCharacter(npcId);
@@ -58,16 +53,13 @@ export default function Shaun(props) {
 	};
 
 	const handlePointerOut = () => {
-		console.log("Hovering away from character");
 		setHoveredCharacter(null);
 		document.body.style.cursor = "default";
 	};
 
 	const handleClick = (e) => {
 		e.stopPropagation();
-		console.log("Clicked on character: ", npcId);
 		if (npcStatus.canInteract) {
-			console.log("Can interact with npc, starting interaction: ");
 			interactWithNPC(npcId);
 		} else {
 			console.log("Can't interact with this NPC");
@@ -80,8 +72,6 @@ export default function Shaun(props) {
 		const targetAction = actions[actionName];
 
 		if (targetAction) {
-			console.log(`Switching to animation: ${actionName}`);
-
 			Object.values(actions).forEach((action) => {
 				if (action !== targetAction && action.isRunning()) {
 					action.fadeOut(0.1);
@@ -103,80 +93,6 @@ export default function Shaun(props) {
 			}
 		}
 	}, [actions]);
-
-	// const { currentAnimation, animationSpeed } = useControls("Shaun Animation", {
-	// 	currentAnimation: {
-	// 		value: "idle",
-	// 		options: Object.keys(ACTION_MAP),
-	// 	},
-	// 	animationSpeed: { value: 1, min: 0.1, max: 3, step: 0.1 },
-	// });
-
-	// const [_, getKeys] = useKeyboardControls();
-
-	// useEffect(() => {
-	// 	const actionName = ACTION_MAP[currentAnimation];
-	// 	if (actions[actionName]) {
-	// 		Object.values(actions).forEach((action) => action.stop());
-	// 		actions[actionName].reset().fadeIn(0.2).play();
-	// 		actions[actionName].timeScale = animationSpeed;
-	// 	}
-	// }, [currentAnimation, animationSpeed, actions]);
-
-	// useFrame((state, delta) => {
-	// 	const { forward, backward, leftward, rightward } = getKeys();
-	// 	const movementSpeed = 5;
-
-	// 	const isMoving = forward || backward || leftward || rightward;
-
-	// 	if (group.current) {
-	// 		if (forward) {
-	// 			group.current.position.z -= movementSpeed * delta;
-	// 		}
-	// 		if (backward) {
-	// 			group.current.position.z += movementSpeed * delta;
-	// 		}
-	// 		if (leftward) {
-	// 			group.current.position.x -= movementSpeed * delta;
-	// 		}
-	// 		if (rightward) {
-	// 			group.current.position.x += movementSpeed * delta;
-	// 		}
-	// 		if (isMoving) {
-	// 			if (forward && leftward) {
-	// 				group.current.rotation.y = Math.PI / 4;
-	// 			} else if (forward && rightward) {
-	// 				group.current.rotation.y = -Math.PI / 4;
-	// 			} else if (backward && leftward) {
-	// 				group.current.rotation.y = (3 * Math.PI) / 4;
-	// 			} else if (backward && rightward) {
-	// 				group.current.rotation.y = (-3 * Math.PI) / 4;
-	// 			} else if (forward) {
-	// 				group.current.rotation.y = 0;
-	// 			} else if (backward) {
-	// 				group.current.rotation.y = Math.PI;
-	// 			} else if (leftward) {
-	// 				group.current.rotation.y = Math.PI / 2;
-	// 			} else if (rightward) {
-	// 				group.current.rotation.y = -Math.PI / 2;
-	// 			}
-	// 		}
-	// 	}
-	// 	const shouldAnimate =
-	// 		currentAnimation === "idle" || currentAnimation === "run";
-
-	// 	if (shouldAnimate) {
-	// 		const targetAction = isMoving ? "run" : "idle";
-	// 		const actionName = ACTION_MAP[targetAction];
-
-	// 		if (actions[actionName] && !actions[actionName].isRunning()) {
-	// 			Object.values(actions).forEach((action) => action.stop());
-
-	// 			actions[actionName].reset().fadeIn(0.2).play();
-	// 			actions[actionName].timeScale = animationSpeed;
-	// 		}
-	// 	}
-	// });
 
 	return (
 		<group ref={group} rotation={[0, Math.PI, 0]} {...props} dispose={null}>

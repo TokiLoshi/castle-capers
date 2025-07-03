@@ -44,7 +44,6 @@ export default function DialogModal() {
 	};
 
 	if (!isDialogOpen || !activeDialog || !currentStep) return null;
-	console.log("Character's name in header: ", activeDialog);
 	return (
 		<div
 			className={`dialog-overlay ${isAnimating ? "animate-in" : "animate-out"}`}
