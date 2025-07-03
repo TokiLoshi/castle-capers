@@ -19,7 +19,7 @@ export const DIALOG_TEMPLATES = {
 				},
 			},
 			{
-				text: "I do hope you catch them before they skulks off. There should only be one adventurer per castle anyway.",
+				text: "I do hope you catch them before they skulk off again. There should only be one adventurer per castle anyway.",
 				animation: "kickRight",
 			},
 		],
@@ -78,7 +78,7 @@ export const DIALOG_TEMPLATES = {
 		name: "Shaun the Strange",
 		dialogSteps: [
 			{
-				text: "Oh Detective, you startled me! I'm quite exciteable so I carry around this mace with me, we are going through dark times in the castle.",
+				text: "Oh, Detective, you startled me! I'm quite excitable, so I carry around this mace with me, we are going through dark times in the castle.",
 				animation: "duck",
 			},
 			{
@@ -94,7 +94,7 @@ export const DIALOG_TEMPLATES = {
 				},
 			},
 			{
-				text: "Be careful detective, malicious forces are at work.",
+				text: "Be careful, detective, malicious forces are at work.",
 				animation: "wave",
 			},
 		],
@@ -107,7 +107,7 @@ export const DIALOG_TEMPLATES = {
 				animation: "interact",
 			},
 			{
-				text: "Last night my visions reveald {accused} to me. In my minds eye I saw {description}. When I opened my eyes I saw {accused} {action}",
+				text: "Last night, my visions revealed {accused} to me. In my mind's eye, I saw {description}. When I opened my eyes I saw {accused} {action}",
 
 				animation: "punchLeft",
 				isTestimony: true,
@@ -130,7 +130,7 @@ export const DIALOG_TEMPLATES = {
 		name: "Dorian the Gray Wizard",
 		dialogSteps: [
 			{
-				text: "Ah yes strange one, you're hear to solve the case. Allow me to paint you a picture of last night",
+				text: "Ah, yes strange one, you're here to solve the case. Allow me to paint you a picture of last night...",
 				animation: "pickup",
 			},
 			{

@@ -9,7 +9,7 @@ export const GAME_CONFIG = {
 	suspects: [
 		{
 			id: "Adventurer",
-			name: "Gregory The Great",
+			name: "Gregory the Great",
 			room: "bedroom",
 			position: [1.8, 0, 0],
 		},
@@ -63,7 +63,7 @@ export const GAME_CONFIG = {
 			room: "library",
 			description: "something long and sharp that gleamed in the shadows",
 			action:
-				"taking a stab at the manequin in the bedroom before disappointed through a hidden trap door",
+				"taking a stab at the mannequin in the bedroom before disappearing through a hidden trap door",
 		},
 		{
 			name: "chain",
@@ -82,7 +82,7 @@ export const GAME_CONFIG = {
 			name: "potions",
 			room: "kitchen",
 			description:
-				"small bottles with swirling and bubbling liquids reflecting in teh moonglight",
+				"small bottles with swirling and bubbling liquids reflecting in the moonglight",
 			action: "vigorously shaking these unknown concoctions",
 		},
 	],

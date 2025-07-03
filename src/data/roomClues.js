@@ -6,7 +6,7 @@ export const ROOM_CLUES = {
 			id: "bed1",
 			title: "Exploding Feathers",
 			description:
-				"There are feathers everywhere. You wonder if the assailent stabbed the pillows and chased the victim. Someone left in a hurry and didn't make the bed, or clean up. What a mess...",
+				"There are feathers everywhere. You wonder if the assailant stabbed the pillows and chased the victim. Someone left in a hurry and didn't make the bed, or clean up. What a mess...",
 			murderers: ["Adventurer", "HoodedAdventurer"],
 			clueType: "evidence",
 			isClue: true,
@@ -15,7 +15,7 @@ export const ROOM_CLUES = {
 			id: "bucket",
 			title: "Congealed Bucket",
 			description:
-				"An iron bucket filled halfway with strange looking liquid. It smells bad, you want to move on.",
+				"An iron bucket filled halfway with a strange-looking liquid. It smells bad, you want to move on.",
 			clueType: "evidence",
 			murderers: ["Man", "Witch"],
 			isClue: true,
@@ -24,7 +24,7 @@ export const ROOM_CLUES = {
 			id: "bottle",
 			title: "Lonely Looking Bottle",
 			description:
-				"This bottle looks like it was part of a set, there might be one missing. You make a note to keep an eye out for broken glass.",
+				"This bottle looks like it was part of a set; there might be one missing. You make a note to keep an eye out for broken glass.",
 			clueType: "evidence",
 			murderers: ["Wizard", "Shaun"],
 			isClue: true,
@@ -33,7 +33,7 @@ export const ROOM_CLUES = {
 			id: "Dairy",
 			title: "Victim's Diary",
 			description:
-				"You open the book and it appears you have found the victims' diary. You open to the entry from last night, it reads: 'I hope she doesn't come back, everyone is afaid of her.'",
+				"You open the book, and it appears you have found the victims' diary. You open the entry from last night, it reads: 'I hope she doesn't come back, everyone is afraid of her.'",
 			clueType: "evidence",
 			murderers: ["Adventurer", "Man"],
 			isClue: true,
@@ -42,7 +42,7 @@ export const ROOM_CLUES = {
 			id: "candlestick",
 			title: "Marked Candlestick",
 			description:
-				"The candlestick appears to be grubby, marked with some red gooey stains, you reach out and touch it. It feels sticky, you pull your hand away, and hope whatever you touched was raspberry jam.",
+				"The candlestick appears to be grubby, marked with some red gooey stains. You reach out and touch it. It feels sticky, you pull your hand away, and hope whatever you touched was raspberry jam.",
 			clueType: "evidence",
 			murderers: ["HoodedAdventurer", "Wizard"],
 			isClue: true,
@@ -69,7 +69,7 @@ export const ROOM_CLUES = {
 			id: "figure",
 			title: "Training Pell",
 			description:
-				"You recall this thing is called a pell, you think to yourself how strange to have a training object in the bedroom, perhaps the victim was training for self-defence. Despite seeing sword marks in the pell, you don't see a sword anywhere in sight.",
+				"You recall this thing is called a pell, you think to yourself, how strange to have a training object in the bedroom, perhaps the victim was training for self-defence. Despite seeing sword marks in the pell, you don't see a sword anywhere in sight.",
 			clueType: "evidence",
 			murderers: ["Adventurer", "Man"],
 			isClue: true,
@@ -116,7 +116,7 @@ export const ROOM_CLUES = {
 			id: "cauldron",
 			title: "Dusty Cauldron",
 			description:
-				"It's soot stained and still warm to the touch. Whoever was cooking must have some dust on them.",
+				"It's soot-stained and still warm to the touch. Whoever was cooking must have some dust on them.",
 			clueType: "evidence",
 			murderers: ["Adventurer", "Man"],
 			isClue: true,
@@ -143,7 +143,7 @@ export const ROOM_CLUES = {
 			id: "Mug",
 			title: "Dirty Mug",
 			description:
-				"It's been recently used, whoever used it didn't bother washing up",
+				"It's been used recently, whoever used it didn't bother washing up",
 			clueType: "evidence",
 			murderers: ["Adventurer", "Witch"],
 			isClue: true,
@@ -217,7 +217,7 @@ export const ROOM_CLUES = {
 			id: "sword",
 			title: "Recently Sharpened Sword",
 			description:
-				"It's sharp, and was recently being cleaned, but whoever was cleaning it must have been interrupted...",
+				"It's sharp, and has recently been cleaned, but whoever was cleaning it must have been interrupted...",
 			clueType: "evidence",
 			murderers: ["Witch", "Shaun"],
 			isClue: true,
@@ -225,7 +225,7 @@ export const ROOM_CLUES = {
 		{
 			id: "key",
 			title: "Strange key",
-			description: "Someone must have left this it must be important",
+			description: "Someone must have left this, it must be important",
 			clueType: "evidence",
 			murderers: ["Adventurer", "Witch"],
 			isClue: true,
