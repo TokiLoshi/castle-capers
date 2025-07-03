@@ -118,9 +118,9 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 					<group
 						ref={armatureRef}
 						name='CharacterArmature'
-						position={[0, 0, 0]}
+						position={[0, -0.5, 0]}
 						rotation={[-Math.PI / 2, 0, 0]}
-						scale={50}>
+						scale={40}>
 						<primitive object={nodes.Root} />
 						castShadow
 					</group>
@@ -130,7 +130,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 						material={materials.Atlas}
 						skeleton={nodes.FernandoTheFlamingo.skeleton}
 						rotation={[-Math.PI / 2, 0, 0]}
-						scale={50}
+						scale={40}
 					/>
 				</group>
 			</group>
