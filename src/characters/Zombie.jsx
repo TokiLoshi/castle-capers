@@ -11,7 +11,7 @@ export default function Zombie(props) {
 		"models/characters/Zombie.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Zombie Actions: ", actions);
+
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name='Root_Scene'>

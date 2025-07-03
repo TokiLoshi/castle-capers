@@ -8,8 +8,10 @@ import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { DoorRound } from "./components/DoorRound";
 import { Wall } from "./components/Wall";
+import { InstancedWall } from "./components/InstancedWall";
 import { folder, useControls } from "leva";
 import { Window } from "./components/Window";
+import { InstancedWindow } from "./components/InstancedWindow";
 
 export default function Library(libraryClues, ...props) {
 	const { nodes, materials } = useGLTF("models/library.glb");
@@ -224,55 +226,67 @@ export default function Library(libraryClues, ...props) {
 				onClick={() => handleDoorClick("hall")}
 				isHovered={hoveredDoor === "hall"}
 			/>
-			<Wall
-				position={[kWall1Px, kWall1Py, kWall1Pz]}
-				rotation={[kWall1Rx, kWall1Ry, kWall1Rz]}
-				scale={2}
+			<InstancedWall
+				instances={[
+					{
+						position: [kWall1Px, kWall1Py, kWall1Pz],
+						rotation: [kWall1Rx, kWall1Ry, kWall1Rz],
+						scale: 2
+					},
+					{
+						position: [kWall2Px, kWall2Py, kWall2Pz],
+						rotation: [kWall2Rx, kWall2Ry, kWall2Rz],
+						scale: 2
+					},
+					{
+						position: [kWall3Px, kWall3Py, kWall3Pz],
+						rotation: [kWall3Rx, kWall3Ry, kWall3Rz],
+						scale: 2
+					},
+					{
+						position: [kWall4Px, kWall4Py, kWall4Pz],
+						rotation: [kWall4Rx, kWall4Ry, kWall4Rz],
+						scale: 2
+					}
+				]}
 			/>
-			<Wall
-				position={[kWall2Px, kWall2Py, kWall2Pz]}
-				scale={2}
-				rotation={[kWall2Rx, kWall2Ry, kWall2Rz]}
+			<InstancedWindow
+				instances={[
+					{
+						position: [kWin1Px, kWin1Py, kWin1Pz],
+						rotation: [kWin1Rx, kWin1Ry, kWin1Rz],
+						scale: 2
+					},
+					{
+						position: [kWin2Px, kWin2Py, kWin2Pz],
+						rotation: [kWin2Rx, kWin2Ry, kWin2Rz],
+						scale: 2
+					}
+				]}
 			/>
-			<Wall
-				position={[kWall3Px, kWall3Py, kWall3Pz]}
-				rotation={[kWall3Rx, kWall3Ry, kWall3Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[kWall4Px, kWall4Py, kWall4Pz]}
-				rotation={[kWall4Rx, kWall4Ry, kWall4Rz]}
-				scale={2}
-			/>
-			<Window
-				scale={2}
-				position={[kWin1Px, kWin1Py, kWin1Pz]}
-				rotation={[kWin1Rx, kWin1Ry, kWin1Rz]}
-			/>
-			<Window
-				position={[kWin2Px, kWin2Py, kWin2Pz]}
-				rotation={[kWin2Rx, kWin2Ry, kWin2Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[kWall5Px, kWall5Py, kWall5Pz]}
-				rotation={[kWall5Rx, kWall5Ry, kWall5Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[kWall6Px, kWall6Py, kWall6Pz]}
-				rotation={[kWall6Rx, kWall6Ry, kWall6Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[kWall7Px, kWall7Py, kWall7Pz]}
-				rotation={[kWall7Rx, kWall7Ry, kWall7Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[kWall8Px, kWall8Py, kWall8Pz]}
-				rotation={[kWall8Rx, kWall8Ry, kWall8Rz]}
-				scale={2}
+			<InstancedWall
+				instances={[
+					{
+						position: [kWall5Px, kWall5Py, kWall5Pz],
+						rotation: [kWall5Rx, kWall5Ry, kWall5Rz],
+						scale: 2
+					},
+					{
+						position: [kWall6Px, kWall6Py, kWall6Pz],
+						rotation: [kWall6Rx, kWall6Ry, kWall6Rz],
+						scale: 2
+					},
+					{
+						position: [kWall7Px, kWall7Py, kWall7Pz],
+						rotation: [kWall7Rx, kWall7Ry, kWall7Rz],
+						scale: 2
+					},
+					{
+						position: [kWall8Px, kWall8Py, kWall8Pz],
+						rotation: [kWall8Rx, kWall8Ry, kWall8Rz],
+						scale: 2
+					}
+				]}
 			/>
 			<mesh position={[-1, 1, 1]} visible={false}>
 				<boxGeometry args={[18, 3, 0.2]} />

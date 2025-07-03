@@ -11,7 +11,7 @@ export default function Fish(props) {
 		"models/characters/Fish.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Fish Actions: ", actions);
+
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name='Root_Scene'>

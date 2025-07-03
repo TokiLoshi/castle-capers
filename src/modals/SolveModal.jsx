@@ -57,11 +57,7 @@ export default function SolveModal() {
 			alert("Please select both a murderer and a weapon");
 			return;
 		}
-		// console.log(
-		// 	"Debugging: user has chosen: ",
-		// 	selectedMurderer,
-		// 	selectedMurderWeapon
-		// );
+
 		const correct = checkSolution(selectedMurderer, selectedMurderWeapon);
 		setIsCorrect(correct);
 		setShowResult(true);
@@ -79,7 +75,7 @@ export default function SolveModal() {
 
 	if (!isSolvePanelOpen) return null;
 
-	// console.log("Solution from game store: ", solution);
+
 
 	return (
 		<div

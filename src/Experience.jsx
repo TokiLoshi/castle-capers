@@ -90,7 +90,6 @@ export default function Experience() {
 				/>
 				<BVHEcctrl
 					ref={flamingoRef}
-					debug={true}
 					animated={true}
 					floatHeight={0.01}
 					floatDamping={26}

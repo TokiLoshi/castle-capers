@@ -72,7 +72,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 			});
 			targetAction.reset().fadeIn(0.1).play();
 		} else {
-			console.warn("animation not found: ", actionName);
+	
 		}
 	}, [currentAnimation, actions]);
 
@@ -83,7 +83,7 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 				idleAction.play();
 			}
 		} else {
-			console.warn("Idle animation not found");
+	
 		}
 	}, [actions]);
 

@@ -48,7 +48,7 @@ export default function Shaun(props) {
 
 	const handlePointerOver = () => {
 		setHoveredCharacter(npcId);
-		console.log(`Hovered over: ${hoveredCharacter}`);
+
 		document.body.style.cursor = "pointer";
 	};
 
@@ -62,7 +62,7 @@ export default function Shaun(props) {
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
 		} else {
-			console.log("Can't interact with this NPC");
+	
 		}
 	};
 
@@ -79,7 +79,7 @@ export default function Shaun(props) {
 			});
 			targetAction.reset().fadeIn(0.1).play();
 		} else {
-			console.warn("Animation not found: ", actionName);
+	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -89,7 +89,7 @@ export default function Shaun(props) {
 			if (idleAction) {
 				idleAction.play();
 			} else {
-				console.warn("Idle animation not found");
+		
 			}
 		}
 	}, [actions]);

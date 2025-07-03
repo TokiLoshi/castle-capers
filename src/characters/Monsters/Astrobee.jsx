@@ -12,7 +12,7 @@ export default function AstroBee(props) {
 	);
 	const { actions } = useAnimations(animations, group);
 
-	console.log("AstroBee actions: ", actions);
+
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name='Root_Scene'>
