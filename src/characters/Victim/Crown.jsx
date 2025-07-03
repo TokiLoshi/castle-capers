@@ -11,7 +11,7 @@ export default function Crown(props) {
 		"models/characters/victims/King.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("King actions: ", actions);
+
 
 	return (
 		<group ref={group} {...props} dispose={null}>

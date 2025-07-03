@@ -1,10 +1,13 @@
 // import Crown from "../characters/Victim/Crown";
 // import Wizard from "../characters/testimonies/Wizard";
 import { Wall } from "./components/Wall";
+import { InstancedWall } from "./components/InstancedWall";
 import { ArchDoor } from "./components/ArchDoor";
 import { DoorRound } from "./components/DoorRound";
+import { InstancedDoor } from "./components/InstancedDoor";
 // import { TrapDoor } from "./components/TrapDoor";
 import { Window } from "./components/Window";
+import { InstancedWindow } from "./components/InstancedWindow";
 // import { WallTower } from "./components/WallTower";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
@@ -208,52 +211,57 @@ export default function Hall() {
 	return (
 		<>
 			<StaticCollider>
-				<Wall
-					position={[wall1Px, wall1Py, wall1Pz]}
-					rotation={[wall1Rx, wall1Ry, wall1Rz]}
-					scale={2}
+				<InstancedWall
+					instances={[
+						{
+							position: [wall1Px, wall1Py, wall1Pz],
+							rotation: [wall1Rx, wall1Ry, wall1Rz],
+							scale: 2
+						},
+						{
+							position: [wall2Px, wall2Py, wall2Pz],
+							rotation: [wall2Rx, wall2Ry, wall2Rz],
+							scale: 2
+						},
+						{
+							position: [wall3Px, wall3Py, wall3Pz],
+							rotation: [wall3Rx, wall3Ry, wall3Rz],
+							scale: 2
+						},
+						{
+							position: [wall4Px, wall4Py, wall4Pz],
+							rotation: [wall4Rx, wall4Ry, wall4Rz],
+							scale: 2
+						},
+						{
+							position: [wall5Px, wall5Py, wall5Pz],
+							rotation: [wall5Rx, wall5Ry, wall5Rz],
+							scale: 2
+						},
+						{
+							position: [wall6Px, wall6Py, wall6Pz],
+							rotation: [wall6Rx, wall6Ry, wall6Rz],
+							scale: 2
+						}
+					]}
 				/>
 
-				<Wall
-					position={[wall2Px, wall2Py, wall2Pz]}
-					scale={2}
-					rotation={[wall2Rx, wall2Ry, wall2Rz]}
+				<InstancedWindow
+					instances={[
+						{
+							position: [window1Px, window1Py, window1Pz],
+							rotation: [window1Rx, window1Ry, window1Rz],
+							scale: 2
+						},
+						{
+							position: [window2Px, window2Py, window2Pz],
+							rotation: [window2Rx, window2Ry, window2Rz],
+							scale: 2
+						}
+					]}
 				/>
 
-				<Wall
-					position={[wall3Px, wall3Py, wall3Pz]}
-					rotation={[wall3Rx, wall3Ry, wall3Rz]}
-					scale={2}
-				/>
-
-				<Wall
-					position={[wall4Px, wall4Py, wall4Pz]}
-					rotation={[wall4Rx, wall4Ry, wall4Rz]}
-					scale={2}
-				/>
-				<Wall
-					position={[wall5Px, wall5Py, wall5Pz]}
-					rotation={[wall5Rx, wall5Ry, wall5Rz]}
-					scale={2}
-				/>
-				<Wall
-					position={[wall6Px, wall6Py, wall6Pz]}
-					rotation={[wall6Rx, wall6Ry, wall6Rz]}
-					scale={2}
-				/>
-
-				<Window
-					scale={2}
-					position={[window1Px, window1Py, window1Pz]}
-					rotation={[window1Rx, window1Ry, window1Rz]}
-				/>
-
-				<Window
-					position={[window2Px, window2Py, window2Pz]}
-					rotation={[window2Rx, window2Ry, window2Rz]}
-					scale={2}
-				/>
-
+				{/* Keep individual doors for interactivity */}
 				<DoorRound
 					position={[door1Px, door1Py, door1Pz]}
 					rotation={[door1Rx, door1Ry, door1Rz]}

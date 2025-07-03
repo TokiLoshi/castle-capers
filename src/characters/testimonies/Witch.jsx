@@ -52,7 +52,7 @@ export default function Witch(props) {
 	const handlePointerOver = () => {
 		setHoveredCharacter(npcId);
 		document.body.style.cursor = "pointer";
-		console.log(`Hovered over: ${hoveredCharacter}`);
+
 	};
 
 	const handlePointerOut = () => {
@@ -65,7 +65,7 @@ export default function Witch(props) {
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
 		} else {
-			console.log("Can't interact with this NPC");
+	
 		}
 	};
 
@@ -82,7 +82,7 @@ export default function Witch(props) {
 			});
 			targetAction.reset().fadeIn(0.1).play();
 		} else {
-			console.warn("Animation not found: ", actionName);
+	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -92,7 +92,7 @@ export default function Witch(props) {
 			if (idleAction) {
 				idleAction.play();
 			} else {
-				console.warn("Idle animation not found");
+		
 			}
 		}
 	}, [actions]);

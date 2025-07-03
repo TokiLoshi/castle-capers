@@ -7,8 +7,10 @@ import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { DoorRound } from "./components/DoorRound";
 import { Wall } from "./components/Wall";
+import { InstancedWall } from "./components/InstancedWall";
 import { folder, useControls } from "leva";
 import { Window } from "./components/Window";
+import { InstancedWindow } from "./components/InstancedWindow";
 import { StaticCollider } from "bvhecctrl";
 
 export default function Bedroom(bedroomClues, ...props) {
@@ -211,50 +213,62 @@ export default function Bedroom(bedroomClues, ...props) {
 				onClick={() => handleDoorClick("hall")}
 				isHovered={hoveredDoor === "hall"}
 			/>
-			<Wall
-				position={[bWall1Px, bWall1Py, bWall1Pz]}
-				rotation={[bWall1Rx, bWall1Ry, bWall1Rz]}
-				scale={2}
+			<InstancedWall
+				instances={[
+					{
+						position: [bWall1Px, bWall1Py, bWall1Pz],
+						rotation: [bWall1Rx, bWall1Ry, bWall1Rz],
+						scale: 2
+					},
+					{
+						position: [bWall2Px, bWall2Py, bWall2Pz],
+						rotation: [bWall2Rx, bWall2Ry, bWall2Rz],
+						scale: 2
+					},
+					{
+						position: [bWall3Px, bWall3Py, bWall3Pz],
+						rotation: [bWall3Rx, bWall3Ry, bWall3Rz],
+						scale: 2
+					},
+					{
+						position: [bWall4Px, bWall4Py, bWall4Pz],
+						rotation: [bWall4Rx, bWall4Ry, bWall4Rz],
+						scale: 2
+					}
+				]}
 			/>
-			<Wall
-				position={[bWall2Px, bWall2Py, bWall2Pz]}
-				scale={2}
-				rotation={[bWall2Rx, bWall2Ry, bWall2Rz]}
+			<InstancedWindow
+				instances={[
+					{
+						position: [bWin1Px, bWin1Py, bWin1Pz],
+						rotation: [bWin1Rx, bWin1Ry, bWin1Rz],
+						scale: 2
+					},
+					{
+						position: [bWin2Px, bWin2Py, bWin2Pz],
+						rotation: [bWin2Rx, bWin2Ry, bWin2Rz],
+						scale: 2
+					},
+					{
+						position: [bWin3Px, bWin3Py, bWin3Pz],
+						rotation: [bWin3Rx, bWin3Ry, bWin3Rz],
+						scale: 2
+					}
+				]}
 			/>
-			<Wall
-				position={[bWall3Px, bWall3Py, bWall3Pz]}
-				rotation={[bWall3Rx, bWall3Ry, bWall3Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[bWall4Px, bWall4Py, bWall4Pz]}
-				rotation={[bWall4Rx, bWall4Ry, bWall4Rz]}
-				scale={2}
-			/>
-			<Window
-				scale={2}
-				position={[bWin1Px, bWin1Py, bWin1Pz]}
-				rotation={[bWin1Rx, bWin1Ry, bWin1Rz]}
-			/>
-			<Window
-				position={[bWin2Px, bWin2Py, bWin2Pz]}
-				rotation={[bWin2Rx, bWin2Ry, bWin2Rz]}
-				scale={2}
-			/>
-			<Window
-				position={[bWin3Px, bWin3Py, bWin3Pz]}
-				rotation={[bWin3Rx, bWin3Ry, bWin3Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[bWall5Px, bWall5Py, bWall5Pz]}
-				rotation={[bWall5Rx, bWall5Ry, bWall5Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[bWall6Px, bWall6Py, bWall6Pz]}
-				rotation={[bWall6Rx, bWall6Ry, bWall6Rz]}
-				scale={2}
+			<InstancedWall
+				instances={[
+					{
+						position: [bWall5Px, bWall5Py, bWall5Pz],
+						rotation: [bWall5Rx, bWall5Ry, bWall5Rz],
+						scale: 2
+					},
+					{
+						position: [bWall6Px, bWall6Py, bWall6Pz],
+						rotation: [bWall6Rx, bWall6Ry, bWall6Rz],
+						scale: 2
+					}
+				]}
 			/>
 			<StaticCollider>
 				<mesh position={[0, 1, 2.8]} visible={false}>

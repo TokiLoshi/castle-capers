@@ -65,7 +65,7 @@ export default function Adventurer(props) {
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
 		} else {
-			console.log("Can't interact with this NPC");
+	
 		}
 	};
 
@@ -93,7 +93,7 @@ export default function Adventurer(props) {
 			});
 			targetAction.reset().fadeIn(0.1).play();
 		} else {
-			console.warn("Animation not found: ", actionName);
+	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -103,7 +103,7 @@ export default function Adventurer(props) {
 			if (idleAction) {
 				idleAction.play();
 			} else {
-				console.warn("Idle animation not found");
+		
 			}
 		}
 	}, [actions]);

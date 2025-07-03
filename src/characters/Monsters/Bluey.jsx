@@ -11,7 +11,7 @@ export default function Bluey(props) {
 		"models/characters/Bluey.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Bluey Actions: ", actions);
+
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name='Root_Scene'>

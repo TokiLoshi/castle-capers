@@ -8,8 +8,10 @@ import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { DoorRound } from "./components/DoorRound";
 import { Wall } from "./components/Wall";
+import { InstancedWall } from "./components/InstancedWall";
 import { folder, useControls } from "leva";
 import { Window } from "./components/Window";
+import { InstancedWindow } from "./components/InstancedWindow";
 import { StaticCollider } from "bvhecctrl";
 
 export default function Kitchen(kitchenClues, ...props) {
@@ -216,25 +218,29 @@ export default function Kitchen(kitchenClues, ...props) {
 
 	return (
 		<>
-			<Wall
-				position={[lWall1Px, lWall1Py, lWall1Pz]}
-				rotation={[lWall1Rx, lWall1Ry, lWall1Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[lWall2Px, lWall2Py, lWall2Pz]}
-				scale={2}
-				rotation={[lWall2Rx, lWall2Ry, lWall2Rz]}
-			/>
-			<Wall
-				position={[lWall3Px, lWall3Py, lWall3Pz]}
-				rotation={[lWall3Rx, lWall3Ry, lWall3Rz]}
-				scale={2}
-			/>
-			<Wall
-				position={[lWall4Px, lWall4Py, lWall4Pz]}
-				rotation={[lWall4Rx, lWall4Ry, lWall4Rz]}
-				scale={2}
+			<InstancedWall
+				instances={[
+					{
+						position: [lWall1Px, lWall1Py, lWall1Pz],
+						rotation: [lWall1Rx, lWall1Ry, lWall1Rz],
+						scale: 2
+					},
+					{
+						position: [lWall2Px, lWall2Py, lWall2Pz],
+						rotation: [lWall2Rx, lWall2Ry, lWall2Rz],
+						scale: 2
+					},
+					{
+						position: [lWall3Px, lWall3Py, lWall3Pz],
+						rotation: [lWall3Rx, lWall3Ry, lWall3Rz],
+						scale: 2
+					},
+					{
+						position: [lWall4Px, lWall4Py, lWall4Pz],
+						rotation: [lWall4Rx, lWall4Ry, lWall4Rz],
+						scale: 2
+					}
+				]}
 			/>
 			<StaticCollider>
 				<mesh position={[0, 1, 4]} visible={true}>
@@ -242,48 +248,43 @@ export default function Kitchen(kitchenClues, ...props) {
 					<meshBasicMaterial transparent opacity={0} />
 				</mesh>
 			</StaticCollider>
-			<Window
-				scale={2}
-				position={[lWin1Px, lWin1Py, lWin1Pz]}
-				rotation={[lWin1Rx, lWin1Ry, lWin1Rz]}
-				onClick={() => console.log("Clicked on window 1")}
+			<InstancedWindow
+				instances={[
+					{
+						position: [lWin1Px, lWin1Py, lWin1Pz],
+						rotation: [lWin1Rx, lWin1Ry, lWin1Rz],
+						scale: 2
+					},
+					{
+						position: [lWin2Px, lWin2Py, lWin2Pz],
+						rotation: [lWin2Rx, lWin2Ry, lWin2Rz],
+						scale: 2
+					},
+					{
+						position: [lWin3Px, lWin3Py, lWin3Pz],
+						rotation: [lWin3Rx, lWin3Ry, lWin3Rz],
+						scale: 2
+					}
+				]}
 			/>
-
-			<Window
-				position={[lWin2Px, lWin2Py, lWin2Pz]}
-				rotation={[lWin2Rx, lWin2Ry, lWin2Rz]}
-				onClick={() => console.log("Clicked on window 2")}
-				scale={2}
-			/>
-			<Window
-				scale={2}
-				position={[lWin3Px, lWin3Py, lWin3Pz]}
-				rotation={[lWin3Rx, lWin3Ry, lWin3Rz]}
-				onClick={() => console.log("Clicked on window 3")}
-			/>
-			<Wall
-				position={[lWall5Px, lWall5Py, lWall5Pz]}
-				rotation={[lWall5Rx, lWall5Ry, lWall5Rz]}
-				onClick={() => console.log("Clicked on wall 5")}
-				scale={2}
-			/>
-			<Wall
-				position={[lWall6Px, lWall6Py, lWall6Pz]}
-				rotation={[lWall6Rx, lWall6Ry, lWall6Rz]}
-				onClick={() => console.log("Clicked on wall 6")}
-				scale={2}
-			/>
-			<Window
-				scale={2}
-				position={[lWin3Px, lWin3Py, lWin3Pz]}
-				rotation={[lWin3Rx, lWin3Ry, lWin3Rz]}
-				onClick={() => console.log("Clicked on window 3")}
-			/>
-			<Wall
-				position={[lWall7Px, lWall7Py, lWall7Pz]}
-				rotation={[lWall7Rx, lWall7Ry, lWall7Rz]}
-				onClick={() => console.log("Clicked on wall 7")}
-				scale={2}
+			<InstancedWall
+				instances={[
+					{
+						position: [lWall5Px, lWall5Py, lWall5Pz],
+						rotation: [lWall5Rx, lWall5Ry, lWall5Rz],
+						scale: 2
+					},
+					{
+						position: [lWall6Px, lWall6Py, lWall6Pz],
+						rotation: [lWall6Rx, lWall6Ry, lWall6Rz],
+						scale: 2
+					},
+					{
+						position: [lWall7Px, lWall7Py, lWall7Pz],
+						rotation: [lWall7Rx, lWall7Ry, lWall7Rz],
+						scale: 2
+					}
+				]}
 			/>
 			<DoorRound
 				position={[6.66, 0, 2.3]}

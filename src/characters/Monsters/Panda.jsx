@@ -11,7 +11,7 @@ export default function Panda(props) {
 		"models/characters/Panda.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Panda Actions: ", actions);
+
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name='Root_Scene'>

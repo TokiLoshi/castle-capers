@@ -35,7 +35,7 @@ export function Cactus(props) {
 	const { actions } = useAnimations(animations, group);
 
 	const [hoveredCharacter, setHoveredCharacter] = useState(null);
-	console.log("Hovered character: ", hoveredCharacter);
+	
 	const npcId = "chained";
 
 	const { interactWithNPC, getNPCAnimation, getNPCDialogStatus } =
@@ -68,7 +68,7 @@ export function Cactus(props) {
 	// 	} else if (hoveredCharacter === npcId) {
 	// 		outlineColor = "#00ff00";
 	// 	}
-	// 	console.log(`Outline color: ${outlineColor}`);
+
 
 	// 	return outlineColor;
 	// };
@@ -85,7 +85,7 @@ export function Cactus(props) {
 			});
 			targetAction.reset().fadeIn(0.1).play();
 		} else {
-			console.warn("animation not found: ", actionName);
+	
 		}
 	}, [currentAnimation, actions, npcId]);
 
@@ -96,7 +96,7 @@ export function Cactus(props) {
 				idleAction.play();
 			}
 		} else {
-			console.warn("Idle animation not found");
+	
 		}
 	}, [actions]);
 

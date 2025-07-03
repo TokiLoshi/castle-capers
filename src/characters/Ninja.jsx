@@ -11,7 +11,7 @@ export default function Ninja(props) {
 		"models/characters/Ninja.glb"
 	);
 	const { actions } = useAnimations(animations, group);
-	console.log("Ninja Actions: ", actions);
+
 	return (
 		<group ref={group} {...props} dispose={null}>
 			<group name='Root_Scene'>
