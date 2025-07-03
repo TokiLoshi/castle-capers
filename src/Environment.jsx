@@ -102,10 +102,10 @@ export default function Environment() {
 				position={directionalPosition}
 				intensity={directionalIntensity}
 				castShadow={enableShadows}
-				shadow-mapSize-width={1048}
-				shadow-mapSize-height={1048}
+				shadow-mapSize-width={2048}
+				shadow-mapSize-height={2048}
 				shadow-camera-far={50}
-				shadow-camera-left={-20}
+				shadow-camera-left={-10}
 				// shaodw-camera-right={20}
 				shadow-camera-top={20}
 				shadow-camera-bottom={-20}

@@ -51,7 +51,7 @@ export default function Experience() {
 				hall: [0, 0, 1],
 				bedroom: [0, 0, 1],
 				kitchen: [0, 0, 1],
-				library: [0, 0, 1],
+				library: [0, 0, -1.5],
 			};
 			const spawnPos = roomSpawnPositions[currentRoom] || [0, 0, 0];
 			flamingoRef.current.group.position.set(...spawnPos);
@@ -85,13 +85,15 @@ export default function Experience() {
 					maxPolarAngle={Math.PI / 2.2}
 					minAzimuthAngle={-Math.PI * 0.1}
 					maxAzimuthAngle={Math.PI * 0.1}
+					maxDistance={4}
+					minDistance={1}
 				/>
 				<BVHEcctrl
 					ref={flamingoRef}
-					debug={true}
+					debug={false}
 					animated={true}
 					floatHeight={0.1}
-					floatDamping={26}
+					// floatDamping={26}
 					capsuleHalfHeight={1}
 					position={[0, 0, 0]}>
 					<FernandoTheFlamingo />

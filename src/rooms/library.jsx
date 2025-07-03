@@ -274,7 +274,7 @@ export default function Library(libraryClues, ...props) {
 				rotation={[kWall8Rx, kWall8Ry, kWall8Rz]}
 				scale={2}
 			/>
-			<mesh position={[-1, 1, 2]} visible={false}>
+			<mesh position={[-1, 1, 1]} visible={false}>
 				<boxGeometry args={[18, 3, 0.2]} />
 				<meshBasicMaterial transparent opacity={0} />
 			</mesh>

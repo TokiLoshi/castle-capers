@@ -257,7 +257,7 @@ export default function Bedroom(bedroomClues, ...props) {
 				scale={2}
 			/>
 			<StaticCollider>
-				<mesh position={[0, 1, 6.7]} visible={false}>
+				<mesh position={[0, 1, 2.8]} visible={false}>
 					<boxGeometry args={[16, 5, 0.2]} />
 					<meshBasicMaterial transparent opacity={0} />
 				</mesh>
