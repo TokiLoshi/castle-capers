@@ -12,7 +12,8 @@ import Environment from "./Environment";
 import { useEffect, useRef } from "react";
 import { FernandoTheFlamingo } from "./characters/Monsters/AstroFlamingo";
 import { useGameStore } from "./store/gameStore";
-import BVHEcctrl, { useEcctrlStore } from "bvhecctrl";
+// import BVHEcctrl, { useEcctrlStore } from "bvhecctrl";
+import BVHEcctrl from "bvhecctrl";
 import { useFrame } from "@react-three/fiber";
 import { button, useControls } from "leva";
 
@@ -25,9 +26,9 @@ export default function Experience() {
 	const flamingoRef = useRef();
 	const cameraRef = useRef();
 
-	const colliderMeshesArray = useEcctrlStore(
-		(state) => state.colliderMeshesArray
-	);
+	// const colliderMeshesArray = useEcctrlStore(
+	// 	(state) => state.colliderMeshesArray
+	// );
 
 	const { initializeGame, gameStarted, currentRoom } = useGameStore();
 
@@ -83,7 +84,7 @@ export default function Experience() {
 				<Room />
 				<CameraControls
 					ref={cameraRef}
-					colliderMeshes={colliderMeshesArray}
+					// colliderMeshes={colliderMeshesArray}
 					smoothTime={0.1}
 					makeDefault
 				/>
@@ -91,6 +92,8 @@ export default function Experience() {
 					ref={flamingoRef}
 					debug={false}
 					animated={true}
+					floatHeight={0.1}
+					capsuleHalfHeight={1.0}
 					position={[0, 0, 0]}>
 					<FernandoTheFlamingo />
 				</BVHEcctrl>
