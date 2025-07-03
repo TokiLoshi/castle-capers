@@ -27,109 +27,15 @@ create a simple single player exploration game using React Three Fiber, Drei, Zu
 - Leva
 - Perf
 
-## 🚧 TODO:
-
-Done:
-
-- [x] Create 3 basic rooms (Throne Room (victim's room), Library, Bedroom, Dining Room)
-- [x] Set up repo and deploy
-- [x] Choose and download CCO assets
-- [x] Basic scene construction to replicate as base across components (lighting, camera, fov)
-- [x] Install and configure helpers for scene setup
-- [x] Split code into logical components
-- [x] Get basic WASD movement working
-- [x] Fix camera to follow player properly
-- [x] Implement WASD movement that supports AZERTY layouts (first person movement)
-- [x] Enable object hover and interaction
-- [x] Enable NPC interactions
-- [x] Basic UI Element
-- [x] NPC dialogue system
-- [x] Evidence collection feedback
-- [x] Journal UI to track clues and guesses and inventory
-- [x] Display clues (notes, blood, items) - maybe text that describes the object and whether or not they've found a clue
-
-To do
-
-- [ ] Game loop implementation
-- [ ] Win loss conditions
-- [ ] Add navigation between rooms
-- [ ] Room transition system
-- [ ] Bound players to room and use raycasting
-- [ ] NPC outline on hover
-- [ ] Create simple corridor/hallway system
-- [ ] Implement room transitions
-- [ ] Basic collision detection
-- [ ] Add Zustand state and create room switching
-- [ ] Write character stories
-- [ ] Design 6 characters and brief backstories
-- [ ] Choose 6 weapons
-- [ ] Define room, weapon and killer solution permutations
-- [ ] Set up random scenario generator
-- [ ] Add clue logic per room/weapon/character
-- [ ] Create NPC cards
-- [ ] Add NPCs and animations
-- [ ] Guessing system to accuse NPCs (3 strikes and it's game over )
-
-#### 🔂 Game Loop
-
-- [ ] Implement time-based loop (Day -> Evening -> Night)
-- [ ] Add lighting / shader effects for day progression
-- [ ] Build win/ loss conditions and screen transition
-- [ ] Add loading screen and reset option
-- [ ] Character selection at the start of the game
-- [ ] UI for time interface countdown
-
-#### ⚡️ Optimizations
-
-- [ ] Optimize performances and moniter using perf
-- [ ] Hide leva options
-
-#### 🎬 Credits and Attribution and Inspiration
-
-- [ ] Add model credits and CCO licensing
-- [ ] Add walkthrough, inspiration and libraries to README
-- [ ] Reference tutorials used
-
-#### 🧹 Polish
-
-- [ ] Add ambient background audio and controls
-- [ ] Character selection screen
-- [ ] Add sound effects e.g footsteps, door creaks, whispers
-- [ ] Improve journal, dialogue and time interfaces
-- [ ] Add transition effects with GLSL
-- [ ] Add mini map
-- [ ] Squash bugs
-- [ ] Clude difficulty tuning
-- [ ] Playtest, get feedback and iterate
-
 #### 🙆‍♀️ Stretch Goals:
 
 - [ ] Torchlight and shadows using pointlight and drei
 - [ ] Include inspriation, tutorial references
 - [ ] Add Red Herring clues to throw the user off
 
-NPC Ideas:
-
-- Col Mustard Mayo the Third
-- Miss Scarlett Purple
-- Mrs Gray Bird
-- Reverend Lime Green
-- Professor Plum stead
-
-Room Ideas:
-
-- Great Hall
-- Private Chamers
-- Dungeon
-- Courtyard
-- Library
-- Kitchen
-
 Performance Tagets:
 
 - 60fps on mid range
-- 5MBB download size
-- less than 3 second load time
 
 Tracking Asset Credits:
 Room Assets
@@ -169,5 +75,4 @@ Possible Players:
 
 Your character: Fernando
 
-Stylized Wood Planks 002 Wooden Textures: https://3dtextures.me/2024/07/19/stylized-wood-planks-002/
-created by João Paulo
+Stylized Wood Planks 002 Wooden Textures created by (João Paulo)[https://3dtextures.me/2024/07/19/stylized-wood-planks-002/]
