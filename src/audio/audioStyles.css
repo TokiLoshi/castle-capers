@@ -1,0 +1,62 @@
+.audio-player {
+	background: linear-gradient(135deg, #8b6914, #b8860b);
+	color: #f4e4bc;
+	padding: 0.75rem 1.25rem;
+	border-radius: 10px;
+	cursor: pointer;
+	font-family: "Georgia", serif;
+	font-size: 0.9rem;
+	font-weight: bold;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+	box-shadow: 0 4px 8px rgba(129, 128, 128, 0.3);
+	position: relative;
+	overflow: hidden;
+	border: none;
+}
+
+.audio-player::beofre {
+	content: "";
+	position: absolute;
+	top: 0%;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.2),
+		transparent
+	);
+	transition: left 0.5s ease;
+}
+
+.audio-player:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px rgba(211, 206, 206, 0.4);
+}
+
+.audio-player:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 12px rgba(211, 206, 206, 0.4);
+	border-color: #cd853f;
+}
+
+.audio-button {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 50%;
+	transition: background-color 0.2s ease;
+	touch-action: manipulation;
+}
+
+.audio-button:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.audio-button:active {
+	transform: scale(0.95);
+}
