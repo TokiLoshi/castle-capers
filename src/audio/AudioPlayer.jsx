@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Music, VolumeX } from "lucide-react";
 import "./audioStyles.css";
+import "../modals/UIBarStyle.css";
 
 export default function AudioPlayer() {
 	const [isPlaying, setIsPlaying] = useState(true);
@@ -15,7 +16,7 @@ export default function AudioPlayer() {
 		const audio = new Audio(audioFilePath);
 		audioRef.current = audio;
 
-		audio.volume = 0.5;
+		audio.volume = 0.3;
 		audio.loop = true;
 
 		const handleCanPlayThrough = () => {
@@ -77,23 +78,13 @@ export default function AudioPlayer() {
 
 	return (
 		<div className='audio-player'>
-			<div onClick={togglePlayPause} className='audio-button'>
+			<div onClick={togglePlayPause} className='ui-button audio-button'>
 				{isPlaying ? (
 					<Music size={24} color='white' />
 				) : (
 					<VolumeX size={24} color='white' />
 				)}
 			</div>
-			{/* <input
-				type='range'
-				min='0'
-				max='1'
-				step='0.1'
-				value={volume}
-				onChange={handleVolumeChange}
-				className='volume-slider'
-				style={{ width: "60px", marginLeft: "8px" }}
-			/> */}
 		</div>
 	);
 }
