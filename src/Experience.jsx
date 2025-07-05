@@ -94,12 +94,12 @@ export default function Experience() {
 					floatHeight={0.01}
 					floatDamping={26}
 					capsuleHalfHeight={1}
+					debug={false}
 					capsuleRadius={0.5}
-					position={[0, 1, 0]}
+					position={[0, 1.1, 0]}
 					speed={1.6}
-					linearDamping = {3}
+					linearDamping={3}
 					angularDamping={3}>
-
 					<FernandoTheFlamingo />
 				</BVHEcctrl>
 			</Bvh>

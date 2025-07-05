@@ -15,6 +15,7 @@ import Witch from "./characters/testimonies/Witch";
 import Wizard from "./characters/testimonies/Wizard";
 import GameOver from "./modals/GameOverModal";
 import { StaticCollider } from "bvhecctrl";
+import Crown from "./characters/Victim/Crown";
 
 export default function Room() {
 	// get the clues from the game config
@@ -90,6 +91,7 @@ export default function Room() {
 				<>
 					<StaticCollider>
 						<Hall />
+						<Crown position={[-1.5, 0, 1]} />
 					</StaticCollider>
 				</>
 			)}
