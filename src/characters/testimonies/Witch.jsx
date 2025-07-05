@@ -35,7 +35,7 @@ const ACTION_MAP = {
 
 export default function Witch(props) {
 	const group = useRef();
-	const [hoveredCharacter, setHoveredCharacter] = useState(null);
+	const [_, setHoveredCharacter] = useState(null);
 
 	const npcId = "Witch";
 	const { nodes, materials, animations } = useGLTF(
@@ -52,7 +52,6 @@ export default function Witch(props) {
 	const handlePointerOver = () => {
 		setHoveredCharacter(npcId);
 		document.body.style.cursor = "pointer";
-
 	};
 
 	const handlePointerOut = () => {
@@ -64,8 +63,6 @@ export default function Witch(props) {
 		e.stopPropagation();
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
-		} else {
-	
 		}
 	};
 
@@ -81,8 +78,6 @@ export default function Witch(props) {
 				}
 			});
 			targetAction.reset().fadeIn(0.1).play();
-		} else {
-	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -91,8 +86,6 @@ export default function Witch(props) {
 			const idleAction = actions[ACTION_MAP.idle];
 			if (idleAction) {
 				idleAction.play();
-			} else {
-		
 			}
 		}
 	}, [actions]);

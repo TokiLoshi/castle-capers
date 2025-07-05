@@ -1,24 +1,11 @@
-// import Crown from "../characters/Victim/Crown";
-// import Wizard from "../characters/testimonies/Wizard";
-import { Wall } from "./components/Wall";
 import { InstancedWall } from "./components/InstancedWall";
-import { ArchDoor } from "./components/ArchDoor";
 import { DoorRound } from "./components/DoorRound";
-import { InstancedDoor } from "./components/InstancedDoor";
-// import { TrapDoor } from "./components/TrapDoor";
-import { Window } from "./components/Window";
 import { InstancedWindow } from "./components/InstancedWindow";
-// import { WallTower } from "./components/WallTower";
 import { useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import { useControls, folder } from "leva";
-import { StaticCollider } from "bvhecctrl";
 
 export default function Hall() {
-	// const bedroomRef = useRef();
-	// const libraryRef = useRef();
-	// const kitchenRef = useRef();
-
 	const { changeRoom } = useGameStore();
 	const [hoveredDoor, setHoveredDoor] = useState(null);
 
@@ -260,7 +247,6 @@ export default function Hall() {
 				]}
 			/>
 
-			{/* Keep individual doors for interactivity */}
 			<DoorRound
 				position={[door1Px, door1Py, door1Pz]}
 				rotation={[door1Rx, door1Ry, door1Rz]}

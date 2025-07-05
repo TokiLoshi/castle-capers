@@ -1,19 +1,7 @@
 #root,
-html {
+html,
+body {
 	margin: 0;
 	width: 100vw;
 	height: 100vh;
-}
-
-body {
-	/* background-color: rgb(41, 38, 53); */
-	/* background: linear-gradient(135, #985d25 0%, #1a0f0a 100%); */
-	background: linear-gradient(
-		180deg,
-		#1a1a2e 0%,
-		#16213e 15%,
-		#0f3460 20%,
-		#533a71 55%,
-		#7c2d12 100%
-	);
 }

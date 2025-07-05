@@ -91,14 +91,15 @@ export default function Experience() {
 				<BVHEcctrl
 					ref={flamingoRef}
 					animated={true}
-					floatHeight={0.01}
-					floatDamping={26}
+					floatHeight={0}
+					floatDamping={6}
 					capsuleHalfHeight={1}
 					debug={false}
 					capsuleRadius={0.5}
 					position={[0, 1.1, 0]}
 					speed={1.6}
 					linearDamping={3}
+					grounded={true}
 					angularDamping={3}>
 					<FernandoTheFlamingo />
 				</BVHEcctrl>

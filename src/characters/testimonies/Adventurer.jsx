@@ -64,8 +64,6 @@ export default function Adventurer(props) {
 		e.stopPropagation();
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
-		} else {
-	
 		}
 	};
 
@@ -92,8 +90,6 @@ export default function Adventurer(props) {
 				}
 			});
 			targetAction.reset().fadeIn(0.1).play();
-		} else {
-	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -102,8 +98,6 @@ export default function Adventurer(props) {
 			const idleAction = actions[ACTION_MAP.idle];
 			if (idleAction) {
 				idleAction.play();
-			} else {
-		
 			}
 		}
 	}, [actions]);

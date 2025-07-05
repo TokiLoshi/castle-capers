@@ -3,6 +3,7 @@ import { StaticCollider } from "bvhecctrl";
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 
+// Thanks to nallovint for the instancing adds for performance improvements
 export function InstancedWall({ instances = [] }) {
 	const { nodes, materials } = useGLTF("models/components/Wall.glb");
 	const instancedMeshRef1 = useRef();
@@ -79,6 +80,7 @@ export function InstancedWall({ instances = [] }) {
 				<meshStandardMaterial {...materials.Main} />
 			</instancedMesh>
 
+			{/* added to resolve walking through windows */}
 			{instances.map((instance, index) => (
 				<mesh
 					key={index}

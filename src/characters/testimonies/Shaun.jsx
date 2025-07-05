@@ -32,7 +32,7 @@ const ACTION_MAP = {
 
 export default function Shaun(props) {
 	const group = useRef();
-	const [hoveredCharacter, setHoveredCharacter] = useState(null);
+	const [_, setHoveredCharacter] = useState(null);
 	const npcId = "Shaun";
 
 	const { nodes, materials, animations } = useGLTF(
@@ -61,8 +61,6 @@ export default function Shaun(props) {
 		e.stopPropagation();
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
-		} else {
-	
 		}
 	};
 
@@ -78,8 +76,6 @@ export default function Shaun(props) {
 				}
 			});
 			targetAction.reset().fadeIn(0.1).play();
-		} else {
-	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -88,8 +84,6 @@ export default function Shaun(props) {
 			const idleAction = actions[ACTION_MAP.idle];
 			if (idleAction) {
 				idleAction.play();
-			} else {
-		
 			}
 		}
 	}, [actions]);
