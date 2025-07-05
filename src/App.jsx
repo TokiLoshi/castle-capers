@@ -72,6 +72,8 @@ export default function App() {
 				}}
 				barStyles={{
 					background: "linear-gradient(135deg, #8b6914, #b8860b)",
+					width: "50px",
+					justifyContent: "center",
 				}}
 				dataStyles={{
 					color: "#e6d7c3",

@@ -71,8 +71,6 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 				}
 			});
 			targetAction.reset().fadeIn(0.1).play();
-		} else {
-	
 		}
 	}, [currentAnimation, actions]);
 
@@ -82,8 +80,6 @@ export const FernandoTheFlamingo = forwardRef(function AstroFlamingo(
 			if (idleAction) {
 				idleAction.play();
 			}
-		} else {
-	
 		}
 	}, [actions]);
 
