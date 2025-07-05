@@ -1,0 +1,26 @@
+.audio-player {
+	display: flex;
+	align-items: center;
+}
+
+.audio-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 60ppx;
+	touch-action: manipulation;
+	border: 2px solid rgba(43, 8, 69, 0.6);
+	box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.audio-button:hover {
+	background: linear-gradient(135deg, #a052dd, #cd853f);
+}
+
+@media (max-width: 768px) {
+	.audio-button {
+		min-width: 50px;
+		padding: 0.6rem 1rem;
+		font-size: 0.8rem;
+	}
+}

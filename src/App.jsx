@@ -90,6 +90,7 @@ export default function App() {
 			<SolveModal />
 			<DialogModal />
 			<InstructionsModal />
+
 			{gameEnded && <GameOverModal />}
 		</>
 	);

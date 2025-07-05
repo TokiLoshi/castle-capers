@@ -1,3 +1,4 @@
+import AudioPlayer from "../audio/AudioPlayer";
 import { useGameStore } from "../store/gameStore";
 import "./UIBarStyle.css";
 
@@ -34,6 +35,7 @@ export default function UIBar() {
 				</div>
 			</div>
 			<div className='ui-section button-group'>
+				<AudioPlayer />
 				<button className='ui-button clues-btn' onClick={openNotebook}>
 					📖 Evidence
 				</button>
