@@ -35,7 +35,7 @@ const ACTION_MAP = {
 
 export default function HoodedAdventurer(props) {
 	const group = useRef();
-	const [hoveredCharacter, setHoveredCharacter] = useState(null);
+	const [_, setHoveredCharacter] = useState(null);
 	const npcId = "HoodedAdventurer";
 
 	const { nodes, materials, animations } = useGLTF(
@@ -64,21 +64,8 @@ export default function HoodedAdventurer(props) {
 		e.stopPropagation();
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
-		} else {
-	
 		}
 	};
-
-	// const getOutlineColor = () => {
-	// 	if (npcStatus.hasBeenPlayed) {
-	// 		return "#666666";
-	// 	} else if (hoveredCharacter === npcId) {
-	// 		return "#00ff00";
-	// 	} else if (npcStatus.hasDialog) {
-	// 		return "#fff00";
-	// 	}
-	// 	return "#ffffff";
-	// };
 
 	useEffect(() => {
 		if (!actions || Object.keys(actions).length === 0) return;
@@ -92,8 +79,6 @@ export default function HoodedAdventurer(props) {
 				}
 			});
 			targetAction.reset().fadeIn(0.1).play();
-		} else {
-	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -102,8 +87,6 @@ export default function HoodedAdventurer(props) {
 			const idleAction = actions[ACTION_MAP.idle];
 			if (idleAction) {
 				idleAction.play();
-			} else {
-		
 			}
 		}
 	}, [actions]);

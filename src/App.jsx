@@ -1,11 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { ACESFilmicToneMapping } from "three";
-import {
-	KeyboardControls,
-	Loader,
-	OrbitControls,
-	Stats,
-} from "@react-three/drei";
+import { KeyboardControls, Loader, Stats } from "@react-three/drei";
 import { Suspense } from "react";
 import { Leva, useControls } from "leva";
 import * as THREE from "three";
@@ -47,7 +42,10 @@ export default function App() {
 				{showStats && <Stats />}
 				<Canvas
 					shadows
-					// camera={{ position: [5, 5, 5], fov: 75 }}
+					style={{
+						background:
+							"linear-gradient( 180deg, #1a1a2e 0%, #16213e 15%, #0f3460 20%, #533a71 55%, #7c2d12 100%",
+					}}
 					gl={{
 						toneMapping: toneMappingEnabled
 							? ACESFilmicToneMapping

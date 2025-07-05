@@ -2,6 +2,7 @@ import { useGLTF } from "@react-three/drei";
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 
+// Thanks to nallovint for the instancing adds for performance improvements
 export function InstancedWindow({ instances = [] }) {
 	const { nodes, materials } = useGLTF("models/components/WindowBars.glb");
 	const instancedMeshRef1 = useRef();
@@ -91,6 +92,27 @@ export function InstancedWindow({ instances = [] }) {
 				<bufferGeometry {...nodes.Window_Bars_3.geometry} />
 				<meshStandardMaterial {...materials.Metal} />
 			</instancedMesh>
+
+			{/* added to resolve walking through windows */}
+			{instances.map((instance, index) => (
+				<mesh
+					key={index}
+					position={[
+						instance.position[0],
+						instance.position[1] + 2,
+						instance.position[2],
+					]}
+					rotation={[
+						instance.rotation[0],
+						instance.rotation[1],
+						instance.rotation[1],
+					]}
+					scale={[instance.scale[0], instance.scale[1], instance.scale[2]]}
+					visible={false}>
+					<boxGeometry args={[4, 4, 0.5]} />
+					<meshBasicMaterial transparent opacity={0} />
+				</mesh>
+			))}
 		</>
 	);
 }

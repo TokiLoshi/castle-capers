@@ -22,7 +22,7 @@ const ACTION_MAP = {
 
 export default function Man(props) {
 	const group = useRef();
-	const [hoveredCharacter, setHoveredCharacter] = useState(null);
+	const [_, setHoveredCharacter] = useState(null);
 	const npcId = "Man";
 
 	const { nodes, materials, animations } = useGLTF(
@@ -51,8 +51,6 @@ export default function Man(props) {
 		e.stopPropagation();
 		if (npcStatus.canInteract) {
 			interactWithNPC(npcId);
-		} else {
-	
 		}
 	};
 
@@ -68,8 +66,6 @@ export default function Man(props) {
 				}
 			});
 			targetAction.reset().fadeIn(0.1).play();
-		} else {
-	
 		}
 	}, [actions, npcId, currentAnimation]);
 
@@ -78,8 +74,6 @@ export default function Man(props) {
 			const idleAction = actions[ACTION_MAP.idle];
 			if (idleAction) {
 				idleAction.play();
-			} else {
-		
 			}
 		}
 	}, [actions]);

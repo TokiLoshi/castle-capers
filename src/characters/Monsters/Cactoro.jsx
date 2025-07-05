@@ -34,8 +34,8 @@ export function Cactus(props) {
 
 	const { actions } = useAnimations(animations, group);
 
-	const [hoveredCharacter, setHoveredCharacter] = useState(null);
-	
+	const [_, setHoveredCharacter] = useState(null);
+
 	const npcId = "chained";
 
 	const { interactWithNPC, getNPCAnimation, getNPCDialogStatus } =
@@ -61,18 +61,6 @@ export function Cactus(props) {
 		}
 	};
 
-	// const getOutlineColor = () => {
-	// 	let outlineColor = "#ffff00";
-	// 	if (npcStatus.hasBeenPlayed) {
-	// 		outlineColor = "#666666";
-	// 	} else if (hoveredCharacter === npcId) {
-	// 		outlineColor = "#00ff00";
-	// 	}
-
-
-	// 	return outlineColor;
-	// };
-
 	useEffect(() => {
 		const actionName = ACTION_MAP[currentAnimation];
 		const targetAction = actions[actionName];
@@ -84,8 +72,6 @@ export function Cactus(props) {
 				}
 			});
 			targetAction.reset().fadeIn(0.1).play();
-		} else {
-	
 		}
 	}, [currentAnimation, actions, npcId]);
 
@@ -95,8 +81,6 @@ export function Cactus(props) {
 			if (idleAction) {
 				idleAction.play();
 			}
-		} else {
-	
 		}
 	}, [actions]);
 
