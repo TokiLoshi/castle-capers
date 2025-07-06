@@ -14,6 +14,7 @@ import DialogModal from "./modals/DialogModal";
 import { useGameStore } from "./store/gameStore";
 import GameOverModal from "./modals/GameOverModal";
 import InstructionsModal from "./modals/InstructionsModal";
+import { Analytics } from "@vercel/analytics/react";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls(
@@ -38,6 +39,7 @@ export default function App() {
 
 	return (
 		<>
+			<Analytics />
 			<KeyboardControls map={keyboardMap}>
 				{showStats && <Stats />}
 				<Canvas
