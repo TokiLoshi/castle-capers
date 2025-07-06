@@ -64,20 +64,20 @@ export const GAME_CONFIG = {
 			room: "library",
 			description: "the weapon was long, sharp and shiny",
 			action:
-				"taking a stab at the mannequin in the bedroom before disappearing through a hidden trap door.",
+				"taking a stab at the mannequin in the bedroom before disappearing through a hidden trap door",
 		},
 		{
 			name: "chain",
 			room: "library",
-			description: "heavy metal links that clinked ominously",
+			description: "a chain with heavy metal links that clinked ominously",
 			action: "coiling it around in their hands",
 		},
 		{
 			name: "pot",
 			room: "kitchen",
 			description:
-				"a large cooking vessel that seemed to shine more than any piece of crockery should",
-			action: "scrubbing it vigorously",
+				"a large pot that seemed to shine more than any piece of crockery that old should",
+			action: "scrubbing vigorously",
 		},
 		{
 			name: "potions",

@@ -7,8 +7,8 @@ export const DIALOG_TEMPLATES = {
 				animation: "wave",
 			},
 			{
-				text: "{accused} is always skulking about, and I saw them {action}, it {description}.",
-				animation: "gunShoot",
+				text: "{accused} is always skulking about, and I saw them {action}. {description}.",
+				animation: "roll",
 				isTestimony: true,
 				testimony: {
 					title: "Someone skulking",
@@ -103,7 +103,7 @@ export const DIALOG_TEMPLATES = {
 		name: "Wendeline the Witch",
 		dialogSteps: [
 			{
-				text: "My crystal ball predicted you were due at any moment",
+				text: "My crystal ball predicted you were due to arrive at any moment",
 				animation: "interact",
 			},
 			{
