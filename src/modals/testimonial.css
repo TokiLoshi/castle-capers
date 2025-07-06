@@ -112,13 +112,41 @@
 }
 
 .foundTestimony {
-	margin: 0 0 16px 0;
-	font-size: 1.1rem;
-	line-height: 1.6;
-	color: #3d2817;
-	font-family: "Georgia", serif;
-	text-align: justify;
+	margin: 0 0 20px 0;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 12px;
+	padding: 16px;
+	border: 1px solid rgba(194, 158, 64, 0.3);
 	animation: slideIn 0.3s ease-out 0.2s both;
+}
+
+.testimony-header {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.profile-image {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid #c29d40;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	flex-shrink: 0;
+}
+
+.character-name {
+	background: linear-gradient(135deg, #8b6914, #b8860b);
+	border: 2px solid #c29d40;
+	color: white;
+	padding: 6px 12px;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	font-weight: bold;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+	white-space: nowrap;
 }
 
 @keyframes slideIn {
@@ -134,15 +162,26 @@
 
 .testimony-title {
 	text-decoration: solid;
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: #2d1f0f;
+	font-family: "Georgia", serif;
 }
 
 .testimony-description {
-	margin: 0 0 16px 0;
-	font-size: 1.1rem;
+	margin: 0;
+	font-size: 1rem;
 	line-height: 1.6;
 	color: #3d2817;
 	font-family: "Georgia", serif;
 	text-align: justify;
+}
+
+.testimony-content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
 }
 
 .no-testimonies {
@@ -189,6 +228,12 @@
 }
 
 @media (max-width: 768px) {
+	.foundTestimony {
+		display: flex;
+		gap: 16px;
+		align-items: flex-start;
+	}
+
 	.notebook {
 		width: 95%;
 		margin: 20px;

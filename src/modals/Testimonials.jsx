@@ -2,6 +2,33 @@ import { useEffect, useState } from "react";
 import { useGameStore } from "../store/gameStore";
 import "./testimonial.css";
 
+const CHARACTER_PROFILES = {
+	Adventurer: {
+		name: "Gregory the Great",
+		image: "/profiles/adventurer.png",
+	},
+	HoodedAdventurer: {
+		name: "Sable the Shrouded",
+		image: "/profiles/shrouded.png",
+	},
+	Man: {
+		name: "Artie the Ordinary",
+		image: "/profiles/man.png",
+	},
+	Shaun: {
+		name: "Shaun the Strange",
+		image: "/profiles/shaun.png",
+	},
+	Witch: {
+		name: "Wendeline the Witch",
+		image: "/profiles/witch.png",
+	},
+	Wizard: {
+		name: "Dorian the Grey Wizard",
+		image: "/profiles/wizard.png",
+	},
+};
+
 export default function Testimonials() {
 	const { foundTestimonies, isTestimonyPanelOpen, closeTestimonyPanel } =
 		useGameStore();
@@ -28,6 +55,11 @@ export default function Testimonials() {
 
 	if (!isTestimonyPanelOpen) return null;
 
+	const getCharacterProfile = (testimonyId) => {
+		console.log("Testimony id: ", testimonyId);
+		return CHARACTER_PROFILES[testimonyId];
+	};
+
 	return (
 		<>
 			<div
@@ -52,16 +84,26 @@ export default function Testimonials() {
 								information
 							</p>
 						) : (
-							foundTestimonies.map((testimony, index) => (
-								<div key={index} className='foundTestimony'>
-									<h3 className='testimony-title'>
-										{index + 1} - {testimony.title}
-									</h3>
-									<p className='testimony-description'>
-										{testimony.description}
-									</p>
-								</div>
-							))
+							foundTestimonies.map((testimony, index) => {
+								const profile = getCharacterProfile(testimony.testimonyId);
+								console.log("Profile: ", profile);
+								console.log("profile image path: ", profile.image);
+								return (
+									<div key={index} className='foundTestimony'>
+										<div className='testimony-header'>
+											<img
+												src={profile.image}
+												alt={profile.name}
+												className='profile-image'
+											/>
+											<h3 className='testimony-title'>{testimony.title}</h3>
+										</div>
+										<p className='testimony-description'>
+											{testimony.description}
+										</p>
+									</div>
+								);
+							})
 						)}
 					</div>
 					<div className='testimonials-footer'>
