@@ -43,7 +43,6 @@ FantasyPropsMegaKit by [Quaternius](https://quaternius.com/packs/fantasypropsmeg
 
 Character Assets
 Panda by [Quaternius](https://poly.pizza/m/q1uJ28Hs8T) CC0
-Characters Shaun by [Quaternius](https://poly.pizza/m/eJFT9MxzOM) CC0
 Zombie by [Quaternius](https://poly.pizza/m/VlXjG0N8Eg) CC0
 Mako by [Quaternius](https://poly.pizza/m/2urczqZ9Xf)
 Animated Platformer Character by [Quaternius](https://poly.pizza/m/kKtL4zvS3n)
@@ -51,9 +50,9 @@ Cactoro by [Quaternius](https://poly.pizza/m/IGn9lhdama)
 Demon by [Quaternius](https://poly.pizza/m/LnfIziKv4o)
 Fish by [Quaternius](https://poly.pizza/m/ypEYhCImAB)
 Ninja by [Quaternius](https://poly.pizza/m/xGYmeDpfTu)
-Astronaut by [Quaternius](https://poly.pizza/m/zbtPq4dOJL)
-Astronaut by [Quaternius](https://poly.pizza/m/OgeSH89Nmx)
-Astronaut by [Quaternius](https://poly.pizza/m/0D54W8yfrA)
+Flamingo Astronaut by [Quaternius](https://poly.pizza/m/zbtPq4dOJL)
+Bee Astronaut by [Quaternius](https://poly.pizza/m/OgeSH89Nmx)
+Frog Astronaut by [Quaternius](https://poly.pizza/m/0D54W8yfrA)
 Wall by [Quaternius](https://poly.pizza/m/CkF171SeTV)
 Window Bars by [Quaternius](https://poly.pizza/m/mvTeQA5aBn)
 Wall Towers Door Seco by [Quaternius](https://poly.pizza/m/5d80r2XX3O)
@@ -65,13 +64,14 @@ More appropriate models
 Victim:
 King by [Quaternius](https://poly.pizza/m/I1gTjmuK2m)
 
-Possible Players:
+Non-Character Players:
 
 1. Witch by Quaternius [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/QBEOV9ZUT8)
 2. Adventurer by [oQuaternius](https://poly.pizza/m/5EGWBMpuXq)
 3. Hooded Adventurer by [Quaternius](https://poly.pizza/m/5EGWBMpuXq)
 4. Man by Quaternius (https://poly.pizza/m/fjHyMd5Wxw)
-5. Animated Wizard by Quaternius [CC-BY] via Poly Pizza
+5. Animated Wizard by Quaternius [CC-BY] via [Poly Pizza](https://poly.pizza/m/kttbFvCl2C)
+6. Shaun by [Quaternius](https://poly.pizza/m/eJFT9MxzOM) CC0
 
 Your character: Fernando
 
@@ -79,3 +79,6 @@ Stylized Wood Planks 002 Wooden Textures created by (João Paulo)[https://3dtext
 
 Music
 Music by by [Aleksey Chistilin](https://pixabay.com/users/lexin_music-28841948/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145636) from [Pixabay](https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145636)
+
+Special Thanks:
+Huge thank you to nallovint for helping me with the instancing and placement of the character collision detector

@@ -1,4 +1,4 @@
-import { ContactShadows, useTexture } from "@react-three/drei";
+import { ContactShadows, Stars, useTexture } from "@react-three/drei";
 import { useControls } from "leva";
 import { useEffect } from "react";
 import * as THREE from "three";
@@ -95,6 +95,16 @@ export default function Environment() {
 				shadow-camera-top={20}
 				shadow-camera-bottom={-20}
 			/>
+			<Stars
+				radius={100}
+				depth={50}
+				count={5000}
+				factor={4}
+				saturation={0}
+				fade
+				speed={1}
+			/>
+
 			<ContactShadows
 				position={[0, 0.01, 0]}
 				opacity={shadowOpacity}

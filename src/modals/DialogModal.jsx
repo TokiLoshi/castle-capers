@@ -62,7 +62,7 @@ export default function DialogModal() {
 					<p className='dialog-text'>{currentStep.text}</p>
 					{currentStep.isTestimony && (
 						<div className='testimony-indicator'>
-							<span clssName='testimony-badge'>🖋️ Testimony</span>
+							<span className='testimony-badge'>🖋️ Testimony</span>
 						</div>
 					)}
 				</div>

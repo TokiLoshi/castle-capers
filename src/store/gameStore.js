@@ -48,22 +48,23 @@ export const GAME_CONFIG = {
 		{
 			name: "candlestick",
 			room: "bedroom",
-			description: "something heavy and ornate, glinting in the candle light",
-			action: "gripping it tightly",
+			description:
+				"it was a heavy and ornate object glinting in the candle light",
+			action: "gripping a candlestick tightly",
 		},
 		{
 			name: "chalice",
 			room: "bedroom",
 			description:
 				"a shiny chalice, that appeared to be fizzing from the top, leaving a sticky mess behind it",
-			action: "cleaning it carefully",
+			action: "later seen cleaning it carefully",
 		},
 		{
 			name: "sword",
 			room: "library",
-			description: "something long and sharp that gleamed in the shadows",
+			description: "the weapon was long, sharp and shiny",
 			action:
-				"taking a stab at the mannequin in the bedroom before disappearing through a hidden trap door",
+				"taking a stab at the mannequin in the bedroom before disappearing through a hidden trap door.",
 		},
 		{
 			name: "chain",
@@ -82,7 +83,7 @@ export const GAME_CONFIG = {
 			name: "potions",
 			room: "kitchen",
 			description:
-				"small bottles with swirling and bubbling liquids reflecting in the moonglight",
+				"small bottles full of swirling, bubbling liquids reflecting dangerously in the moonlight",
 			action: "vigorously shaking these unknown concoctions",
 		},
 	],

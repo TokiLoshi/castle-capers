@@ -3,7 +3,7 @@ export const DIALOG_TEMPLATES = {
 		name: "Gregory the Great",
 		dialogSteps: [
 			{
-				text: "Greeting, I've been waiting for you. Something went awry last night!",
+				text: "Greetings, I've been waiting for you. Something went awry last night!",
 				animation: "wave",
 			},
 			{
@@ -11,7 +11,7 @@ export const DIALOG_TEMPLATES = {
 				animation: "gunShoot",
 				isTestimony: true,
 				testimony: {
-					title: "Someone was skulking",
+					title: "Someone skulking",
 					description: "Seen {action} {description}",
 					accusor: "Gregory the Great",
 					accused: "{accused}",
@@ -36,7 +36,7 @@ export const DIALOG_TEMPLATES = {
 				animation: "swordSlash",
 				isTestimony: true,
 				testimony: {
-					title: "Spotted in the shadows",
+					title: "something in the shadows",
 					description: "{accused} with {description}, {action}",
 					accusor: "Sable the Shrouded",
 					accused: "{accused}",
@@ -54,7 +54,7 @@ export const DIALOG_TEMPLATES = {
 		dialogSteps: [
 			{
 				text: "Oh good, they've sent the authorities. It's been so scary having a murderer on the loose.",
-				animation: "standing",
+				animation: "clapping",
 			},
 			{
 				text: "I saw {description}, {accused} was {action}. Suspicious indeed...",
@@ -112,9 +112,9 @@ export const DIALOG_TEMPLATES = {
 				animation: "punchLeft",
 				isTestimony: true,
 				testimony: {
-					title: "Mystical Vision",
+					title: "A Mystical Vision",
 					description:
-						"Wendeline's spirits showed {accused} with {description} while {action}",
+						"Wendeline's spirits showed {accused} with {description}. {action}",
 					accusor: "Wendeline the Witch",
 					accused: "{accused}",
 					weapon: "{weapon}",
@@ -139,8 +139,7 @@ export const DIALOG_TEMPLATES = {
 				isTestimony: true,
 				testimony: {
 					title: "Picture of Last night's Events",
-					description:
-						"Scrying revealed {accused} {description}, they were {action}",
+					description: "Scrying revealed {description}. {accused} {action}",
 					accusor: "Dorian the Gray Wizard",
 					accused: "{accused}",
 					weapon: "{weapon}",
