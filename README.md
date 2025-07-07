@@ -1,6 +1,6 @@
 # 🏰 Castle Capers a Three.js Journey Challenge
 
-![placeholder for library]()
+![placeholder for library](https://github.com/TokiLoshi/castle-capers/blob/main/public/library.png)
 
 ## Goal:
 
@@ -14,7 +14,7 @@ Create a simple single player exploration game using React Three Fiber, Drei, Zu
 - Talk to NPCs to get testimonies
 - You have three chances to guess the murderer
 
-![placeholder for testimonies]()
+![placeholder for testimonies](https://github.com/TokiLoshi/castle-capers/blob/main/public/testimonials.png)
 
 ### 🔧 Tech Stack
 
@@ -38,7 +38,7 @@ Create a simple single player exploration game using React Three Fiber, Drei, Zu
 - Door Round by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/4lNptAwxpV)license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
 - Wall by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/CkF171SeTV) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
 
-![placeholder for hall]()
+![placeholder for hall](https://github.com/TokiLoshi/castle-capers/blob/main/public/hall.png)
 
 #### Character Assets
 
@@ -78,7 +78,7 @@ Non-Character Players:
 Your character:
 
 - "Fernando" - Flamingo Astronaut by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/zbtPq4dOJL)
-  ![Fernando]()
+  ![Fernando](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/fernando.png)
 
 ### Textures
 

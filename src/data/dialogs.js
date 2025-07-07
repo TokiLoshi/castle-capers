@@ -7,7 +7,7 @@ export const DIALOG_TEMPLATES = {
 				animation: "wave",
 			},
 			{
-				text: "{accused} is always skulking about, and I saw them {action}. {description}.",
+				text: "{accused} is always skulking about. I saw them with {description} they were {action}.",
 				animation: "roll",
 				isTestimony: true,
 				testimony: {
