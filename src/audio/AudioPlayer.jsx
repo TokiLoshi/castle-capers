@@ -48,7 +48,7 @@ export default function AudioPlayer() {
 
 		if (isPlaying) {
 			audioRef.current.play().catch((error) => {
-				console.log("Error playing audio: ", error);
+				console.error("Error playing audio: ", error);
 				setIsPlaying(false);
 			});
 		} else {
