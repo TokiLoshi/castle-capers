@@ -1,23 +1,22 @@
 # 🏰 Castle Capers a Three.js Journey Challenge
 
-#### Goal:
+![placeholder for library]()
 
-create a simple single player exploration game using React Three Fiber, Drei, Zustand, (maybe GLSL) and CCO game assets. It's your regular murder mystery inspired by the Cluedo game created by Anthony E. Pratt in 1943, but with a 3D twist. The player must figure out whodunnit before the player gets them, or kills someone else!
+## Goal:
 
-#### 🎮 Game Loop Overview
+Create a simple single player exploration game using React Three Fiber, Drei, Zustand, and CCO game assets. It's your regular murder mystery inspired by the Cluedo game created by Anthony E. Pratt in 1943, but with a 3D twist.
 
-- Player chooses a character to play
-- One of the six NPCs becomes a victim murdered with one of six possible weapons by the remaining NPCs
-- Player exlores the castle rooms, gathers clues and makes accusations.
+### 🎮 Game Loop Overview
 
-- Game phases:
-  - Day: Explore rooms, examine objects, interact with NPCs.
-  - Evening: Review journal, make an accusation or search again.
-  - Night: Consequences
-- Incorrect accusations cost credibility. Three wrong guesses and it's Game Over!
-- Solve the mystery before the third night ends or perish. (Correctly identify the killer, murder weapon and crime scen )
+- You are the detective and you load into the castle to find the king has been killed
+- You can explore three rooms
+- Hover over objects to discover and collect clues
+- Talk to NPCs to get testimonies
+- You have three chances to guess the murderer
 
-#### 🔧 Tech Stack
+![placeholder for testimonies]()
+
+### 🔧 Tech Stack
 
 - React Three Fiber
 - Drei
@@ -27,58 +26,68 @@ create a simple single player exploration game using React Three Fiber, Drei, Zu
 - Leva
 - Perf
 
-#### 🙆‍♀️ Stretch Goals:
+### Assets Credits:
 
-- [ ] Torchlight and shadows using pointlight and drei
-- [ ] Include inspriation, tutorial references
-- [ ] Add Red Herring clues to throw the user off
+#### Room Assets
 
-Performance Tagets:
+- FantasyPropsMegaKit by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://quaternius.com/packs/fantasypropsmegakit.html) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Window Bars by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/mvTeQA5aBn) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Wall Towers Door Seco by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/u/Quaternius) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Arch Door by [Quaternius](https://poly.pizza/u/Quaternius) (https://poly.pizza/m/MVVMLXOfg1) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Trap Door by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/PALqVBff9b) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Door Round by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/4lNptAwxpV)license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Wall by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/CkF171SeTV) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
 
-- 60fps on mid range
+![placeholder for hall]()
 
-Tracking Asset Credits:
-Room Assets
-FantasyPropsMegaKit by [Quaternius](https://quaternius.com/packs/fantasypropsmegakit.html) CC0
+#### Character Assets
 
-Character Assets
-Panda by [Quaternius](https://poly.pizza/m/q1uJ28Hs8T) CC0
-Zombie by [Quaternius](https://poly.pizza/m/VlXjG0N8Eg) CC0
-Mako by [Quaternius](https://poly.pizza/m/2urczqZ9Xf)
-Animated Platformer Character by [Quaternius](https://poly.pizza/m/kKtL4zvS3n)
-Cactoro by [Quaternius](https://poly.pizza/m/IGn9lhdama)
-Demon by [Quaternius](https://poly.pizza/m/LnfIziKv4o)
-Fish by [Quaternius](https://poly.pizza/m/ypEYhCImAB)
-Ninja by [Quaternius](https://poly.pizza/m/xGYmeDpfTu)
-Flamingo Astronaut by [Quaternius](https://poly.pizza/m/zbtPq4dOJL)
-Bee Astronaut by [Quaternius](https://poly.pizza/m/OgeSH89Nmx)
-Frog Astronaut by [Quaternius](https://poly.pizza/m/0D54W8yfrA)
-Wall by [Quaternius](https://poly.pizza/m/CkF171SeTV)
-Window Bars by [Quaternius](https://poly.pizza/m/mvTeQA5aBn)
-Wall Towers Door Seco by [Quaternius](https://poly.pizza/m/5d80r2XX3O)
-Arch Door by [Quaternius](https://poly.pizza/m/MVVMLXOfg1)
-Trap Door by [Quaternius](https://poly.pizza/m/PALqVBff9b)
-Door Round by [Quaternius](https://poly.pizza/m/4lNptAwxpV)
+The following may be used at a later date
 
-More appropriate models
+- Panda by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/q1uJ28Hs8T) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Zombie by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/VlXjG0N8Eg) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Mako by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/2urczqZ9Xf) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Animated Platformer Character by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/kKtL4zvS3n) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Cactoro by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/IGn9lhdama) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Demon by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/LnfIziKv4o) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Fish by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/ypEYhCImAB) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Ninja by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/xGYmeDpfTu)license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Bee Astronaut by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/OgeSH89Nmx) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- Frog Astronaut by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/0D54W8yfrA) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+
 Victim:
-King by [Quaternius](https://poly.pizza/m/I1gTjmuK2m)
+
+- King by [Quaternius](https://poly.pizza/m/I1gTjmuK2m)
+  ![crown](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/crown.png)
 
 Non-Character Players:
 
-1. Witch by Quaternius [CC-BY](https://creativecommons.org/licenses/by/3.0/) via [Poly Pizza](https://poly.pizza/m/QBEOV9ZUT8)
-2. Adventurer by [oQuaternius](https://poly.pizza/m/5EGWBMpuXq)
-3. Hooded Adventurer by [Quaternius](https://poly.pizza/m/5EGWBMpuXq)
-4. Man by Quaternius (https://poly.pizza/m/fjHyMd5Wxw)
-5. Animated Wizard by Quaternius [CC-BY] via [Poly Pizza](https://poly.pizza/m/kttbFvCl2C)
-6. Shaun by [Quaternius](https://poly.pizza/m/eJFT9MxzOM) CC0
+1. Witch by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/QBEOV9ZUT8) [CC-BY](https://creativecommons.org/licenses/by/3.0/)
+   ![placeholder for witch]()
+2. Adventurer by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/5EGWBMpuXq)
+   ![Adventurer](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/adventurer.png)
+3. Hooded Adventurer by [Quaternius](https://poly.pizza/u/Quaternius) via [PolyPizza](https://poly.pizza/m/5EGWBMpuXq)
+   ![Hooded Adventurer](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/shrouded.png)
+4. Man by [Quaternius](https://poly.pizza/u/Quaternius) via (https://poly.pizza/m/fjHyMd5Wxw)
+   ![Man](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/man.png)
+5. Animated Wizard by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/kttbFvCl2C)
+   ![placeholder for animated wizard]()
+6. Shaun by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/eJFT9MxzOM)
+   ![Shaun](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/shaun.png)
 
-Your character: Fernando
+Your character:
 
-Stylized Wood Planks 002 Wooden Textures created by (João Paulo)[https://3dtextures.me/2024/07/19/stylized-wood-planks-002/]
+- "Fernando" - Flamingo Astronaut by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/zbtPq4dOJL)
+  ![Fernando]()
 
-Music
+### Textures
+
+Stylized Wood Planks 002 Wooden Textures created by [João Paulo](https://3dtextures.me/2024/07/19/stylized-wood-planks-002/)
+
+### Music
+
 Music by by [Aleksey Chistilin](https://pixabay.com/users/lexin_music-28841948/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145636) from [Pixabay](https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145636)
 
-Special Thanks:
-Huge thank you to nallovint for helping me with the instancing and placement of the character collision detector
+#### Special Thanks:
+
+Huge thank you to nallovint for helping me with the instancing and placement of the character collision detector.

@@ -56,7 +56,6 @@ export default function Testimonials() {
 	if (!isTestimonyPanelOpen) return null;
 
 	const getCharacterProfile = (testimonyId) => {
-		console.log("Testimony id: ", testimonyId);
 		return CHARACTER_PROFILES[testimonyId];
 	};
 
@@ -86,8 +85,6 @@ export default function Testimonials() {
 						) : (
 							foundTestimonies.map((testimony, index) => {
 								const profile = getCharacterProfile(testimony.testimonyId);
-								console.log("Profile: ", profile);
-								console.log("profile image path: ", profile.image);
 								return (
 									<div key={index} className='foundTestimony'>
 										<div className='testimony-header'>

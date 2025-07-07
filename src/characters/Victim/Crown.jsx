@@ -68,7 +68,6 @@ export default function Crown(props) {
 
 				setTimeout(() => {
 					setWavePlayed(true);
-					console.log("Wave animation should be finished");
 				}, 2000);
 			}
 		}
@@ -88,7 +87,6 @@ export default function Crown(props) {
 				deathAction.clampWhenFinished = true;
 				deathAction.play();
 				setHasPlayed(true);
-				console.log("Crown animation has played");
 			}
 		}
 	}, [showInstructions, gameStarted, hasPlayed, actions, wavePlayed]);
