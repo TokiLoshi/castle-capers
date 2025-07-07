@@ -15,8 +15,8 @@ import { useGameStore } from "./store/gameStore";
 import GameOverModal from "./modals/GameOverModal";
 import InstructionsModal from "./modals/InstructionsModal";
 import { Analytics } from "@vercel/analytics/react";
-import CreditButton from "./modals/creditButton";
-import CreditOverlay from "./modals/creditModal";
+import CreditButton from "./modals/CreditButton";
+import CreditOverlay from "./modals/CreditModal";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls(

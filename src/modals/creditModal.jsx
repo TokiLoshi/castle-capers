@@ -1,4 +1,4 @@
-import { Info, Code } from "lucide-react";
+import { Info } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useGameStore } from "../store/gameStore";
 import "./creditStyle.css";
