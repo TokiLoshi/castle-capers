@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useGameStore } from "../store/gameStore";
 import "./creditStyle.css";
 
-export default function CreditModal() {
+export default function CreditOverlay() {
 	const [isAnimating, setIsAnimating] = useState(false);
 	const { guessesRemaining, isCreditModalOpen, closeCreditsPanel } =
 		useGameStore();

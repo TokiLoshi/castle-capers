@@ -16,7 +16,7 @@ import GameOverModal from "./modals/GameOverModal";
 import InstructionsModal from "./modals/InstructionsModal";
 import { Analytics } from "@vercel/analytics/react";
 import CreditButton from "./modals/CreditButton";
-import CreditModal from "./modals/CreditModal";
+import CreditOverlay from "./modals/CreditOverlay.jsx";
 
 export default function App() {
 	const { showStats, toneMappingEnabled } = useControls(
@@ -95,7 +95,7 @@ export default function App() {
 			<DialogModal />
 			<InstructionsModal />
 			<CreditButton />
-			<CreditModal />
+			<CreditOverlay />
 
 			{gameEnded && <GameOverModal />}
 		</>
