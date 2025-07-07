@@ -21,7 +21,7 @@ export default function CreditModal() {
 		}, 300);
 	};
 
-	const handlBackdropClick = (e) => {
+	const handleBackdropClick = (e) => {
 		if (e.target === e.currentTarget) {
 			handleClose();
 		}
@@ -35,7 +35,7 @@ export default function CreditModal() {
 				className={`credit-overlay ${
 					isAnimating ? "animate-in" : "animate-out"
 				}`}
-				onClick={handlBackdropClick}>
+				onClick={handleBackdropClick}>
 				<div className='credits'>
 					<div className='credits-header'>
 						<h2 className='credits-title'>
@@ -46,7 +46,7 @@ export default function CreditModal() {
 						<button
 							className='close-button'
 							onClick={handleClose}
-							areia-label='Close'>
+							aria-label='Close'>
 							x
 						</button>
 					</div>
@@ -192,7 +192,7 @@ export default function CreditModal() {
 										href='https://github.com/TokiLoshi/castle-capers'
 										target='_blank'
 										rel='noopener noreferrer'
-										classNam='project-link'>
+										className='project-link'>
 										The code for Castle Capers is available on GitHub
 									</a>
 									<p className='made-by'>
