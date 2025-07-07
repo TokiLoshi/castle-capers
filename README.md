@@ -26,11 +26,13 @@ Create a simple single player exploration game using React Three Fiber, Drei, Zu
 - Leva
 - Perf
 
+🚧 this game has not been optimized for mobile.
+
 ### Assets Credits:
 
 #### Room Assets
 
-- FantasyPropsMegaKit by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://quaternius.com/packs/fantasypropsmegakit.html) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+- FantasyPropsMegaKit by [Quaternius](https://quaternius.com/packs/fantasypropsmegakit.html) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
 - Window Bars by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/mvTeQA5aBn) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
 - Wall Towers Door Seco by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/u/Quaternius) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
 - Arch Door by [Quaternius](https://poly.pizza/u/Quaternius) (https://poly.pizza/m/MVVMLXOfg1) license [CCO](https://creativecommons.org/publicdomain/zero/1.0/)
@@ -63,7 +65,7 @@ Victim:
 Non-Character Players:
 
 1. Witch by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/QBEOV9ZUT8) [CC-BY](https://creativecommons.org/licenses/by/3.0/)
-   ![placeholder for witch]()
+   ![witch](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/witch.png)
 2. Adventurer by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/5EGWBMpuXq)
    ![Adventurer](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/adventurer.png)
 3. Hooded Adventurer by [Quaternius](https://poly.pizza/u/Quaternius) via [PolyPizza](https://poly.pizza/m/5EGWBMpuXq)
@@ -71,7 +73,7 @@ Non-Character Players:
 4. Man by [Quaternius](https://poly.pizza/u/Quaternius) via (https://poly.pizza/m/fjHyMd5Wxw)
    ![Man](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/man.png)
 5. Animated Wizard by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/kttbFvCl2C)
-   ![placeholder for animated wizard]()
+   ![wizard]()
 6. Shaun by [Quaternius](https://poly.pizza/u/Quaternius) via [poly.pizza](https://poly.pizza/m/eJFT9MxzOM)
    ![Shaun](https://github.com/TokiLoshi/castle-capers/blob/main/public/profiles/shaun.png)
 
@@ -82,7 +84,7 @@ Your character:
 
 ### Textures
 
-Stylized Wood Planks 002 Wooden Textures created by [João Paulo](https://3dtextures.me/2024/07/19/stylized-wood-planks-002/)
+Stylized Wood Planks 002 Wooden Textures created by [João Paulo](https://3dtextures.me/2024/07/19/stylized-wood-planks-002/) via 3dtextures.me.
 
 ### Music
 
@@ -90,4 +92,4 @@ Music by by [Aleksey Chistilin](https://pixabay.com/users/lexin_music-28841948/?
 
 #### Special Thanks:
 
-Huge thank you to nallovint for helping me with the instancing and placement of the character collision detector.
+Huge thanks to NalloVint for helping with the instancing and placement of the collision detector, and for bringing Fernando back down to earth.

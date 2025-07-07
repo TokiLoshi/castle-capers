@@ -117,6 +117,7 @@ export const useGameStore = create(
 		isTestimonyPanelOpen: false,
 		isSolvePanelOpen: false,
 		showInstructions: true,
+		isCreditModalOpen: false,
 
 		// Dialog state
 		currentDialogs: {},
@@ -180,23 +181,6 @@ export const useGameStore = create(
 			const clues = getCluesForMurderer(murderer.id);
 			const dialogs = generateDialog(murderer.id, murderWeapon.name);
 
-			// Initialize Clues
-			// Object.keys(POSSIBLE_CLUES).forEach((objectId) => {
-			// 	const possibleClues = POSSIBLE_CLUES[objectId];
-			// 	const randomClueIndex = Math.floor(
-			// 		Math.random() * possibleClues.length
-			// 	);
-			// 	clues[objectId] = possibleClues[randomClueIndex];
-			// });
-
-			// // Initalize Dialogs
-			// Object.keys(POSSIBLE_DIALOGS).forEach((npcId) => {
-			// 	dialogs[npcId] = {
-			// 		...POSSIBLE_DIALOGS[npcId],
-			// 		hasBeenPlayed: false,
-			// 	};
-			// });
-
 			set({
 				currentClues: clues,
 				currentDialogs: dialogs,
@@ -215,6 +199,7 @@ export const useGameStore = create(
 				isNotebookOpen: false,
 				isTestimonyPanelOpen: false,
 				isSolvePanelOpen: false,
+				isCreditModalOpen: false,
 			});
 		},
 
@@ -399,6 +384,20 @@ export const useGameStore = create(
 		closeTestimonyPanel: () => {
 			set({
 				isTestimonyPanelOpen: false,
+			});
+		},
+
+		openCreditsPanel: () => {
+			const { guessesRemaining } = get();
+			set({
+				isCreditModalOpen: true,
+			});
+			return guessesRemaining;
+		},
+
+		closeCreditsPanel: () => {
+			set({
+				isCreditModalOpen: false,
 			});
 		},
 

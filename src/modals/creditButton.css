@@ -1,0 +1,46 @@
+.credit-button {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 48px;
+	height: 48px;
+	background: linear-gradient(135deg, #8b6914, #b8860b);
+	border: 2px solid #c29d40;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	z-index: 800;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.credit-button:hover {
+	background: linear-gradient(135deg, #a0751a, #d4941f);
+	transform: translateY(-2px) scale(1.05);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.credit-button:active {
+	transform: translateY(0) scale(1);
+}
+
+.credit-button:hover {
+	background: linear-gradient(135deg, #a0751a, #d4941f);
+	transform: translateY(-2px) scale(1.05);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.credit-button:active {
+	transform: translateY(0) scale(1);
+}
+
+@media (max-with: 768) {
+	.credit-button {
+		top: 15px;
+		right: 15px;
+		width: 44px;
+		height: 44px;
+	}
+}

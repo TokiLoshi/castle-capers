@@ -1,0 +1,256 @@
+.credit-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 900;
+	backdrop-filter: blur(4px);
+	transition: all 0.3 ease;
+}
+
+.credit-overlay.animate-in {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.credit-overlay.animate-out {
+	opacity: 0;
+	transform: scale(0.95);
+}
+
+.credits {
+	background: linear-gradient(135deg, #985d25 0%, #1a0f0a 100%);
+	background-image: url("/backgrounds/parchment.png");
+	background-size: cover;
+	background-position: center;
+	border: 2px solid #c29d40;
+	border-radius: 25px;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5),
+		inset 0 1px rgba(255, 255, 255, 0.1);
+	max-width: 600px;
+	width: 90%;
+	max-height: 85vh;
+	overflow-y: auto;
+	transform: translateY(0);
+	transition: all 0.3s cubic bezier(0.6, -0.28, 0.735, 0.045);
+	animation: scrollUp 0.5s ease-out;
+}
+
+@keyframes scrollUp {
+	from {
+		transform: translateY(100px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.credits-header {
+	padding: 20px 24px 16px;
+	border-bottom: 1px solid rgba(128, 103, 39, 0.3);
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.credits-title {
+	margin: 0;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #412419;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	font-family: "Georgia", serif;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.credits-icon {
+	width: 24px;
+	height: 24px;
+}
+
+.close-button {
+	background: none;
+	border: none;
+	color: #4a390f;
+	font-size: 2rem;
+	cursor: pointer;
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	transition: all 0.2s ease;
+	flex-shrink: 0;
+}
+
+.close-button:hover {
+	transform: rotate(90deg);
+}
+
+.credits-content {
+	padding: 24px;
+}
+
+.instructions-section,
+.credits-section,
+.thanks-section,
+.developer-section {
+	margin-bottom: 24px;
+}
+
+.section-title {
+	margin: 0 0 12px 0;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: #2d1810;
+	font-family: "Georgia", serif;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.instruction-text,
+.thanks-text {
+	margin: 0 0 12px 0;
+	font-size: 1rem;
+	line-height: 1.6;
+	color: #3d2817;
+	font-family: "Georgia", serif;
+	text-align: justify;
+}
+
+.highlight {
+	background: linear-gradient(135deg, #d4941f, #8b6914);
+	color: white;
+	padding: 2px 6px;
+	border-radius: 4px;
+	font-weight: bold;
+}
+
+.credit-category {
+	margin-bottom: 16px;
+	padding: 12px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	border-bottom: 2px solid #c29d40;
+	border-right: 3px solid #c29d40;
+}
+
+.category-title {
+	margin: 0 0 8px 0;
+	font-size: 1rem;
+	font-weight: bold;
+	color: #2d1810;
+	font-family: "Georgia", serif;
+}
+
+.credit-item {
+	margin: 0 0 8px 0;
+	font-size: 0.9rem;
+	line-height: 1.5;
+	color: #3d2817;
+	font-family: "Georgia", serif;
+}
+
+.credit-item:last-child {
+	margin-bottom: 0;
+}
+
+.character-list {
+	margin: 8px 0;
+	padding-left: 20px;
+	color: #3d2817;
+	font-family: "Georgia", serif;
+	font-size: 0.9rem;
+}
+
+.character-list li {
+	margin-bottom: 4px;
+}
+
+.developer-section {
+	border-top: 1px solid rgba(128, 103, 39, 0.3);
+	padding-top: 16px;
+}
+
+.developer-info {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+}
+
+.code-icon {
+	width: 20px;
+	height: 20px;
+	color: #4a390f;
+}
+
+.developer-links {
+	flex: 1;
+}
+
+.project-link,
+.developer-link {
+	color: #5d4e38;
+	text-decoration: underline;
+	font-weight: bold;
+	transition: color 0.2s ease;
+}
+
+.project-link:hover,
+.developer-link:hover {
+	color: #8b6914;
+}
+
+.made-by {
+	margin: 4px 0 0 0 0;
+	font-size: 0.9rem;
+	color: 3d2817;
+	font-family: "Georgia", serif;
+}
+
+a {
+	color: #5d4e37;
+	text-decoration: underline;
+	transition: color 0.2s ease;
+}
+
+a:hover {
+	color: #8b6914;
+}
+
+@media (max-width: 768px) {
+	.credits {
+		width: 85%;
+		margin: 20px;
+		max-height: 90vh;
+	}
+	.credits-title {
+		font-size: 1.3rem;
+	}
+	.section-title {
+		font-size: 1.1rem;
+	}
+
+	.instruction-text,
+	.thanks-text {
+		font-size: 0.9rem;
+	}
+
+	.developer-info {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
