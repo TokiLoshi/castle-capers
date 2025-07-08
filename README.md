@@ -90,6 +90,6 @@ Stylized Wood Planks 002 Wooden Textures created by [João Paulo](https://3dtext
 
 Music by by [Aleksey Chistilin](https://pixabay.com/users/lexin_music-28841948/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145636) from [Pixabay](https://pixabay.com/music//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=145636)
 
-#### Special Thanks:
+#### Contributors:
 
-Huge thanks to NalloVint for helping with the instancing and placement of the collision detector, and for bringing Fernando back down to earth.
+Huge thanks to nallovint for helping with the instancing and placement of the collision detector, and for bringing Fernando back down to earth.
